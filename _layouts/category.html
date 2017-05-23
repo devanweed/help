@@ -2,35 +2,23 @@
 layout: default
 ---
 
-<div class="search-header">
-    <div class="container">
-        <form action="/search/" method="get">
-            <div class="input-group">
-                <input type="search" class="form-control input-lg" placeholder="Type your problem here..." name="q">
-                <span class="input-group-btn">
-                    <button class="btn btn-lg btn-default" type="submit">Search</button>
-                </span>
-            </div>
-        </form>
-    </div>
-</div>
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="/">Help Center</a></li>
-        <li class="active">{{page.title}}</li>
-    </ol>
-    <div class="panel panel-default panel-articles">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-folder-open"></i> {{page.title}}</h3>
-        </div>
-        <div class="panel-body">
+    <h1 class="page-header">
+        <i class="fa fa-folder-open-o"></i>
+        {{page.title}}
+    </h1>
+    <div class="row">
+        <div class="col-md-8 articles">
             <ol>
                 {% for article in site.articles %}
-                {% if article.category == page.title %}
+                {% if article.categories contains page.title %}
                 <li><a href="{{article.url}}">{{article.title}}</a></li>
                 {% endif %}
                 {% endfor %}
             </ol>
+        </div>
+        <div class="col-md-4">
+            {% include contact.html %}
         </div>
     </div>
 </div>
