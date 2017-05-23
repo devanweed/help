@@ -12,7 +12,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495513619"
+    <link href="/css/styles.css?v=1495514008"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,7 +59,7 @@
                     <input type="search" class="form-control" placeholder="Search the help center..."
                            id="search-box" name="q">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">
+                        <button class="btn btn-default" type="submit" onclick="gaEvent('Search')">
                             <i class="fa fa-search"></i>
                             <span class="sr-only">Search</span>
                         </button>
@@ -115,7 +115,7 @@ data. This is an important step that bitwarden takes to protect you.</p>
     </div>
     <div class="panel-body">
         <p>Want to talk to a human?</p>
-        <a href="https://bitwarden.com/contact/">
+        <a href="https://bitwarden.com/contact/" onclick="gaEvent('Talk To Human')">
             <i class="fa fa-long-arrow-right"></i>
             Send Us An Email
         </a>
@@ -165,8 +165,8 @@ data. This is an important step that bitwarden takes to protect you.</p>
                     <h4>Links</h4>
                     <ul class="list-unstyled">
                         <li><a href="https://bitwarden.com">Home</a></li>
-                        <li><a href="https://bitwarden.com/#download" onclick="gaEvent('Footer Download')">Download</a></li>
-                        <li><a href="https://bitwarden.com/#organizations" onclick="gaEvent('Footer Business')">Business</a></li>
+                        <li><a href="https://bitwarden.com/#download">Download</a></li>
+                        <li><a href="https://bitwarden.com/#organizations">Business</a></li>
                         <li><a href="https://bitwarden.com/contact">Contact Us</a></li>
                         <li><a href="https://vault.bitwarden.com/#/" onclick="gaEvent('Footer Web Vault')">Web Vault</a></li>
                     </ul>
@@ -175,7 +175,7 @@ data. This is an important step that bitwarden takes to protect you.</p>
                     <h4 class="invisible">&nbsp;</h4>
                     <ul class="list-unstyled">
                         <li><a href="https://blog.bitwarden.com" onclick="gaEvent('Footer Blog')">Blog</a></li>
-                        <li><a href="https://help.bitwarden.com" onclick="gaEvent('Footer Help')">Help/Support</a></li>
+                        <li><a href="/">Help/Support</a></li>
                         <li>
                             <a href="https://github.com/bitwarden" target="_blank" onclick="gaEvent('Footer Source Code')">
                                 Source Code
@@ -189,23 +189,26 @@ data. This is an important step that bitwarden takes to protect you.</p>
                     <h4>Follow Us</h4>
                     <ul class="list-inline">
                         <li>
-                            <a href="https://twitter.com/bitwarden_app" title="Twitter" onclick="gaEvent('Follow Twitter')">
+                            <a href="https://twitter.com/bitwarden_app" title="Twitter" onclick="gaEvent('Follow Twitter')"
+                               target="_blank">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/bitwarden/" title="Facebook" onclick="gaEvent('Follow Facebook')">
+                            <a href="https://www.facebook.com/bitwarden/" title="Facebook" onclick="gaEvent('Follow Facebook')"
+                               target="_blank">
                                 <i class="fa fa-facebook-square"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+"
+                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')">
+                            <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')"
+                               target="_blank">
                                 <i class="fa fa-github"></i>
                             </a>
                         </li>
@@ -217,10 +220,10 @@ data. This is an important step that bitwarden takes to protect you.</p>
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495513619"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495514008"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495513619"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495514008"><\/script>'));</script>
 
     <script>
         (function (i, s, o, g, r, a, m) {
