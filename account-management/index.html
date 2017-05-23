@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>How is my data securely trasmitted and stored on bitwarden servers? | bitwarden Help &amp; Support</title>
+    <title>Account Management | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -75,45 +75,62 @@
     <content>
         <div class="container">
     <h1 class="page-header">
-        <i class="fa fa-file-text-o"></i>
-        How is my data securely trasmitted and stored on bitwarden servers?
+        <i class="fa fa-folder-open-o"></i>
+        Account Management
     </h1>
-    <div class="breadcrumb">
-        Category:
-        
-        <a href="/security">Security</a>
-        
-    </div>
-    <div class="panel panel-default article">
-        <div class="panel-body">
-            <p>bitwarden takes security very seriously when it comes to handling your sensitive data. Your data is never sent to the bitwarden cloud servers without first being encrypted on your local device using <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> 256 bit encryption. You can read more about bitwarden encryption <a href="/article/what-encryption-is-used/">here</a>. bitwarden never stores meaningful data on its servers.</p>
-
-<p>When your devices sync with the bitwarden cloud servers, a copy of the encrypted data is downloaded and securely stored to your local device. Whenever you use the bitwarden apps or extensions your data is decrypted only in memory as needed. Data is never stored in its decrypted form on the remote bitwarden servers or on your local device.</p>
-
-<p>bitwarden servers are securely hosted and managed in the <a href="https://en.wikipedia.org/wiki/Microsoft_Azure" target="_blank">Microsoft Azure cloud</a>.</p>
-
+    <div class="row">
+        <div class="col-md-8 articles">
+            <ol>
+                
+                
+                <li><a href="/article/change-your-email/">Change your email</a></li>
+                
+                
+                
+                <li><a href="/article/change-your-master-password/">Change your master password</a></li>
+                
+                
+                
+                <li><a href="/article/delete-your-account/">Delete your account</a></li>
+                
+                
+                
+                <li><a href="/article/setup-two-step-login/">Set up two-step login (2FA)</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ol>
         </div>
-        
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            encryption
-        </div>
-        
-    </div>
-    <div class="row article-blocks">
-        <div class="col-sm-6">
-            <div class="panel panel-default panel-rate">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
-                </div>
-                <div class="panel-body">
-                    <p>Rate this article:</p>
-                    <div class="rw-ui-container"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-md-4">
             <div class="panel panel-default panel-contact">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
@@ -129,38 +146,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    (function (d, t, e, m) {
-        // Async Rating-Widget initialization.
-        window.RW_Async_Init = function () {
-            RW.init({
-                huid: "340409",
-                uid: "1a448820f2de881574e56e07bffdd7e8",
-                source: "website",
-                options: {
-                    "size": "medium",
-                    "type": "nero",
-                    "style": "thumbs",
-                    "isDummy": false
-                }
-            });
-            RW.render();
-        };
-        // Append Rating-Widget JavaScript library.
-        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
-            l = d.location, ck = "Y" + t.getFullYear() +
-            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
-            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
-            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
-        if (d.getElementById(id)) return;
-        rw = d.createElement(e);
-        rw.id = id; rw.async = true; rw.type = "text/javascript";
-        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
-        s.parentNode.insertBefore(rw, s);
-    }(document, new Date(), "script", "rating-widget.com/"));
-</script>
-
     </content>
 
     <footer>

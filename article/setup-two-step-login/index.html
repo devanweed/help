@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>How is my data securely trasmitted and stored on bitwarden servers? | bitwarden Help &amp; Support</title>
+    <title>Set up two-step login (2FA) | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,28 +76,50 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        How is my data securely trasmitted and stored on bitwarden servers?
+        Set up two-step login (2FA)
     </h1>
     <div class="breadcrumb">
-        Category:
+        Categories:
         
-        <a href="/security">Security</a>
+        <a href="/getting-started">Getting Started</a>, 
+        
+        <a href="/account-management">Account Management</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden takes security very seriously when it comes to handling your sensitive data. Your data is never sent to the bitwarden cloud servers without first being encrypted on your local device using <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> 256 bit encryption. You can read more about bitwarden encryption <a href="/article/what-encryption-is-used/">here</a>. bitwarden never stores meaningful data on its servers.</p>
+            <p>Two-step login (or two-factor authentication) can only be configured from the <a href="https://vault.bitwarden.com">web vault</a>.</p>
 
-<p>When your devices sync with the bitwarden cloud servers, a copy of the encrypted data is downloaded and securely stored to your local device. Whenever you use the bitwarden apps or extensions your data is decrypted only in memory as needed. Data is never stored in its decrypted form on the remote bitwarden servers or on your local device.</p>
-
-<p>bitwarden servers are securely hosted and managed in the <a href="https://en.wikipedia.org/wiki/Microsoft_Azure" target="_blank">Microsoft Azure cloud</a>.</p>
+<ol>
+  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
+  <li>Click <strong>Settings</strong> on the sidebar</li>
+  <li>Click <strong>Manage Two-step Log in</strong> under the <strong>Two-step Log In</strong> panel</li>
+  <li>Type in your current password and click <strong>Continue</strong></li>
+  <li>Follow the steps that appear
+    <ul>
+      <li>Download a two-step verification app (usually on your mobile device). We recommend <a href="https://authy.com/" target="_blank">Authy</a>.</li>
+      <li>Scan the QR code with the verification app.</li>
+      <li>Enter the verification code from the app.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Enable Two-step</strong>. Note:
+    <ul>
+      <li>A green alert will appear at the top stating that two-step login has been enabled; and</li>
+      <li><strong>Very Important</strong>: An orange alert will appear at the bottom with a recovery code</li>
+    </ul>
+  </li>
+  <li>Print or write down the recovery code and store in a safe place. This code is <strong>REQUIRED</strong> to restore your account in the event that you lose access to your verification app (ex. your phone is lost). If you lose access to your verification app and do not have your recovery code, bitwarden support will not be able to assist you in recovering your account. The only option will be to delete your account and start over.</li>
+  <li>Click <strong>Close</strong> and then <strong>Log Out</strong></li>
+  <li>Log in to confirm that two-step verification is enabled and working</li>
+  <li>Log out of and back in to any other bitwarden applications that you are using. You will eventually be logged out automatically.</li>
+</ol>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            encryption
+            two-step login, 2fa, two factor authentication, account
         </div>
         
     </div>
