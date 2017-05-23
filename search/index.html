@@ -12,7 +12,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495515297"
+    <link href="/css/styles.css?v=1495548909"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -89,7 +89,7 @@
           "title": "How to change your email",
           "categories": "Getting Started",
           "tags": "account, email",
-          "content": "Your email address can only be changed from the web vault.  Log in to the web vault at https://vault.bitwarden.com.  Click Settings on the sidebar  Click Change Email under the General panel  Type in your master password and the email you want to use  Click Submit  Check your email inbox for the verification code from bitwarden and enter it into the textbox  Click Change Email          Note that you will be logged out after changing your email address        Log back in to confirm that you can log in using the new email  Log out and back in to any other bitwarden applications that you are using          Note that you will eventually be logged out automatically      ",
+          "content": "Your email address can only be changed from the web vault.  Log in to the web vault at https://vault.bitwarden.com  Click Settings on the sidebar  Click Change Email under the General panel  Type in your master password and the email you want to use  Click Submit  Check your email inbox for the verification code from bitwarden and enter it into the textbox  Click Change Email          Note that you will be logged out after changing your email address        Log back in to confirm that you can log in using the new email  Log out and back in to any other bitwarden applications that you are using          Note that you will eventually be logged out automatically      ",
         "url": "/article/how-to-change-your-email/"
       }
     ,
@@ -98,7 +98,7 @@
           "title": "How to change your master password",
           "categories": "Getting Started",
           "tags": "password, account",
-          "content": "The master password can only be changed from the web vault.  Log in to the web vault at https://vault.bitwarden.com.  Click Settings on the sidebar  Click Change Master Password under the Master Password panel  Type in your current password, the new password you want, and then re-type to confirm  Click Change Password          Note that you will be logged out after changing your password.        Log back in to confirm that your new password is working  Log out and back in any other bitwarden applications that you are using.          You will eventually be logged out automatically.      ",
+          "content": "The master password can only be changed from the web vault.  Log in to the web vault at https://vault.bitwarden.com  Click Settings on the sidebar  Click Change Master Password under the Master Password panel  Type in your current password, the new password you want, and then re-type to confirm  Click Change Password          Note that you will be logged out after changing your password.        Log back in to confirm that your new password is working  Log out and back in any other bitwarden applications that you are using.          You will eventually be logged out automatically.      ",
         "url": "/article/how-to-change-your-master-password/"
       }
     ,
@@ -143,7 +143,7 @@
           "title": "Can the bitwarden team see my passwords?",
           "categories": "Security",
           "tags": "",
-          "content": "No.Since your data is fully encrypted and/or hashed before ever leaving your local device, no one from the bitwardenteam can ever see, read, or reverse engineer to get to your real data. bitwarden servers only store encrypted and hasheddata. This is an important step that bitwarden takes to protect you.You can read more about how your data is encrypted and transmitted here.",
+          "content": "No.Since your data is fully encrypted and/or hashed before ever leaving your local device, no one from the bitwarden team can ever see, read, or reverse engineer to get to your real data. bitwarden servers only store encrypted and hashed data. This is an important step that bitwarden takes to protect you.You can read more about how your data is encrypted and transmitted here.",
         "url": "/article/can-bitwarden-see-my-passwords/"
       }
     ,
@@ -151,8 +151,8 @@
       "article-cloud-server-security": {
           "title": "How do you keep the cloud servers secure?",
           "categories": "Security",
-          "tags": "cloud",
-          "content": "bitwarden processes and stores all data securely in the Microsoft Azure cloud using services that are managed by theteam at Microsoft. Since bitwarden only uses service offerings provided by Azure, there is no server infrastructure tomanage and maintain. All uptime, scalability, and security updates and guarantees are backed by Microsoft and their cloudinfrastructure.",
+          "tags": "cloud, azure",
+          "content": "bitwarden processes and stores all data securely in the Microsoft Azure cloud using services that are managed by the team at Microsoft. Since bitwarden only uses service offerings provided by Azure, there is no server infrastructure to manage and maintain. All uptime, scalability, and security updates and guarantees are backed by Microsoft and their cloud infrastructure.",
         "url": "/article/cloud-server-security/"
       }
     ,
@@ -161,7 +161,7 @@
           "title": "How is my data securely trasmitted and stored on bitwarden servers?",
           "categories": "Security",
           "tags": "encryption",
-          "content": "bitwarden takes security very seriously when it comes to handling your sensitive data. Your data is never sent to thebitwarden cloud servers without first being encrypted on your local device using AES 256 bit encryption. You can readmore about bitwarden encryption here. bitwarden never stores meaningful data on its servers.When your devices sync with the bitwarden cloud servers, a copy of the encrypted data is downloaded and securely storedto your local device. Whenever you use the bitwarden apps or extensions your data is decrypted only in memory as needed.Data is never stored in its decrypted form on the remote bitwarden servers or on your local device.bitwarden servers are securely hosted and managed in the Microsoft Azure cloud.",
+          "content": "bitwarden takes security very seriously when it comes to handling your sensitive data. Your data is never sent to the bitwarden cloud servers without first being encrypted on your local device using AES 256 bit encryption. You can read more about bitwarden encryption here. bitwarden never stores meaningful data on its servers.When your devices sync with the bitwarden cloud servers, a copy of the encrypted data is downloaded and securely stored to your local device. Whenever you use the bitwarden apps or extensions your data is decrypted only in memory as needed. Data is never stored in its decrypted form on the remote bitwarden servers or on your local device.bitwarden servers are securely hosted and managed in the Microsoft Azure cloud.",
         "url": "/article/how-is-data-securely-transmitted-and-stored/"
       }
     ,
@@ -170,7 +170,7 @@
           "title": "Does bitwarden use a salted hash for my password?",
           "categories": "Security",
           "tags": "encryption, hash",
-          "content": "Yes.bitwarden salts and hashes your master password with your email address on the client (your computer/device) before it istransmitted to our servers. Once the server receives the hashed password from your computer/device it is then saltedagain with a cryptographically secure random value, hashed again and stored in our database. This process is repeated andhashes are compared every time you log in.The hashing functions that are used are one way hashes. This means that they cannot be reverse engineered by anyone atbitwarden to reveal your true master password. In the hypothetical event that the bitwarden servers were hacked and yourdata was leaked, the data would have no value to the hacker.",
+          "content": "Yes.bitwarden salts and hashes your master password with your email address on the client (your computer/device) before it is transmitted to our servers. Once the server receives the hashed password from your computer/device it is then salted again with a cryptographically secure random value, hashed again and stored in our database. This process is repeated and hashes are compared every time you log in.The hashing functions that are used are one way hashes. This means that they cannot be reverse engineered by anyone at bitwarden to reveal your true master password. In the hypothetical event that the bitwarden servers were hacked and your data was leaked, the data would have no value to the hacker.",
         "url": "/article/password-salt-hash/"
       }
     ,
@@ -179,7 +179,7 @@
           "title": "What encryption is being used?",
           "categories": "Security",
           "tags": "encryption",
-          "content": "bitwarden uses AES 256 bit encryption as well as PBKDF2 to secure your data.AES is used by the US government and other government agencies around the world for protecting top secret data. Withproper implementation and a strong encryption key (your master password), AES is considered unbreakable.PBKDF2 is used to derive the encryption key from your master password. This key is then salted and hashed.bitwarden does not write any crypto code. bitwarden only invokes crypto from popular and reputable crypto libraries that arewritten and maintained by cryptography experts. The following crypto libraries are used:  Javascript (web and browser extension vaults)          Forge      Web Crypto        C# (mobile vault)          CommonCrypto (iOS, Apple)      Javax.Crypto (Android, Oracle)      BouncyCastle (Android)      bitwarden always encrypts and/or hashes your data on your local device before it is ever sent to the cloud servers forsyncing. The bitwarden servers are only used for storing encrypted data. It is not possible to get your unencrypted data fromthe bitwarden cloud servers.",
+          "content": "bitwarden uses AES 256 bit encryption as well as PBKDF2 to secure your data.AES is used by the US government and other government agencies around the world for protecting top secret data. With proper implementation and a strong encryption key (your master password), AES is considered unbreakable.PBKDF2 is used to derive the encryption key from your master password. This key is then salted and hashed.bitwarden does not write any crypto code. bitwarden only invokes crypto from popular and reputable crypto libraries that are written and maintained by cryptography experts. The following crypto libraries are used:  Javascript (web and browser extension vaults)          Forge      Web Crypto        C# (mobile vault)          CommonCrypto (iOS, Apple)      Javax.Crypto (Android, Oracle)      BouncyCastle (Android)      bitwarden always encrypts and/or hashes your data on your local device before it is ever sent to the cloud servers for syncing. The bitwarden servers are only used for storing encrypted data. It is not possible to get your unencrypted data from the bitwarden cloud servers.",
         "url": "/article/what-encryption-is-used/"
       }
     ,
@@ -188,7 +188,7 @@
           "title": "What happens if bitwarden gets hacked?",
           "categories": "Security",
           "tags": "hacked",
-          "content": "bitwarden takes extreme measures to ensure that its websites, application, and cloud servers are secure. Part of this securitycomes from the fact that we rely on managed services and do not manage our cloud server infrastructure at all.However, if for some reason bitwarden were to get hacked and your data was exposed, your information is still protected. This isbecause bitwarden uses strong encryption and one-way salted hashing. As long as you use a strong master password, your data issafe no matter who gets hold of it.",
+          "content": "bitwarden takes extreme measures to ensure that its websites, application, and cloud servers are secure. Part of this security comes from the fact that we rely on managed services and do not manage our cloud server infrastructure at all.However, if for some reason bitwarden were to get hacked and your data was exposed, your information is still protected. This is because bitwarden uses strong encryption and one-way salted hashing. As long as you use a strong master password, your data is safe no matter who gets hold of it.",
         "url": "/article/what-happens-if-bitwarden-is-hacked/"
       }
     ,
@@ -197,7 +197,7 @@
           "title": "Where is my data stored in the cloud?",
           "categories": "Security",
           "tags": "cloud",
-          "content": "bitwarden processes and stores all data securely in the Microsoft Azure cloud using services that are managed by theteam at Microsoft. bitwarden does not manage any server infrastructure or security directly. All data is backed up multipletimes over, again using services provided by Microsoft Azure.",
+          "content": "bitwarden processes and stores all data securely in the Microsoft Azure cloud using services that are managed by the team at Microsoft. bitwarden does not manage any server infrastructure or security directly. All data is backed up multiple times over, again using services provided by Microsoft Azure.",
         "url": "/article/where-is-data-stored-cloud/"
       }
     ,
@@ -206,7 +206,7 @@
           "title": "Where is my data stored on my computer/device?",
           "categories": "Security",
           "tags": "",
-          "content": "Your encrypted data can be found on your computer/device in the following locations:  Windows          Chrome Extension: %AppData%\\Local\\Google\\Chrome\\User Data\\Default\\Local Extension Settings\\nngceckbapebfimnlniiiahkandclblb        Linux          Chrome Extension: ~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb        Mac          Chrome Extension: ~/Library/Application Support/Google/Chrome/Default/Local App Settings/nngceckbapebfimnlniiiahkandclblb        iOS          App group for group.com.8bit.bitwarden        Android          /data/data/com.x8bit.bitwarden/      You data is also automatically synced to our cloud servers. In the event that you need to recover your data due toa device crash, simply reinstall the bitwarden application and log in and your data will be re-synced.",
+          "content": "Your encrypted data can be found on your computer/device in the following locations:  Windows          Chrome Extension: %AppData%\\Local\\Google\\Chrome\\User Data\\Default\\Local Extension Settings\\nngceckbapebfimnlniiiahkandclblb        Linux          Chrome Extension: ~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb        Mac          Chrome Extension: ~/Library/Application Support/Google/Chrome/Default/Local App Settings/nngceckbapebfimnlniiiahkandclblb        iOS          App group for group.com.8bit.bitwarden        Android          /data/data/com.x8bit.bitwarden/      You data is also automatically synced to our cloud servers. In the event that you need to recover your data due to a device crash, simply reinstall the bitwarden application and log in and your data will be re-synced.",
         "url": "/article/where-is-data-stored-computer/"
       }
     ,
@@ -215,7 +215,7 @@
           "title": "Why should I trust bitwarden with my passwords?",
           "categories": "Security",
           "tags": "",
-          "content": "  bitwarden is 100% open source software. All of our source code is hosted on GitHub and is free for anyoneto review. Hundreds of software developers follow bitwarden’s source code projects (and you can too!).  We do not store your passwords. We store encrypted versions of your passwords that only you can unlock.Your sensitive information is all encrypted locally on your personal device before ever being sent to our cloud servers.  bitwarden has a reputation. bitwarden is used by thousands of people. If we did anything questionable or risky wewould be out of business.",
+          "content": "  bitwarden is 100% open source software. All of our source code is hosted on GitHub and is free for anyone to review. Hundreds of software developers follow bitwarden’s source code projects (and you can too!).  We do not store your passwords. We store encrypted versions of your passwords that only you can unlock.Your sensitive information is all encrypted locally on your personal device before ever being sent to our cloud servers.  bitwarden has a reputation. bitwarden is used by thousands of people. If we did anything questionable or risky we would be out of business.",
         "url": "/article/why-should-i-trust-bitwarden/"
       }
     
@@ -354,10 +354,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495515297"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495548909"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495515297"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495548909"><\/script>'));</script>
 
     <script>
         (function (i, s, o, g, r, a, m) {
