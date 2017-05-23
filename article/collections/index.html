@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>How do you keep the cloud servers secure? | bitwarden Help &amp; Support</title>
+    <title>Collections | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -73,25 +73,28 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        How do you keep the cloud servers secure?
+        Collections
     </h1>
     <div class="breadcrumb">
         Category:
         
-        <a href="/security">Security</a>
+        <a href="/organizations">Organizations</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden processes and stores all data securely in the <a href="https://en.wikipedia.org/wiki/Microsoft_Azure" target="_blank">Microsoft Azure cloud</a> using services that are managed by the team at Microsoft. Since bitwarden only uses service offerings provided by Azure, there is no server infrastructure to manage and maintain. All uptime, scalability, and security updates and guarantees are backed by Microsoft and their cloud infrastructure.</p>
+            <p>Collections allow you to group related logins within your organization that your wish to share. A simple personal organization for a family may only want to have one or two collections (ex. Parents and Kids), while a larger organization like a company may have many collections (ex. each department such as Sales, IT, Developers, Dev Ops, etc).</p>
+
+<p><a href="/images/collection-listing.png" target="_blank">
+            <img class="img-responsive img-thumbnail" src="/images/collection-listing.png" />
+        </a></p>
+
+<p>When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any logins that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the <strong>Read Only</strong> option will ensure that the user cannot edit any logins within that particular collection (they can just view and use them).</p>
+
+<p>Note that collections are different than folders. Collections are a way to organize logins and limit user access within an organization’s vault while folders are a way for individual users to organize logins within their own personal vault. An individual user may wish to further organize the logins being shared with them in their own vault into a personalized folder structure that makes sense just for them.</p>
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            cloud, azure
-        </div>
         
     </div>
     <div class="row article-blocks">

@@ -12,7 +12,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495548909"
+    <link href="/css/styles.css?v=1495559428"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -136,6 +136,33 @@
           "tags": "import, lastpass",
           "content": "Importing your data from LastPass into bitwarden is easy.It is recommended to export through the LastPass.com web vault in order to avoid known bugs with the LastPass extension exporter.If you use the LastPass browser extension to export your sites, your password data could be corrupted.Export your sites from the LastPass.com web vault  Log into your LastPass account and navigate to “More Options” &gt; “Advanced” &gt; “Export”.  This will take you to a page that then asks you to enter your LastPass master password for verification. Enter your LastPass master password.  Your data will be decrypted and shown on screen in CSV format.  Highlight all of the data on the page and copy it to your clipboard.          Highlight all of the data with your mouse, then right click with your mouse and select “Copy”.      Import your sites into bitwarden  Go to the bitwarden web vault and log in.  Navigate to “Tools” &gt; “Import”.  Select “LastPass” as the file format and paste the CSV content into the textbox that you copied to your clipboard in step 4 above.          Click into the textbox with your mouse, then right click with your mouse and select “Paste”.        Click the “Import” button.Congratulations! You have just transferred all of your data from LastPass into bitwarden.",
         "url": "/article/import-from-lastpass/"
+      }
+    ,
+    
+      "article-collections": {
+          "title": "Collections",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "Collections allow you to group related logins within your organization that your wish to share. A simple personal organization for a family may only want to have one or two collections (ex. Parents and Kids), while a larger organization like a company may have many collections (ex. each department such as Sales, IT, Developers, Dev Ops, etc).                    When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any logins that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the Read Only option will ensure that the user cannot edit any logins within that particular collection (they can just view and use them).Note that collections are different than folders. Collections are a way to organize logins and limit user access within an organization’s vault while folders are a way for individual users to organize logins within their own personal vault. An individual user may wish to further organize the logins being shared with them in their own vault into a personalized folder structure that makes sense just for them.",
+        "url": "/article/collections/"
+      }
+    ,
+    
+      "article-managing-users": {
+          "title": "Managing organization users",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "Onboarding UsersAdding new users to your organization involves a three step process: invite, accept, and confirm.To invite a user to your organization simply enter their email address, select what type of user they are (normal user, admin, or owner) and select the collection(s) that they should have access to (you can change this later by editing the user). You can also designate a user as having access to all items for the organization and collection assignment will not be necessary.Enterprise organizations can sync their existing user directory with their bitwarden organization to automatically invite new users into bitwarden.                    Once you invite a user they will receive an email where they will need to click a link to accept the invitation. After clicking the accept link the user will be prompted to create a new bitwarden account or log into the an existing account registered at that email address.                    After the user has successfully accepted the organization invite, an organization admin will then need to confirm the user from the same area in the web vault that you invited the user from (Organization Admin -&gt; People). Only after the user is confirmed will they then have access to that organization and the items being shared with them.                    Removing UsersEnterprise organizations can sync their existing user directory with their bitwarden organization to automatically remove users when they are disabled or deleted from the directory.To remove a user from your organization, select the Remove option from the options menu for that user. Once a user is removed from your organization, they will no longer have access to any shared logins.                    ",
+        "url": "/article/managing-users/"
+      }
+    ,
+    
+      "article-what-is-an-organization": {
+          "title": "What are organizations?",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "A bitwarden organization is an entity that relates users together that want to share logins. An organization could be a family, team, company, or any other type of group that desires to share logins in bitwarden.An individual user account can create and/or belong to many different organizations, allowing you to manage your logins from a single account.You can create a new bitwarden organization from the web vault or request that an admin of an existing organization send you an invite.",
+        "url": "/article/what-is-an-organization/"
       }
     ,
     
@@ -354,10 +381,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495548909"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495559428"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495548909"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495559428"><\/script>'));</script>
 
     <script>
         (function (i, s, o, g, r, a, m) {
