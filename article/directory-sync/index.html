@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495645039"
+    <link href="/css/styles.css?v=1495648920"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495645039"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495648920"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -379,9 +379,152 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gf] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-c] [-r]]
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-es] [-c] [-r]]
 </code></pre>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sync Groups</td>
+      <td>-g</td>
+      <td>n/a</td>
+      <td>n</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Sync Users</td>
+      <td>-u</td>
+      <td>n/a</td>
+      <td>n</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Sync Interval</td>
+      <td>-i</td>
+      <td>5</td>
+      <td>n</td>
+      <td>Value is in minutes.</td>
+    </tr>
+    <tr>
+      <td>User Filter</td>
+      <td>-uf</td>
+      <td>(&amp;(objectClass=user))</td>
+      <td>n</td>
+      <td>Value syntax is different for each directory type.</td>
+    </tr>
+    <tr>
+      <td>Group Filter</td>
+      <td>-gf</td>
+      <td>(&amp;(objectClass=group))</td>
+      <td>n</td>
+      <td>Value syntax is different for each directory type.</td>
+    </tr>
+    <tr>
+      <td>Remove Disabled</td>
+      <td>-rd</td>
+      <td>n/a</td>
+      <td>n</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="active-directory--other-ldap-1">Active Directory / Other LDAP</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Group Object Class</td>
+      <td>-go</td>
+      <td>group</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>User Object Class</td>
+      <td>-uo</td>
+      <td>user</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Group Path</td>
+      <td>-gp</td>
+      <td>CN=Groups</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>User Path</td>
+      <td>-up</td>
+      <td>CN=Users</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Group Name Attribute</td>
+      <td>-gn</td>
+      <td>name</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>User Email Attribute</td>
+      <td>-ue</td>
+      <td>mail</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Member Attribute</td>
+      <td>-m</td>
+      <td>member</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Use Email Prefix/Suffix</td>
+      <td>-ps</td>
+      <td>n/a</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Email Prefix Attribute</td>
+      <td>-ep</td>
+      <td>sAMAccountName</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Email Suffix</td>
+      <td>-es</td>
+      <td>@company.com</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Creation Date Attribute</td>
+      <td>-c</td>
+      <td>whenCreated</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Revision Date Attribute</td>
+      <td>-r</td>
+      <td>whenChanged</td>
+      <td>n</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="manually-simulate-a-sync">Manually simulate a sync</h3>
 
@@ -395,9 +538,30 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sim
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sim [-f]
 </code></pre>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Force</td>
+      <td>-f</td>
+      <td>n/a</td>
+      <td>n</td>
+      <td>Forces a full sync.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="perform-a-sync">Perform a sync</h3>
 
@@ -408,9 +572,30 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sync
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sync [-f]
 </code></pre>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Force</td>
+      <td>-f</td>
+      <td>n/a</td>
+      <td>n</td>
+      <td>Forces a full sync.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="manage-the-background-service">Manage the background service</h3>
 
@@ -621,10 +806,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495645039"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495648920"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495645039"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495648920"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
