@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495592613"
+    <link href="/css/styles.css?v=1495594702"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495592613"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495594702"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -137,7 +137,7 @@
           "title": "Set up two-step login (2FA)",
           "categories": "Getting Started, Account Management",
           "tags": "two-step login, 2fa, two factor authentication, account",
-          "content": "Two-step login (or two-factor authentication) can only be configured from the web vault.  Log in to the web vault at https://vault.bitwarden.com  Click Settings on the sidebar  Click Manage Two-step Log in under the Two-step Log In panel  Type in your current password and click Continue  Follow the steps that appear          Download a two-step verification app (usually on your mobile device). We recommend Authy.      Scan the QR code with the verification app.      Enter the verification code from the app.        Click Enable Two-step. Note:          A green alert will appear at the top stating that two-step login has been enabled; and      Very Important: An orange alert will appear at the bottom with a recovery code        Print or write down the recovery code and store in a safe place. This code is REQUIRED to restore your account in the event that you lose access to your verification app (ex. your phone is lost). If you lose access to your verification app and do not have your recovery code, bitwarden support will not be able to assist you in recovering your account. The only option will be to delete your account and start over.  Click Close and then Log Out  Log in to confirm that two-step verification is enabled and working  Log out of and back in to any other bitwarden applications that you are using. You will eventually be logged out automatically.",
+          "content": "bitwarden supports two-step login (or two-factor authentication) by using a third-party authenticator app such as Authy or Google Authenticator. Two-step login can only be configured from the web vault.             Warning            Two-step login can permanently lock you out of your account. It is very important that you write down and keep your two-step login recovery code in a safe place in the event that you lose access to your authenticator app (see below for details).          Log in to the web vault at https://vault.bitwarden.com  Click Settings on the sidebar  Click Manage Two-step Log in under the Two-step Log In panel  Type in your current password and click Continue  Follow the steps that appear          Download a two-step verification app (usually on your mobile device). We recommend Authy.      Scan the QR code with the verification app.      Enter the verification code from the app.        Click Enable Two-step. Note:          A green alert will appear at the top stating that two-step login has been enabled; and      Very Important: An orange alert will appear at the bottom with a recovery code. DO NOT IGNORE THIS.        Print or write down the recovery code and store it in a safe place. This code is REQUIRED to restore your account in the event that you lose access to your verification app (ex. your phone is lost). If you lose access to your verification app and do not have your recovery code, bitwarden support will not be able to assist you in recovering your account. The only option will be to delete your account and start over.  Click Close and then Log Out  Log in to confirm that two-step verification is enabled and working  Log out of and back in to any other bitwarden applications that you are using. You will eventually be logged out automatically.",
         "url": "/article/setup-two-step-login/"
       }
     ,
@@ -172,6 +172,17 @@
           "tags": "import, lastpass",
           "content": "Importing your data from LastPass into bitwarden is easy.             Warning            It is recommended to export through the LastPass.com web vault in order to avoid known bugs with the LastPass extension exporter.If you use the LastPass browser extension to export your sites, your password data could be corrupted.        Export your sites from the LastPass.com web vault  Log into your LastPass account and navigate to “More Options” &gt; “Advanced” &gt; “Export”.  This will take you to a page that then asks you to enter your LastPass master password for verification. Enter your LastPass master password.  Your data will be decrypted and shown on screen in CSV format.  Highlight all of the data on the page and copy it to your clipboard.          Highlight all of the data with your mouse, then right click with your mouse and select “Copy”.      Import your sites into bitwarden  Go to the bitwarden web vault and log in.  Navigate to “Tools” &gt; “Import”.  Select “LastPass” as the file format and paste the CSV content into the textbox that you copied to your clipboard in step 4 above.          Click into the textbox with your mouse, then right click with your mouse and select “Paste”.        Click the “Import” button.Congratulations! You have just transferred all of your data from LastPass into bitwarden.",
         "url": "/article/import-from-lastpass/"
+      }
+    ,
+    
+    
+    
+      "article-importing-data": {
+          "title": "Importing your data from another application",
+          "categories": "Getting Started",
+          "tags": "import",
+          "content": "You can very easily import your data from an array of different password manager applications. bitwarden supports importing data from the following sources:  bitwarden (csv)  1Password (1pif)  1Password 6 Windows (csv)  Ascendo DataVault (csv)  Avira (json)  Chrome (csv)  Clipperz (html)  Dashlane (csv)  Enpass (csv)  Firefox Password Exporter (xml)  KeePass 2 (xml)  KeePassX (csv)  Keeper (csv)  LastPass (csv)  Meldium (csv)  mSecure (csv)  Opera (csv)  Padlock (csv)  PassKeep (csv)  Password Boss (json)  Password Dragon (xml)  Password Safe (xml)  RoboForm (html)  SafeInCloud (xml)  SaferPass (csv)  SplashID (csv)  Sticky Password (xml)  True Key (csv)  Universal Password Manager (csv)  Vivaldi (csv)  Zoho Vault (csv)To import your data, log into the web vault at https://vault.bitwarden.com and navigate to Tools &gt; Import Data. Instructions for importing from each source are available after selecting the desired file format from the dropdown menu.Generic CSV FormatAlternatively you can manually condition a CSV file using the generic bitwarden format. Create a UTF-8 encoded plaintext file with the following format:name,uri,username,password,notes,folder,favoriteThe above header must be the first line in the file. An example file may look like the following:name,uri,username,password,notes,folder,favoriteTwitter,https://twitter.com,hello@bitwarden.com,password123,,Social,1EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,, Download exampleWhen importing from this format, select the bitwarden (csv) file format option from the dropdown menu.",
+        "url": "/article/importing-data/"
       }
     ,
     
@@ -461,10 +472,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495592613"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495594702"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495592613"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495594702"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
