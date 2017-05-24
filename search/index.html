@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495575079"
+    <link href="/css/styles.css?v=1495586782"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495575079"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495586782"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -151,6 +151,15 @@
       }
     ,
     
+      "article-azure-active-directory": {
+          "title": "Configuring directory sync with Azure Active Directory",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "",
+        "url": "/article/azure-active-directory/"
+      }
+    ,
+    
       "article-collections": {
           "title": "Collections",
           "categories": "Organizations",
@@ -160,8 +169,44 @@
       }
     ,
     
+      "article-directory-sync": {
+          "title": "Syncing users and groups with a directory",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "bitwarden supports syncing users and/or groups from outside directories through the use of the bitwarden Directory Connector tool.The following directories are supported:  Active Directory  Azure Active Directory  GSuite (Google)  Any other LDAP-based directoryDirectory sync is only available to enterprise organizations.bitwarden Directory Connector ToolThe bitwarden Directory Connector is a windows-based console application (CLI) that allows you to keep your bitwarden organization and user directory in sync. Directory Connector can be run on-demand manually as well as automatically in the background on an configured interval through the use of the included windows service. The tool provides a console-based UI in addition to a full array of command line arguments.You can install and run Directory Connector on the server that hosts your directory, an administrator’s machine, or any other computer than can access the directory.InstallLog in to your bitwarden organization accountConfigure the directory serverConfigure sync optionsManually simulate a syncPerform a syncManage the background serviceChanging configurations",
+        "url": "/article/directory-sync/"
+      }
+    ,
+    
+      "article-groups": {
+          "title": "User groups",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "In addition to collections, groups are a way for organizations to further control user access. They are particularly useful to larger organizations where user access can be difficult to manage.User groups are only available to enterprise organizations.User AssignmentAfter creating a user, you can assign that user to one or more groups. From the users listing (People) page, Select the Groups option for a particular user to make your group selections.You can also view which users belong to a specific group by navigating to the groups listing page and selecting the Users option for a specific group. Users can be removed from the group from this page as well, however, adding a new user to a group must be done from the individual user.Collection AssignmentAccess control for a group is done by assigning collections to a group (or vice versa). You can assign which collections a group can access by editing the group from the group listing page.Alternatively, edit a collection from the collections listing page to choose which groups can access it.Organization users will only be able to access logins that belong to the groups that they are members of. If a user belongs to multiple groups, that user will be able to access logins from the union of all collections for their groups plus any individual collections that they have been assigned to.",
+        "url": "/article/groups/"
+      }
+    ,
+    
+      "article-gsuite-directory": {
+          "title": "Configuring directory sync with Google GSuite",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "",
+        "url": "/article/gsuite-directory/"
+      }
+    ,
+    
+      "article-ldap-directory": {
+          "title": "Configuring directory sync with Active Directory or other LDAP",
+          "categories": "Organizations",
+          "tags": "",
+          "content": "",
+        "url": "/article/ldap-directory/"
+      }
+    ,
+    
       "article-managing-users": {
-          "title": "Managing organization users",
+          "title": "Managings users",
           "categories": "Organizations",
           "tags": "",
           "content": "Onboarding UsersAdding new users to your organization involves a three step process: invite, accept, and confirm.To invite a user to your organization simply enter their email address, select what type of user they are (normal user, admin, or owner) and select the collection(s) that they should have access to (you can change this later by editing the user). You can also designate a user as having access to all items for the organization and collection assignment will not be necessary.Enterprise organizations can sync their existing user directory with their bitwarden organization to automatically invite new users into bitwarden.                    Once you invite a user they will receive an email where they will need to click a link to accept the invitation. After clicking the accept link the user will be prompted to create a new bitwarden account or log into the an existing account registered at that email address.                    After the user has successfully accepted the organization invite, an organization admin will then need to confirm the user from the same area in the web vault that you invited the user from (Organization Admin -&gt; People). Only after the user is confirmed will they then have access to that organization and the items being shared with them.                    Removing UsersEnterprise organizations can sync their existing user directory with their bitwarden organization to automatically remove users when they are disabled or deleted from the directory.To remove a user from your organization, select the Remove option from the options menu for that user. Once a user is removed from your organization, they will no longer have access to any shared logins.                    ",
@@ -393,10 +438,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495575079"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495586782"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495575079"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495586782"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

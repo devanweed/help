@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>What encryption is being used? | bitwarden Help &amp; Support</title>
+    <title>User groups | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,50 +76,38 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        What encryption is being used?
+        User groups
     </h1>
     <div class="breadcrumb">
         Category:
         
-        <a href="/security">Security</a>
+        <a href="/organizations">Organizations</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden uses <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> 256 bit encryption as well as <a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> to secure your data.</p>
+            <p>In addition to collections, groups are a way for organizations to further control user access. They are particularly useful to larger organizations where user access can be difficult to manage.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> is used by the US government and other government agencies around the world for protecting top secret data. With proper implementation and a strong encryption key (your master password), AES is considered unbreakable.</p>
+<div class="alert alert-info">
+<p>User groups are only available to enterprise organizations.</p>
+</div>
 
-<p><a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> is used to derive the encryption key from your master password. This key is then salted and hashed.</p>
+<h2 id="user-assignment">User Assignment</h2>
 
-<p>bitwarden does not write any crypto code. bitwarden only invokes crypto from popular and reputable crypto libraries that are written and maintained by cryptography experts. The following crypto libraries are used:</p>
+<p>After creating a user, you can assign that user to one or more groups. From the users listing (People) page, Select the <strong>Groups</strong> option for a particular user to make your group selections.</p>
 
-<ul>
-  <li>Javascript (web and browser extension vaults)
-    <ul>
-      <li><a href="https://github.com/digitalbazaar/forge" target="blank">Forge</a></li>
-      <li><a href="https://w3c.github.io/webcrypto/Overview.html" target="blank">Web Crypto</a></li>
-    </ul>
-  </li>
-  <li>C# (mobile vault)
-    <ul>
-      <li>CommonCrypto (iOS, Apple)</li>
-      <li>Javax.Crypto (Android, Oracle)</li>
-      <li><a href="http://www.bouncycastle.org/csharp/" target="blank">BouncyCastle</a> (Android)</li>
-    </ul>
-  </li>
-</ul>
+<p>You can also view which users belong to a specific group by navigating to the groups listing page and selecting the <strong>Users</strong> option for a specific group. Users can be removed from the group from this page as well, however, adding a new user to a group must be done from the individual user.</p>
 
-<p>bitwarden <strong>always</strong> encrypts and/or hashes your data on your local device before it is ever sent to the cloud servers for syncing. The bitwarden servers are only used for storing encrypted data. It is not possible to get your unencrypted data from the bitwarden cloud servers.</p>
+<h2 id="collection-assignment">Collection Assignment</h2>
 
+<p>Access control for a group is done by assigning collections to a group (or vice versa). You can assign which collections a group can access by editing the group from the group listing page.</p>
+
+<p>Alternatively, edit a collection from the collections listing page to choose which groups can access it.</p>
+
+<p>Organization users will only be able to access logins that belong to the groups that they are members of. If a user belongs to multiple groups, that user will be able to access logins from the <em>union</em> of all collections for their groups plus any individual collections that they have been assigned to.</p>
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            encryption
-        </div>
         
     </div>
     <div class="row article-blocks">

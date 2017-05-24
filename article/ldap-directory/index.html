@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>What encryption is being used? | bitwarden Help &amp; Support</title>
+    <title>Configuring directory sync with Active Directory or other LDAP | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,50 +76,20 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        What encryption is being used?
+        Configuring directory sync with Active Directory or other LDAP
     </h1>
     <div class="breadcrumb">
         Category:
         
-        <a href="/security">Security</a>
+        <a href="/organizations">Organizations</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden uses <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> 256 bit encryption as well as <a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> to secure your data.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> is used by the US government and other government agencies around the world for protecting top secret data. With proper implementation and a strong encryption key (your master password), AES is considered unbreakable.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> is used to derive the encryption key from your master password. This key is then salted and hashed.</p>
-
-<p>bitwarden does not write any crypto code. bitwarden only invokes crypto from popular and reputable crypto libraries that are written and maintained by cryptography experts. The following crypto libraries are used:</p>
-
-<ul>
-  <li>Javascript (web and browser extension vaults)
-    <ul>
-      <li><a href="https://github.com/digitalbazaar/forge" target="blank">Forge</a></li>
-      <li><a href="https://w3c.github.io/webcrypto/Overview.html" target="blank">Web Crypto</a></li>
-    </ul>
-  </li>
-  <li>C# (mobile vault)
-    <ul>
-      <li>CommonCrypto (iOS, Apple)</li>
-      <li>Javax.Crypto (Android, Oracle)</li>
-      <li><a href="http://www.bouncycastle.org/csharp/" target="blank">BouncyCastle</a> (Android)</li>
-    </ul>
-  </li>
-</ul>
-
-<p>bitwarden <strong>always</strong> encrypts and/or hashes your data on your local device before it is ever sent to the cloud servers for syncing. The bitwarden servers are only used for storing encrypted data. It is not possible to get your unencrypted data from the bitwarden cloud servers.</p>
-
+            
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            encryption
-        </div>
         
     </div>
     <div class="row article-blocks">
