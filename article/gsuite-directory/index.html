@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495656299"
+    <link href="/css/styles.css?v=1495657448"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495656299"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495657448"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -100,7 +100,8 @@
 
 <ul>
   <li><a href="#create-a-google-cloud-project">Create a Google Cloud Project</a></li>
-  <li><a href="#create---configure-a-service-account">Create &amp; Configure a Service Account</a></li>
+  <li><a href="#enable-the-admin-sdk-api-for-your-project">Enable the Admin SDK API for Your Project</a></li>
+  <li><a href="#create--configure-a-service-account">Create &amp; Configure a Service Account</a></li>
   <li><a href="#configure-gsuite-security">Configure GSuite Security</a></li>
   <li><a href="#configure-directory-connector">Configure Directory Connector</a></li>
   <li><a href="#testing">Testing</a></li>
@@ -126,6 +127,26 @@
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/new-project.png" />
      </a></li>
   <li>Refresh the page and you should now see your project</li>
+</ol>
+
+<h2 id="enable-the-admin-sdk-api-for-your-project">Enable the Admin SDK API for Your Project</h2>
+
+<ol>
+  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
+  <li>Make sure the appropriate project is selected.</li>
+  <li>Open the navigation menu and navigate to <strong>API Manager</strong> -&gt; <strong>Dashboard</strong>.</li>
+  <li>Select the <strong>Enable API</strong> button near the top.
+<a href="/images/directory-connector/gsuite/enable-api.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/enable-api.png" />
+     </a></li>
+  <li>Click the <strong>Admin SDK</strong> link under the <strong>Google Apps APIs</strong> section.
+<a href="/images/directory-connector/gsuite/admin-sdk.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/admin-sdk.png" />
+     </a></li>
+  <li>Click the <strong>Enable</strong> button near the top.
+<a href="/images/directory-connector/gsuite/admin-sdk-enable.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/admin-sdk-enable.png" />
+     </a></li>
 </ol>
 
 <h2 id="create--configure-a-service-account">Create &amp; Configure a Service Account</h2>
@@ -341,10 +362,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495656299"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495657448"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495656299"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495657448"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
