@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495649649"
+    <link href="/css/styles.css?v=1495655387"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495649649"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495655387"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -86,7 +86,132 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
+            <p>This article will cover how to connect the bitwarden Directory Connector tool to your GSuite directory.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
+  <li>Install bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your bitwarden account and select your enterprise organization</li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#create-a-google-cloud-project">Create a Google Cloud Project</a></li>
+  <li><a href="#create---configure-a-service-account">Create &amp; Configure a Service Account</a></li>
+  <li><a href="#configure-gsuite-security">Configure GSuite Security</a></li>
+  <li><a href="#configure-directory-connector">Configure Directory Connector</a></li>
+  <li><a href="#testing">Testing</a></li>
+</ul>
+
+<h2 id="create-a-google-cloud-project">Create a Google Cloud Project</h2>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
             
+<p>If you already have a Google Cloud project available, you can skip this step and re-use it here.</p>
+
+        </div>
+
+<ol>
+  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
+  <li>Click <strong>Create Project</strong>
+<a href="/images/directory-connector/gsuite/create-project.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-project.png" />
+     </a></li>
+  <li>Enter a project name and click <strong>Create</strong>
+<a href="/images/directory-connector/gsuite/new-project.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/new-project.png" />
+     </a></li>
+  <li>Refresh the page and you should now see your project</li>
+</ol>
+
+<h2 id="create--configure-a-service-account">Create &amp; Configure a Service Account</h2>
+
+<ol>
+  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
+  <li>Make sure the appropriate project is selected.</li>
+  <li>Open the navigation menu and navigate to <strong>API Manager</strong> -&gt; <strong>Credentials</strong>.</li>
+  <li>Click the <strong>Create credentials</strong> button and select <strong>Service account key</strong>.
+<a href="/images/directory-connector/gsuite/create-credentials.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-credentials.png" />
+     </a></li>
+  <li>Select <strong>New service account</strong>.</li>
+  <li>Name the service account <strong>bitwarden Directory Connector</strong>. For the role, select <strong>Project</strong> and then <strong>Owner</strong>. Ensure that <strong>JSON</strong> is the selected <strong>Key type</strong>. Upon clicking <strong>Create</strong>, a JSON file will be downloaded; this is important for later so keep a note of where you have downloaded it.
+<a href="/images/directory-connector/gsuite/create-service-account.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-service-account.png" />
+     </a></li>
+  <li>Click on <strong>Manage service accounts</strong> (on the right-hand side).
+<a href="/images/directory-connector/gsuite/click-manage-service-accounts.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/click-manage-service-accounts.png" />
+     </a></li>
+  <li>Select the options button next to your service account, and select <strong>Edit</strong>.
+<a href="/images/directory-connector/gsuite/edit-service-account.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/edit-service-account.png" />
+     </a></li>
+  <li>Check the box “Enable G Suite Domain-wide Delegation”, enter anything for “Product name for the consent screen” and click <strong>Save</strong>.
+<a href="/images/directory-connector/gsuite/tick-gsuite.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/tick-gsuite.png" />
+     </a></li>
+  <li>Click <strong>View Client ID</strong> and you’ll see the Client ID on screen. You will need the Client ID to configure security within GSuite. Highlight the Client ID and copy it to your clipboard.
+   <a href="/images/directory-connector/gsuite/view-client-id.png" target="_blank" rel="lightbox">
+        <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/view-client-id.png" />
+    </a>
+   <a href="/images/directory-connector/gsuite/copy-client-id.png" target="_blank" rel="lightbox">
+        <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/copy-client-id.png" />
+    </a></li>
+</ol>
+
+<h2 id="configure-gsuite-security">Configure GSuite Security</h2>
+
+<ol>
+  <li>Go to <a href="https://admin.google.com">https://admin.google.com</a></li>
+  <li>Open the navigation menu and navigate to <strong>Security</strong>.</li>
+  <li>Select the <strong>API reference</strong> option and make sure <strong>Enable API access</strong> is checked.
+<a href="/images/directory-connector/gsuite/enable-api-access.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/enable-api-access.png" />
+     </a></li>
+  <li>Back in the list of options, select <strong>Show more</strong> -&gt; <strong>Advanced settings</strong> -&gt; <strong>Manage API client access</strong>
+<a href="/images/directory-connector/gsuite/manage-api-access.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/manage-api-access.png" />
+     </a></li>
+  <li>For <strong>Client Name</strong>, paste the <strong>Client ID</strong> of the service account that you created in the previous steps. For <strong>API Scopes</strong>, paste the following values to grant read-only access to users and groups:
+    <pre>https://www.googleapis.com/auth/admin.directory.user.readonly,https://www.googleapis.com/auth/admin.directory.group.readonly,https://www.googleapis.com/auth/admin.directory.group.member.readonly</pre>
+  </li>
+  <li>Click the <strong>Authorize</strong> button to save.
+<a href="/images/directory-connector/gsuite/authorize-client.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/authorize-client.png" />
+     </a></li>
+  <li>You should now see your service account listed as an authorized client of G Suite.
+<a href="/images/directory-connector/gsuite/authorized-client-list.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/authorized-client-list.png" />
+     </a></li>
+</ol>
+
+<h2 id="configure-directory-connector">Configure Directory Connector</h2>
+
+<ol>
+  <li>Locate the secret key JSON file that was downloaded whenever you created your service account in the steps above.</li>
+  <li>Copy this file to the bitwarden Directory Connector program data folder at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector</code>.
+    <ul>
+      <li>Optionally rename the JSON file to something that is easier to remember, such as <code class="highlighter-rouge">client_secret.json</code></li>
+    </ul>
+  </li>
+  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
+  <li>Select option 3 (Configure directory connection) from the main menu.</li>
+  <li>Select <strong>GSuite Directory</strong> as the type.</li>
+  <li>Enter the name of the JSON file that you copied in step 2.</li>
+  <li>Enter the domain of your GSuite account.</li>
+  <li>Enter the email address of an admin user that has full access to the GSuite directory (such as your own).</li>
+</ol>
+
+<p>Congrats! You are done configuring GSuite with the bitwarden Directory Connector.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Test your configurations by running a simulated directory sync. You should see your GSuite groups and/or users printed to the screen.</p>
 
         </div>
         
@@ -216,10 +341,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495649649"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495655387"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495649649"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495655387"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
