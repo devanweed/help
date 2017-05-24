@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Security | bitwarden Help &amp; Support</title>
+    <title>I lost my two-step login (2FA) device | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -73,88 +73,47 @@
     </header>
 
     <content>
-        
-
-<div class="container">
+        <div class="container">
     <h1 class="page-header">
-        <i class="fa fa-folder-open-o"></i>
-        Security
+        <i class="fa fa-file-text-o"></i>
+        I lost my two-step login (2FA) device
     </h1>
-    <div class="row">
-        <div class="col-md-8 articles">
-            <ol>
-                
-                
-                <li><a href="/article/can-bitwarden-see-my-passwords/">Can the bitwarden team see my passwords?</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/password-salt-hash/">Does bitwarden use a salted hash for my password?</a></li>
-                
-                
-                
-                <li><a href="/article/cloud-server-security/">How do you keep the cloud servers secure?</a></li>
-                
-                
-                
-                <li><a href="/article/how-is-data-securely-transmitted-and-stored/">How is my data securely trasmitted and stored on bitwarden servers?</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/what-encryption-is-used/">What encryption is being used?</a></li>
-                
-                
-                
-                <li><a href="/article/what-happens-if-bitwarden-is-hacked/">What happens if bitwarden gets hacked?</a></li>
-                
-                
-                
-                <li><a href="/article/where-is-data-stored-cloud/">Where is my data stored in the cloud?</a></li>
-                
-                
-                
-                <li><a href="/article/where-is-data-stored-computer/">Where is my data stored on my computer/device?</a></li>
-                
-                
-                
-                <li><a href="/article/why-should-i-trust-bitwarden/">Why should I trust bitwarden with my passwords?</a></li>
-                
-                
-            </ol>
+    <div class="breadcrumb">
+        Category:
+        
+        <a href="/account-management">Account Management</a>
+        
+    </div>
+    <div class="panel panel-default article">
+        <div class="panel-body">
+            <p>If you have lost access to the device that you use for two-step login (2FA) you can recover your account using your two-step login <strong>recovery code</strong>. The recovery code is a 32 character alpha-numeric code that was given to you when you activated two-step login in the web vault. Visit <a href="https://vault.bitwarden.com/#/recover">https://vault.bitwarden.com/#/recover</a> to complete the recovery process.</p>
+
+<p>The recovery process will deactivate two-step login on the account so that you can log in without requiring the normal two-step login verification code. You will need to re-enable two-step login in the web vault if you wish to continue using it after recovering the account.</p>
+
+<p>If you do not have your recovery code, unfortunately there is no way to fully recover the account. The only option to gain access to the account again is to have the account deleted by <a href="https://bitwarden.com/contact">contacting bitwarden support</a>. Note that deleting the account will also delete all of your stored login data associated with the account. If you still have an active login session open in the browser extension you can export your data from <strong>Tools</strong> -&gt; <strong>Export</strong> so that you can import it back in after the account has been deleted and you have registered again.</p>
+
         </div>
-        <div class="col-md-4">
+        
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            two-step login, 2fa, two factor authentication, account
+        </div>
+        
+    </div>
+    <div class="row article-blocks">
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-rate">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Rate this article:</p>
+                    <div class="rw-ui-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
             <div class="panel panel-default panel-contact">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
@@ -170,6 +129,38 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function (d, t, e, m) {
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+            RW.init({
+                huid: "340409",
+                uid: "1a448820f2de881574e56e07bffdd7e8",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+
     </content>
 
     <footer>
