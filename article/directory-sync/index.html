@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495634075"
+    <link href="/css/styles.css?v=1495638229"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495634075"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495638229"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -110,6 +110,19 @@
 
 <p>You can install and run Directory Connector on the server that hosts your directory, an administrator’s machine, or any other windows-based device than can access the directory.</p>
 
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<ul>
+  <li><a href="#install">Install</a></li>
+  <li><a href="#log-in-to-your-bitwarden-organization-account">Log in to your bitwarden organization account</a></li>
+  <li><a href="#configure-the-directory-connection">Configure the directory connection</a></li>
+  <li><a href="#configure-sync-options">Configure sync options</a></li>
+  <li><a href="#manually-simulate-a-sync">Manually simulate a sync</a></li>
+  <li><a href="#perform-a-sync">Perform a sync</a></li>
+  <li><a href="#manage-the-background-service">Manage the background service</a></li>
+  <li><a href="#changing-configurations-manually">Changing configurations manually</a></li>
+</ul>
+
 <h3 id="install">Install</h3>
 
 <ol>
@@ -132,7 +145,7 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe -e -p [[-t] [-o]]
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe login -e -p [-t] [-o]
 </code></pre>
 </div>
 
@@ -141,37 +154,43 @@
     <tr>
       <th>Description</th>
       <th>Argument</th>
+      <th>Example Value</th>
       <th>Required</th>
-      <th>Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Email</td>
       <td>-e</td>
-      <td>y</td>
       <td>user@example.com</td>
+      <td>y</td>
     </tr>
     <tr>
       <td>Password</td>
       <td>-p</td>
-      <td>y</td>
       <td>mypassword123</td>
+      <td>y</td>
     </tr>
     <tr>
       <td>2FA Token</td>
       <td>-t</td>
-      <td>n</td>
       <td>381119</td>
+      <td>n</td>
     </tr>
     <tr>
       <td>Organization Id</td>
       <td>-o</td>
+      <td>acadad98-b666-498d-b89f-f220f21e453f</td>
       <td>n</td>
-      <td><code class="highlighter-rouge">acadad98-b666-498d-b89f-f220f21e453f</code></td>
     </tr>
   </tbody>
 </table>
+
+<p>You can also log out with the following command:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe logout
+</code></pre>
+</div>
 
 <h3 id="configure-the-directory-connection">Configure the directory connection</h3>
 
@@ -188,6 +207,163 @@
   </li>
 </ol>
 
+<p>Optionally, from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configdir -t [azure: -i -s -te] [gsuite: -f -u [-d] [-c]] [ad/ldap: -a -path [-port] [-cu] [-u] [-p]]
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>-t</td>
+      <td>1</td>
+      <td>y</td>
+      <td>AD = 0, Azure = 1, Other = 2, GSuite = 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="azure">Azure</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Application Id</td>
+      <td>-i</td>
+      <td>0f82b419-c5b3-4b63-8afc-67d240da85a6</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Secret Key</td>
+      <td>-s</td>
+      <td>c2VjcmV0X2tleQ==</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Tenant</td>
+      <td>-te</td>
+      <td>mycompany.onmicrosoft.com</td>
+      <td>y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="gsuite">GSuite</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Secret File</td>
+      <td>-f</td>
+      <td>client_secret.json</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Admin User</td>
+      <td>-u</td>
+      <td>admin@company.com</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Domain</td>
+      <td>-d</td>
+      <td>company.com</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Customer Id</td>
+      <td>-c</td>
+      <td>39204722352</td>
+      <td>n</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="active-directory--other-ldap">Active Directory / Other LDAP</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Address</td>
+      <td>-a</td>
+      <td>company.local</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Port</td>
+      <td>-port</td>
+      <td>389</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Root Path</td>
+      <td>-path</td>
+      <td>DC=company,DC=local</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>Current User</td>
+      <td>-cu</td>
+      <td>n/a</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td>-u</td>
+      <td>admin@company.com</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>-p</td>
+      <td>mypassword</td>
+      <td>n</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Any sensitive information such as secret keys and server passwords are encrypted and stored locally in the settings file.</p>
+
+        </div>
+
 <h3 id="configure-sync-options">Configure sync options</h3>
 
 <ol>
@@ -195,6 +371,12 @@
   <li>Select option 4 (Configure sync) from the main menu.</li>
   <li>Step through and set each sync configuration setting. Some settings are dependent on the type of directory connection you are using.</li>
 </ol>
+
+<p>Optionally, from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gf] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-c] [-r]]
+</code></pre>
+</div>
 
 <h3 id="manually-simulate-a-sync">Manually simulate a sync</h3>
 
@@ -206,12 +388,24 @@
   <li>Review the results that are printed in the console window for accuracy.</li>
 </ol>
 
+<p>Optionally, from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sim
+</code></pre>
+</div>
+
 <h3 id="perform-a-sync">Perform a sync</h3>
 
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
   <li>Select option 6 (Sync directory) from the main menu.</li>
 </ol>
+
+<p>Optionally, from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sync
+</code></pre>
+</div>
 
 <h3 id="manage-the-background-service">Manage the background service</h3>
 
@@ -222,6 +416,37 @@
   <li>Select option 7 (Control background service) from the main menu.</li>
   <li>Select the option you wish to perform: Start, Stop, or Check Status.</li>
 </ol>
+
+<p>Optionally, from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe service [-start] [-stop]
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Argument</th>
+      <th>Example Value</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>-start</td>
+      <td>n/a</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>Stop</td>
+      <td>-stop</td>
+      <td>n/a</td>
+      <td>n</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -241,7 +466,7 @@
   </li>
 </ol>
 
-<div class="callout callout-default">
+<div class="callout callout-success">
             <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
             
 <p>You can configure the bitwarden Directory Connector to run automatically each time the machine starts. Use the windows service manager to set the bitwarden Directory Connector service to “Startup type: Automatic”.</p>
@@ -387,10 +612,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495634075"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495638229"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495634075"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495638229"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
