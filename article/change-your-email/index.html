@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495642170"
+    <link href="/css/styles.css?v=1495645039"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495642170"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495645039"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -243,10 +243,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495642170"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495645039"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495642170"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495645039"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
@@ -256,7 +256,7 @@
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-81915606-10', 'auto');
@@ -271,11 +271,27 @@
         }
 
         $(function () {
-            $('a[rel="lightbox"]').fluidbox();
+            var lightboxOpen = false,
+                lightboxSelector = 'a[rel="lightbox"]';
+
+            $(lightboxSelector)
+                .on('openstart.fluidbox', function () {
+                    lightboxOpen = true;
+                })
+                .on('closestart.fluidbox', function () {
+                    lightboxOpen = false;
+                })
+                .fluidbox();
 
             $(document).keydown(function (e) {
-                if (e.keyCode === 27) {
-                    $('a[rel="lightbox"]').trigger('close.fluidbox');
+                if (lightboxOpen && e.keyCode === 27) {
+                    $(lightboxSelector).trigger('close.fluidbox');
+                }
+            });
+
+            $(window).scroll(function () {
+                if (lightboxOpen) {
+                    $(lightboxSelector).trigger('close.fluidbox');
                 }
             });
 
