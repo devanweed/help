@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495630661"
+    <link href="/css/styles.css?v=1495634075"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495630661"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495634075"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -178,6 +178,14 @@
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
   <li>Select option 3 (Configure directory connection) from the main menu.</li>
+  <li>Select the type of directory server you are configuring.</li>
+  <li>Step through and set each configuration setting for the directory server type that you selected in step 3. The settings are different for each type of directory. You can read more about setting up each type of directory connection in the articles below:
+    <ul>
+      <li>Active Directory &amp; Other LDAP-based directories</li>
+      <li>Azure Active Directory</li>
+      <li>GSuite (Google)</li>
+    </ul>
+  </li>
 </ol>
 
 <h3 id="configure-sync-options">Configure sync options</h3>
@@ -185,13 +193,17 @@
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
   <li>Select option 4 (Configure sync) from the main menu.</li>
+  <li>Step through and set each sync configuration setting. Some settings are dependent on the type of directory connection you are using.</li>
 </ol>
 
 <h3 id="manually-simulate-a-sync">Manually simulate a sync</h3>
 
+<p>You can simulate a directory sync in order to check that all of your configuration settings are setup and working as expected. A sync simulation will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your bitwarden organization whenever a real sync is invoked.</p>
+
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
   <li>Select option 5 (Simulate directory sync) from the main menu.</li>
+  <li>Review the results that are printed in the console window for accuracy.</li>
 </ol>
 
 <h3 id="perform-a-sync">Perform a sync</h3>
@@ -203,13 +215,49 @@
 
 <h3 id="manage-the-background-service">Manage the background service</h3>
 
+<p>The background service allows sync operations to run in the background based on the interval set in your sync configuration.</p>
+
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
   <li>Select option 7 (Control background service) from the main menu.</li>
+  <li>Select the option you wish to perform: Start, Stop, or Check Status.</li>
 </ol>
 
-<h3 id="changing-configurations">Changing configurations</h3>
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>The application must be run in administrator mode to be able to manage the background service.</p>
 
+        </div>
+
+<p>Alternatively, you can also manage the background service from the windows service manager window.</p>
+
+<ol>
+  <li>Open the windows start menu.</li>
+  <li>Search for “Services” and select the Services application.
+    <ul>
+      <li>If you do not find the “Services” application by searching, you can also open it from the “Run” window by typing <code class="highlighter-rouge">services.msc</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="callout callout-default">
+            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
+            
+<p>You can configure the bitwarden Directory Connector to run automatically each time the machine starts. Use the windows service manager to set the bitwarden Directory Connector service to “Startup type: Automatic”.</p>
+
+        </div>
+
+<h3 id="changing-configurations-manually">Changing configurations manually</h3>
+
+<p>All configuration data is saved to a <code class="highlighter-rouge">.json</code> configuration file stored on the local computer. No configuration data in synced to bitwarden servers. You can find the configuration file in it’s default location at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector/settings.json</code>. Any changes that you make directory to the configuration file will require you to restart the application (if it is currently running).</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Some configuration data that is stored in the settings file, such as LDAP server credentials, is encrypted. Therefore, you cannot edit it directly in this file. Any encrypted data must be managed through the application normally.</p>
+
+        </div>
 
         </div>
         
@@ -339,10 +387,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495630661"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495634075"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495630661"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495634075"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
