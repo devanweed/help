@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495680102"
+    <link href="/css/styles.css?v=1495714478"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495680102"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495714478"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -90,9 +90,63 @@
 
 <p>The syntax for filtering is different for each directory server type and is covered in detail below.</p>
 
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#active-directory-and-other-ldap-directories">Active Directory and Other LDAP Directories</a></li>
+  <li><a href="#azure-active-directory">Azure Active Directory</a></li>
+  <li><a href="#g-suite">G Suite</a></li>
+</ul>
+
 <h2 id="active-directory-and-other-ldap-directories">Active Directory and Other LDAP Directories</h2>
 
-<p>Coming soon…</p>
+<p>The group and user filters can be in the form of any LDAP compatible search filter. Additionally, Active Directory provides a few more advanced options as well as a few limitations when writing search filters as opposed to other more standard LDAP directories. You can read more about writing LDAP search filters here: <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa746475(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/aa746475(v=vs.85).aspx</a></p>
+
+<h4 id="examples">Examples</h4>
+
+<p>Search for all entries that have objectClass=user AND cn that contains the word ‘Marketing’.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectClass=user)(cn=*Marketing*))
+</code></pre>
+</div>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Active Directory does not implement extensible matching, the following examples won’t work with it.</p>
+
+        </div>
+
+<p>Find entries with an OU component of their DN which is either ‘Miami’ or ‘Orlando’.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(|(ou:dn:=Miami)(ou:dn:=Orlando))
+</code></pre>
+</div>
+
+<p>To exclude entities which match an expression, use ‘!’. Find all Chicago entries except those with a Wrigleyville OU component.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(ou:dn:=Chicago)(!(ou:dn:=Wrigleyville)))
+</code></pre>
+</div>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>These examples are written for Active Directory. In order to use them for something such as OpenLDAP the attributes will need to be changed.</p>
+
+        </div>
+
+<p>Users in the ‘Heroes’ group</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf=cn=Heroes,ou=users,dc=company,dc=com))
+</code></pre>
+</div>
+
+<p>Users that are a member of the ‘Heroes’ group, either directly or via nesting</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf:1.2.840.113556.1.4.1941:=cn=Heroes,ou=users,dc=company,dc=com))
+</code></pre>
+</div>
 
 <h2 id="azure-active-directory">Azure Active Directory</h2>
 
@@ -112,7 +166,7 @@
 
 <p>The G Suite APIs do not provide a way to filter groups directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names.</p>
 
-<h4 id="examples">Examples</h4>
+<h4 id="examples-1">Examples</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
 </code></pre>
@@ -130,7 +184,7 @@
 
 <p>You can combine both of these filtering options by concatenating the two strings with a pipe (<code class="highlighter-rouge">|</code>);</p>
 
-<h4 id="examples-1">Examples</h4>
+<h4 id="examples-2">Examples</h4>
 
 <p>Only the include/exclude filter:</p>
 
@@ -278,10 +332,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495680102"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495714478"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495680102"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495714478"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
