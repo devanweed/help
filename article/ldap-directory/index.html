@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495714478"
+    <link href="/css/styles.css?v=1495718864"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495714478"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495718864"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -86,7 +86,199 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
+            <p>An LDAP directory is a collection of data about users and groups. LDAP (Lightweight Directory Access Protocol) is an Internet protocol that web applications can use to look up information about those users and groups from the LDAP server.</p>
+
+<p>We provide built-in connectors for the most popular LDAP directory servers, such as:</p>
+
+<ul>
+  <li>Microsoft Active Directory</li>
+  <li>Apache Directory Server (ApacheDS)</li>
+  <li>Apple Open Directory</li>
+  <li>Fedora Directory Server</li>
+  <li>Novell eDirectory</li>
+  <li>OpenDS</li>
+  <li>OpenLDAP</li>
+  <li>Sun Directory Server Enterprise Edition (DSEE)</li>
+  <li>A generic LDAP directory server</li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
+  <li>Install bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your bitwarden account and select your enterprise organization</li>
+</ul>
+
+<h2 id="connecting-to-the-ldap-server">Connecting to the LDAP Server</h2>
+
+<ol>
+  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
+  <li>Select option 3 (Configure directory connection) from the main menu.</li>
+  <li>Select the type of directory server you are configuring. In this case, either <strong>Active Directory</strong> or <strong>Other LDAP Directory</strong>.</li>
+</ol>
+
+<p>The following options can be set:</p>
+
+<div class="table-responsive">
             
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Address</td>
+      <td>The host name of your directory server.</td>
+      <td><code class="highlighter-rouge">ad.company.com</code> or <code class="highlighter-rouge">ldap.company.local</code></td>
+    </tr>
+    <tr>
+      <td>Port</td>
+      <td>The port on which your directory server is listening.</td>
+      <td>389 or 10389</td>
+    </tr>
+    <tr>
+      <td>Path</td>
+      <td>The root path at which the Directory Connector should start all queries.</td>
+      <td><code class="highlighter-rouge">cn=users,dc=ad,dc=company,dc=com</code></td>
+    </tr>
+    <tr>
+      <td>Current user</td>
+      <td>Authenticate to the directory server as the currently logged in user. For Active Directory, the user should be a member of the built-in administrators group.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td>The distinguished name of an administrative user that the application will use when connecting to the directory server. For Active Directory, the user should be a member of the built-in administrators group.</td>
+      <td><code class="highlighter-rouge">cn=admin,cn=users,dc=ad,dc=company,dc=com</code> or <code class="highlighter-rouge">admin@company.com</code></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>The password of the user specified above. Note that the password is safely encrypted before being stored for the application, however, to better guarantee its security, you should ensure that other processes do not have OS-level read permissions for this application’s settings files.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+
+<h2 id="configuring-sync-settings">Configuring Sync Settings</h2>
+
+<ol>
+  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
+  <li>Select option 4 (Configure sync) from the main menu.</li>
+  <li>Step through and set each sync configuration setting.</li>
+</ol>
+
+<div class="table-responsive">
+            
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sync Groups</td>
+      <td>Sync groups to your organization.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Sync Users</td>
+      <td>Sync users to your organization.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Sync Interval</td>
+      <td>When using the background service, the interval, in minutes, that you wish to automatically sync.</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>User Filter</td>
+      <td>A filter for limiting the users that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
+      <td>(&amp;(objectClass=user))</td>
+    </tr>
+    <tr>
+      <td>Group Filter</td>
+      <td>A filter for limiting the groups that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
+      <td>(&amp;(objectClass=group))</td>
+    </tr>
+    <tr>
+      <td>Remove Disabled</td>
+      <td>When a user is disabled in the directory, should they also be removed from your bitwarden organization?</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Group Object Class</td>
+      <td>The name of the class used for the LDAP group object.</td>
+      <td>group</td>
+    </tr>
+    <tr>
+      <td>User Object Class</td>
+      <td>The name of the class used for the LDAP user object.</td>
+      <td>user</td>
+    </tr>
+    <tr>
+      <td>Group Path</td>
+      <td>This value is used in addition to the root path when searching and loading groups. If no value is supplied, the subtree search will start from the root path.</td>
+      <td>ou=Groups</td>
+    </tr>
+    <tr>
+      <td>User Path</td>
+      <td>This value is used in addition to the root path when searching and loading users. If no value is supplied, the subtree search will start from the root path.</td>
+      <td>ou=Users</td>
+    </tr>
+    <tr>
+      <td>Group Name Attribute</td>
+      <td>The attribute field to use when loading the group name.</td>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td>User Email Attribute</td>
+      <td>The attribute field to use when loading the user email address.</td>
+      <td>mail</td>
+    </tr>
+    <tr>
+      <td>Member Attribute</td>
+      <td>The attribute field to use when loading the group’s members.</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <td>Use Email Prefix/Suffix</td>
+      <td>Email addresses are required by bitwarden. If your directory users do not have email addresses they will be skipped. Alternatively, you can specify that users without an email address use a prefix attribute and suffix to attempt to form a valid email address.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Email Prefix Attribute</td>
+      <td>The attribute field to use when forming a user’s email address from the prefix/suffix setting.</td>
+      <td>sAMAccountName</td>
+    </tr>
+    <tr>
+      <td>Email Suffix</td>
+      <td>The specified suffix to use when forming a user’s email address from the prefix/suffix setting.</td>
+      <td>@company.com</td>
+    </tr>
+    <tr>
+      <td>Creation Date Attribute</td>
+      <td>The attribute field that specifies when an entry was created.</td>
+      <td>whenCreated</td>
+    </tr>
+    <tr>
+      <td>Revision Date Attribute</td>
+      <td>The attribute field that specifies when an entry was changed.</td>
+      <td>whenChanged</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
 
         </div>
         
@@ -216,10 +408,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495714478"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495718864"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495714478"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495718864"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
