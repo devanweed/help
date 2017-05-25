@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1495679790"
+    <link href="/css/styles.css?v=1495679986"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495679790"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1495679986"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -174,7 +174,7 @@
           "title": "Configuring user and group sync filters",
           "categories": "Organizations",
           "tags": "",
-          "content": "You can configure the bitwarden Directory Connector to use filters to limit the users and/or groups that are processed for syncing to your bitwarden organization.The syntax for filtering is different for each directory server type and is covered in detail below.Active Directory and Other LDAP DirectoriesComing soon…Azure Active DirectoryThe Microsoft Graph API provides advanced filtering capabilities through the $filter parameter using OData syntax. This parameter is exposed to you in both the user and group filters of the Directory Connector.Read more about the $filter parameter with OData syntax here: https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#filterExamplestartswith(displayName,'J')G SuiteGroupsThe G Suite APIs do not provide a way to filter groups directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names.Examplesinclude:Group A,Sales People,My Other Groupexclude:Group C,Developers,Some Other GroupUsersWe provide the same custom filtering syntax that allows you to exclude or include a comma separated list of user emails.Additionally, the G Suite APIs provide limited filtering capabilities for users that are exposed to you. Read more about filtering with the query parameter here: https://developers.google.com/admin-sdk/directory/v1/guides/search-usersYou can combine both of these filtering options by concatenating the two strings with a pipe (|);ExamplesOnly the include/exclude filter:include:joe@company.com,bill@company.com,tom@company.comAn include/exclude filter + a G Suite query search:exclude:john@company.com,bill@company.com|orgName=Engineering orgTitle:ManagerOnly the G Suite query search:|orgName=Engineering orgTitle:Manager",
+          "content": "You can configure the bitwarden Directory Connector to use filters to limit the users and/or groups that are processed for syncing to your bitwarden organization.The syntax for filtering is different for each directory server type and is covered in detail below.Active Directory and Other LDAP DirectoriesComing soon…Azure Active DirectoryThe Microsoft Graph API provides advanced filtering capabilities through the $filter parameter using OData syntax. This parameter is exposed to you in both the user and group filters of the Directory Connector.Read more about the $filter parameter with OData syntax here: https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#filterExamplestartswith(displayName,'J')G SuiteGroupsThe G Suite APIs do not provide a way to filter groups directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names.Examplesinclude:Group A,Sales People,My Other Groupexclude:Group C,Developers,Some Other GroupUsersWe provide the same custom filtering syntax that allows you to exclude or include a comma separated list of user emails.Additionally, the G Suite APIs provide limited filtering capabilities for users that are exposed to you. Read more about filtering with the query parameter here: https://developers.google.com/admin-sdk/directory/v1/guides/search-usersYou can combine both of these filtering options by concatenating the two strings with a pipe (|);ExamplesOnly the include/exclude filter:include:joe@company.com,bill@company.com,tom@company.comAn include/exclude filter + a G Suite query search:exclude:john@company.com,bill@company.com|orgName=Engineering orgTitle:ManagerOnly the G Suite query search (notice the | prefix that is required):|orgName=Engineering orgTitle:Manager",
         "url": "/article/user-group-filters/"
       }
     ,
@@ -512,10 +512,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495679790"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1495679986"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495679790"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1495679986"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
