@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>What happens if bitwarden gets hacked? | bitwarden Help &amp; Support</title>
+    <title>Import your data from another application | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,26 +76,82 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        What happens if bitwarden gets hacked?
+        Import your data from another application
     </h1>
     <div class="breadcrumb">
         Category:
         
-        <a href="/security">Security</a>
+        <a href="/getting-started">Getting Started</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden takes extreme measures to ensure that its websites, application, and cloud servers are secure. Part of this security comes from the fact that <a href="/article/cloud-server-security/">we rely on managed services and do not manage our cloud server infrastructure at all</a>.</p>
+            <p>You can very easily import your data from an array of different password manager applications. bitwarden supports importing data from the following sources:</p>
 
-<p>However, if for some reason bitwarden were to get hacked and your data was exposed, your information is still protected. This is because bitwarden uses strong encryption and one-way salted hashing. As long as you use a strong master password, your data is safe no matter who gets hold of it.</p>
+<ul>
+  <li>bitwarden (csv)</li>
+  <li><a href="/article/import-from-1password/">1Password (1pif)</a></li>
+  <li>1Password 6 Windows (csv)</li>
+  <li>Ascendo DataVault (csv)</li>
+  <li>Avira (json)</li>
+  <li><a href="/article/import-from-chrome/">Chrome (csv)</a></li>
+  <li>Clipperz (html)</li>
+  <li>Dashlane (csv)</li>
+  <li>Enpass (csv)</li>
+  <li>Firefox Password Exporter (xml)</li>
+  <li>KeePass 2 (xml)</li>
+  <li>KeePassX (csv)</li>
+  <li>Keeper (csv)</li>
+  <li><a href="/article/import-from-lastpass/">LastPass (csv)</a></li>
+  <li>Meldium (csv)</li>
+  <li>mSecure (csv)</li>
+  <li><a href="/article/import-from-chrome/">Opera (csv)</a></li>
+  <li>Padlock (csv)</li>
+  <li>PassKeep (csv)</li>
+  <li>Password Boss (json)</li>
+  <li>Password Dragon (xml)</li>
+  <li>Password Safe (xml)</li>
+  <li>RoboForm (html)</li>
+  <li>SafeInCloud (xml)</li>
+  <li>SaferPass (csv)</li>
+  <li>SplashID (csv)</li>
+  <li>Sticky Password (xml)</li>
+  <li>True Key (csv)</li>
+  <li>Universal Password Manager (csv)</li>
+  <li><a href="/article/import-from-chrome/">Vivaldi (csv)</a></li>
+  <li>Zoho Vault (csv)</li>
+</ul>
+
+<p>To import your data, log into the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a> and navigate to <strong>Tools</strong> &gt; <strong>Import Data</strong>. Instructions for importing from each source are available after selecting the desired file format from the dropdown menu.</p>
+
+<h2 id="generic-csv-format">Generic CSV Format</h2>
+
+<p>Alternatively you can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file using the generic bitwarden format. Create a UTF-8 encoded plaintext file with the following format:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite
+</code></pre>
+</div>
+
+<p>The above header must be the first line in the file. An example file may look like the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite
+Twitter,https://twitter.com,hello@bitwarden.com,password123,,Social,1
+EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,
+My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,,
+</code></pre>
+</div>
+
+<p><a href="/files/bitwarden_export.csv"><i class="fa fa-download"></i> Download example</a></p>
+
+<p>When importing from this format, select the <strong>bitwarden (csv)</strong> file format option from the dropdown menu.</p>
+
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            hacked
+            import
         </div>
         
     </div>
