@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>How do you keep the cloud servers secure? | bitwarden Help &amp; Support</title>
+    <title>Extension won't load in Firefox Private Browsing mode | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,24 +76,41 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        How do you keep the cloud servers secure?
+        Extension won't load in Firefox Private Browsing mode
     </h1>
     <div class="breadcrumb">
         Category:
         
-        <a href="/security">Security</a>
+        <a href="/miscellaneous">Miscellaneous</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden processes and stores all data securely in the <a href="https://en.wikipedia.org/wiki/Microsoft_Azure" target="_blank">Microsoft Azure cloud</a> using services that are managed by the team at Microsoft. Since bitwarden only uses service offerings provided by Azure, there is no server infrastructure to manage and maintain. All uptime, scalability, and security updates and guarantees are backed by Microsoft and their cloud infrastructure.</p>
+            <p>The bitwarden browser extension does not function in Firefox Private Browsing mode. You will see a blank screen when opening the popup window in Private Browsing mode. This is a known issue specific only to Firefox. We have discussed the problem with Mozilla, however, they seem unwilling to fix it.</p>
+
+<p>As a workaround, if you are looking to auto-fill a login while in Firefox Private Browsing you can use the right-click context menu:</p>
+
+<ol>
+  <li>Navigate to the website’s login page in Firefox Private Browsing.</li>
+  <li>Right click the page. A context menu will appear.</li>
+  <li>Select <strong>bitwarden -&gt; Auto-fill -&gt; [your login]</strong>.</li>
+</ol>
+
+<p>Alternatively, you can also copy/paste your login credentials by accessing your vault from the regular, non-private browsing mode.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>GitHub discussion: <a href="https://github.com/bitwarden/browser/issues/136">https://github.com/bitwarden/browser/issues/136</a></li>
+  <li>Firefox Bugzilla report: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1329304">https://bugzilla.mozilla.org/show_bug.cgi?id=1329304</a></li>
+</ul>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            cloud, azure
+            firefox, extension, private mode, private browsing
         </div>
         
     </div>
