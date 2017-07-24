@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Auto-fill logins on Android | bitwarden Help &amp; Support</title>
+    <title>Set up two-step login with Duo Security | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -76,63 +76,116 @@
         <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Auto-fill logins on Android
+        Set up two-step login with Duo Security
     </h1>
     <div class="breadcrumb">
-        Category:
+        Categories:
         
-        <a href="/miscellaneous">Miscellaneous</a>
+        <a href="/getting-started">Getting Started</a>, 
+        
+        <a href="/account-management">Account Management</a>
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can use the bitwarden Android app to add new and auto-fill existing logins on the web and in other apps.</p>
+            <p>bitwarden has partnered with Duo Security to bring two-factor authentication to bitwarden logins, complete with <a href="https://guide.duo.com/enrollment" target="_blank">inline self-service enrollment</a> and <a href="https://guide.duo.com/prompt" target="_blank">authentication prompt</a> (offering SMS, phone call, U2F security keys, and push notifications with the Duo Mobile app).</p>
 
-<h2 id="enabling-the-service">Enabling the service</h2>
+<h2 id="overview">Overview</h2>
 
-<ol>
-  <li>Open the bitwarden Android app.</li>
-  <li>Tap <strong>Tools</strong> -&gt; <strong>bitwarden Auto-fill Service</strong>. Status <em>Disabled</em> will appear.</li>
-  <li>Tap <strong>Open Accessibility Settings</strong>.</li>
-  <li>Locate <strong>bitwarden</strong> from the list and enable it.</li>
-</ol>
+<p>This article takes you through configuring your bitwarden Premium account to use Duo two-factor authentication services. You’ll sign up for a Duo account, configure bitwarden to use your new Duo account, and enroll your bitwarden account and your device for use with Duo’s service.</p>
 
-<p>Auto-fill is context-sensitive. This means that the bitwarden auto-fill icon, and notification will only appear when the app detects a login form. You can change the way auto-fill behaves by navigating to <strong>Settings</strong> -&gt; <strong>Features</strong> -&gt; <strong>Auto-fill</strong>.</p>
+<p>Once you complete this process, Duo Security’s two-factor authentication platform protects access to your bitwarden data by requiring two-step approval when logging in to your bitwarden vault.</p>
 
-<h2 id="testing-auto-fill">Testing auto-fill</h2>
+<h2 id="create-a-duo-security-account">Create a Duo Security Account</h2>
+
+<p>A Duo account is required to use this feature. A Duo account <a href="https://duo.com/pricing" target="_blank">for up to 10 users</a> can be created for free.</p>
 
 <ol>
-  <li>Open an app that has not been signed in to.</li>
-  <li>View the login page for the app. A bitwarden auto-fill notification will appear in the notification bar.</li>
-  <li>Open the notification drawer and tap the <strong>bitwarden Auto-fill Service</strong> notification. Your vault will display all possible matching logins. If you do not see the login you are looking for you may need to manually search for it by tapping the search icon. <i class="fa fa-search"></i></li>
-  <li>Tap the appropriate login from the list. Your username and password will be auto-filled.</li>
+  <li>If you do not already have one, sign up for a new Duo account at <a href="https://signup.duo.com/" target="_blank">https://signup.duo.com/</a></li>
+  <li>Log in to the Duo Admin panel with your Duo account at <a href="https://admin.duosecurity.com/login" target="_blank">https://admin.duosecurity.com/login</a></li>
+  <li>In the left menu, navigate to <strong>Applications</strong>, then click the <strong>Protect an Application</strong> button.</li>
+  <li>Find the <strong>Web SDK</strong> application and click the <strong>Protect this Application</strong> button.</li>
+  <li>Note the <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong> details. We will need to reference these later when configuring bitwarden.
+<a href="/images/two-step/duo/application-details.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/application-details.png" />
+     </a></li>
 </ol>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="get-the-duo-mobile-app">Get the Duo Mobile App</h2>
 
-<p><strong>1. The bitwarden Auto-fill Service keeps getting disabled</strong></p>
-
-<p>Android may turn off the bitwarden Auto-fill Service to optimize battery life. To resolve this you can either:
-- Tell Android to ignore battery optimization for the bitwarden app; or
-- Manually turn on the bitwarden Auto-fill Service each time</p>
-
-<p><strong>2. The auto-fill notification does not appear when I visit a login page in my web browser.</strong></p>
-
-<p>This is a currently a known issue with the following browsers:</p>
+<p>It is recommended to install the free <a href="https://duo.com/product/trusted-users/two-factor-authentication/duo-mobile" target="_blank">Duo Mobile</a> app if you want to take advantage of quickly logging in with push notifications. This is optional, however, since Duo also supports SMS, phone calls, and U2F security keys.</p>
 
 <ul>
-  <li>Firefox for Android</li>
-  <li>Samsung Internet Browser</li>
+  <li>iOS: <a href="https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8" target="_blank">Download on the App Store</a></li>
+  <li>Android: <a href="https://play.google.com/store/apps/details?id=com.duosecurity.duomobile" target="_blank">Download on Google Play</a></li>
 </ul>
 
-<p>Android has many web browsers. It can be hard to keep up with them all. We have to add support for each browser individually. If auto-fill does not work and your browser is not listed above please report it at <a href="https://github.com/bitwarden/mobile/issues">https://github.com/bitwarden/mobile/issues</a> so that we can add support.</p>
+<h2 id="enable-two-step-login-with-duo">Enable Two-step Login with Duo</h2>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your two-step login <strong>recovery code</strong> in a safe place in the event that you lose access to your normal two-step login methods.</p>
+
+        </div>
+
+<ol>
+  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a>.</li>
+  <li>Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
+  <li>Select the <strong>Duo</strong> option and then type in your master password to continue.
+<a href="/images/two-step/duo/select.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/select.png" />
+     </a></li>
+  <li>Enter the configuration information provided from the Duo Admin <strong>Web SDK</strong> application that was set up earlier: <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong>.
+<a href="/images/two-step/duo/config.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/config.png" />
+     </a></li>
+  <li>Click <strong>Save</strong> to enable Duo.</li>
+  <li>Click the <strong>Close</strong> button and confirm that the Duo option now shows as <strong>Enabled</strong>.
+<a href="/images/two-step/duo/enabled.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/enabled.png" />
+     </a></li>
+</ol>
+
+<h2 id="log-in-enroll-and-test">Log In, Enroll, and Test</h2>
+
+<ol>
+  <li>Log out of the bitwarden web vault.</li>
+  <li>Log back into the bitwarden web vault. You should now be prompted with a Duo two-step login option.</li>
+  <li>Upon your first login using Duo you may be prompted to enroll your bitwarden account and device(s) with Duo. Complete the Duo enrollment process following the on-screen instructions.
+<a href="/images/two-step/duo/enroll1.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/enroll1.png" />
+     </a>
+<a href="/images/two-step/duo/enroll2.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/enroll2.png" />
+     </a></li>
+  <li>After enrolling you can log in with Duo.
+<a href="/images/two-step/duo/login.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/login.png" />
+     </a></li>
+  <li>
+    <p>Duo security protection working with all bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other bitwarden applications that you are using to confirm that Duo is properly working. You will eventually be logged out automatically.</p>
+
+    <p>Browser extension
+<a href="/images/two-step/duo/browser.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/browser.png" />
+     </a></p>
+
+    <p>Mobile
+<a href="/images/two-step/duo/android.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/android.png" />
+     </a></p>
+  </li>
+</ol>
+
+<p>Congratulations! Your bitwarden account is now protected by two-step login with Duo Security.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            android, autofill, auto-fill
+            two-step login, 2fa, two factor authentication, account, duo, sms
         </div>
         
     </div>
