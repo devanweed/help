@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1500985899"
+    <link href="/css/styles.css?v=1501070338"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1500985899"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1501070338"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -88,42 +88,19 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Two-step login (or two-factor authentication) greatly increases the security of your account by requiring you to enter (in addition to your master password) a verification code generated from another app each time you log in. We recommend that all users activate and use two-step login with their bitwarden account.</p>
+            <p>Two-step login (or two-factor authentication) greatly increases the security of your account by requiring you to complete a secondary step while logging into bitwarden (in addition to your master password). Even if someone were to discover your master password, they could not log into your bitwarden account without access to the secondary step. You can read more about <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="_blank">two-step login here</a>. We recommend that all users activate and use two-step login with their bitwarden account.</p>
 
-<p>bitwarden supports two-step login by using a third-party authenticator app such as <a href="https://authy.com/">Authy</a> or <a href="https://support.google.com/accounts/answer/1066447?hl=en">Google Authenticator</a>. Two-step login can only be configured from the <a href="https://vault.bitwarden.com">web vault</a>.</p>
+<p>bitwarden supports two-step login using the following methods:</p>
 
-<h2 id="enable-two-step-login">Enable Two-step Login</h2>
+<ul>
+  <li>Authenticator app such as <a href="https://authy.com/" target="_blank">Authy</a> or <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a>, <a href="/article/setup-two-step-login-authenticator/">→ setup</a></li>
+  <li>Email, <a href="/article/setup-two-step-login-email/">→ setup</a></li>
+  <li>Duo Security with Duo Push, SMS, phone call, and U2F security keys, <a href="/article/setup-two-step-login-duo/">→ setup</a></li>
+  <li>YubiKey (any 4 series device or YubiKey NEO), <a href="/article/setup-two-step-login-yubikey/">→ setup</a></li>
+  <li>FIDO U2F (any FIDO U2F certified key), <a href="/article/setup-two-step-login-u2f/">→ setup</a></li>
+</ul>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your two-step login <strong>recovery code</strong> in a safe place in the event that you lose access to your authenticator app (see below for details).</p>
-
-        </div>
-
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Settings</strong> on the sidebar</li>
-  <li>Click <strong>Manage Two-step Log in</strong> under the <strong>Two-step Log In</strong> panel</li>
-  <li>Type in your current password and click <strong>Continue</strong></li>
-  <li>Follow the steps that appear
-    <ul>
-      <li>Download a two-step verification app (usually on your mobile device). We recommend <a href="https://authy.com/" target="_blank">Authy</a>.</li>
-      <li>Scan the QR code with the verification app.</li>
-      <li>Enter the verification code from the app.</li>
-    </ul>
-  </li>
-  <li>Click <strong>Enable Two-step</strong>. Note:
-    <ul>
-      <li>A green alert will appear at the top stating that two-step login has been enabled; and</li>
-      <li><strong>Very Important</strong>: An orange alert will appear at the bottom with a recovery code. DO NOT IGNORE THIS.</li>
-    </ul>
-  </li>
-  <li>Print or write down the recovery code and store it in a safe place. This code is <strong>REQUIRED</strong> to restore your account in the event that you lose access to your verification app (ex. your phone is lost). If you lose access to your verification app and do not have your recovery code, bitwarden support will not be able to assist you in recovering your account. The only option will be to delete your account and start over.</li>
-  <li>Click <strong>Close</strong> and then <strong>Log Out</strong></li>
-  <li>Log in to confirm that two-step verification is enabled and working</li>
-  <li>Log out of and back in to any other bitwarden applications that you are using. You will eventually be logged out automatically.</li>
-</ol>
+<p>You can enable multiple two-step login methods. If you have multiple two-step login methods enabled, the order of preference for the default method that is displayed while logging in is as follows: FIDO U2F → YubiKey → Duo → Authenticator app → Email. You can manually switch to and use any method during login, however.</p>
 
         </div>
         
@@ -258,10 +235,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1500985899"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1501070338"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1500985899"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1501070338"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Organizations | bitwarden Help &amp; Support</title>
+    <title>Set up two-step login with an authenticator app | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -73,114 +73,76 @@
     </header>
 
     <content>
-        
-
-<div class="container">
+        <div class="container">
     <h1 class="page-header">
-        <i class="fa fa-folder-open-o"></i>
-        Organizations
+        <i class="fa fa-file-text-o"></i>
+        Set up two-step login with an authenticator app
     </h1>
-    <div class="row">
-        <div class="col-md-8 articles">
-            <ol>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/collections/">Collections</a></li>
-                
-                
-                
-                <li><a href="/article/ldap-directory/">Configuring directory sync with Active Directory or other LDAP servers</a></li>
-                
-                
-                
-                
-                
-                <li><a href="/article/gsuite-directory/">Configuring directory sync with G Suite (Google)</a></li>
-                
-                
-                
-                <li><a href="/article/user-group-filters/">Configuring user and group sync filters</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/managing-users/">Managing users for your organization</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
-                
-                
-                
-                
-                
-                <li><a href="/article/groups/">User groups</a></li>
-                
-                
-                
-                <li><a href="/article/what-is-an-organization/">What are organizations?</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </ol>
+    <div class="breadcrumb">
+        Category:
+        
+        <a href="/account-management">Account Management</a>
+        
+    </div>
+    <div class="panel panel-default article">
+        <div class="panel-body">
+            <p>bitwarden supports two-step login by using a third-party authenticator app such as <a href="https://authy.com/" target="_blank">Authy</a> or <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a>.</p>
+
+<h2 id="enable-two-step-login-with-authenticator-app">Enable Two-step Login with Authenticator App</h2>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in a safe place in the event that you lose access to your authenticator app.</p>
+
         </div>
-        <div class="col-md-4">
+
+<ol>
+  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
+  <li>Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
+  <li>Select the <strong>Authenticator</strong> option and then type in your master password to continue.</li>
+  <li>Follow the steps that appear
+    <ul>
+      <li>Download an authenticator app (usually on your mobile device). We recommend <a href="https://authy.com/" target="_blank">Authy</a>.</li>
+      <li>Scan the QR code with the app.</li>
+      <li>Enter the verification code from the app.</li>
+    </ul>
+  </li>
+  <li>Click the <strong>Enable</strong> button. A green alert will appear at the top stating that two-step login has been enabled.</li>
+  <li>Click the <strong>Close</strong> button and confirm that the <strong>Authenticator</strong> option now shows as <strong>Enabled</strong>.</li>
+</ol>
+
+<h2 id="test">Test</h2>
+
+<ol>
+  <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
+  <li>Log out of the bitwarden web vault.</li>
+  <li>Log back into the bitwarden web vault. You should now be prompted with an authenticator two-step login option.</li>
+  <li>Authenticator protection works with all bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other bitwarden applications that you are using to confirm that two-step login via authenticator app is properly working. You will eventually be logged out automatically.</li>
+</ol>
+
+        </div>
+        
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            two-step login, 2fa, two factor authentication, account, google authenticator, authy, totp
+        </div>
+        
+    </div>
+    <div class="row article-blocks">
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-rate">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Rate this article:</p>
+                    <div class="rw-ui-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
             <div class="panel panel-default panel-contact">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
@@ -196,6 +158,38 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function (d, t, e, m) {
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+            RW.init({
+                huid: "340409",
+                uid: "1a448820f2de881574e56e07bffdd7e8",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+
     </content>
 
     <footer>

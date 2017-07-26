@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Organizations | bitwarden Help &amp; Support</title>
+    <title>Set up two-step login with FIDO U2F | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -73,114 +73,112 @@
     </header>
 
     <content>
-        
-
-<div class="container">
+        <div class="container">
     <h1 class="page-header">
-        <i class="fa fa-folder-open-o"></i>
-        Organizations
+        <i class="fa fa-file-text-o"></i>
+        Set up two-step login with FIDO U2F
     </h1>
-    <div class="row">
-        <div class="col-md-8 articles">
-            <ol>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/collections/">Collections</a></li>
-                
-                
-                
-                <li><a href="/article/ldap-directory/">Configuring directory sync with Active Directory or other LDAP servers</a></li>
-                
-                
-                
-                
-                
-                <li><a href="/article/gsuite-directory/">Configuring directory sync with G Suite (Google)</a></li>
-                
-                
-                
-                <li><a href="/article/user-group-filters/">Configuring user and group sync filters</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/managing-users/">Managing users for your organization</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <li><a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
-                
-                
-                
-                
-                
-                <li><a href="/article/groups/">User groups</a></li>
-                
-                
-                
-                <li><a href="/article/what-is-an-organization/">What are organizations?</a></li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </ol>
+    <div class="breadcrumb">
+        Category:
+        
+        <a href="/account-management">Account Management</a>
+        
+    </div>
+    <div class="panel panel-default article">
+        <div class="panel-body">
+            <p>bitwarden supports two-step login via <a href="https://www.yubico.com/solutions/fido-u2f/" target="_blank">FIDO U2F</a>. Any FIDO U2F certified device will work. We recommend a <a href="https://www.yubico.com/products/yubikey-hardware/" target="_blank">YubiKey</a>.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Due to platform limitations, FIDO U2F cannot be used on all bitwarden applications. You should enable another two-step login provider so that you can access your account when FIDO U2F cannot be used.</p>
+
+<p>Supported platforms:</p>
+
+<ul>
+  <li>Web vault on a desktop/laptop with a U2F enabled browser (Chrome, Opera, Vivaldi, Brave, or <a href="https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/" target="_blank">Firefox with addon</a>).</li>
+  <li>Browser extensions on Chrome, Opera, Vivaldi, or Brave.</li>
+</ul>
+
         </div>
-        <div class="col-md-4">
+
+<h2 id="enable-two-step-login-with-fido-u2f">Enable Two-step Login with FIDO U2F</h2>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in a safe place in the event that you lose access to your FIDO U2F security key.</p>
+
+        </div>
+
+<ol>
+  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
+  <li>Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
+  <li>Select the <strong>FIDO U2F Security Key</strong> option and then type in your master password to continue.
+<a href="/images/two-step/u2f/select.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/u2f/select.png" />
+     </a></li>
+  <li>Follow the instructions shown:
+    <ul>
+      <li>Plug the security key into your computer’s USB port.</li>
+      <li>If the security key has a button, touch it.</li>
+    </ul>
+
+    <p>You will receive a success message when your key has been properly read. Click the <strong>Try again</strong> button if it fails.
+<a href="/images/two-step/u2f/config.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/u2f/config.png" />
+     </a></p>
+  </li>
+  <li>Click the <strong>Enable</strong> button. A green alert will appear at the top stating that two-step login has been enabled.</li>
+  <li>Click the <strong>Close</strong> button and confirm that the <strong>FIDO U2F Security Key</strong> option now shows as <strong>Enabled</strong>.
+<a href="/images/two-step/u2f/enabled.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/u2f/enabled.png" />
+     </a></li>
+</ol>
+
+<h2 id="test">Test</h2>
+
+<ol>
+  <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
+  <li>Log out of the bitwarden web vault.</li>
+  <li>Log back into the bitwarden web vault. You should now be prompted with a FIDO U2F two-step login option. Insert your FIDO U2F security key (if it has a button, touch it) to complete logging in.</li>
+  <li>
+    <p>Log out of and back in to any other bitwarden applications that you are using to confirm that two-step login via FIDO U2F is properly working. You will eventually be logged out automatically. If the application (or device) your are using does not support FIDO U2F you will be presented with other two-step login options that you have configured (if any).</p>
+
+    <p>Web
+<a href="/images/two-step/u2f/web.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/u2f/web.png" />
+     </a></p>
+
+    <p>Browser extension
+<a href="/images/two-step/u2f/browser.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/u2f/browser.png" />
+     </a></p>
+  </li>
+</ol>
+
+        </div>
+        
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            two-step login, 2fa, two factor authentication, account, u2f, fido
+        </div>
+        
+    </div>
+    <div class="row article-blocks">
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-rate">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Rate this article:</p>
+                    <div class="rw-ui-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
             <div class="panel panel-default panel-contact">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
@@ -196,6 +194,38 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function (d, t, e, m) {
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+            RW.init({
+                huid: "340409",
+                uid: "1a448820f2de881574e56e07bffdd7e8",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+
     </content>
 
     <footer>

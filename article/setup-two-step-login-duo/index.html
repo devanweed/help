@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1500985899"
+    <link href="/css/styles.css?v=1501070338"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1500985899"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1501070338"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -79,9 +79,7 @@
         Set up two-step login with Duo Security
     </h1>
     <div class="breadcrumb">
-        Categories:
-        
-        <a href="/getting-started">Getting Started</a>, 
+        Category:
         
         <a href="/account-management">Account Management</a>
         
@@ -125,7 +123,7 @@
 <div class="callout callout-warning">
             <h3><i class="fa fa-warning"></i> Warning</h3>
             
-<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your two-step login <strong>recovery code</strong> in a safe place in the event that you lose access to your normal two-step login methods.</p>
+<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in a safe place in the event that you lose access to your normal two-step login methods.</p>
 
         </div>
 
@@ -140,16 +138,17 @@
 <a href="/images/two-step/duo/config.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/config.png" />
      </a></li>
-  <li>Click <strong>Save</strong> to enable Duo.</li>
-  <li>Click the <strong>Close</strong> button and confirm that the Duo option now shows as <strong>Enabled</strong>.
+  <li>Click the <strong>Enable</strong> button. A green alert will appear at the top stating that two-step login has been enabled.</li>
+  <li>Click the <strong>Close</strong> button and confirm that the <strong>Duo</strong> option now shows as <strong>Enabled</strong>.
 <a href="/images/two-step/duo/enabled.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/enabled.png" />
      </a></li>
 </ol>
 
-<h2 id="log-in-enroll-and-test">Log In, Enroll, and Test</h2>
+<h2 id="enroll-and-test">Enroll and Test</h2>
 
 <ol>
+  <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
   <li>Log out of the bitwarden web vault.</li>
   <li>Log back into the bitwarden web vault. You should now be prompted with a Duo two-step login option.</li>
   <li>Upon your first login using Duo you may be prompted to enroll your bitwarden account and device(s) with Duo. Complete the Duo enrollment process following the on-screen instructions.
@@ -164,7 +163,7 @@
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/login.png" />
      </a></li>
   <li>
-    <p>Duo security protection working with all bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other bitwarden applications that you are using to confirm that Duo is properly working. You will eventually be logged out automatically.</p>
+    <p>Duo security protection works with all bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other bitwarden applications that you are using to confirm that two-step login via Duo is properly working. You will eventually be logged out automatically.</p>
 
     <p>Browser extension
 <a href="/images/two-step/duo/browser.png" target="_blank" rel="lightbox">
@@ -313,10 +312,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1500985899"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1501070338"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1500985899"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1501070338"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
