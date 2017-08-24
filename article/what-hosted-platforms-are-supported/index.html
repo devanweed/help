@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Auto-fill logins on Android | bitwarden Help &amp; Support</title>
+    <title>What platforms can I host on? | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -79,7 +79,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Auto-fill logins on Android
+        What platforms can I host on?
     </h1>
     <div class="breadcrumb">
         Category:
@@ -93,10 +93,10 @@
         
         
         
+        <a href="/hosting/">On-premise Hosting</a>
         
         
         
-        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -108,53 +108,16 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can use the bitwarden Android app to add new and auto-fill existing logins on the web and in other apps.</p>
+            <p>bitwarden is a cross-platform application that is deployed using Docker Linux containers. This means that bitwarden can be hosted on Linux, macOS, and Windows machines.</p>
 
-<h2 id="enabling-the-service">Enabling the service</h2>
-
-<ol>
-  <li>Open the bitwarden Android app.</li>
-  <li>Tap <strong>Tools</strong> -&gt; <strong>bitwarden Auto-fill Service</strong>. Status <em>Disabled</em> will appear.</li>
-  <li>Tap <strong>Open Accessibility Settings</strong>.</li>
-  <li>Locate <strong>bitwarden</strong> from the list and enable it.</li>
-</ol>
-
-<p>Auto-fill is context-sensitive. This means that the bitwarden auto-fill icon, and notification will only appear when the app detects a login form. You can change the way auto-fill behaves by navigating to <strong>Settings</strong> -&gt; <strong>Features</strong> -&gt; <strong>Auto-fill</strong>.</p>
-
-<h2 id="testing-auto-fill">Testing auto-fill</h2>
-
-<ol>
-  <li>Open an app that has not been signed in to.</li>
-  <li>View the login page for the app. A bitwarden auto-fill notification will appear in the notification bar.</li>
-  <li>Open the notification drawer and tap the <strong>bitwarden Auto-fill Service</strong> notification. Your vault will display all possible matching logins. If you do not see the login you are looking for you may need to manually search for it by tapping the search icon. <i class="fa fa-search"></i></li>
-  <li>Tap the appropriate login from the list. Your username and password will be auto-filled.</li>
-</ol>
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
-<p><strong>1. The bitwarden Auto-fill Service keeps getting disabled</strong></p>
-
-<p>Android may turn off the bitwarden Auto-fill Service to optimize battery life. To resolve this you can either:
-- Tell Android to ignore battery optimization for the bitwarden app; or
-- Manually turn on the bitwarden Auto-fill Service each time</p>
-
-<p><strong>2. The auto-fill notification does not appear when I visit a login page in my web browser.</strong></p>
-
-<p>This is a currently a known issue with the following browsers:</p>
-
-<ul>
-  <li>Firefox for Android</li>
-  <li>Samsung Internet Browser</li>
-</ul>
-
-<p>Android has many web browsers. It can be hard to keep up with them all. We have to add support for each browser individually. If auto-fill does not work and your browser is not listed above please report it at <a href="https://github.com/bitwarden/mobile/issues">https://github.com/bitwarden/mobile/issues</a> so that we can add support.</p>
+<p>You can read more about Docker and container technologies at <a href="https://www.docker.com/what-docker" target="_blank">https://www.docker.com/what-docker</a>.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            android, autofill, auto-fill
+            platforms, hosting, docker
         </div>
         
     </div>
