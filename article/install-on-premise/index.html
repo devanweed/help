@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1503628302"
+    <link href="/css/styles.css?v=1503666803"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503628302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503666803"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -113,6 +113,7 @@
 <h2 id="table-of-contents">Table of Contents</h2>
 
 <ul>
+  <li><a href="#tldr">TL;DR</a></li>
   <li><a href="#configure-your-domain">Configure Your Domain</a></li>
   <li><a href="#install-docker">Install Docker</a></li>
   <li><a href="#adjust-docker-resources">Adjust Docker Resources</a></li>
@@ -121,6 +122,53 @@
   <li><a href="#deploy-bitwarden">Deploy bitwarden</a></li>
   <li><a href="#script-commands">Script Commands</a></li>
 </ul>
+
+<h2 id="tldr">TL;DR</h2>
+
+<ol>
+  <li>Set DNS records for a domain name pointing to your machine. Open ports 80 and 443 on the machine.</li>
+  <li>Install <a href="https://docs.docker.com/engine/installation/" target="_blank">Docker</a> and <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose</a>. If using Windows or macOS, adjust Docker so that it has at least 4 GB of RAM available.</li>
+  <li>
+    <p>Install &amp; deploy bitwarden.</p>
+
+    <p>Bash</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>curl -s -o bitwarden.sh \
+    https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
+    &amp;&amp; sudo chmod u+x bitwarden.sh
+./bitwarden.sh install
+./bitwarden.sh start
+./bitwarden.sh updatedb
+</code></pre>
+    </div>
+
+    <p>PowerShell</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
+    -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
+.\bitwarden.ps1 -install
+.\bitwarden.ps1 -start
+.\bitwarden.ps1 -updatedb
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bitwarden/env/global.override.env</code> and restart.</p>
+
+    <p>Bash</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh restart
+</code></pre>
+    </div>
+
+    <p>PowerShell</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -restart
+</code></pre>
+    </div>
+  </li>
+  <li>Test your deployment. Visit the web vault at your configured domain name, register a new account, and log in.</li>
+</ol>
 
 <h2 id="configure-your-domain">Configure Your Domain</h2>
 
@@ -492,10 +540,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503628302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503666803"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503628302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503666803"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
