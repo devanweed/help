@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1503667121"
+    <link href="/css/styles.css?v=1503674233"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503667121"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503674233"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -132,7 +132,7 @@
   <li>
     <p>Install &amp; deploy bitwarden.</p>
 
-    <p>Bash</p>
+    <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
@@ -143,7 +143,7 @@
 </code></pre>
     </div>
 
-    <p>PowerShell</p>
+    <p><i class="fa fa-windows"></i> PowerShell</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
@@ -156,13 +156,13 @@
   <li>
     <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bitwarden/env/global.override.env</code> and restart.</p>
 
-    <p>Bash</p>
+    <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh restart
 </code></pre>
     </div>
 
-    <p>PowerShell</p>
+    <p><i class="fa fa-windows"></i> PowerShell</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -restart
 </code></pre>
@@ -219,7 +219,7 @@
 
      </div>
 
-    <p>Bash</p>
+    <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
@@ -227,7 +227,7 @@
 </code></pre>
     </div>
 
-    <p>PowerShell</p>
+    <p><i class="fa fa-windows"></i> PowerShell</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
@@ -237,13 +237,13 @@
   <li>
     <p>Start the installer:</p>
 
-    <p>Bash</p>
+    <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh install
 </code></pre>
     </div>
 
-    <p>PowerShell</p>
+    <p><i class="fa fa-windows"></i> PowerShell</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -install
 </code></pre>
@@ -316,13 +316,13 @@ globalSettings__mail__smtp__port=587
 
         </div>
 
-<p>Bash</p>
+<p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh start
 </code></pre>
 </div>
 
-<p>PowerShell</p>
+<p><i class="fa fa-windows"></i> PowerShell</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -start
 </code></pre>
@@ -340,13 +340,13 @@ globalSettings__mail__smtp__port=587
 
 <p>Finally, you need to initialize and update the bitwarden database:</p>
 
-<p>Bash</p>
+<p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh updatedb
 </code></pre>
 </div>
 
-<p>PowerShell</p>
+<p><i class="fa fa-windows"></i> PowerShell</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -updatedb
 </code></pre>
@@ -361,7 +361,7 @@ globalSettings__mail__smtp__port=587
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>PowerShell users will run the commands with a prefixed <code class="highlighter-rouge">-</code>. For example <code class="highlighter-rouge">.\bitwarden.ps1 -start</code>.</p>
+<p>PowerShell users will run the commands with a prefixed <code class="highlighter-rouge">-</code> (switch). For example <code class="highlighter-rouge">.\bitwarden.ps1 -start</code>.</p>
 
         </div>
 
@@ -405,6 +405,7 @@ globalSettings__mail__smtp__port=587
     </tr>
   </tbody>
 </table>
+
 
         </div>
 
@@ -541,10 +542,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503667121"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503674233"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503667121"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503674233"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
