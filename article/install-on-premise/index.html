@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1503608853"
+    <link href="/css/styles.css?v=1503628093"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503608853"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503628093"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -108,7 +108,21 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <h2 id="configure-your-domain">Configure Your Domain</h2>
+            <p>This article will walk you through how to install and deplay bitwarden to your own server.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#configure-your-domain">Configure Your Domain</a></li>
+  <li><a href="#install-docker">Install Docker</a></li>
+  <li><a href="#adjust-docker-resources">Adjust Docker Resources</a></li>
+  <li><a href="#install-bitwarden">Install bitwarden</a></li>
+  <li><a href="#post-install-environment-configuration">Post-install Environment Configuration</a></li>
+  <li><a href="#deploy-bitwarden">Deploy bitwarden</a></li>
+  <li><a href="#script-commands">Script Commands</a></li>
+</ul>
+
+<h2 id="configure-your-domain">Configure Your Domain</h2>
 
 <p>bitwarden will be served through ports 80 (http) and 443 (https) on the localhost machine. You should open these ports so that bitwarden can be accessed from within and/or outside of the network.</p>
 
@@ -291,7 +305,7 @@ globalSettings__mail__smtp__port=587
 
 <p>Congratulations! bitwarden is now up and running at <code class="highlighter-rouge">https://your.domain.com</code>. Visit the web vault in your web browser to confirm. You should register a new account and log in.</p>
 
-<h2 id="main-script-commands">Main Script Commands</h2>
+<h2 id="script-commands">Script Commands</h2>
 
 <p>The bitwarden main script (<code class="highlighter-rouge">bitwarden.sh</code> or <code class="highlighter-rouge">bitwarden.ps1</code>) has the following commands available:</p>
 
@@ -478,10 +492,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503608853"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503628093"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503608853"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503628093"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
