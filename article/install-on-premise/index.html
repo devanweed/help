@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1503674733"
+    <link href="/css/styles.css?v=1504182555"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1503674733"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1504182555"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/" onclick="gaEvent('Nav Logo')">
+                <a class="navbar-brand" href="https://bitwarden.com" onclick="gaEvent('Nav Logo')">
                     <i class="fa fa-shield"></i>
                     <span class="visible-xs-inline"><strong>bit</strong>warden</span>
                 </a>
@@ -108,7 +108,16 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>This article will walk you through how to install and deploy bitwarden to your own server. Because bitwarden is a cross platform application, you can install and deploy it on Linux, macOS, and Windows machines.</p>
+            <div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>On-premise hosting is currently in beta. It is not yet ready for real, production use. You should only use this beta for testing purposes. DO NOT STORE SENSITIVE DATA IN THESE BETA INSTALLATIONS. There will be no upgrade path to the production versions from these beta installations and they should be removed when you are done testing.</p>
+
+<p>You can provide feedback about this beta on GitHub at <a href="https://github.com/bitwarden/core/issues/62">https://github.com/bitwarden/core/issues/62</a>.</p>
+
+        </div>
+
+<p>This article will walk you through how to install and deploy bitwarden to your own server. Because bitwarden is a cross platform application, you can install and deploy it on Linux, macOS, and Windows machines.</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -128,7 +137,7 @@
 <ol>
   <li>Set DNS records for a domain name pointing to your machine. Open ports 80 and 443 on the machine.</li>
   <li>Install <a href="https://docs.docker.com/engine/installation/" target="_blank">Docker</a> and <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose</a>. If using Windows or macOS, adjust Docker so that it has at least 4 GB of RAM available.</li>
-  <li>Get an installation id and key from <a href="https://bitwarden.com/install" target="_blank">https://bitwarden.com/install</a>.</li>
+  <li>Get an installation id and key from <a href="https://bitwarden.com/host" target="_blank">https://bitwarden.com/host</a>.</li>
   <li>
     <p>Install &amp; deploy bitwarden.</p>
 
@@ -279,7 +288,7 @@
 
     <p>Each bitwarden installation requires a unique installation id and installation key. You should not share your installation id or installation key across multiple bitwarden installations. They should be treated as secrets.</p>
 
-    <p>You can obtain an installation id and key from <a href="https://bitwarden.com/install" target="_blank">https://bitwarden.com/install</a>.</p>
+    <p>You can obtain an installation id and key from <a href="https://bitwarden.com/host" target="_blank">https://bitwarden.com/host</a>.</p>
 
     <p><strong>Push Notifications</strong></p>
 
@@ -291,13 +300,15 @@
 
 <h2 id="post-install-environment-configuration">Post-install Environment Configuration</h2>
 
-<p>Some features such as a SMTP mail server and YubiKey OTP API credentials are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code class="highlighter-rouge">./bitwarden/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
+<p>Some features such as a SMTP mail server settings, YubiKey OTP API credentials, etc. are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code class="highlighter-rouge">./bitwarden/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>globalSettings__yubico__clientId=REPLACE
-globalSettings__yubico__key=REPLACE
-globalSettings__mail__smtp__host=REPLACE
-globalSettings__mail__smtp__username=REPLACE
-globalSettings__mail__smtp__password=REPLACE
+<p>Example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>globalSettings__yubico__clientId=294620155
+globalSettings__yubico__key=YOUR_KEY
+globalSettings__mail__smtp__host=smtp.sendgrid.net
+globalSettings__mail__smtp__username=apikey
+globalSettings__mail__smtp__password=SG.YOUR.API_KEY
 globalSettings__mail__smtp__ssl=true
 globalSettings__mail__smtp__port=587
 </code></pre>
@@ -542,10 +553,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1503674733"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1504182555"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1503674733"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1504182555"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
