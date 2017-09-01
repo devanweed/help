@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>What platforms can I host on? | bitwarden Help &amp; Support</title>
+    <title>Updating your self-hosted installation | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -79,7 +79,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        What platforms can I host on?
+        Updating your self-hosted installation
     </h1>
     <div class="breadcrumb">
         Category:
@@ -108,16 +108,36 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden is a cross-platform application that is deployed using Docker Linux containers. This means that bitwarden can be hosted on Linux, macOS, and Windows machines.</p>
+            <p>It is very important to keep your bitwarden installation up to date. Updates may include fixes that are important for the security of your bitwarden installation. Additionally, newer versions of client applications such as the browser extension and/or mobile apps may not support older versions of your self-hosted bitwarden server.</p>
 
-<p>You can read more about Docker and container technologies at <a href="https://www.docker.com/what-docker" target="_blank">https://www.docker.com/what-docker</a>.</p>
+<p>We have made updating your bitwarden installation very simple. Use the same bitwarden Bash (macOS and Linux) or PowerShell (Windows) script that you obtained while installing bitwarden to your server to update your bitwarden installation. Run the following sequence of commands:</p>
+
+<p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh updateself
+./bitwarden.sh stop
+./bitwarden.sh update
+./bitwarden.sh start
+</code></pre>
+</div>
+
+<p><i class="fa fa-windows"></i> PowerShell</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -updateself
+.\bitwarden.ps1 -stop
+.\bitwarden.ps1 -update
+.\bitwarden.ps1 -start
+</code></pre>
+</div>
+
+<p>Your bitwarden installation should now be fully up to date and running.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            platforms, hosting, docker
+            hosting, update
         </div>
         
     </div>
