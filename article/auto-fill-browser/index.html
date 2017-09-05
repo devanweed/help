@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>What are organizations? | bitwarden Help &amp; Support</title>
+    <title>Auto-fill logins using the browser extension | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -79,7 +79,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        What are organizations?
+        Auto-fill logins using the browser extension
     </h1>
     <div class="breadcrumb">
         Category:
@@ -96,10 +96,10 @@
         
         
         
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
-        <a href="/organizations/">Organizations</a>
         
         
         
@@ -108,14 +108,47 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>A bitwarden organization is an entity that relates users together that want to share logins. An organization could be a family, team, company, or any other type of group that desires to share logins in bitwarden.</p>
+            <p>You can use the bitwarden browser extension to easily auto-fill login forms on websites with your username/email and password credentials. There are a variety of ways to perform auto-fill operations with bitwarden.</p>
 
-<p>An individual user account can create and/or belong to many different organizations, allowing you to manage your logins from a single account.</p>
+<h2 id="popup-window">Popup window</h2>
 
-<p>You can create a new bitwarden organization from the <a href="https://vault.bitwarden.com">web vault</a> or request that an admin of an existing organization send you an invite.</p>
+<p>The bitwarden icon in the toolbar of your browser will show the number of logins in your vault that match the current website you are viewing. Selecting the bitwarden icon will open the bitwarden popup window, defaulting to the “Current Tab” page. The “Current Tab” page shows a listing of these matching logins.</p>
+
+<p>If you are currently viewing a login form on a website, selecting a login from the “Current Tab” list will result in the login credentials being auto-filled into the login form.</p>
+
+<p><a href="/images/autofill-popup.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/autofill-popup.png" />
+        </a></p>
+
+<h2 id="right-click-context-menu">Right-click context menu</h2>
+
+<p>The same list of logins that are available when using the popup window are also available from the convenience of the right-click context menu in your browser.</p>
+
+<p><a href="/images/autofill-context-menu.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/autofill-context-menu.png" />
+        </a></p>
+
+<h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+
+<p>You can use a set of keyboard shortcuts to quickly auto-fill a login form. When viewing the login form press <code class="highlighter-rouge">Ctrl + Shift + L</code> (<code class="highlighter-rouge">Cmd + Shift + L</code> on macOS) and the last used login for that website will be auto-filled.</p>
+
+<p>Another option is to open the popup window using the shortcut <code class="highlighter-rouge">Ctrl + Shift + Y</code> (<code class="highlighter-rouge">Cmd + Shift + Y</code> on macOS). You can then <code class="highlighter-rouge">TAB</code> to the login that you would like to auto-fill and then press <code class="highlighter-rouge">ENTER</code> to select.</p>
+
+<p>You can easily customize these keyboard shortcuts in Chrome, Opera, and Vivaldi browsers. In the address bar navigate to <code class="highlighter-rouge">chrome://extensions</code> and locate the “Keyboard shortcuts” button (you may need to scroll to the bottom). Other browsers such as Firefox, Brave, and Edge do not currently support changing the default keyboard shortcuts for extensions.</p>
+
+<h2 id="auto-fill-on-page-load">Auto-fill on page load</h2>
+
+<p>bitwarden includes an experimental feature to auto-fill logins immediately after a webpage containing a login form loads in your browser. This feature requires you to opt-in to use it. You can enable “Auto-fill On Page Load” under <strong>Settings</strong> → <strong>Features</strong>.</p>
+
+<p>In the case of multiple logins matching the current website, the last used login will be used for the auto-fill operation. If the wrong login is auto-filled, you can auto-fill again using the popup window and reset the last used login.</p>
 
         </div>
         
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            browser, auto-fill
+        </div>
         
     </div>
     <div class="row article-blocks">
