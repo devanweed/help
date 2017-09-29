@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1505324396"
+    <link href="/css/styles.css?v=1506713924"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1505324396"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1506713924"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -113,7 +113,7 @@
 <h2 id="export-your-sites-from-the-lastpasscom-web-vault">Export your sites from the LastPass.com web vault</h2>
 
 <ol>
-  <li>Log into your LastPass account at www.lastpass.com and navigate to “More Options” (at the very bottom of the left sidebar menu) &gt; “Advanced” &gt; “Export”.<br />
+  <li>Log into your LastPass account at www.lastpass.com and navigate to <strong>More Options</strong> (at the very bottom of the left sidebar menu) → <strong>Advanced</strong> → <strong>Export</strong>.<br />
 <a href="/images/lastpass-options.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/lastpass-options.png" />
      </a></li>
@@ -124,7 +124,7 @@
   <li>Your data will be decrypted and shown on screen in <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> format.</li>
   <li>Highlight all of the data on the page and copy it to your clipboard.
     <ul>
-      <li>Highlight all of the data with your mouse (or simply press <code>Ctrl + A</code>), then right click with your mouse and select “Copy”.<br />
+      <li>Highlight all of the data with your mouse (or simply press <code>Ctrl + A</code>), then right click with your mouse and select <strong>Copy</strong>.<br />
 <a href="/images/lastpass-copy.png" target="_blank" rel="lightbox">
        <img class="img-responsive img-thumbnail img-tag" src="/images/lastpass-copy.png" />
    </a></li>
@@ -135,7 +135,7 @@
 <div class="callout callout-warning">
             <h3><i class="fa fa-warning"></i> Warning</h3>
             
-<p>There are known bugs with the LastPass exporter regarding the ampersand character (<code>&amp;</code>). The LastPass exporter may change all ampersand characters in your passwords to the value <code>&amp;amp;</code>. If this LastPass bug affects your export you should use a text editor (such as notepad) to find/replace all values <code>&amp;amp;</code> with <code>&amp;</code> before importing into bitwarden.</p>
+<p>There are known bugs (for years now) with the LastPass exporter regarding special characters such as the ampersand (<code>&amp;</code>), the greater than sign (<code>&gt;</code>), and the less than sign (<code>&lt;</code>). The LastPass exporter may change (HTML encode) these and possibly other special characters in your passwords to their respective HTML encoded values (ex. <code>&amp;amp;</code>, <code>&amp;gt;</code>, and <code>&amp;lt;</code>). If this LastPass bug affects your exported data you should use a text editor (such as Notepad) to find and replace all of these values before importing into bitwarden. For example, you may want to do a find and replace for <code>&amp;amp;</code> → <code>&amp;</code> and <code>&amp;lt;</code> → <code>&lt;</code>).</p>
 
         </div>
 
@@ -143,13 +143,13 @@
 
 <ol>
   <li>Go to the <a href="https://vault.bitwarden.com">bitwarden web vault</a> and log in.</li>
-  <li>Navigate to “Tools” &gt; “Import”.</li>
-  <li>Select “LastPass” as the file format and paste the <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> content into the textbox that you copied to your clipboard in step 4 above.
+  <li>Navigate to <strong>Tools</strong> → <strong>Import Data</strong>.</li>
+  <li>Select <strong>LastPass</strong> as the file format and paste the <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> content into the textbox that you copied to your clipboard in step 4 above.
     <ul>
-      <li>Click into the textbox with your mouse, then right click with your mouse and select “Paste”.</li>
+      <li>Click into the textbox with your mouse, then right click with your mouse and select <strong>Paste</strong>.</li>
     </ul>
   </li>
-  <li>Click the “Import” button.</li>
+  <li>Click the <strong>Import</strong> button.</li>
 </ol>
 
 <p>Congratulations! You have just transferred all of your data from LastPass into bitwarden.</p>
@@ -288,10 +288,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1505324396"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1506713924"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1505324396"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1506713924"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
