@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>uMatrix access rules | bitwarden Help &amp; Support</title>
+    <title>uMatrix & NoScript access rules | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1506714039"
+    <link href="/css/styles.css?v=1506714412"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1506714039"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1506714412"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -79,7 +79,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        uMatrix access rules
+        uMatrix & NoScript access rules
     </h1>
     <div class="breadcrumb">
         Category:
@@ -108,12 +108,13 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>By default, the uMatrix addon will block the bitwarden Firefox addon from accessing the bitwarden API servers. Without adding proper rules to allow the bitwarden API servers, logging in will fail.</p>
+            <p>By default, the uMatrix and NoScript addons may block the bitwarden Firefox addon from accessing the bitwarden API servers. Without adding proper rules to whitelist the bitwarden API servers, logging in and other API operations will fail.</p>
 
-<p>The following <a href="https://github.com/gorhill/uMatrix/wiki/Rules-syntax">uMatrix rules</a> are required:</p>
+<h2 id="umatrix">uMatrix</h2>
+
+<p>The following <a href="https://github.com/gorhill/uMatrix/wiki/Rules-syntax">uMatrix rule</a> is required:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>dc8ef5f6-eb0d-4c87-9e9f-0cf803f619e8.moz-extension-scheme bitwarden.com xhr allow
-dc8ef5f6-eb0d-4c87-9e9f-0cf803f619e8.moz-extension-scheme bitwarden.com cookie allow
 </code></pre>
 </div>
 
@@ -121,9 +122,13 @@ dc8ef5f6-eb0d-4c87-9e9f-0cf803f619e8.moz-extension-scheme bitwarden.com cookie a
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
 <p>The UUID included in the above rule will be different for your installation.
-Use the <code class="highlighter-rouge">about:debugging#addons</code> page to find your UUID.</p>
+Use the <code class="highlighter-rouge">about:debugging#addons</code> page (navigate from your address bar) to locate your bitwarden extension UUID.</p>
 
         </div>
+
+<h2 id="noscript">NoScript</h2>
+
+<p>Whitelisting the following domain for NoScript is required: <code class="highlighter-rouge">bitwarden.com</code></p>
 
         </div>
         
@@ -258,10 +263,10 @@ Use the <code class="highlighter-rouge">about:debugging#addons</code> page to fi
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1506714039"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1506714412"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1506714039"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1506714412"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
