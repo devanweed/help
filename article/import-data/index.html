@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1506714587"
+    <link href="/css/styles.css?v=1507040220"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1506714587"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1507040220"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -162,16 +162,16 @@
 
 <p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your individual account import using the generic bitwarden format. Create a UTF-8 encoded plaintext file with the following format:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp,fields
 </code></pre>
 </div>
 
 <p>The above header must be the first line in the file. An example file may look like the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp
-Twitter,https://twitter.com,hello@bitwarden.com,password123,,Social,1,
-EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,,TOTPSEED123
-My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,,,
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp,fields
+Twitter,https://twitter.com,hello@bitwarden.com,password123,,Social,1,,
+EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,,TOTPSEED123,
+My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,,,,"PIN: 1234"
 </code></pre>
 </div>
 
@@ -183,16 +183,16 @@ My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is
 
 <p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your organization account import using the generic bitwarden format. The format is almost the same as the individual account format above, however, organizations have “collections” instead of a “folder” and no “favorite”. Create a UTF-8 encoded plaintext file with the following format:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp,fields
 </code></pre>
 </div>
 
 <p>The above header must be the first line in the file. An example file may look like the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp
-Twitter,https://twitter.com,hello@bitwarden.com,password123,,"Social,Marketing",
-EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,TOTPSEED123
-Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,"Finance",
+<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp,fields
+Twitter,https://twitter.com,hello@bitwarden.com,password123,,"Social,Marketing",,
+EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,TOTPSEED123,
+Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,"Finance",,"PIN: 1234"
 </code></pre>
 </div>
 
@@ -333,10 +333,10 @@ Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 12
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1506714587"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1507040220"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1506714587"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1507040220"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
