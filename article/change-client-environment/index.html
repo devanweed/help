@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Import your data from another application | bitwarden Help &amp; Support</title>
+    <title>Change your client application's environment | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -79,7 +79,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Import your data from another application
+        Change your client application's environment
     </h1>
     <div class="breadcrumb">
         Category:
@@ -90,10 +90,10 @@
         
         
         
-        <a href="/getting-started/">Getting Started</a>
         
         
         
+        <a href="/hosting/">On-premise Hosting</a>
         
         
         
@@ -108,104 +108,25 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can very easily import your data from an array of different password manager applications. bitwarden supports importing data into your individual account from the following sources:</p>
+            <p>By default, client applications such as the browser extensions and mobile apps all talk to the bitwarden cloud servers. If you are hosting your own bitwarden installation you will want to change your client applications to talk to your instance instead of the bitwarden cloud servers.</p>
 
-<ul>
-  <li>bitwarden (csv)</li>
-  <li><a href="/article/import-from-1password/">1Password (1pif)</a></li>
-  <li><a href="/article/import-from-1password/">1Password 6 Windows (csv)</a></li>
-  <li>Ascendo DataVault (csv)</li>
-  <li>Avira (json)</li>
-  <li><a href="/article/import-from-chrome/">Chrome (csv)</a></li>
-  <li>Clipperz (html)</li>
-  <li>Dashlane (csv)</li>
-  <li>Enpass (csv)</li>
-  <li>Firefox Password Exporter (xml)</li>
-  <li>GNOME Passwords and Keys/Seahorse (json)</li>
-  <li>KeePass 2 (xml)</li>
-  <li>KeePassX (csv)</li>
-  <li>Keeper (csv)</li>
-  <li><a href="/article/import-from-lastpass/">LastPass (csv)</a></li>
-  <li>Meldium (csv)</li>
-  <li>mSecure (csv)</li>
-  <li><a href="/article/import-from-chrome/">Opera (csv)</a></li>
-  <li>Padlock (csv)</li>
-  <li>PassKeep (csv)</li>
-  <li>Password Boss (json)</li>
-  <li>Password Dragon (xml)</li>
-  <li>Password Safe (xml)</li>
-  <li>RoboForm (html)</li>
-  <li>SafeInCloud (xml)</li>
-  <li>SaferPass (csv)</li>
-  <li>SplashID (csv)</li>
-  <li>Sticky Password (xml)</li>
-  <li>True Key (csv)</li>
-  <li>Universal Password Manager (csv)</li>
-  <li><a href="/article/import-from-chrome/">Vivaldi (csv)</a></li>
-  <li>Zoho Vault (csv)</li>
-</ul>
+<h2 id="change-client-application-environment">Change Client Application Environment</h2>
 
-<p>To import your data, log into the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a> and navigate to <strong>Tools</strong> → <strong>Import Data</strong>. Instructions for importing from each source are available after selecting the desired file format from the dropdown menu.</p>
+<ol>
+  <li>If you are currently logged in to your client application, log out.</li>
+  <li>On the home screen of the client application, select the <i class="fa fa-cog"></i> <strong>Settings</strong> icon in the top left corner.</li>
+  <li>Under the <strong>Self-hosted Environment</strong> section, enter your installation’s <strong>Server URL</strong>. For example, if your installation domain was bitwarden.company.com, you would enter https://bitwarden.company.com for the <strong>Server URL</strong>.</li>
+  <li>Save the environment settings and return to the home screen.</li>
+</ol>
 
-<p><strong>Organization Accounts</strong></p>
-
-<p>Additionally, you can also import data directly into an organization account for sharing. bitwarden supports importing data into your organization account from the following sources:</p>
-
-<ul>
-  <li>bitwarden (csv)</li>
-  <li>LastPass (csv)</li>
-</ul>
-
-<p>To import your data, log into the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a> and navigate to your organization admin area. Then navigate to <strong>Settings</strong> → <strong>Import Data</strong>.</p>
-
-<h2 id="generic-csv-format-individual-account">Generic CSV Format (individual account)</h2>
-
-<p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your individual account import using the generic bitwarden format. Create a UTF-8 encoded plaintext file with the following format:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp,fields
-</code></pre>
-</div>
-
-<p>The above header must be the first line in the file. An example file may look like the following:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,folder,favorite,totp,fields
-Twitter,https://twitter.com,hello@bitwarden.com,password123,,Social,1,,
-EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,,TOTPSEED123,
-My Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,,,,"PIN: 1234"
-</code></pre>
-</div>
-
-<p><a href="/files/bitwarden_export.csv"><i class="fa fa-download"></i> Download example</a></p>
-
-<p>When importing from this format, select the <strong>bitwarden (csv)</strong> file format option from the dropdown menu.</p>
-
-<h2 id="generic-csv-format-organization-account">Generic CSV Format (organization account)</h2>
-
-<p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your organization account import using the generic bitwarden format. The format is almost the same as the individual account format above, however, organizations have “collections” instead of a “folder” and no “favorite”. Create a UTF-8 encoded plaintext file with the following format:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp,fields
-</code></pre>
-</div>
-
-<p>The above header must be the first line in the file. An example file may look like the following:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>name,uri,username,password,notes,collections,totp,fields
-Twitter,https://twitter.com,hello@bitwarden.com,password123,,"Social,Marketing",,
-EVGA,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,,,TOTPSEED123,
-Bank,https://www.wellsfargo.com/home.jhtml,john.smith,password123,Bank PIN is 1234,"Finance",,"PIN: 1234"
-</code></pre>
-</div>
-
-<p><a href="/files/bitwarden_export_org.csv"><i class="fa fa-download"></i> Download example</a></p>
-
-<p>When importing from this format, select the <strong>bitwarden (csv)</strong> file format option from the dropdown menu.</p>
+<p>You have now configured your client application to point to your self-hosted environment.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            import
+            hosting, environment
         </div>
         
     </div>

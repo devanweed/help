@@ -12,10 +12,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1507040220"
+    <link href="/css/styles.css?v=1507083228"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1507040220"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1507083228"
           rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -108,16 +108,7 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>On-premise hosting is currently in beta. It is not yet ready for real, production use. You should only use this beta for testing purposes. DO NOT STORE SENSITIVE DATA IN THESE BETA INSTALLATIONS. There will be no upgrade path to the production versions from these beta installations and they should be removed when you are done testing.</p>
-
-<p>You can provide feedback about this beta on GitHub at <a href="https://github.com/bitwarden/core/issues/62">https://github.com/bitwarden/core/issues/62</a>.</p>
-
-        </div>
-
-<p>This article will walk you through how to install and deploy bitwarden to your own server. Because bitwarden is a cross platform application, you can install and deploy it on Linux, macOS, and Windows machines.</p>
+            <p>This article will walk you through how to install and deploy bitwarden to your own server. Because bitwarden is a cross platform application, you can install and deploy it on Linux, macOS, and Windows machines.</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -163,7 +154,7 @@
     </div>
   </li>
   <li>
-    <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bitwarden/env/global.override.env</code> and restart.</p>
+    <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bwdata/env/global.override.env</code> and restart.</p>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
@@ -224,7 +215,7 @@
 
     <div class="callout callout-info">
          <h3><i class="fa fa-info-circle"></i> Note</h3>
-         <p>All bitwarden assets will be installed in the <code class="highlighter-rouge">./bitwarden</code> directory relative to where the main script resides.</p>
+         <p>All bitwarden assets will be installed in the <code class="highlighter-rouge">./bwdata</code> directory relative to where the main bitwarden script resides.</p>
 
      </div>
 
@@ -267,7 +258,7 @@
       <li>
         <p>bitwarden can generate and maintain renewal of a trusted SSL certificate for your domain for completely free provided by <a href="https://letsencrypt.org" target="_blank">Let’s Encrypt</a> and <a href="https://certbot.eff.org" target="_blank">Certbot</a>. Certificate renewal checks occur each time bitwarden is restarted.</p>
       </li>
-      <li>If you already have your own SSL certificate you can place the following files in the <code class="highlighter-rouge">./bitwarden/ssl/your.domain.com</code> directory:
+      <li>If you already have your own SSL certificate you can place the following files in the <code class="highlighter-rouge">./bwdata/ssl/your.domain.com</code> directory:
         <ul>
           <li>certificate.crt (required)</li>
           <li>private.key (required)</li>
@@ -294,7 +285,7 @@
 
 <h2 id="post-install-environment-configuration">Post-install Environment Configuration</h2>
 
-<p>Some features such as a SMTP mail server settings, YubiKey OTP API credentials, etc. are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code class="highlighter-rouge">./bitwarden/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
+<p>Some features such as a SMTP mail server settings, YubiKey OTP API credentials, etc. are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code class="highlighter-rouge">./bwdata/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
 
 <p>Example:</p>
 
@@ -547,10 +538,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1507040220"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1507083228"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1507040220"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1507083228"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
