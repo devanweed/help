@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
 
     <title>Installing and deploying | bitwarden Help &amp; Support</title>
 
@@ -12,11 +13,17 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1507083228"
+    <link href="/css/styles.css?v=1509030399"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1507083228"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509030399"
           rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#3c8dbc">
+    <link rel="manifest" href="manifest.json">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -116,7 +123,7 @@
   <li><a href="#tldr">TL;DR</a></li>
   <li><a href="#configure-your-domain">Configure Your Domain</a></li>
   <li><a href="#install-docker">Install Docker</a></li>
-  <li><a href="#adjust-docker-resources">Adjust Docker Resources</a></li>
+  <li><a href="#adjust-resources">Adjust Resources</a></li>
   <li><a href="#install-bitwarden">Install bitwarden</a></li>
   <li><a href="#post-install-environment-configuration">Post-install Environment Configuration</a></li>
   <li><a href="#start-bitwarden">Start bitwarden</a></li>
@@ -197,13 +204,11 @@
 
 <p>For reference, you can find the official bitwarden images hosted on Docker Hub at <a href="https://hub.docker.com/u/bitwarden/" target="_blank">https://hub.docker.com/u/bitwarden/</a>.</p>
 
-<h2 id="adjust-docker-resources">Adjust Docker Resources</h2>
+<h2 id="adjust-resources">Adjust Resources</h2>
 
-<p>SQL Server requires that Docker be allocated with a minimum of 4 GB of RAM. By default, Docker on macOS and Windows only has 2 GB of RAM allocated. Docker on Linux should be ok.</p>
+<p>SQL Server requires that Docker be allocated with a minimum of 4 GB of RAM. By default, Docker on <strong>macOS and Windows</strong> only has 2 GB of RAM allocated. To adjust this, simply go to Docker (click on the docker icon) → Preferences → Advanced. Change the slider to 4 GB (or more), save, and restart Docker. You can read more about this at <a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker#requirements" target="_blank">https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker#requirements</a>.</p>
 
-<p>To adjust this, simply go to Docker (click on the docker icon) → Preferences → Advanced. Change the slider to 4 GB (or more), save, and restart Docker.</p>
-
-<p>You can read more about this at <a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker" target="_blank">https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker</a>.</p>
+<p>The default docker settings on <strong>Linux</strong> should be ok, but still requires that the host machine have a minimum of 3.25 GB of RAM.</p>
 
 <h2 id="install-bitwarden">Install bitwarden</h2>
 
@@ -271,13 +276,21 @@
 
     <p><strong>Installation Id/Key</strong></p>
 
-    <p>Each bitwarden installation requires a unique installation id and installation key. You should not share your installation id or installation key across multiple bitwarden installations. They should be treated as secrets.</p>
+    <p>Each bitwarden installation requires a unique installation id and installation key. The installation id and key is used to:</p>
+
+    <ol>
+      <li>Register your installation and contact email so that we can contact you in case of important security updates</li>
+      <li>Validate licensing of paid features</li>
+      <li>Authenticate to push relay servers for push notifications (see below)</li>
+    </ol>
+
+    <p>You should not share your installation id or installation key across multiple bitwarden installations. They should be treated as secrets.</p>
 
     <p>You can obtain an installation id and key from <a href="https://bitwarden.com/host" target="_blank">https://bitwarden.com/host</a>.</p>
 
     <p><strong>Push Notifications</strong></p>
 
-    <p>If you would like to take advantage of having push notifications automatically keep your bitwarden client applications synced in real time you can choose to use the bitwarden push notification relay service. This relay service is provided by external bitwarden servers. You should ensure that your machine can communicate with the <code class="highlighter-rouge">https://push.bitwarden.com</code> endpoint. Your bitwarden installation will POST <strong>non-sensitive data</strong> (reference ids) to the relay service which will then notify the bitwarden client applications to “phone home” for an update back to your installation.</p>
+    <p>If you would like to take advantage of having push notifications automatically keep your bitwarden client applications synced in real time you can choose to use the bitwarden push notification relay service. This relay service is provided by external bitwarden servers. You should ensure that your machine can communicate with the <code class="highlighter-rouge">https://push.bitwarden.com</code> endpoint. Your bitwarden installation will POST <strong>non-sensitive data</strong> (reference ids) to the push relay service which will then notify the bitwarden client applications to “phone home” back to <strong>your installation</strong> for an update.</p>
 
     <p>The use of the push notification relay service is optional. If you do not use this service you will need to keep your client applications in sync manually.</p>
   </li>
@@ -299,7 +312,7 @@ globalSettings__mail__smtp__port=587
 </code></pre>
 </div>
 
-<p>You can get a YubiKey client id and key at <a href="https://upgrade.yubico.com/getapikey/" target="_blank">https://upgrade.yubico.com/getapikey/</a>.</p>
+<p>If you plan to use YubiKeys for two-step login, you can get your YubiKey client id and key at <a href="https://upgrade.yubico.com/getapikey/" target="_blank">https://upgrade.yubico.com/getapikey/</a>.</p>
 
 <h2 id="start-bitwarden">Start bitwarden</h2>
 
@@ -538,10 +551,10 @@ globalSettings__mail__smtp__port=587
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1507083228"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509030399"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1507083228"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509030399"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
