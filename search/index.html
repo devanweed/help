@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1509122593"
+    <link href="/css/styles.css?v=1509122990"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509122593"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509122990"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -411,7 +411,7 @@
       "article-website-icons": {
           "title": "Your privacy when using website icons",
           "tags": "icons, website icons, privacy",
-          "content": "bitwarden does not collect any information when you download icons for website logins stored in your bitwarden vault.The bitwarden icons serverWhen bitwarden displays a login item associated with a website in your bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The bitwarden icons server provides the delivery endpoint for these website icons.If you are using the “website icons” feature on a device, bitwarden will issue requests to icons.bitwarden.com for each item of type “Login” in your vault that has a URI that resembles a website (ex. google.com or https://google.com, but not google or http://localhost). The icons server is fronted with a CDN that caches the icon responses on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested it before you.Privacy concernsBecause a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:https://icons.bitwarden.com/google.com/icon.pngThe icons server endpoints do not log or collection any information regarding icon image requests. However, this is something you would have to take our word for since we have no way to demonstrate this publicly other than reviewing our open source codebase.Disabling website iconsWe understand that certain privacy-minded users may not want to use the website icons feature. We provide the option to disable website icons on all bitwarden client applications:  Web vault: Settings → Web Vault Options → Disable Website Icons  Browser extension: Settings → Features → Disable Website Icons  Mobile app: Settings → Features → Disable Website IconsWhen the website icons feature is disable, bitwarden will opt to show you a generic, locally accessed icon instead () that is the same for all login items stored in your vault.",
+          "content": "bitwarden does not collect any information when you download icons for website logins stored in your bitwarden vault.The bitwarden icons serverWhen bitwarden displays a login item associated with a website in your bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The bitwarden icons server provides the delivery endpoint for these website icons.If you are using the “website icons” feature on a device, bitwarden will issue requests to icons.bitwarden.com for each item of type “Login” in your vault that has a URI that resembles a website (ex. google.com or https://google.com, but not google or http://localhost). The icons server is fronted with a CDN that caches the icons on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested the icon before you.Privacy concernsBecause a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:https://icons.bitwarden.com/google.com/icon.pngThe icons server endpoints do not log or collection any information regarding icon image requests. However, this is something you would have to take our word for since we have no way to demonstrate this publicly other than reviewing our open source codebase.Disabling website iconsWe understand that certain privacy-minded users may not want to use the “website icons” feature. We provide the option to disable website icons on all bitwarden client applications:  Web vault: Settings → Web Vault Options → Disable Website Icons  Browser extension: Settings → Features → Disable Website Icons  Mobile app: Settings → Features → Disable Website IconsWhen the website icons feature is disable, bitwarden will opt to show you a generic, locally accessed icon instead () that is the same for all login items stored in your vault.",
           "url": "/article/website-icons/"
       }
     ,
@@ -689,10 +689,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509122593"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509122990"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509122593"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509122990"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

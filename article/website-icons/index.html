@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1509122593"
+    <link href="/css/styles.css?v=1509122990"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509122593"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509122990"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -121,7 +121,7 @@
 
 <p>When bitwarden displays a login item associated with a website in your bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The bitwarden icons server provides the delivery endpoint for these website icons.</p>
 
-<p>If you are using the “website icons” feature on a device, bitwarden will issue requests to <code class="highlighter-rouge">icons.bitwarden.com</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code class="highlighter-rouge">google.com</code> or <code class="highlighter-rouge">https://google.com</code>, but not <code class="highlighter-rouge">google</code> or <code class="highlighter-rouge">http://localhost</code>). The icons server is fronted with a CDN that caches the icon responses on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested it before you.</p>
+<p>If you are using the “website icons” feature on a device, bitwarden will issue requests to <code class="highlighter-rouge">icons.bitwarden.com</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code class="highlighter-rouge">google.com</code> or <code class="highlighter-rouge">https://google.com</code>, but not <code class="highlighter-rouge">google</code> or <code class="highlighter-rouge">http://localhost</code>). The icons server is fronted with a CDN that caches the icons on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested the icon before you.</p>
 
 <h2 id="privacy-concerns">Privacy concerns</h2>
 
@@ -133,7 +133,7 @@
 
 <h2 id="disabling-website-icons">Disabling website icons</h2>
 
-<p>We understand that certain privacy-minded users may not want to use the website icons feature. We provide the option to disable website icons on all bitwarden client applications:</p>
+<p>We understand that certain privacy-minded users may not want to use the “website icons” feature. We provide the option to disable website icons on all bitwarden client applications:</p>
 
 <ul>
   <li><strong>Web vault:</strong> Settings → Web Vault Options → Disable Website Icons</li>
@@ -276,10 +276,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509122593"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509122990"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509122593"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509122990"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
