@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Set up two-step login (2FA) | bitwarden Help &amp; Support</title>
+    <title>Your privacy when using website icons | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -86,27 +86,24 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Set up two-step login (2FA)
+        Your privacy when using website icons
     </h1>
     <div class="breadcrumb">
-        Categories:
-        
-        
-        
-        
-        <a href="/account-management/">Account Management</a>, 
-        
-        
-        
-        
-        
-        <a href="/getting-started/">Getting Started</a>
+        Category:
         
         
         
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -118,33 +115,40 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Two-step login (or two-factor authentication) greatly increases the security of your account by requiring you to complete a secondary step while logging into bitwarden (in addition to your master password). Even if someone were to discover your master password, they could not log into your bitwarden account without access to the secondary step. You can read more about <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="_blank">two-step login here</a>. We recommend that all users activate and use two-step login with their bitwarden account.</p>
+            <p><em>bitwarden does not collect any information when you download icons for website logins stored in your bitwarden vault.</em></p>
 
-<p>bitwarden supports two-step login using the following methods:</p>
+<h2 id="the-bitwarden-icons-server">The bitwarden icons server</h2>
 
-<p><strong>Free</strong></p>
+<p>When bitwarden displays a login item associated with a website in your bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The bitwarden icons server provides the delivery endpoint for these website icons.</p>
+
+<p>If you are using the “website icons” feature on a device, bitwarden will issue requests to <code class="highlighter-rouge">icons.bitwarden.com</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code class="highlighter-rouge">google.com</code> or <code class="highlighter-rouge">https://google.com</code>, but not <code class="highlighter-rouge">google</code> or <code class="highlighter-rouge">http://localhost</code>). The icons server is fronted with a CDN that caches the icon responses on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested it before you.</p>
+
+<h2 id="privacy-concerns">Privacy concerns</h2>
+
+<p>Because a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:</p>
+
+<p><code class="highlighter-rouge">https://icons.bitwarden.com/google.com/icon.png</code></p>
+
+<p><strong>The icons server endpoints do not log or collection any information regarding icon image requests.</strong> However, this is something you would have to take our word for since we have no way to demonstrate this publicly other than reviewing our <a href="https://github.com/bitwarden">open source codebase</a>.</p>
+
+<h2 id="disabling-website-icons">Disabling website icons</h2>
+
+<p>We understand that certain privacy-minded users may not want to use the website icons feature. We provide the option to disable website icons on all bitwarden client applications:</p>
 
 <ul>
-  <li>Authenticator app such as <a href="https://authy.com/" target="_blank">Authy</a> or <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a>, <a href="/article/setup-two-step-login-authenticator/">→ setup</a></li>
-  <li>Email, <a href="/article/setup-two-step-login-email/">→ setup</a></li>
+  <li><strong>Web vault:</strong> Settings → Web Vault Options → Disable Website Icons</li>
+  <li><strong>Browser extension:</strong> Settings → Features → Disable Website Icons</li>
+  <li><strong>Mobile app:</strong> Settings → Features → Disable Website Icons</li>
 </ul>
 
-<p><strong>Premium</strong></p>
-
-<ul>
-  <li>Duo Security with Duo Push, SMS, phone call, and U2F security keys, <a href="/article/setup-two-step-login-duo/">→ setup</a></li>
-  <li>YubiKey (any 4 series device or YubiKey NEO), <a href="/article/setup-two-step-login-yubikey/">→ setup</a></li>
-  <li>FIDO U2F (any FIDO U2F certified key), <a href="/article/setup-two-step-login-u2f/">→ setup</a></li>
-</ul>
-
-<p>You can enable multiple two-step login methods. If you have multiple two-step login methods enabled, the order of preference for the default method that is displayed while logging in is as follows: FIDO U2F → YubiKey → Duo → Authenticator app → Email. You can manually switch to and use any method during login, however.</p>
+<p>When the website icons feature is disable, bitwarden will opt to show you a generic, locally accessed icon instead (<i class="fa fa-globe"></i>) that is the same for all login items stored in your vault.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            two-step login, 2fa, two factor authentication, account
+            icons, website icons, privacy
         </div>
         
     </div>
