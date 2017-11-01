@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1509548340"
+    <link href="/css/styles.css?v=1509548737"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509548340"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1509548737"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -268,11 +268,11 @@
     
     
     
-      "article-backups": {
-          "title": "Backing up your data",
+      "article-backup-on-premise": {
+          "title": "Backing up your on-premise hosted data",
           "tags": "hosting, docker, backup",
           "content": "With the public cloud version of bitwarden, we automatically handle backing up your data for you. However, when self-hosting bitwarden you must implement your own backup procedures in order to keep your data safe.Bitwarden’s Docker containers use volume mapping to keep all important data persisted on the host machine. You can find this data in the ./bwdata directory relative to your bitwarden installation. The Docker containers themselves are to be considered ephemeral and do not persist data or state.You should back up and keep the entire ./bwdata directory safe. In the event of data loss you will need all or parts of data contained in this directory to restore your installation.Some particularly important parts of the ./bwdata directory are:  ./bwdata/mssql/data - database data  ./bwdata/core/attachments - vault item attachments  ./bwdata/env - environment variables, including database and certificate passwordsNightly database backupsBitwarden will automatically take nightly backups of the mssql container database. These database backups are kept in the ./bwdata/mssql/backups directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups. You can read more about SQL Server backup restoration at https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/.",
-          "url": "/article/backups/"
+          "url": "/article/backup-on-premise/"
       }
     ,
     
@@ -699,10 +699,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509548340"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1509548737"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509548340"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1509548737"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
