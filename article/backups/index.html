@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Export your vault data | bitwarden Help &amp; Support</title>
+    <title>Backing up your data | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -86,7 +86,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Export your vault data
+        Backing up your data
     </h1>
     <div class="breadcrumb">
         Category:
@@ -94,13 +94,13 @@
         
         
         
-        <a href="/account-management/">Account Management</a>
         
         
         
         
         
         
+        <a href="/hosting/">On-premise Hosting</a>
         
         
         
@@ -115,40 +115,30 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden allows you to export all of your vault data at any time.</p>
+            <p>With the public cloud version of bitwarden, we automatically handle backing up your data for you. However, when self-hosting bitwarden you must implement your own backup procedures in order to keep your data safe.</p>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>Data exports contain your unencrypted data in <code class="highlighter-rouge">.csv</code> format. You should not store or send the file over unsecure channels (such as email). Delete it immediately after you are done using it.</p>
+<p>Bitwarden’s Docker containers use volume mapping to keep all important data persisted on the host machine. You can find this data in the <code class="highlighter-rouge">./bwdata</code> directory relative to your bitwarden installation. The Docker containers themselves are to be considered ephemeral and do not persist data or state.</p>
 
-        </div>
+<p>You should back up and keep the entire <code class="highlighter-rouge">./bwdata</code> directory safe. In the event of data loss you will need all or parts of data contained in this directory to restore your installation.</p>
 
-<h2 id="from-the-web-vault">From the web vault</h2>
+<p>Some particularly important parts of the <code class="highlighter-rouge">./bwdata</code> directory are:</p>
 
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Tools</strong> on the sidebar</li>
-  <li>Click <strong>Export Data</strong> under the <strong>Import/Export</strong> panel</li>
-  <li>Type in your master password and click <strong>Export</strong>. Your browser will either automatically download the <code class="highlighter-rouge">.csv</code> file or prompt you to save it</li>
-</ol>
+<ul>
+  <li><code class="highlighter-rouge">./bwdata/mssql/data</code> - database data</li>
+  <li><code class="highlighter-rouge">./bwdata/core/attachments</code> - vault item attachments</li>
+  <li><code class="highlighter-rouge">./bwdata/env</code> - environment variables, including database and certificate passwords</li>
+</ul>
 
-<h2 id="from-the-browser-extension">From the browser extension</h2>
+<h2 id="nightly-database-backups">Nightly database backups</h2>
 
-<ol>
-  <li>Open the browser extension and click the <strong>Tools</strong> tab</li>
-  <li>Scroll down and click <strong>Export Vault</strong></li>
-  <li>Type in your master password and click <strong>Submit</strong>. Your browser will either automatically download the <code class="highlighter-rouge">.csv</code> file or prompt you to save it</li>
-</ol>
-
-<p>The downloaded <code class="highlighter-rouge">.csv</code> file can be opened, read, and modified in spreadsheet programs such as Microsoft Excel or a simple text editor like Notepad.</p>
+<p>Bitwarden will automatically take nightly backups of the <code class="highlighter-rouge">mssql</code> container database. These database backups are kept in the <code class="highlighter-rouge">./bwdata/mssql/backups</code> directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups. You can read more about SQL Server backup restoration at <a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/">https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/</a>.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            export, accounts, csv
+            hosting, docker, backup
         </div>
         
     </div>
