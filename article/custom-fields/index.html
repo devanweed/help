@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Help translate bitwarden to other languages | bitwarden Help &amp; Support</title>
+    <title>Using custom fields | bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -86,7 +86,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Help translate bitwarden to other languages
+        Using custom fields
     </h1>
     <div class="breadcrumb">
         Category:
@@ -115,20 +115,49 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>We use a translation tool called <a href="https://crowdin.com">Crowdin</a> to help manage our localization efforts across many different languages.</p>
+            <p>Custom fields allow you to store additional, well structured data fields within your vault entries. These fields could be security questions, PINs, or anything else. Custom fields have a name, a value, and a type (text, hidden, and boolean).</p>
 
-<p>If you are interested in helping translate a bitwarden application into another language (or make a translation correction), please register an account at Crowdin and join our projects here: <a href="https://crowdin.com/projects/kspearrin">https://crowdin.com/projects/kspearrin</a></p>
+<h2 id="auto-filling-custom-fields">Auto-filling custom fields</h2>
 
-<p>If the language that you are interested in translating is not already listed, create a new account on Crowdin, join the project, and contact the project owner (<a href="https://crowdin.com/mail/compose/kspearrin">https://crowdin.com/mail/compose/kspearrin</a>).</p>
+<p>Custom field names are an important identifier. Depending on the name you give your custom field, bitwarden will attempt to auto-fill the custom field’s value for you. If you intend to auto-fill custom fields you should name your field based on an identifier from the webpage form. These names are searched for using the following criteria:</p>
 
-<p>You can read Crowdin’s getting started guide for translators here: <a href="https://support.crowdin.com/crowdin-intro/">https://support.crowdin.com/crowdin-intro/</a></p>
+<ul>
+  <li>HTML form element’s <strong>id</strong> attribute</li>
+  <li>then the HTML form element’s <strong>name</strong> attribute</li>
+  <li>then the HTML form element’s corresponding <strong>label</strong> value</li>
+  <li>then the HTML form element’s <strong>placeholder</strong> value</li>
+</ul>
+
+<p>If one of these matches is found, bitwarden will auto-fill the custom field’s value for you.</p>
+
+<h2 id="special-name-prefixes-for-auto-filling">Special name prefixes for auto-filling</h2>
+
+<p>When bitwarden searches for a webpage’s form element to match with your custom field’s name, an exact, case-insensitive comparison is done. For example, if your custom field has the name <code class="highlighter-rouge">PIN</code>, the following form element’s values (from the id, name, label, etc) will match for auto-filling: “pin”, “PIN”, and “Pin”. However, values such as “pin2” or “mypin” will not match.</p>
+
+<p>There are two special name prefixes that can give you even more control over how your custom field is auto-filled:</p>
+
+<p><strong>CSV</strong></p>
+
+<p>Prefixing your custom field’s name with <code class="highlighter-rouge">csv=</code> allows you to specify multiple names to search for and compare when an auto-fill is performed.</p>
+
+<p>Example:</p>
+
+<p><code class="highlighter-rouge">csv=pin,pin2,mypin</code> will match all of the examples above.</p>
+
+<p><strong>Regular Expressions</strong></p>
+
+<p>Prefixing your custom field’s name with <code class="highlighter-rouge">regex=</code> allows you to perform regular expression comparisons when an auto-fill is performed.</p>
+
+<p>Example:</p>
+
+<p><code class="highlighter-rouge">regex=pin</code> will match all of the examples above.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            localize, l10n, translate, i18n, internationalization, language
+            fields, autofill, custom fields
         </div>
         
     </div>
