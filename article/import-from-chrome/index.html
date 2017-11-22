@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1511327263"
+    <link href="/css/styles.css?v=1511387067"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1511327263"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1511387067"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -115,46 +115,7 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Importing your data from Google Chrome into bitwarden is easy.</p>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>The process is exactly the same for Opera and Vivaldi browser users.</p>
-
-        </div>
-
-<h2 id="export-your-chrome-passwords">Export your Chrome passwords</h2>
-
-<ol>
-  <li>Open Chrome and enter <code class="highlighter-rouge">chrome://flags/#password-import-export</code> into the address bar and press enter. This will open the Chrome system flags page.</li>
-  <li>Look for the “Password import and export” option (it should be highlighted at the top of your page) and change the dropdown option to “Enabled”.</li>
-  <li>We also need to disable material design for the settings page so that the export button shows up (see <a href="https://productforums.google.com/forum/?utm_medium=email&amp;utm_source=footer#!topic/chrome/99KZmH2DRrA" target="blank">this topic</a> for more information). Enter <code class="highlighter-rouge">chrome://flags/#enable-md-settings</code> into the address bar and press enter. This should navigate you to another setting for “Enable Material Design settings” (it should be highlighted at the top of your page). Change the dropdown option to “Disabled”.</li>
-  <li>A prompt will pop up from the bottom asking you to “Relaunch Now”. Click the button to restart the browser so that the changes can take effect.</li>
-  <li>After relaunching the browser, enter <code class="highlighter-rouge">chrome://settings/passwords</code> into the address bar and press enter. This will open a window with all your saved passwords for Chrome.</li>
-  <li>Scroll down through the list and look for the “Export” and “Import” buttons at the end of the list.</li>
-  <li>Click the “Export” button. You’ll be prompted to enter your computer’s password for authorization.</li>
-  <li>Once your computer’s password is entered and validated, you can save your passwords to a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file on your computer. Save this file to your desktop as <code class="highlighter-rouge">chromedata.csv</code>.</li>
-</ol>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>If you would like to, you can now go back and enable material design for the settings page. This is optional. You can complain to the Chrome team about removing the password export button in <a href="https://productforums.google.com/forum/?utm_medium=email&amp;utm_source=footer#!topic/chrome/99KZmH2DRrA" target="blank">this topic</a> on their user forums.</p>
-
-        </div>
-
-<h2 id="import-your-passwords-into-bitwarden">Import your passwords into bitwarden</h2>
-
-<ol>
-  <li>Go to the <a href="https://vault.bitwarden.com">bitwarden web vault</a> and log in.</li>
-  <li>Navigate to “Tools” &gt; “Import”.</li>
-  <li>Select “Chrome (csv)” as the file format and select your <code class="highlighter-rouge">chromedata.csv</code> file from the desktop that you created in step 7 above.</li>
-  <li>Click the “Import” button.</li>
-</ol>
-
-<p>Congratulations! You have just transferred all of your data from Google Chrome into bitwarden.</p>
-
+            <p>Unfortunately Google has removed the ability to export passwords from Chrome. However, it is suppose to be returning in Chrome 63. You can read more about it in <a href="https://productforums.google.com/forum/?utm_medium=email&amp;utm_source=footer#!topic/chrome/99KZmH2DRrA" target="blank">this topic</a> on their user forums. We will update this documentation if/when it returns.</p>
 
         </div>
         
@@ -289,10 +250,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1511327263"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1511387067"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1511327263"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1511387067"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
