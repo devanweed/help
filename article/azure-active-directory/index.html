@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1511982803"
+    <link href="/css/styles.css?v=1512074563"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1511982803"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1512074563"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -115,7 +115,141 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
+            <p>This article will cover how to connect the bitwarden Directory Connector tool to your Azure Active Directory.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
+  <li>Install bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your bitwarden account and select your enterprise organization</li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#create-a-new-application-registration">Create a New Application Registration</a></li>
+  <li><a href="#grant-application-permissions">Grant Application Permissions</a></li>
+  <li><a href="#create-application-secret-key">Create Application Secret Key</a></li>
+  <li><a href="#get-your-application-id">Get Your Application ID</a></li>
+  <li><a href="#get-your-tenant-hostname">Get Your Tenant Hostname</a></li>
+  <li><a href="#configure-directory-connector">Configure Directory Connector</a></li>
+  <li><a href="#testing">Testing</a></li>
+</ul>
+
+<h2 id="create-a-new-application-registration">Create a New Application Registration</h2>
+
+<ol>
+  <li>Go to <a href="https://portal.azure.com">https://portal.azure.com</a></li>
+  <li>Select the <strong>Azure Active Directory</strong> resource</li>
+  <li>Navigate to <strong>App registrations</strong> and select <strong>New application registration</strong>
+<a href="/images/directory-connector/azure/new-application.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/new-application.png" />
+     </a></li>
+  <li><strong>Name</strong> your application “bitwarden”</li>
+  <li>Set the <strong>Application type</strong> to “Web app / API”</li>
+  <li>Set the <strong>Sign-on URL</strong> to any website value, such as “https://company.com”. This URL is not used in this setup process so it can be anything.</li>
+  <li>Click the <strong>Create</strong> button to create the application.
+<a href="/images/directory-connector/azure/create-application.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/create-application.png" />
+     </a></li>
+</ol>
+
+<h2 id="grant-application-permissions">Grant Application Permissions</h2>
+
+<ol>
+  <li>Select the <strong>bitwarden</strong> application you created in the previous section.</li>
+  <li>Navigate to <strong>Settings</strong> and select <strong>Required Permissions</strong>.</li>
+  <li>Select the existing <strong>Windows Azure Active Directory</strong> API.</li>
+  <li>Check <strong>all</strong> Application and Delegated permissions and click <strong>Save</strong>.
+<a href="/images/directory-connector/azure/directory-permissions.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/directory-permissions.png" />
+     </a></li>
+  <li>Select the <strong>Add</strong> button to create a new API permission set.</li>
+  <li>For step 1, <strong>Select an API</strong> for <strong>Microsoft Graph</strong>.</li>
+  <li>For step 2, <strong>Select Permissions</strong> for the following:
+    <ul>
+      <li>Application Permissions:
+        <ul>
+          <li>“Read all users’ full profiles”</li>
+          <li>“Read all groups”</li>
+        </ul>
+      </li>
+      <li>Delegated Permissions:
+        <ul>
+          <li>“Read all groups”</li>
+          <li>“Read all users’ full profiles”</li>
+          <li>“Read all users basic profiles”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Click the <strong>Select</strong> button and then <strong>Done</strong> to add the Microsoft Graph API permissions.
+<a href="/images/directory-connector/azure/graph-permissions.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/graph-permissions.png" />
+     </a></li>
+  <li>Click the <strong>Grant Permissions</strong> button to grant the permissions to the application.
+<a href="/images/directory-connector/azure/grant-permissions.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/grant-permissions.png" />
+     </a></li>
+</ol>
+
+<h2 id="create-application-secret-key">Create Application Secret Key</h2>
+
+<ol>
+  <li>Go back to the <strong>bitwarden</strong> application that you created.</li>
+  <li>Navigate to <strong>Settings</strong> and select <strong>Keys</strong>.</li>
+  <li>Add a new <strong>Password</strong> key by entering a <strong>Name</strong> and <strong>Duration</strong>. We recommend selecting “Never Expires” for the duration.</li>
+  <li>Click <strong>Save</strong> to create a new secret key.</li>
+  <li>Copy the key’s value to safe place. We will need to reference it later.
+<a href="/images/directory-connector/azure/key.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/key.png" />
+     </a></li>
+</ol>
+
+<h2 id="get-your-application-id">Get Your Application ID</h2>
+
+<ol>
+  <li>Go back to the <strong>bitwarden</strong> application that you created.</li>
+  <li>Copy the <strong>Application ID</strong> to a safe place.  We will need to reference it later.
+<a href="/images/directory-connector/azure/application-id.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/application-id.png" />
+     </a></li>
+</ol>
+
+<h2 id="get-your-tenant-hostname">Get Your Tenant Hostname</h2>
+
+<ol>
+  <li>Select your username in the top right corner of the Azure Portal.</li>
+  <li>Note the <strong>hostname</strong> value that appears under your directory (ex. company.onmicrosoft.com). This is your <strong>Tenant</strong> hostname. Copy the <strong>Tenant</strong> hostname to a safe place. We will need to reference it later.
+<a href="/images/directory-connector/azure/tenant.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/tenant.png" />
+     </a></li>
+</ol>
+
+<h2 id="configure-directory-connector">Configure Directory Connector</h2>
+
+<ol>
+  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
+  <li>Select option 3 (Configure directory connection) from the main menu.</li>
+  <li>Select <strong>Azure Active Directory</strong> as the type.</li>
+  <li>Enter the <strong>Tenant</strong> hostname that you copied from the steps above (ex. company.onmicrosoft.com).</li>
+  <li>Enter the <strong>Application ID</strong> that you copied from the steps above.</li>
+  <li>Enter the Application <strong>Secret</strong> Key that you copied from the steps above.</li>
+</ol>
+
+<p>Congrats! You are done configuring Azure Active Directory with the bitwarden Directory Connector.</p>
+
+<h2 id="testing">Testing</h2>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
             
+<p>It can take up to 15 minutes for the granted permissions for your application to properly propagate. You may receive “Insufficient privileges to complete the operation” errors in the meantime.</p>
+
+        </div>
+
+<p>Test your configurations by running a simulated directory sync. You should see your Azure Active Directory groups and/or users printed to the screen.</p>
 
         </div>
         
@@ -245,10 +379,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1511982803"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1512074563"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1511982803"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1512074563"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
