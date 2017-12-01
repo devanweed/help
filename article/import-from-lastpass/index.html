@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1512074563"
+    <link href="/css/styles.css?v=1512104017"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1512074563"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1512104017"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -146,7 +146,7 @@
 
         </div>
 
-<h2 id="import-your-sites-into-bitwarden">Import your sites into bitwarden</h2>
+<h2 id="import-your-data-into-bitwarden">Import your data into bitwarden</h2>
 
 <ol>
   <li>Go to the <a href="https://vault.bitwarden.com">bitwarden web vault</a> and log in.</li>
@@ -160,6 +160,30 @@
 </ol>
 
 <p>Congratulations! You have just transferred all of your data from LastPass into bitwarden.</p>
+
+<h2 id="importing-form-fills-optional">Importing form fills (optional)</h2>
+
+<p>LastPass does not include form fills with the standard export from the LastPass web vault. If you want to import form fill information into bitwarden you can export the form fill CSV data from the browser extension:</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>You can only export form fill data from the LastPass browser extension.</p>
+
+        </div>
+
+<ol>
+  <li>Click the LastPass icon from the browser toolbar to open the LastPass popup interface.</li>
+  <li>Navigate to <strong>More options</strong> → <strong>Advanced</strong> → <strong>Export</strong> → <strong>Form Fills</strong>.</li>
+  <li>This will take you to a page that then asks you to enter your LastPass master password for verification. Enter your LastPass master password.</li>
+  <li>Your data will be decrypted and shown on screen in <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> format.</li>
+  <li>Highlight all of the data on the page and copy it to your clipboard.
+    <ul>
+      <li>Highlight all of the data with your mouse (or simply press <code>Ctrl + A</code>), then right click with your mouse and select <strong>Copy</strong>.</li>
+    </ul>
+  </li>
+  <li>Follow the same import steps in <a href="#import-your-data-into-bitwarden">Import your data into bitwarden</a>.</li>
+</ol>
 
 
         </div>
@@ -295,10 +319,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1512074563"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1512104017"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1512074563"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1512104017"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
