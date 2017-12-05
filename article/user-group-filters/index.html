@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1512104249"
+    <link href="/css/styles.css?v=1512498687"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1512104249"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1512498687"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -179,13 +179,27 @@
 
 <h2 id="azure-active-directory">Azure Active Directory</h2>
 
-<p>The Microsoft Graph API provides advanced filtering capabilities through the <code class="highlighter-rouge">$filter</code> parameter using OData syntax. This parameter is exposed to you in both the user and group filters of the Directory Connector.</p>
-
-<p>Read more about the <code class="highlighter-rouge">$filter</code> parameter with OData syntax here: <a href="https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#filter">https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#filter</a></p>
+<p>The Microsoft Graph API does not provide a way to filter groups and users directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names and user emails.</p>
 
 <h4 id="example">Example</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>startswith(displayName,'J')
+<p>Groups:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
+</code></pre>
+</div>
+
+<p>Users:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>exclude:joe@company.com
 </code></pre>
 </div>
 
@@ -361,10 +375,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1512104249"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1512498687"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1512104249"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1512498687"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
