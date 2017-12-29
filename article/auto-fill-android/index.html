@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1514574263"
+    <link href="/css/styles.css?v=1514576083"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514574263"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514576083"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,20 +115,60 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can use the bitwarden Android app to add new and auto-fill existing logins on the web and in other apps.</p>
+            <p>You can use the bitwarden Android app to add new and auto-fill existing logins on the web and in other apps. Bitwarden provides two auto-fill services:</p>
 
-<h2 id="enabling-the-service">Enabling the service</h2>
+<ol>
+  <li>The <strong>Autofill Framework Service</strong> for Android users on Oreo (8.0) and greater.</li>
+  <li>The <strong>Auto-fill Accessibility Service</strong> for all Android versions, and</li>
+</ol>
+
+<hr />
+
+<h2 id="autofill-framework-service">Autofill Framework Service</h2>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            <p>The Autofill Framework Service is only available to users on Android Oreo (8.0) and greater. If you are on a version of  Android prior to Oreo (8.0) you should use the <strong>Auto-fill Accessibility Service</strong> as explained further down in this article.</p>
+
+        </div>
 
 <ol>
   <li>Open the bitwarden Android app.</li>
-  <li>Tap <strong>Tools</strong> → <strong>bitwarden Auto-fill Service</strong>. Status <em>Disabled</em> will appear.</li>
-  <li>Tap <strong>Open Accessibility Settings</strong>.</li>
+  <li>Tap the <strong>Tools</strong> page.</li>
+  <li>Tap <strong>bitwarden Auto-fill Service</strong>. Status <em>Disabled</em> will appear in red.</li>
+  <li>Tap the <strong>Open Autofill Settings</strong> button.</li>
   <li>Locate <strong>bitwarden</strong> from the list and enable it.</li>
 </ol>
 
-<p>Auto-fill is context-sensitive. This means that the bitwarden auto-fill icon, and notification will only appear when the app detects a login form. You can change the way auto-fill behaves by navigating to <strong>Settings</strong> → <strong>Options</strong> → <strong>Auto-fill</strong>.</p>
+<p>The Autofill Framework Service is now enabled.</p>
 
-<h2 id="testing-auto-fill">Testing auto-fill</h2>
+<p>The Autofill Framework Service is context-sensitive and will appear whenever you encounter a form that can be auto-filled on your device. You can read more about the Autofill Framework service from <a href="https://blog.bitwarden.com/bitwarden-the-oreo-autofill-framework-2a8b2e04f29e" target="_blank">this posting on our blog</a>.</p>
+
+<h3 id="testing-the-auto-fill-framework-service">Testing the Auto-fill Framework Service</h3>
+
+<ol>
+  <li>Open an app that has not been signed in to.</li>
+  <li>View the login page for the app and focus the username or password field. A bitwarden pop-up will appear below the input field.</li>
+  <li>Select the appropriate login from the list or select the option to open bitwarden to search for the correct login. Your username and password will be auto-filled.</li>
+</ol>
+
+<hr />
+
+<h2 id="auto-fill-accessibility-service">Auto-fill Accessibility Service</h2>
+
+<ol>
+  <li>Open the bitwarden Android app.</li>
+  <li>Tap the <strong>Tools</strong> page.</li>
+  <li>For users on Android versions prior to Oreo (8.0), tap <strong>bitwarden Auto-fill Accessibility Service</strong>. For users on Android versions Oreo (8.0) or greater, tap <strong>bitwarden Auto-fill Service</strong> and then select <strong>Auto-fill Accessibility Service</strong> at the bottom. Status <em>Disabled</em> will appear in red.</li>
+  <li>Tap the <strong>Open Accessibility Settings</strong> button.</li>
+  <li>Locate <strong>bitwarden</strong> from the list and enable it.</li>
+</ol>
+
+<p>The Auto-fill Accessibility Service is now enabled.</p>
+
+<p>The Auto-fill Accessibility Service is context-sensitive. This means that the bitwarden auto-fill icon, and notification will only appear when the app detects a login form. You can change the way auto-fill behaves by navigating to <strong>Settings</strong> → <strong>Options</strong> → <strong>Auto-fill Accessibility Service</strong>.</p>
+
+<h3 id="testing-the-auto-fill-accessibility-service">Testing the Auto-fill Accessibility Service</h3>
 
 <ol>
   <li>Open an app that has not been signed in to.</li>
@@ -137,9 +177,9 @@
   <li>Tap the appropriate login from the list. Your username and password will be auto-filled.</li>
 </ol>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="troubleshooting-the-auto-fill-accessibility-service">Troubleshooting the Auto-fill Accessibility Service</h3>
 
-<p><strong>1. The bitwarden Auto-fill Service keeps getting disabled</strong></p>
+<p><u>The bitwarden Auto-fill Service keeps getting disabled</u></p>
 
 <p>Android may turn off the bitwarden Auto-fill Service to optimize battery life. To resolve this you can either:</p>
 <ul>
@@ -147,7 +187,7 @@
   <li>Manually turn on the bitwarden Auto-fill Service each time</li>
 </ul>
 
-<p><strong>2. The auto-fill notification does not appear when I visit a login page in my web browser.</strong></p>
+<p><u>The auto-fill notification does not appear when I visit a login page in my web browser.</u></p>
 
 <p>This is a currently a known issue with the following browsers, which do not support accessibility services:</p>
 
@@ -158,7 +198,7 @@
 
 <p>Android has many web browsers. It can be hard to keep up with them all. We have to add support for each browser individually. If auto-fill does not work and your browser is not listed above please report it at <a href="https://github.com/bitwarden/mobile/issues">https://github.com/bitwarden/mobile/issues</a> so that we can add support.</p>
 
-<p><strong>3. bitwarden is using a lot of my device’s battery power.</strong></p>
+<p><u>bitwarden is using a lot of my device's battery power.</u></p>
 
 <p>Unfortunately Android accessibility services can be fairly resource intensive on certain devices. We provide a few alternative auto-fill modes that can help reduce battery consumption. You can find these under bitwarden’s Settings → Options menu.</p>
 
@@ -295,10 +335,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514574263"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514576083"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514574263"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514576083"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
