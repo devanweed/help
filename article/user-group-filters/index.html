@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1513864141"
+    <link href="/css/styles.css?v=1514574263"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1513864141"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514574263"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -135,9 +135,8 @@
 
 <p>Search for all entries that have objectClass=user AND cn that contains the word ‘Marketing’.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectClass=user)(cn=*Marketing*))
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(&amp;(objectClass=user)(cn=*Marketing*))
+</code></pre></div></div>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -148,15 +147,13 @@
 
 <p>Find entries with an OU component of their DN which is either ‘Miami’ or ‘Orlando’.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(|(ou:dn:=Miami)(ou:dn:=Orlando))
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(|(ou:dn:=Miami)(ou:dn:=Orlando))
+</code></pre></div></div>
 
 <p>To exclude entities which match an expression, use ‘!’. Find all Chicago entries except those with a Wrigleyville OU component.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(ou:dn:=Chicago)(!(ou:dn:=Wrigleyville)))
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(&amp;(ou:dn:=Chicago)(!(ou:dn:=Wrigleyville)))
+</code></pre></div></div>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -167,15 +164,13 @@
 
 <p>Users in the ‘Heroes’ group</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf=cn=Heroes,ou=users,dc=company,dc=com))
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf=cn=Heroes,ou=users,dc=company,dc=com))
+</code></pre></div></div>
 
 <p>Users that are a member of the ‘Heroes’ group, either directly or via nesting</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf:1.2.840.113556.1.4.1941:=cn=Heroes,ou=users,dc=company,dc=com))
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(&amp;(objectCategory=Person)(sAMAccountName=*)(memberOf:1.2.840.113556.1.4.1941:=cn=Heroes,ou=users,dc=company,dc=com))
+</code></pre></div></div>
 
 <h2 id="azure-active-directory">Azure Active Directory</h2>
 
@@ -185,23 +180,19 @@
 
 <p>Groups</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
+</code></pre></div></div>
 
 <p>Users</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>exclude:joe@company.com
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:joe@company.com
+</code></pre></div></div>
 
 <h2 id="g-suite">G Suite</h2>
 
@@ -211,13 +202,11 @@
 
 <h4 id="examples-2">Examples</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
+</code></pre></div></div>
 
 <h3 id="users">Users</h3>
 
@@ -231,21 +220,18 @@
 
 <p>Only the include/exclude filter:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
+</code></pre></div></div>
 
 <p>An include/exclude filter + a G Suite <code class="highlighter-rouge">query</code> search:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>exclude:john@company.com,bill@company.com|orgName=Engineering orgTitle:Manager
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:john@company.com,bill@company.com|orgName=Engineering orgTitle:Manager
+</code></pre></div></div>
 
 <p>Only the G Suite <code class="highlighter-rouge">query</code> search (notice the <code class="highlighter-rouge">|</code> prefix that is required):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>|orgName=Engineering orgTitle:Manager
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|orgName=Engineering orgTitle:Manager
+</code></pre></div></div>
 
         </div>
         
@@ -375,10 +361,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1513864141"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514574263"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1513864141"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514574263"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1513864141"
+    <link href="/css/styles.css?v=1514574263"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1513864141"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514574263"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -167,7 +167,7 @@
 <a href="https://github.com/bitwarden/directory-connector/releases" target="_blank"><i class="fa fa-download"></i> Download Directory Connector Installer</a></li>
   <li>Launch the setup wizard by running (double-clicking) the downloaded <code class="highlighter-rouge">.msi</code> installer.</li>
   <li>Step through the wizard and complete the installation.</li>
-  <li>After the setup wizard has successfully completed, you should find a shortcut on your desktop for <strong>Directory Connector</strong> with the bitwarden logo <i class="fa fa-shield"></i>. The full path to the application can be found at <code class="highlighter-rouge"><span class="p">{</span><span class="err">install_folder</span><span class="p">}</span><span class="err">/Console.exe</span></code>.</li>
+  <li>After the setup wizard has successfully completed, you should find a shortcut on your desktop for <strong>Directory Connector</strong> with the bitwarden logo <i class="fa fa-shield"></i>. The full path to the application can be found at <code class="highlighter-rouge">{install_folder}/Console.exe</code>.</li>
 </ol>
 
 <h3 id="log-in-to-your-bitwarden-organization-account">Log in to your bitwarden organization account</h3>
@@ -181,9 +181,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe login -e -p [-t] [-o]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe login -e -p [-t] [-o]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -229,9 +228,8 @@
 
 <p>You can also log out with the following command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe logout
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe logout
+</code></pre></div></div>
 
 <h3 id="configure-the-directory-connection">Configure the directory connection</h3>
 
@@ -250,9 +248,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configdir -t [azure: -i -s -te] [gsuite: -f -u [-d] [-c]] [ad/ldap: -a -path [-port] [-cu] [-u] [-p]]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe configdir -t [azure: -i -s -te] [gsuite: -f -u [-d] [-c]] [ad/ldap: -a -path [-port] [-cu] [-u] [-p]]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -435,9 +432,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-es] [-c] [-r]]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-es] [-c] [-r]]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -615,9 +611,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sim [-f]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe sim [-f]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -654,9 +649,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe sync [-f]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe sync [-f]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -696,9 +690,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe service [-start] [-stop]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe service [-start] [-stop]
+</code></pre></div></div>
 
 <div class="table-responsive">
             
@@ -767,9 +760,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe env [-api] [-id]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe env [-api] [-id]
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -807,9 +799,8 @@
 
 <p>Optionally, from the command line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Console.exe clearcache
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe clearcache
+</code></pre></div></div>
 
 <div class="callout callout-success">
             <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
@@ -961,10 +952,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1513864141"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514574263"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1513864141"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514574263"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
