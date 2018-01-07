@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1514576292"
+    <link href="/css/styles.css?v=1515285373"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514576292"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1515285373"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -139,7 +139,7 @@
       "article-forgot-master-password": {
           "title": "I forgot my master password",
           "tags": "master password, account",
-          "content": "Unlike most services that you use on the internet, due to the way bitwarden works there is no way to reset your master password in the event that you forget it. This is because all of your vault data in encrypted with your master password, therefore it is impossible to unlock or recover without it.If you have forgotten your master password unfortunately there is no way to fully recover the account. The only option to gain access to the account again is to delete the account so that you can register again and start over. Note that deleting the account will also delete all of your stored login data associated with the account.Deleting the account  Navigate to https://vault.bitwarden.com/#/recover-delete  Enter your account’s email address  Go to your email inbox and click the verification link that was sent to you  Confirm the deleteYou can now register a new account using the same email address.",
+          "content": "Unlike most services that you use on the internet, due to the way bitwarden works there is no way to reset your master password in the event that you forget it. This is because your bitwarden master password is used for more than just authentication (logging in). Your vault’s data is also securely encrypted with your master password, therefore it is impossible to unlock or recover your vault without it.If you have forgotten your master password unfortunately there is no way to fully recover the account. The only option to gain access to the account again is to delete the account so that you can register again and start over. Deleting the account will also delete all of your vault data associated with the account.Deleting the account  Navigate to https://vault.bitwarden.com/#/recover-delete  Enter your account’s email address  Go to your email inbox and click the verification link that was sent to you  Confirm the deleteYou can now register a new account using the same email address.",
           "url": "/article/forgot-master-password/"
       }
     ,
@@ -459,7 +459,7 @@
       "article-collections": {
           "title": "Collections",
           "tags": "",
-          "content": "Collections allow you to group related logins within your organization that your wish to share. A simple personal organization for a family may only want to have one or two collections (ex. Parents and Kids), while a larger organization like a company may have many collections (ex. each department such as Sales, IT, Developers, Dev Ops, etc).                    When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any logins that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the Read Only option will ensure that the user cannot edit any logins within that particular collection (they can just view and use them).             Note            Collections are different than folders. Collections are a way to organize logins and limit user access within an organization’s vault while folders are a way for individual users to organize logins within their own personal vault. An individual user may wish to further organize the logins being shared with them in their own vault into a personalized folder structure that makes sense just for them.        ",
+          "content": "Collections allow you to group related items that are being shared from your organization’s vault. A simple personal organization for a family may only want to have one or two collections (ex. Parents and Kids), while a larger organization like a company may have many collections (ex. Servers, Social Media Accounts, Executives, etc).                    When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any items that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the Read Only option will ensure that the user cannot add, edit, or delete any items within that particular collection (they can just view and use them).             Note            Collections are different than folders. Collections are a way to organize items and control user access within an organization’s vault while folders are a way for individual users to organize items within their own personal vault. An individual user may wish to further organize the items being shared with them in their own vault into a personalized folder structure that makes sense just for them.        ",
           "url": "/article/collections/"
       }
     ,
@@ -469,7 +469,7 @@
       "article-groups": {
           "title": "User groups",
           "tags": "",
-          "content": "In addition to collections, groups are a way for organizations to further control user access. They are particularly useful to larger organizations where user access can be difficult to manage.             Note            User groups are only available to enterprise organizations.        User AssignmentAfter creating a user, you can assign that user to one or more groups. From the users listing (People) page, Select the Groups option for a particular user to make your group selections.You can also view which users belong to a specific group by navigating to the groups listing page and selecting the Users option for a specific group. Users can be removed from the group from this page as well, however, adding a new user to a group must be done from the individual user.                    Collection AssignmentAccess control for a group is done by assigning collections to a group (or vice versa). You can assign which collections a group can access by editing the group from the group listing page.                    Alternatively, edit a collection from the collections listing page to choose which groups can access it.Organization users will only be able to access logins that belong to the groups that they are members of. If a user belongs to multiple groups, that user will be able to access logins from the union of all collections for their groups plus any individual collections that they have been assigned to.",
+          "content": "In addition to collections, groups are a way for organizations to further control user access. They are particularly useful to larger organizations where user access can be difficult to manage.             Note            User groups are only available to enterprise organizations.        User AssignmentAfter creating a user, you can assign that user to one or more groups. From the users listing (People) page, Select the Groups option for a particular user to make your group selections.You can also view which users belong to a specific group by navigating to the groups listing page and selecting the Users option for a specific group. Users can be removed from the group from this page as well, however, adding a new user to a group must be done from the individual user.                    Collection AssignmentAccess control for a group is done by assigning collections to a group (or vice versa). You can assign which collections a group can access by editing the group from the group listing page.                    Alternatively, edit a collection from the collections listing page to choose which groups can access it.Organization users will only be able to access items that belong to the groups (and therefore collections) that they are members of. If a user belongs to multiple groups, that user will be able to access items from the union of all collections for their groups plus any individual collections that they have been assigned to.",
           "url": "/article/groups/"
       }
     ,
@@ -720,17 +720,17 @@
                             </a>
                         </li>
                     </ul>
-                    &copy; 2015 - 2017, <br class="visible-sm" />8bit Solutions LLC
+                    &copy; 2015 - 2018, <br class="visible-sm" />8bit Solutions LLC
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514576292"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1515285373"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514576292"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1515285373"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

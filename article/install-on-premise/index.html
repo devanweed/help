@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1514576292"
+    <link href="/css/styles.css?v=1515285372"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1514576292"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1515285372"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -141,35 +141,39 @@
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s -o bitwarden.sh \
+    <div class="highlighter-rouge"><pre class="highlight"><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
     &amp;&amp; sudo chmod u+x bitwarden.sh
 ./bitwarden.sh install
 ./bitwarden.sh start
 ./bitwarden.sh updatedb
-</code></pre></div>    </div>
+</code></pre>
+    </div>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
+    <div class="highlighter-rouge"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
 .\bitwarden.ps1 -install
 .\bitwarden.ps1 -start
 .\bitwarden.ps1 -updatedb
-</code></pre></div>    </div>
+</code></pre>
+    </div>
   </li>
   <li>
     <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bwdata/env/global.override.env</code> and restart.</p>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh restart
-</code></pre></div>    </div>
+    <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh restart
+</code></pre>
+    </div>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -restart
-</code></pre></div>    </div>
+    <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -restart
+</code></pre>
+    </div>
   </li>
   <li>Test your deployment. Visit the web vault at your configured domain name, register a new account, and log in.</li>
 </ol>
@@ -227,29 +231,33 @@
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s -o bitwarden.sh \
+    <div class="highlighter-rouge"><pre class="highlight"><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
     &amp;&amp; sudo chmod u+x bitwarden.sh
-</code></pre></div>    </div>
+</code></pre>
+    </div>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
+    <div class="highlighter-rouge"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
-</code></pre></div>    </div>
+</code></pre>
+    </div>
   </li>
   <li>
     <p>Start the installer:</p>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh install
-</code></pre></div>    </div>
+    <div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh install
+</code></pre>
+    </div>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -install
-</code></pre></div>    </div>
+    <div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -install
+</code></pre>
+    </div>
   </li>
   <li>
     <p>Complete the prompts in the installer.</p>
@@ -299,7 +307,7 @@
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>globalSettings__yubico__clientId=294620155
+<div class="highlighter-rouge"><pre class="highlight"><code>globalSettings__yubico__clientId=294620155
 globalSettings__yubico__key=owdez88RdxVZuGbZ4fv
 globalSettings__mail__smtp__host=smtp.sendgrid.net
 globalSettings__mail__smtp__username=apikey
@@ -307,7 +315,8 @@ globalSettings__mail__smtp__password=SG.YOUR.API_KEY
 globalSettings__mail__smtp__ssl=true
 globalSettings__mail__smtp__port=587
 globalSettings__mail__smtp__useDefaultCredentials=false
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p>If you plan to use YubiKeys for two-step login, you can get your YubiKey client id and key at <a href="https://upgrade.yubico.com/getapikey/" target="_blank">https://upgrade.yubico.com/getapikey/</a>.</p>
 
@@ -324,18 +333,21 @@ globalSettings__mail__smtp__useDefaultCredentials=false
 
 <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh start
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh start
+</code></pre>
+</div>
 
 <p><i class="fa fa-windows"></i> PowerShell</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -start
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -start
+</code></pre>
+</div>
 
 <p>You can then verify that all containers are up and running correctly:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>docker ps
+</code></pre>
+</div>
 
 <p><a href="/images/hosting/docker-ps.png" target="_blank" rel="lightbox">
             <img class="img-responsive img-thumbnail img-tag" src="/images/hosting/docker-ps.png" />
@@ -345,13 +357,15 @@ globalSettings__mail__smtp__useDefaultCredentials=false
 
 <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh updatedb
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>./bitwarden.sh updatedb
+</code></pre>
+</div>
 
 <p><i class="fa fa-windows"></i> PowerShell</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -updatedb
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>.\bitwarden.ps1 -updatedb
+</code></pre>
+</div>
 
 <p>Congratulations! bitwarden is now up and running at <code class="highlighter-rouge">https://your.domain.com</code>. Visit the web vault in your web browser to confirm. You should register a new account and log in.</p>
 
@@ -536,17 +550,17 @@ globalSettings__mail__smtp__useDefaultCredentials=false
                             </a>
                         </li>
                     </ul>
-                    &copy; 2015 - 2017, <br class="visible-sm" />8bit Solutions LLC
+                    &copy; 2015 - 2018, <br class="visible-sm" />8bit Solutions LLC
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1514576292"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1515285372"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1514576292"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1515285372"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
