@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1516389559"
+    <link href="/css/styles.css?v=1517335302"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1516389559"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -262,7 +262,7 @@
       </li>
       <li>If you already have your own SSL certificate you can place the following files in the <code class="highlighter-rouge">./bwdata/ssl/your.domain.com</code> directory:
         <ul>
-          <li>certificate.crt (required)</li>
+          <li>certificate.crt (required). If not done so already, you may need to bundle your primary certificate with any intermediate certificates provided by the CA or else you will receive SSL trust errors. ex. <code class="highlighter-rouge">cat domain.crt ca.crt &gt;&gt; certificate.crt</code>. <a href="https://www.google.com/search?q=nginx+ssl+bundle+certificate+and+ca" target="_blank">See here</a> for more information.</li>
           <li>private.key (required)</li>
           <li>ca.crt (optional, if trusted)</li>
           <li>dhparam.pem (optional, if using Diffie Hellman ephemeral parameters). You can create your own <code class="highlighter-rouge">dhparam.pem</code> by using OpenSSL with <code class="highlighter-rouge">openssl dhparam -out ./dhparam.pem 2048</code>.</li>
@@ -543,10 +543,10 @@ globalSettings__mail__smtp__useDefaultCredentials=false
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1516389559"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1516389559"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
