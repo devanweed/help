@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Configuring directory sync with G Suite (Google) | bitwarden Help &amp; Support</title>
+    <title>Configuring directory sync with G Suite (Google) | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,14 +115,14 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>This article will cover how to connect the bitwarden Directory Connector tool to your G Suite directory.</p>
+            <p>This article will cover how to connect the Bitwarden Directory Connector tool to your G Suite directory.</p>
 
 <h2 id="requirements">Requirements</h2>
 
 <ul>
   <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
-  <li>Install bitwarden Directory Connector</li>
-  <li>Using Directory Connector, log into your bitwarden account and select your enterprise organization</li>
+  <li>Install Bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your Bitwarden account and select your enterprise organization</li>
 </ul>
 
 <h2 id="table-of-contents">Table of Contents</h2>
@@ -189,7 +189,7 @@
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-credentials.png" />
      </a></li>
   <li>Select <strong>New service account</strong>.</li>
-  <li>Name the service account <strong>bitwarden Directory Connector</strong>. For the role, select <strong>Project</strong> and then <strong>Owner</strong>. Ensure that <strong>JSON</strong> is the selected <strong>Key type</strong>. Upon clicking <strong>Create</strong>, a JSON file will be downloaded; this is important for later so keep a note of where you have downloaded it.
+  <li>Name the service account <strong>Bitwarden Directory Connector</strong>. For the role, select <strong>Project</strong> and then <strong>Owner</strong>. Ensure that <strong>JSON</strong> is the selected <strong>Key type</strong>. Upon clicking <strong>Create</strong>, a JSON file will be downloaded; this is important for later so keep a note of where you have downloaded it.
 <a href="/images/directory-connector/gsuite/create-service-account.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-service-account.png" />
      </a></li>
@@ -244,7 +244,7 @@
 
 <ol>
   <li>Locate the secret key JSON file that was downloaded whenever you created your service account in the steps above.</li>
-  <li>Copy this file to the bitwarden Directory Connector program data folder at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector</code>.
+  <li>Copy this file to the Bitwarden Directory Connector program data folder at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector</code>.
     <ul>
       <li>Optionally rename the JSON file to something that is easier to remember, such as <code class="highlighter-rouge">client_secret.json</code></li>
     </ul>
@@ -257,7 +257,7 @@
   <li>Enter the email address of an admin user that has full access to the G Suite directory (such as your own).</li>
 </ol>
 
-<p>Congrats! You are done configuring G Suite with the bitwarden Directory Connector.</p>
+<p>Congrats! You are done configuring G Suite with the Bitwarden Directory Connector.</p>
 
 <h2 id="testing">Testing</h2>
 
@@ -372,7 +372,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -391,10 +391,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

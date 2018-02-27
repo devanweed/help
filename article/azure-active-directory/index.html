@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Configuring directory sync with Azure Active Directory | bitwarden Help &amp; Support</title>
+    <title>Configuring directory sync with Azure Active Directory | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,14 +115,14 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>This article will cover how to connect the bitwarden Directory Connector tool to your Azure Active Directory.</p>
+            <p>This article will cover how to connect the Bitwarden Directory Connector tool to your Azure Active Directory.</p>
 
 <h2 id="requirements">Requirements</h2>
 
 <ul>
   <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
-  <li>Install bitwarden Directory Connector</li>
-  <li>Using Directory Connector, log into your bitwarden account and select your enterprise organization</li>
+  <li>Install Bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your Bitwarden account and select your enterprise organization</li>
 </ul>
 
 <h2 id="table-of-contents">Table of Contents</h2>
@@ -146,7 +146,7 @@
 <a href="/images/directory-connector/azure/new-application.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/new-application.png" />
      </a></li>
-  <li><strong>Name</strong> your application “bitwarden”</li>
+  <li><strong>Name</strong> your application “Bitwarden”</li>
   <li>Set the <strong>Application type</strong> to “Web app / API”</li>
   <li>Set the <strong>Sign-on URL</strong> to any website value, such as “https://company.com”. This URL is not used in this setup process so it can be anything.</li>
   <li>Click the <strong>Create</strong> button to create the application.
@@ -158,7 +158,7 @@
 <h2 id="grant-application-permissions">Grant Application Permissions</h2>
 
 <ol>
-  <li>Select the <strong>bitwarden</strong> application you created in the previous section.</li>
+  <li>Select the <strong>Bitwarden</strong> application you created in the previous section.</li>
   <li>Navigate to <strong>Settings</strong> and select <strong>Required Permissions</strong>.</li>
   <li>Select the existing <strong>Windows Azure Active Directory</strong> API.</li>
   <li>Check <strong>all</strong> Application and Delegated permissions and click <strong>Save</strong>.
@@ -197,7 +197,7 @@
 <h2 id="create-application-secret-key">Create Application Secret Key</h2>
 
 <ol>
-  <li>Go back to the <strong>bitwarden</strong> application that you created.</li>
+  <li>Go back to the <strong>Bitwarden</strong> application that you created.</li>
   <li>Navigate to <strong>Settings</strong> and select <strong>Keys</strong>.</li>
   <li>Add a new <strong>Password</strong> key by entering a <strong>Name</strong> and <strong>Duration</strong>. We recommend selecting “Never Expires” for the duration.</li>
   <li>Click <strong>Save</strong> to create a new secret key.</li>
@@ -210,7 +210,7 @@
 <h2 id="get-your-application-id">Get Your Application ID</h2>
 
 <ol>
-  <li>Go back to the <strong>bitwarden</strong> application that you created.</li>
+  <li>Go back to the <strong>Bitwarden</strong> application that you created.</li>
   <li>Copy the <strong>Application ID</strong> to a safe place.  We will need to reference it later.
 <a href="/images/directory-connector/azure/application-id.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/application-id.png" />
@@ -238,7 +238,7 @@
   <li>Enter the Application <strong>Secret</strong> Key that you copied from the steps above.</li>
 </ol>
 
-<p>Congrats! You are done configuring Azure Active Directory with the bitwarden Directory Connector.</p>
+<p>Congrats! You are done configuring Azure Active Directory with the Bitwarden Directory Connector.</p>
 
 <h2 id="testing">Testing</h2>
 
@@ -360,7 +360,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -379,10 +379,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

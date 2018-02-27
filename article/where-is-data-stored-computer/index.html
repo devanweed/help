@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Where is my data stored on my computer/device? | bitwarden Help &amp; Support</title>
+    <title>Where is my data stored on my computer/device? | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764212"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764212"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,37 +115,65 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You data is also automatically synced to our <a href="/article/where-is-data-stored-cloud/">cloud servers</a>. In the event that you need to recover your data due to a device crash, simply reinstall the bitwarden application and log in and your data will be re-synced.</p>
+            <p>You data is also automatically synced to our <a href="/article/where-is-data-stored-cloud/">cloud servers</a>. In the event that you need to recover your data due to a device crash, simply reinstall the Bitwarden application and log in and your data will be re-synced.</p>
 
 <p>All sensitive data stored on your computer/device is encrypted. The data can be found in the following locations:</p>
 
 <ul>
-  <li>Windows
+  <li>Windows Desktop App
     <ul>
-      <li>Chrome Extension: <code class="highlighter-rouge">%AppData%\Local\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Firefox Extension: <code class="highlighter-rouge">%AppData%\Roaming\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
-      <li>Opera Extension: <code class="highlighter-rouge">%AppData%\Roaming\Opera Software\Opera Stable\Local Extension Settings\ccnckbpmaceehanjmeomladnmlffdjgn</code></li>
-      <li>Vivaldi Extension: <code class="highlighter-rouge">%AppData%\Local\Vivaldi\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Brave Extension: <code class="highlighter-rouge">%AppData%\Roaming\brave\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Edge Extension: <code class="highlighter-rouge">%AppData%\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AC\MicrosoftEdge\Extensions\Storage</code></li>
+      <li>Standard Installations &amp; Store: <code class="highlighter-rouge">%AppData%\Roaming\Bitwarden</code></li>
+      <li>Portable: <code class="highlighter-rouge">.\bitwarden-appdata</code></li>
     </ul>
   </li>
-  <li>Linux
+  <li>macOS Desktop App
     <ul>
-      <li>Chrome Extension: <code class="highlighter-rouge">~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Standard Installations: <code class="highlighter-rouge">~/Library/Application Support/Bitwarden</code></li>
+      <li>Mac App Store: <code class="highlighter-rouge">~/Library/Containers/com.bitwarden.desktop/Data/Library/Application Support/Bitwarden</code></li>
     </ul>
   </li>
-  <li>Mac
+  <li>Linux Desktop App
     <ul>
-      <li>Chrome Extension: <code class="highlighter-rouge">~/Library/Application Support/Google/Chrome/Default/Local App Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Standard Installations: <code class="highlighter-rouge">~/.config/Bitwarden</code></li>
+      <li>Snap: <code class="highlighter-rouge">~/snap/bitwarden/current/.config/Bitwarden</code></li>
     </ul>
   </li>
-  <li>iOS
+</ul>
+
+<div class="callout callout-success">
+            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
+            
+<p>You can override the storage location for your Bitwarden desktop application data by setting the <code class="highlighter-rouge">BITWARDEN_APPDATA_DIR</code> environment variable to an absolute path.</p>
+
+        </div>
+
+<ul>
+  <li>Windows Browser Extensions
+    <ul>
+      <li>Chrome: <code class="highlighter-rouge">%AppData%\Local\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Firefox: <code class="highlighter-rouge">%AppData%\Roaming\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
+      <li>Opera: <code class="highlighter-rouge">%AppData%\Roaming\Opera Software\Opera Stable\Local Extension Settings\ccnckbpmaceehanjmeomladnmlffdjgn</code></li>
+      <li>Vivaldi: <code class="highlighter-rouge">%AppData%\Local\Vivaldi\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Brave: <code class="highlighter-rouge">%AppData%\Roaming\brave\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Edge: <code class="highlighter-rouge">%AppData%\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AC\MicrosoftEdge\Extensions\Storage</code></li>
+    </ul>
+  </li>
+  <li>Linux Browser Extensions
+    <ul>
+      <li>Chrome: <code class="highlighter-rouge">~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
+    </ul>
+  </li>
+  <li>macOS Browser Extensions
+    <ul>
+      <li>Chrome: <code class="highlighter-rouge">~/Library/Application Support/Google/Chrome/Default/Local App Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
+    </ul>
+  </li>
+  <li>iOS Mobile App
     <ul>
       <li>App group for <code class="highlighter-rouge">group.com.8bit.bitwarden</code></li>
     </ul>
   </li>
-  <li>Android
+  <li>Android Mobile App
     <ul>
       <li><code class="highlighter-rouge">/data/data/com.x8bit.bitwarden/</code></li>
     </ul>
@@ -262,7 +290,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -281,10 +309,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764212"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764212"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

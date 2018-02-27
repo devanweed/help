@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Your privacy when using website icons | bitwarden Help &amp; Support</title>
+    <title>Your privacy when using website icons | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764212"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764212"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,17 +115,17 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p><em>bitwarden does not collect any information when you download icons for website logins stored in your bitwarden vault.</em></p>
+            <p><em>Bitwarden does not collect any information when you download icons for website logins stored in your bitwarden vault.</em></p>
 
-<h2 id="the-bitwarden-icons-server">The bitwarden icons server</h2>
+<h2 id="the-bitwarden-icons-server">The Bitwarden icons server</h2>
 
-<p>When bitwarden displays a login item associated with a website in your bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The bitwarden icons server provides the delivery endpoint for these website icons.</p>
+<p>When Bitwarden displays a login item associated with a website in your Bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The Bitwarden icons server provides the delivery endpoint for these website icons.</p>
 
-<p>If you are using the “website icons” feature on a device, bitwarden will issue requests to <code class="highlighter-rouge">icons.bitwarden.com</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code class="highlighter-rouge">google.com</code> or <code class="highlighter-rouge">https://google.com</code>, but not <code class="highlighter-rouge">google</code> or <code class="highlighter-rouge">http://localhost</code>). The icons server is fronted with a CDN that caches the icons on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit bitwarden’s icons server because another bitwarden user with the same website in their vault requested the icon before you.</p>
+<p>If you are using the “website icons” feature on a device, Bitwarden will issue requests to <code class="highlighter-rouge">icons.bitwarden.com</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code class="highlighter-rouge">google.com</code> or <code class="highlighter-rouge">https://google.com</code>, but not <code class="highlighter-rouge">google</code> or <code class="highlighter-rouge">http://localhost</code>). The icons server is fronted with a CDN that caches the icons on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit Bitwarden’s icons server because another Bitwarden user with the same website in their vault requested the icon before you.</p>
 
 <h2 id="privacy-concerns">Privacy concerns</h2>
 
-<p>Because a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:</p>
+<p>Because a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to Bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:</p>
 
 <p><code class="highlighter-rouge">https://icons.bitwarden.com/google.com/icon.png</code></p>
 
@@ -133,7 +133,7 @@
 
 <h2 id="disabling-website-icons">Disabling website icons</h2>
 
-<p>We understand that certain privacy-minded users may not want to use the “website icons” feature. We provide the option to disable website icons on all bitwarden client applications:</p>
+<p>We understand that certain privacy-minded users may not want to use the “website icons” feature. We provide the option to disable website icons on all Bitwarden client applications:</p>
 
 <ul>
   <li><strong>Web vault:</strong> Settings → Web Vault Options → Disable Website Icons</li>
@@ -141,7 +141,7 @@
   <li><strong>Mobile app:</strong> Settings → Options → Disable Website Icons</li>
 </ul>
 
-<p>When the website icons feature is disable, bitwarden will opt to show you a generic, locally accessed icon instead (<i class="fa fa-globe"></i>) that is the same for all login items stored in your vault.</p>
+<p>When the website icons feature is disable, Bitwarden will opt to show you a generic, locally accessed icon instead (<i class="fa fa-globe"></i>) that is the same for all login items stored in your vault.</p>
 
         </div>
         
@@ -257,7 +257,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -276,10 +276,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764212"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764212"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

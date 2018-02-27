@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Syncing users and groups with a directory | bitwarden Help &amp; Support</title>
+    <title>Syncing users and groups with a directory | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,7 +115,7 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden supports syncing users and/or groups from outside directories through the use of the <strong>bitwarden Directory Connector</strong> tool.</p>
+            <p>Bitwarden supports syncing users and/or groups from outside directories through the use of the <strong>Bitwarden Directory Connector</strong> tool.</p>
 
 <p>The following directories are supported:</p>
 
@@ -133,9 +133,9 @@
 
         </div>
 
-<h2 id="bitwarden-directory-connector-tool">bitwarden Directory Connector Tool</h2>
+<h2 id="bitwarden-directory-connector-tool">Bitwarden Directory Connector Tool</h2>
 
-<p>The bitwarden Directory Connector is a windows-based console application (CLI) that allows you to keep your bitwarden organization and user directory in sync. Directory Connector can be run on-demand manually as well as automatically in the background on an configured interval through the use of the included windows service. The tool provides a console-based UI in addition to a full array of command line arguments.</p>
+<p>The Bitwarden Directory Connector is a windows-based console application (CLI) that allows you to keep your bitwarden organization and user directory in sync. Directory Connector can be run on-demand manually as well as automatically in the background on an configured interval through the use of the included windows service. The tool provides a console-based UI in addition to a full array of command line arguments.</p>
 
 <p>You can install and run Directory Connector on the server that hosts your directory, an administrator’s machine, or any other windows-based device than can access the directory.</p>
 
@@ -147,7 +147,7 @@
 
 <ul>
   <li><a href="#install">Install</a></li>
-  <li><a href="#log-in-to-your-bitwarden-organization-account">Log in to your bitwarden organization account</a></li>
+  <li><a href="#log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</a></li>
   <li><a href="#configure-the-directory-connection">Configure the directory connection</a></li>
   <li><a href="#configure-sync-options">Configure sync options</a></li>
   <li><a href="#manually-simulate-a-sync">Manually simulate a sync</a></li>
@@ -167,16 +167,16 @@
 <a href="https://github.com/bitwarden/directory-connector/releases" target="_blank"><i class="fa fa-download"></i> Download Directory Connector Installer</a></li>
   <li>Launch the setup wizard by running (double-clicking) the downloaded <code class="highlighter-rouge">.msi</code> installer.</li>
   <li>Step through the wizard and complete the installation.</li>
-  <li>After the setup wizard has successfully completed, you should find a shortcut on your desktop for <strong>Directory Connector</strong> with the bitwarden logo <i class="fa fa-shield"></i>. The full path to the application can be found at <code class="highlighter-rouge">{install_folder}/Console.exe</code>.</li>
+  <li>After the setup wizard has successfully completed, you should find a shortcut on your desktop for <strong>Directory Connector</strong> with the Bitwarden logo <i class="fa fa-shield"></i>. The full path to the application can be found at <code class="highlighter-rouge">{install_folder}/Console.exe</code>.</li>
 </ol>
 
-<h3 id="log-in-to-your-bitwarden-organization-account">Log in to your bitwarden organization account</h3>
+<h3 id="log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</h3>
 
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 1 (Log in to bitwarden) from the main menu.</li>
-  <li>Enter your bitwarden login credentials.</li>
-  <li>If your bitwarden account belongs to more than one organization you will be prompted to select an organization.</li>
+  <li>Select option 1 (Log in to Bitwarden) from the main menu.</li>
+  <li>Enter your Bitwarden login credentials.</li>
+  <li>If your Bitwarden account belongs to more than one organization you will be prompted to select an organization.</li>
 </ol>
 
 <p>Optionally, from the command line:</p>
@@ -601,7 +601,7 @@
 
 <h3 id="manually-simulate-a-sync">Manually simulate a sync</h3>
 
-<p>You can simulate a directory sync in order to check that all of your configuration settings are setup and working as expected. A sync simulation will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your bitwarden organization whenever a real sync is invoked.</p>
+<p>You can simulate a directory sync in order to check that all of your configuration settings are setup and working as expected. A sync simulation will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your Bitwarden organization whenever a real sync is invoked.</p>
 
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
@@ -744,13 +744,13 @@
 <div class="callout callout-success">
             <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
             
-<p>You can configure the bitwarden Directory Connector to run automatically each time the machine starts. Use the windows service manager to set the bitwarden Directory Connector service to “Startup type: Automatic”.</p>
+<p>You can configure the Bitwarden Directory Connector to run automatically each time the machine starts. Use the windows service manager to set the Bitwarden Directory Connector service to “Startup type: Automatic”.</p>
 
         </div>
 
 <h3 id="configure-environment">Configure environment</h3>
 
-<p>By default the Directory Connector communicates with the bitwarden public cloud servers. If you are using a self-hosted deployment of bitwarden you will want to change the configured environment endpoints of the Directory Connector to your own on-premise installation.</p>
+<p>By default the Directory Connector communicates with the Bitwarden public cloud servers. If you are using a self-hosted deployment of Bitwarden you will want to change the configured environment endpoints of the Directory Connector to your own on-premise installation.</p>
 
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
@@ -790,7 +790,7 @@
 
 <h3 id="clear-sync-cache">Clear sync cache</h3>
 
-<p>As the Directory Connector works at syncing changes up to your bitwarden organization it keeps a local cache. This cache helps the Directory Connector only send the difference in directory changes from the previous time that it performed a sync operation. If you encounter sync errors or a particular directory change is not correctly being synced, you may need to clear this cache. Clearing the cache will allow a full sync to occur during the next sync operation.</p>
+<p>As the Directory Connector works at syncing changes up to your Bitwarden organization it keeps a local cache. This cache helps the Directory Connector only send the difference in directory changes from the previous time that it performed a sync operation. If you encounter sync errors or a particular directory change is not correctly being synced, you may need to clear this cache. Clearing the cache will allow a full sync to occur during the next sync operation.</p>
 
 <ol>
   <li>Launch the Directory Connector console by double clicking the shortcut.</li>
@@ -811,7 +811,7 @@
 
 <h3 id="changing-configurations-manually">Changing configurations manually</h3>
 
-<p>All configuration data is saved to a <code class="highlighter-rouge">.json</code> configuration file stored on the local computer. No configuration data in synced to bitwarden servers. You can find the configuration file in it’s default location at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector/settings.json</code>. Any changes that you make directory to the configuration file will require you to restart the application (if it is currently running).</p>
+<p>All configuration data is saved to a <code class="highlighter-rouge">.json</code> configuration file stored on the local computer. No configuration data in synced to Bitwarden servers. You can find the configuration file in it’s default location at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector/settings.json</code>. Any changes that you make directory to the configuration file will require you to restart the application (if it is currently running).</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -822,7 +822,7 @@
 
 <h3 id="source-code">Source code</h3>
 
-<p>As with everything here at bitwarden, the Directory Connector is open source and hosted on GitHub at <a href="https://github.com/bitwarden/directory-connector">https://github.com/bitwarden/directory-connector</a>.</p>
+<p>As with everything here at Bitwarden, the Directory Connector is open source and hosted on GitHub at <a href="https://github.com/bitwarden/directory-connector">https://github.com/bitwarden/directory-connector</a>.</p>
 
         </div>
         
@@ -933,7 +933,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -952,10 +952,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Set up two-step login with Duo Security | bitwarden Help &amp; Support</title>
+    <title>Set up two-step login with Duo Security | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1517335302"
+    <link href="/css/styles.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1517335302"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1519764211"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -115,13 +115,13 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>bitwarden has partnered with Duo Security to bring two-factor authentication to bitwarden logins, complete with <a href="https://guide.duo.com/enrollment" target="_blank">inline self-service enrollment</a> and <a href="https://guide.duo.com/prompt" target="_blank">authentication prompt</a> (offering SMS, phone call, U2F security keys, and push notifications with the Duo Mobile app).</p>
+            <p>Bitwarden has partnered with Duo Security to bring two-factor authentication to Bitwarden logins, complete with <a href="https://guide.duo.com/enrollment" target="_blank">inline self-service enrollment</a> and <a href="https://guide.duo.com/prompt" target="_blank">authentication prompt</a> (offering SMS, phone call, U2F security keys, and push notifications with the Duo Mobile app).</p>
 
 <h2 id="overview">Overview</h2>
 
-<p>This article takes you through configuring your bitwarden Premium account to use Duo two-factor authentication services. You’ll sign up for a Duo account, configure bitwarden to use your new Duo account, and enroll your bitwarden account and your device for use with Duo’s service.</p>
+<p>This article takes you through configuring your Bitwarden Premium account to use Duo two-factor authentication services. You’ll sign up for a Duo account, configure Bitwarden to use your new Duo account, and enroll your Bitwarden account and your device for use with Duo’s service.</p>
 
-<p>Once you complete this process, Duo Security’s two-factor authentication platform protects access to your bitwarden data by requiring two-step approval when logging in to your bitwarden vault.</p>
+<p>Once you complete this process, Duo Security’s two-factor authentication platform protects access to your Bitwarden data by requiring two-step approval when logging in to your Bitwarden vault.</p>
 
 <h2 id="create-a-duo-security-account">Create a Duo Security Account</h2>
 
@@ -132,7 +132,7 @@
   <li>Log in to the Duo Admin panel with your Duo account at <a href="https://admin.duosecurity.com/login" target="_blank">https://admin.duosecurity.com/login</a></li>
   <li>In the left menu, navigate to <strong>Applications</strong>, then click the <strong>Protect an Application</strong> button.</li>
   <li>Find/search for the <strong>Bitwarden</strong> application and click the <strong>Protect this Application</strong> button.</li>
-  <li>Note the <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong> details. We will need to reference these later when configuring bitwarden.
+  <li>Note the <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong> details. We will need to reference these later when configuring Bitwarden.
 <a href="/images/two-step/duo/application-details.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/application-details.png" />
      </a></li>
@@ -163,7 +163,7 @@
 <a href="/images/two-step/duo/select.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/select.png" />
      </a></li>
-  <li>Enter the configuration information provided from the Duo Admin <strong>bitwarden</strong> application that was set up earlier: <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong>.
+  <li>Enter the configuration information provided from the Duo Admin <strong>Bitwarden</strong> application that was set up earlier: <strong>Integration Key</strong>, <strong>Secret Key</strong>, and <strong>API Hostname</strong>.
 <a href="/images/two-step/duo/config.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/config.png" />
      </a></li>
@@ -178,9 +178,9 @@
 
 <ol>
   <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
-  <li>Log out of the bitwarden web vault.</li>
-  <li>Log back into the bitwarden web vault. You should now be prompted with a Duo two-step login option.</li>
-  <li>Upon your first login using Duo you may be prompted to enroll your bitwarden account and device(s) with Duo. Complete the Duo enrollment process following the on-screen instructions.
+  <li>Log out of the Bitwarden web vault.</li>
+  <li>Log back into the Bitwarden web vault. You should now be prompted with a Duo two-step login option.</li>
+  <li>Upon your first login using Duo you may be prompted to enroll your Bitwarden account and device(s) with Duo. Complete the Duo enrollment process following the on-screen instructions.
 <a href="/images/two-step/duo/enroll1.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/enroll1.png" />
      </a>
@@ -192,7 +192,7 @@
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/login.png" />
      </a></li>
   <li>
-    <p>Duo security protection works with all bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other bitwarden applications that you are using to confirm that two-step login via Duo is properly working. You will eventually be logged out automatically.</p>
+    <p>Duo security protection works with all Bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other Bitwarden applications that you are using to confirm that two-step login via Duo is properly working. You will eventually be logged out automatically.</p>
 
     <p>Browser extension
 <a href="/images/two-step/duo/browser.png" target="_blank" rel="lightbox">
@@ -206,7 +206,7 @@
   </li>
 </ol>
 
-<p>Congratulations! Your bitwarden account is now protected by two-step login with Duo Security.</p>
+<p>Congratulations! Your Bitwarden account is now protected by two-step login with Duo Security.</p>
 
         </div>
         
@@ -322,7 +322,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/114869903467947368993" title="Google+" target="_blank"
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
                                onclick="gaEvent('Follow Google+')">
                                 <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
                             </a>
@@ -341,10 +341,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1517335302"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1517335302"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1519764211"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
