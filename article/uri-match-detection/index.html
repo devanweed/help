@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Backing up your on-premise hosted data | Bitwarden Help &amp; Support</title>
+    <title>Match detection for URIs | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -87,7 +87,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Backing up your on-premise hosted data
+        Match detection for URIs
     </h1>
     <div class="breadcrumb">
         Category:
@@ -101,10 +101,10 @@
         
         
         
-        <a href="/hosting/">On-premise Hosting</a>
         
         
         
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -116,30 +116,127 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>With the public cloud version of Bitwarden, we automatically handle backing up your data for you. However, when self-hosting Bitwarden you must implement your own backup procedures in order to keep your data safe.</p>
+            <p>A login item stored in your vault can have one or more <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">URI</a> values associated with it. URIs can relate your login to a website address (URL), server IP address, mobile app package ID, and more. URIs are important values for a login since they determine how the auto-fill functions in Bitwarden will behave.</p>
 
-<p>Bitwarden’s Docker containers use volume mapping to keep all important data persisted on the host machine. You can find this data in the <code class="highlighter-rouge">./bwdata</code> directory relative to your bitwarden installation. The Docker containers themselves are to be considered ephemeral and do not persist data or state.</p>
+<h2 id="uri-protocols">URI protocols</h2>
 
-<p>You should back up and keep the entire <code class="highlighter-rouge">./bwdata</code> directory safe. In the event of data loss you will need all or parts of data contained in this directory to restore your installation.</p>
+<p>A well-formed URI also has a protocol at the beginning of it. The most common protocol that many of us are familiar with is the <code class="highlighter-rouge">http://</code> protocol used for a website address.</p>
 
-<p>Some particularly important parts of the <code class="highlighter-rouge">./bwdata</code> directory are:</p>
+<p>The protocol can also have special meaning in Bitwarden:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">./bwdata/mssql/data</code> - database data</li>
-  <li><code class="highlighter-rouge">./bwdata/core/attachments</code> - vault item attachments</li>
-  <li><code class="highlighter-rouge">./bwdata/env</code> - environment variables, including database and certificate passwords</li>
+  <li><strong><code class="highlighter-rouge">http://</code></strong> or <strong><code class="highlighter-rouge">https://</code></strong> tells Bitwarden that this is a website address. Example: <code class="highlighter-rouge">https://www.google.com</code></li>
+  <li><strong><code class="highlighter-rouge">androidapp://</code></strong> tells Bitwarden that this is an android application package ID (or package name). Example: <code class="highlighter-rouge">androidapp://com.twitter.android</code>. Android apps typically follow <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank">reverse domain name notation</a>.</li>
 </ul>
 
-<h2 id="nightly-database-backups">Nightly database backups</h2>
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If a URI omits the protocol, <code class="highlighter-rouge">http://</code> is assumed.</p>
 
-<p>Bitwarden will automatically take nightly backups of the <code class="highlighter-rouge">mssql</code> container database. These database backups are kept in the <code class="highlighter-rouge">./bwdata/mssql/backups</code> directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups. You can read more about SQL Server backup restoration at <a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/">https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/</a>.</p>
+        </div>
+
+<h2 id="match-detection-options">Match detection options</h2>
+
+<p>Each URI for a login item also has an associated “match detection” value. The match detection value determines whether or not Bitwarden will offer the login as an available option when performing an auto-fill.</p>
+
+<p>While editing a login you can adjust the match detection value for a given URI by selecting the <i class="fa fa-cog"></i> <strong>Options</strong> button next to the URI’s value.</p>
+
+<p>The following match detection options are available:</p>
+
+<p><strong>Base domain</strong></p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Base domain is the default match detection value for all URIs.</p>
+
+        </div>
+
+<p>The base domain is defined as the second-level domain plus the top-level domain of the given URI. A URI with a value of <code class="highlighter-rouge">https://www.google.com</code> would have a base domain value of <code class="highlighter-rouge">google.com</code>.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI base domain value: <code class="highlighter-rouge">https://www.google.com</code></li>
+  <li>Matches: <code class="highlighter-rouge">http://google.com</code>, <code class="highlighter-rouge">https://accounts.google.com</code>, <code class="highlighter-rouge">https://sub.accounts.google.com</code>, <code class="highlighter-rouge">https://accounts.google.com/page.html</code></li>
+  <li>Not matches: <code class="highlighter-rouge">https://google.net</code>, <code class="highlighter-rouge">https://yahoo.com</code></li>
+</ul>
+
+<p><strong>Host</strong></p>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/host" target="_blank">host</a> is defined as the hostname plus an <em>optional</em> port of the given URI. A URI with a value of <code class="highlighter-rouge">https://sub.domain.com:4000</code> would have a host value of <code class="highlighter-rouge">sub.domain.com:4000</code>.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI host value: <code class="highlighter-rouge">https://sub.domain.com:4000</code></li>
+  <li>Matches: <code class="highlighter-rouge">http://sub.domain.com:4000</code>, <code class="highlighter-rouge">http://sub.domain.com:4000/page.html</code></li>
+  <li>Not matches: <code class="highlighter-rouge">https://domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com</code>, <code class="highlighter-rouge">https://sub2.domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com:5000</code></li>
+</ul>
+
+<p><strong>Starts with</strong></p>
+
+<p>The “starts with” option requires that the current website/application URI must <em>start with</em> the value defined in the URI. A URI with a value of <code class="highlighter-rouge">https://sub.domain.com/path/page.html?query=123</code> starts with 
+<code class="highlighter-rouge">https://sub.domain.com/path/</code>.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI starts with value: <code class="highlighter-rouge">https://sub.domain.com/path/</code></li>
+  <li>Matches: <code class="highlighter-rouge">https://sub.domain.com/path/</code>, <code class="highlighter-rouge">https://sub.domain.com/path/page.html</code></li>
+  <li>Not matches: <code class="highlighter-rouge">https://sub.domain.com/path</code> (notice the missing trailing slash), <code class="highlighter-rouge">https://sub.domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com:4000/path/page.html</code> (has a port)</li>
+</ul>
+
+<p><strong>Regular expression</strong></p>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>Regular expressions are an advanced option and can be quite dangerous if used incorrectly. You should not use this option if you do not know exactly what you are doing.</p>
+
+        </div>
+
+<p>The regular expression option allows you to write any simple or complex <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank">regular expression</a> to match the current website/application URI.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI regex value: <code class="highlighter-rouge">^https://.*google.com</code></li>
+  <li>Matches: <code class="highlighter-rouge">https://google.com</code>, <code class="highlighter-rouge">https://sub.google.com</code>, <code class="highlighter-rouge">https://anything.can.go.here.google.com</code></li>
+  <li>Not matches: <code class="highlighter-rouge">http://google.com</code> (not https), <code class="highlighter-rouge">https://yahoo.com</code></li>
+</ul>
+
+<p><strong>Exact</strong></p>
+
+<p>The “exact” option requires that the current website/application URI <em>exactly</em> match the value defined in the URI.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI exact value: <code class="highlighter-rouge">https://www.google.com/page.html</code></li>
+  <li>Matches: <code class="highlighter-rouge">https://www.google.com/page.html</code></li>
+  <li>Not matches: <code class="highlighter-rouge">http://www.google.com/page.html</code> (not https), <code class="highlighter-rouge">https://www.google.com/page.html?query=123</code>, <code class="highlighter-rouge">https://www.google.com</code></li>
+</ul>
+
+<p><strong>Never</strong></p>
+
+<p>A URI with match detection set to “Never” will <em>never</em> be offered for auto-fill.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>URI never value: <code class="highlighter-rouge">https://www.google.com</code></li>
+  <li>Matches: none</li>
+  <li>Not matches: <code class="highlighter-rouge">https://www.google.com</code>, <code class="highlighter-rouge">https://google.com</code>, <code class="highlighter-rouge">https://sub.google.com/page.html</code></li>
+</ul>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            hosting, docker, backup
+            uri, match detection, autofill
         </div>
         
     </div>
