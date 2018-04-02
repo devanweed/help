@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Auto-fill logins on Android | Bitwarden Help &amp; Support</title>
+    <title>Using the system administrator portal | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -87,7 +87,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Auto-fill logins on Android
+        Using the system administrator portal
     </h1>
     <div class="breadcrumb">
         Category:
@@ -101,10 +101,10 @@
         
         
         
+        <a href="/hosting/">On-premise Hosting</a>
         
         
         
-        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -116,99 +116,55 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can use the Bitwarden Android app to add new and auto-fill existing logins on the web and in other apps. Bitwarden provides two auto-fill services:</p>
+            <p>As the system administrator of your Bitwarden installation you can use the <strong>Admin Portal</strong> to do things like:</p>
 
-<ol>
-  <li>The <strong>Autofill Framework Service</strong> for Android users on Oreo (8.0) and greater.</li>
-  <li>The <strong>Auto-fill Accessibility Service</strong> for all Android versions.</li>
-</ol>
-
-<hr />
-
-<h2 id="autofill-framework-service">Autofill Framework Service</h2>
+<ul>
+  <li>View installation environment settings</li>
+  <li>View installed and latest available versions</li>
+  <li>Browse all registered users and information about them</li>
+  <li>Delete registered users</li>
+  <li>Browser all organizations and information about them</li>
+  <li>Delete organizations</li>
+</ul>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
-            <p>The Autofill Framework Service is only available to users on Android Oreo (8.0) and greater. If you are on a version of  Android prior to Oreo (8.0) you should use the <strong>Auto-fill Accessibility Service</strong> as explained further down in this article.</p>
+            
+<p>Admins cannot globally view sensitive data that is protected (encrypted) in a user’s or organization’s vault.</p>
 
         </div>
 
-<ol>
-  <li>Open the Bitwarden Android app.</li>
-  <li>Tap the <strong>Tools</strong> page.</li>
-  <li>Tap <strong>Bitwarden Auto-fill Service</strong>. Status <em>Disabled</em> will appear in red.</li>
-  <li>Tap the <strong>Open Autofill Settings</strong> button.</li>
-  <li>Locate <strong>Bitwarden</strong> from the list and enable it.</li>
-</ol>
+<p>The admin portal for your installation is available at <a href="https://bitwardendomain.com/admin">https://bitwardendomain.com/admin</a>.</p>
 
-<p>The Autofill Framework Service is now enabled.</p>
+<h2 id="configuring-admin-portal-access">Configuring Admin Portal Access</h2>
 
-<p>The Autofill Framework Service is context-sensitive and will appear whenever you encounter a form that can be auto-filled on your device. You can read more about the Autofill Framework service from <a href="https://blog.bitwarden.com/bitwarden-the-oreo-autofill-framework-2a8b2e04f29e" target="_blank">this posting on our blog</a>.</p>
+<p>The admin portal provides authenticated access to a list of users specified by email address in your installation’s environment file located at <code class="highlighter-rouge">./bwdata/env/global.override.env</code>. For example:</p>
 
-<h3 id="testing-the-auto-fill-framework-service">Testing the Auto-fill Framework Service</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adminSettings__admins=john@example.com,bill@gmail.com,tom@example.com
+</code></pre></div></div>
 
-<ol>
-  <li>Open an app that has not been signed in to.</li>
-  <li>View the login page for the app and focus the username or password field. A Bitwarden pop-up will appear below the input field.</li>
-  <li>Select the appropriate login from the list or select the option to open Bitwarden to search for the correct login. Your username and password will be auto-filled.</li>
-</ol>
+<p>These admin email addresses <strong>do not</strong> need to be registered with an account on your Bitwarden installation.</p>
 
-<hr />
+<p>If you do not want to enable access to the admin portal, you can leave the setting at its default empty value. For example:</p>
 
-<h2 id="auto-fill-accessibility-service">Auto-fill Accessibility Service</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adminSettings__admins=
+</code></pre></div></div>
 
-<ol>
-  <li>Open the Bitwarden Android app.</li>
-  <li>Tap the <strong>Tools</strong> page.</li>
-  <li>For users on Android versions prior to Oreo (8.0), tap <strong>Bitwarden Auto-fill Accessibility Service</strong>. For users on Android versions Oreo (8.0) or greater, tap <strong>Bitwarden Auto-fill Service</strong> and then select <strong>Auto-fill Accessibility Service</strong> at the bottom. Status <em>Disabled</em> will appear in red.</li>
-  <li>Tap the <strong>Open Accessibility Settings</strong> button.</li>
-  <li>Locate <strong>Bitwarden</strong> from the list and enable it.</li>
-</ol>
+<p>The admin portal uses a secure means of <em>passwordless authentication</em>. When a user attempts to log into the admin portal a secure link is sent to their email address. The user can click this temporary link to continue logging into the admin portal. The authentication link is active for up to <strong>15 minutes</strong> following the log in attempt.</p>
 
-<p>The Auto-fill Accessibility Service is now enabled.</p>
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Since the admin portal uses email to provide secure links for authentication, you need to <a href="/article/install-on-premise/">configure your installation’s SMTP mail settings</a> prior to attempting to log into the admin portal.</p>
 
-<p>The Auto-fill Accessibility Service is context-sensitive. This means that the Bitwarden auto-fill icon, and notification will only appear when the app detects a login form. You can change the way auto-fill behaves by navigating to <strong>Settings</strong> → <strong>Options</strong> → <strong>Auto-fill Accessibility Service</strong>.</p>
-
-<h3 id="testing-the-auto-fill-accessibility-service">Testing the Auto-fill Accessibility Service</h3>
-
-<ol>
-  <li>Open an app that has not been signed in to.</li>
-  <li>View the login page for the app. A Bitwarden auto-fill notification will appear in the notification bar.</li>
-  <li>Open the notification drawer and tap the <strong>Bitwarden Auto-fill Service</strong> notification. Your vault will display all possible matching logins. If you do not see the login you are looking for you may need to manually search for it by tapping the search icon. <i class="fa fa-search"></i></li>
-  <li>Tap the appropriate login from the list. Your username and password will be auto-filled.</li>
-</ol>
-
-<h3 id="troubleshooting-the-auto-fill-accessibility-service">Troubleshooting the Auto-fill Accessibility Service</h3>
-
-<p><u>The Bitwarden Auto-fill Service keeps getting disabled</u></p>
-
-<p>Android may turn off the Bitwarden Auto-fill Service to optimize battery life. To resolve this you can either:</p>
-<ul>
-  <li>Tell Android to ignore battery optimization for the Bitwarden app; or</li>
-  <li>Manually turn on the Bitwarden Auto-fill Service each time</li>
-</ul>
-
-<p><u>The auto-fill notification does not appear when I visit a login page in my web browser.</u></p>
-
-<p>This is a currently a known issue with the following browsers, which do not support accessibility services:</p>
-
-<ul>
-  <li>Firefox for Android - As a workaround you can use the Bitwarden Firefox addon instead. Navigate to Firefox Settings → Addons and search for “bitwarden”.</li>
-  <li>Samsung Internet Browser</li>
-</ul>
-
-<p>Android has many web browsers. It can be hard to keep up with them all. We have to add support for each browser individually. If auto-fill does not work and your browser is not listed above please report it at <a href="https://github.com/bitwarden/mobile/issues">https://github.com/bitwarden/mobile/issues</a> so that we can add support.</p>
-
-<p><u>Bitwarden is using a lot of my device's battery power.</u></p>
-
-<p>Unfortunately Android accessibility services can be fairly resource intensive on certain devices. We provide a few alternative auto-fill modes that can help reduce battery consumption. You can find these under Bitwarden’s Settings → Options menu.</p>
+        </div>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            android, autofill, auto-fill
+            hosting, docker, admin
         </div>
         
     </div>
