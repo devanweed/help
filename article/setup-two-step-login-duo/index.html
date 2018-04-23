@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1523762768"
+    <link href="/css/styles.css?v=1524511095"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1523762768"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1524511095"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -120,9 +120,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This article takes you through configuring your Bitwarden Premium account to use Duo two-factor authentication services. You’ll sign up for a Duo account, configure Bitwarden to use your new Duo account, and enroll your Bitwarden account and your device for use with Duo’s service.</p>
+<p>This article takes you through configuring your Bitwarden Premium or Enterprise Organzation account to use Duo two-factor authentication services. You’ll sign up for a Duo account, configure Bitwarden to use your new Duo account, and enroll your Bitwarden account and your device for use with Duo’s service.</p>
 
-<p>Once you complete this process, Duo Security’s two-factor authentication platform protects access to your Bitwarden data by requiring two-step approval when logging in to your Bitwarden vault.</p>
+<p>Once you complete this process, Duo Security’s two-factor authentication platform protects access to your Bitwarden data by requiring two-step approval when logging in to your Bitwarden vault. If you are using this Duo integration with your Bitwarden enterprise organization, all users in your organization will be required to complete two-factor authentication with Duo when logging into their Bitwarden vault.</p>
 
 <h2 id="create-a-duo-security-account">Create a Duo Security Account</h2>
 
@@ -159,7 +159,12 @@
 
 <ol>
   <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a>.</li>
-  <li>Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
+  <li>Depending on your account type:
+    <ul>
+      <li>Premium Users: Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
+      <li>Enterprise Organizations: Visit the admin area for your organization. Select <strong>Settings</strong> in the sidebar and locate the <strong>Two-step Login Providers</strong> section.</li>
+    </ul>
+  </li>
   <li>Select the <strong>Duo</strong> option and then type in your master password to continue.
 <a href="/images/two-step/duo/select.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/duo/select.png" />
@@ -179,7 +184,7 @@
 
 <ol>
   <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
-  <li>Log out of the Bitwarden web vault.</li>
+  <li>Log out of the Bitwarden web vault (or to be safe incase something is misconfigured, just use a new browser tab so that you can keep your currently logged in browser tab session active).</li>
   <li>Log back into the Bitwarden web vault. You should now be prompted with a Duo two-step login option.</li>
   <li>Upon your first login using Duo you may be prompted to enroll your Bitwarden account and device(s) with Duo. Complete the Duo enrollment process following the on-screen instructions.
 <a href="/images/two-step/duo/enroll1.png" target="_blank" rel="lightbox">
@@ -343,10 +348,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1523762768"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1524511095"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1523762768"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1524511095"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
