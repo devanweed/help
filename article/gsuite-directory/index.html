@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1524511140"
+    <link href="/css/styles.css?v=1524800436"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1524511140"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1524800436"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -147,8 +147,8 @@
         </div>
 
 <ol>
-  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
-  <li>Click <strong>Create Project</strong>
+  <li>Go to <a href="https://console.cloud.google.com/home">https://console.cloud.google.com/home</a></li>
+  <li>Click the <strong>Create</strong> project button
 <a href="/images/directory-connector/gsuite/create-project.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-project.png" />
      </a></li>
@@ -162,14 +162,10 @@
 <h2 id="enable-the-admin-sdk-api-for-your-project">Enable the Admin SDK API for Your Project</h2>
 
 <ol>
-  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
-  <li>Make sure the appropriate project is selected.</li>
-  <li>Open the navigation menu and navigate to <strong>API Manager</strong> → <strong>Dashboard</strong>.</li>
-  <li>Select the <strong>Enable API</strong> button near the top.
-<a href="/images/directory-connector/gsuite/enable-api.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/enable-api.png" />
-     </a></li>
-  <li>Click the <strong>Admin SDK</strong> link under the <strong>Google Apps APIs</strong> section.
+  <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a>.</li>
+  <li>Make sure the appropriate project is selected. You should be on the <strong>Dashboard</strong> page for your project.</li>
+  <li>Open the navigation menu and navigate to <strong>APIs &amp; Services</strong> → <strong>Library</strong>.</li>
+  <li>Search for and select the <strong>Admin SDK</strong> service.
 <a href="/images/directory-connector/gsuite/admin-sdk.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/admin-sdk.png" />
      </a></li>
@@ -183,13 +179,13 @@
 
 <ol>
   <li>Go to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a></li>
-  <li>Make sure the appropriate project is selected.</li>
-  <li>Open the navigation menu and navigate to <strong>API Manager</strong> → <strong>Credentials</strong>.</li>
+  <li>Make sure the appropriate project is selected. You should be on the <strong>Dashboard</strong> page for your project.</li>
+  <li>Open the navigation menu and navigate to <strong>APIs &amp; Services</strong> → <strong>Credentials</strong>.</li>
   <li>Click the <strong>Create credentials</strong> button and select <strong>Service account key</strong>.
 <a href="/images/directory-connector/gsuite/create-credentials.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-credentials.png" />
      </a></li>
-  <li>Select <strong>New service account</strong>.</li>
+  <li>Select <strong>New service account</strong> from the <strong>Service account</strong> dropdown menu.</li>
   <li>Name the service account <strong>Bitwarden Directory Connector</strong>. For the role, select <strong>Project</strong> and then <strong>Owner</strong>. Ensure that <strong>JSON</strong> is the selected <strong>Key type</strong>. Upon clicking <strong>Create</strong>, a JSON file will be downloaded; this is important for later so keep a note of where you have downloaded it.
 <a href="/images/directory-connector/gsuite/create-service-account.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/create-service-account.png" />
@@ -219,12 +215,12 @@
 
 <ol>
   <li>Go to <a href="https://admin.google.com">https://admin.google.com</a></li>
-  <li>Open the navigation menu and navigate to <strong>Security</strong>.</li>
+  <li>Open the navigation menu and navigate to <strong>Security</strong> → <strong>Settings</strong>.</li>
   <li>Select the <strong>API reference</strong> option and make sure <strong>Enable API access</strong> is checked.
 <a href="/images/directory-connector/gsuite/enable-api-access.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/enable-api-access.png" />
      </a></li>
-  <li>Back in the list of options, select <strong>Show more</strong> → <strong>Advanced settings</strong> -&gt; <strong>Manage API client access</strong>
+  <li>Back in the list of options, select the <strong>Advanced settings</strong> options and then the <strong>Manage API client access</strong> link.
 <a href="/images/directory-connector/gsuite/manage-api-access.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/gsuite/manage-api-access.png" />
      </a></li>
@@ -393,10 +389,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1524511140"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1524800436"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1524511140"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1524800436"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
