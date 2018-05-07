@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1524800436"
+    <link href="/css/styles.css?v=1525728177"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1524800436"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525728177"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -240,18 +240,13 @@
 <h2 id="configure-directory-connector">Configure Directory Connector</h2>
 
 <ol>
-  <li>Locate the secret key JSON file that was downloaded whenever you created your service account in the steps above.</li>
-  <li>Copy this file to the Bitwarden Directory Connector program data folder at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector</code>.
-    <ul>
-      <li>Optionally rename the JSON file to something that is easier to remember, such as <code class="highlighter-rouge">client_secret.json</code></li>
-    </ul>
-  </li>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 3 (Configure directory connection) from the main menu.</li>
-  <li>Select <strong>G Suite Directory</strong> as the type.</li>
-  <li>Enter the name of the JSON file that you copied in step 2.</li>
-  <li>Enter the domain of your G Suite account.</li>
-  <li>Enter the email address of an admin user that has full access to the G Suite directory (such as your own).</li>
+  <li>Launch the Directory Connector desktop application</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select <strong>G Suite Directory</strong> as the directory type.</li>
+  <li>Enter the <strong>Domain</strong> of your G Suite account.</li>
+  <li>Enter the email address of an <strong>Admin User</strong> that has full access to the G Suite directory (such as your own).</li>
+  <li>If you have one, enter the <strong>Customer Id</strong> of your directory (most users won’t need to enter a Customer Id).</li>
+  <li>Select the <strong>JSON Key File</strong> that was downloaded whenever you created your service account in the steps above. The <strong>Client Email</strong> and <strong>Private Key</strong> will be automatically extracted from this key file for you.</li>
 </ol>
 
 <p>Congrats! You are done configuring G Suite with the Bitwarden Directory Connector.</p>
@@ -389,10 +384,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1524800436"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525728177"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1524800436"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525728177"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1524800436"
+    <link href="/css/styles.css?v=1525728177"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1524800436"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525728177"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -161,11 +161,7 @@
 <ol>
   <li>Select the <strong>Bitwarden</strong> application you created in the previous section.</li>
   <li>Navigate to <strong>Settings</strong> and select <strong>Required Permissions</strong>.</li>
-  <li>Select the existing <strong>Windows Azure Active Directory</strong> API.</li>
-  <li>Check <strong>all</strong> Application and Delegated permissions and click <strong>Save</strong>.
-<a href="/images/directory-connector/azure/directory-permissions.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/directory-permissions.png" />
-     </a></li>
+  <li>Delete the existing <strong>Windows Azure Active Directory</strong> API permission set that is automatically created by default. It is not needed.</li>
   <li>Select the <strong>Add</strong> button to create a new API permission set.</li>
   <li>For step 1, <strong>Select an API</strong> for <strong>Microsoft Graph</strong>.</li>
   <li>For step 2, <strong>Select Permissions</strong> for the following:
@@ -221,7 +217,7 @@
 <h2 id="get-your-tenant-hostname">Get Your Tenant Hostname</h2>
 
 <ol>
-  <li>Select your username in the top right corner of the Azure Portal.</li>
+  <li>Select the <strong>Directory and Subscription</strong> filter in the top right corner of the Azure Portal.</li>
   <li>Note the <strong>hostname</strong> value that appears under your directory (ex. company.onmicrosoft.com). This is your <strong>Tenant</strong> hostname. Copy the <strong>Tenant</strong> hostname to a safe place. We will need to reference it later.
 <a href="/images/directory-connector/azure/tenant.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/tenant.png" />
@@ -231,9 +227,9 @@
 <h2 id="configure-directory-connector">Configure Directory Connector</h2>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 3 (Configure directory connection) from the main menu.</li>
-  <li>Select <strong>Azure Active Directory</strong> as the type.</li>
+  <li>Launch the Directory Connector desktop application</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select <strong>Azure Active Directory</strong> as the directory type.</li>
   <li>Enter the <strong>Tenant</strong> hostname that you copied from the steps above (ex. company.onmicrosoft.com).</li>
   <li>Enter the <strong>Application ID</strong> that you copied from the steps above.</li>
   <li>Enter the Application <strong>Secret</strong> Key that you copied from the steps above.</li>
@@ -381,10 +377,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1524800436"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525728177"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1524800436"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525728177"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
