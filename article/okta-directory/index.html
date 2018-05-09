@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Set up two-step login with email | Bitwarden Help &amp; Support</title>
+    <title>Configuring directory sync with Okta | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -87,7 +87,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Set up two-step login with email
+        Configuring directory sync with Okta
     </h1>
     <div class="breadcrumb">
         Category:
@@ -95,7 +95,6 @@
         
         
         
-        <a href="/account-management/">Account Management</a>
         
         
         
@@ -108,6 +107,7 @@
         
         
         
+        <a href="/organizations/">Organizations</a>
         
         
         
@@ -116,43 +116,60 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden supports two-step login via email. A verification code will be emailed to you during login.</p>
+            <p>This article will cover how to connect the Bitwarden Directory Connector application to your Okta Directory.</p>
 
-<h2 id="enable-two-step-login-with-email">Enable Two-step Login with Email</h2>
+<h2 id="requirements">Requirements</h2>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in a safe place in the event that you lose access to your email.</p>
+<ul>
+  <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
+  <li>Install Bitwarden Directory Connector</li>
+  <li>Using Directory Connector, log into your Bitwarden account and select your enterprise organization</li>
+</ul>
 
-        </div>
+<h2 id="table-of-contents">Table of Contents</h2>
 
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Settings</strong> on the sidebar. Click <strong>Two-step Login</strong> in the sub-menu that opens under <strong>Settings</strong>.</li>
-  <li>Select the <strong>Email</strong> option and then type in your master password to continue.</li>
-  <li>Enter an email address that you would like to use that will receive verification codes during login. You can use the same email address that you use for your Bitwarden account or any other email address. Click the <strong>Send Email</strong> button to send a test verification code to that email address.</li>
-  <li>Check your email inbox for the verification code and then enter it into Bitwarden for confirmation.</li>
-  <li>Click the <strong>Enable</strong> button. A green alert will appear at the top stating that two-step login has been enabled.</li>
-  <li>Click the <strong>Close</strong> button and confirm that the <strong>Email</strong> option now shows as <strong>Enabled</strong>.</li>
-</ol>
+<ul>
+  <li><a href="#create-an-api-token">Create an API token</a></li>
+  <li><a href="#configure-directory-connector">Configure Directory Connector</a></li>
+  <li><a href="#testing">Testing</a></li>
+</ul>
 
-<h2 id="test">Test</h2>
+<h2 id="create-an-api-token">Create an API token</h2>
 
 <ol>
-  <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
-  <li>Log out of the Bitwarden web vault.</li>
-  <li>Log back into the Bitwarden web vault. You should now be prompted with an email two-step login option.</li>
-  <li>Email protection works with all Bitwarden applications (web, mobile, desktop, browser). Log out of and back in to any other Bitwarden applications that you are using to confirm that two-step login via email is properly working. You will eventually be logged out automatically.</li>
+  <li>Log into your Okta Developer Console</li>
+  <li>Select <strong>API</strong> → <strong>Tokens</strong> from the navigation menu
+<a href="/images/directory-connector/okta/api-tokens.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/okta/api-tokens.png" />
+     </a></li>
+  <li>Click the <strong>Create Token</strong> button and name the token something like “Bitwarden Connector”, then click the <strong>Create Token</strong> button.
+<a href="/images/directory-connector/okta/create-token.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/okta/create-token.png" />
+     </a></li>
+  <li>Note and copy your API token for use with the Directory Connector. Your token will not be shown again so you may want to save it somewhere so that you can easily access it when configuring your directory connection later.
+<a href="/images/directory-connector/okta/copy-token.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/okta/copy-token.png" />
+     </a></li>
 </ol>
+
+<h2 id="configure-directory-connector">Configure Directory Connector</h2>
+
+<ol>
+  <li>Launch the Directory Connector desktop application</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select <strong>Okta</strong> as the directory type.</li>
+  <li>Enter your Okta organization’s URL (ex. https://mycompany.okta.com/).</li>
+  <li>Enter the API <strong>Token</strong> that you copied from the steps above.</li>
+</ol>
+
+<p>Congrats! You are done configuring Okta with the Bitwarden Directory Connector.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Test your configuration by running a sync test. You should see your Okta groups and/or users printed to the screen.</p>
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            two-step login, 2fa, two factor authentication, account, email, totp
-        </div>
         
     </div>
     <div class="row article-blocks">

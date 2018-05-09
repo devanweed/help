@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1525728177"
+    <link href="/css/styles.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525728177"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -143,12 +143,12 @@
 <h2 id="connecting-to-the-ldap-server">Connecting to the LDAP Server</h2>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 3 (Configure directory connection) from the main menu.</li>
-  <li>Select the type of directory server you are configuring. In this case, either <strong>Active Directory</strong> or <strong>Other LDAP Directory</strong>.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select <strong>Active Directory / LDAP</strong> as the <strong>Type</strong> of directory server you are configuring.</li>
 </ol>
 
-<p>The following options can be set:</p>
+<p>The following directory configuration options can be set:</p>
 
 <div class="table-responsive">
             
@@ -162,8 +162,8 @@
   </thead>
   <tbody>
     <tr>
-      <td>Address</td>
-      <td>The host name of your directory server.</td>
+      <td>Server Hostname</td>
+      <td>The hostname of your directory server.</td>
       <td><code class="highlighter-rouge">ad.company.com</code> or <code class="highlighter-rouge">ldap.company.local</code></td>
     </tr>
     <tr>
@@ -172,23 +172,28 @@
       <td>389 or 10389</td>
     </tr>
     <tr>
-      <td>Path</td>
+      <td>Root Path</td>
       <td>The root path at which the Directory Connector should start all queries.</td>
       <td><code class="highlighter-rouge">cn=users,dc=ad,dc=company,dc=com</code></td>
     </tr>
     <tr>
-      <td>Current user</td>
-      <td>Authenticate to the directory server as the currently logged in user. For Active Directory, the user should be a member of the built-in administrators group.</td>
+      <td>LDAPS</td>
+      <td>If the server is using LDAP over SSL (LDAPS).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Active Directory</td>
+      <td>If the server is an Active Directory server.</td>
       <td> </td>
     </tr>
     <tr>
       <td>Username</td>
       <td>The distinguished name of an administrative user that the application will use when connecting to the directory server. For Active Directory, the user should be a member of the built-in administrators group.</td>
-      <td><code class="highlighter-rouge">cn=admin,cn=users,dc=ad,dc=company,dc=com</code> or <code class="highlighter-rouge">admin@company.com</code></td>
+      <td><code class="highlighter-rouge">cn=admin,cn=users,dc=ad,dc=company,dc=com</code> or <code class="highlighter-rouge">company\admin</code> (Active Directory)</td>
     </tr>
     <tr>
       <td>Password</td>
-      <td>The password of the user specified above. Note that the password is safely encrypted before being stored for the application, however, to better guarantee its security, you should ensure that other processes do not have OS-level read permissions for this application’s settings files.</td>
+      <td>The password of the user specified above. The password is safely stored in the operating system’s native credential manager.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -202,9 +207,15 @@
 <ol>
   <li>Launch the Directory Connector desktop application</li>
   <li>Go to the <strong>Settings</strong> tab.</li>
-  <li>Select <strong>Active Directory / LDAP</strong> as the directory type.</li>
-  <li>Specify the appropriate settings for your Active Directory or LDAP server.</li>
+  <li>Configure the appropriate <strong>Sync</strong> settings for your Active Directory or LDAP server.</li>
 </ol>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If you are using Active Directory, many of these settings are predetermined for you and are therefore are not shown.</p>
+
+        </div>
 
 <div class="table-responsive">
             
@@ -218,84 +229,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>Sync Groups</td>
-      <td>Sync groups to your organization.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Sync Users</td>
-      <td>Sync users to your organization.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Sync Interval</td>
-      <td>When using the background service, the interval, in minutes, that you wish to automatically sync.</td>
+      <td>Interval</td>
+      <td>The interval, in minutes, that you wish to perform automatic sync checks.</td>
       <td>5</td>
     </tr>
     <tr>
-      <td>User Filter</td>
-      <td>A filter for limiting the users that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
-      <td>(&amp;(objectClass=user))</td>
-    </tr>
-    <tr>
-      <td>Group Filter</td>
-      <td>A filter for limiting the groups that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
-      <td>(&amp;(objectClass=group))</td>
-    </tr>
-    <tr>
-      <td>Remove Disabled</td>
+      <td>Remove Disabled Users</td>
       <td>When a user is disabled in the directory, should they also be removed from your Bitwarden organization?</td>
       <td> </td>
     </tr>
     <tr>
-      <td>Group Object Class</td>
-      <td>The name of the class used for the LDAP group object.</td>
-      <td>group</td>
-    </tr>
-    <tr>
-      <td>User Object Class</td>
-      <td>The name of the class used for the LDAP user object.</td>
-      <td>user</td>
-    </tr>
-    <tr>
-      <td>Group Path</td>
-      <td>This value is used in addition to the root path when searching and loading groups. If no value is supplied, the subtree search will start from the root path.</td>
-      <td>ou=Groups</td>
-    </tr>
-    <tr>
-      <td>User Path</td>
-      <td>This value is used in addition to the root path when searching and loading users. If no value is supplied, the subtree search will start from the root path.</td>
-      <td>ou=Users</td>
-    </tr>
-    <tr>
-      <td>Group Name Attribute</td>
-      <td>The attribute field to use when loading the group name.</td>
-      <td>name</td>
-    </tr>
-    <tr>
-      <td>User Email Attribute</td>
-      <td>The attribute field to use when loading the user email address.</td>
-      <td>mail</td>
-    </tr>
-    <tr>
       <td>Member Attribute</td>
       <td>The attribute field to use when loading the group’s members.</td>
-      <td>member</td>
-    </tr>
-    <tr>
-      <td>Use Email Prefix/Suffix</td>
-      <td>Email addresses are required by Bitwarden. If your directory users do not have email addresses they will be skipped. Alternatively, you can specify that users without an email address use a prefix attribute concatenated with a suffix to attempt to form a valid email address.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Email Prefix Attribute</td>
-      <td>The attribute field to use when forming a user’s email address from the prefix/suffix setting.</td>
-      <td>sAMAccountName</td>
-    </tr>
-    <tr>
-      <td>Email Suffix</td>
-      <td>The specified suffix to use when forming a user’s email address from the prefix/suffix setting.</td>
-      <td>@company.com</td>
+      <td>uniqueMember</td>
     </tr>
     <tr>
       <td>Creation Date Attribute</td>
@@ -306,6 +252,71 @@
       <td>Revision Date Attribute</td>
       <td>The attribute field that specifies when an entry was changed.</td>
       <td>whenChanged</td>
+    </tr>
+    <tr>
+      <td>Use Email Prefix/Suffix</td>
+      <td>Email addresses are required by Bitwarden. If your directory users do not have email addresses they will be skipped. Alternatively, you can specify that users without an email address use a prefix attribute concatenated with a suffix to attempt to form a valid email address.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Email Prefix Attribute</td>
+      <td>The attribute field to use when forming a user’s email address from the prefix/suffix setting.</td>
+      <td>accountName</td>
+    </tr>
+    <tr>
+      <td>Email Suffix</td>
+      <td>The specified suffix to use when forming a user’s email address from the prefix/suffix setting.</td>
+      <td>@company.com</td>
+    </tr>
+    <tr>
+      <td>Sync Users</td>
+      <td>Sync users to your organization.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>User Filter</td>
+      <td>A filter for limiting the users that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
+      <td>(&amp;(givenName=John))</td>
+    </tr>
+    <tr>
+      <td>User Object Class</td>
+      <td>The name of the class used for the LDAP user object.</td>
+      <td>user</td>
+    </tr>
+    <tr>
+      <td>User Path</td>
+      <td>This value is used in addition to the root path when searching and loading users. If no value is supplied, the subtree search will start from the root path.</td>
+      <td>ou=Users</td>
+    </tr>
+    <tr>
+      <td>User Email Attribute</td>
+      <td>The attribute field to use when loading the user email address.</td>
+      <td>mail</td>
+    </tr>
+    <tr>
+      <td>Sync Groups</td>
+      <td>Sync groups to your organization.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Group Filter</td>
+      <td>A filter for limiting the groups that are synced. Read more at <a href="/article/user-group-filters/">Configuring user and group sync filters</a>.</td>
+      <td>(&amp;!(name=Sales*))</td>
+    </tr>
+    <tr>
+      <td>Group Object Class</td>
+      <td>The name of the class used for the LDAP group object.</td>
+      <td>groupOfUniqueNames</td>
+    </tr>
+    <tr>
+      <td>Group Path</td>
+      <td>This value is used in addition to the root path when searching and loading groups. If no value is supplied, the subtree search will start from the root path.</td>
+      <td>ou=Groups</td>
+    </tr>
+    <tr>
+      <td>Group Name Attribute</td>
+      <td>The attribute field to use when loading the group name.</td>
+      <td>name</td>
     </tr>
   </tbody>
 </table>
@@ -447,10 +458,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525728177"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525728177"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

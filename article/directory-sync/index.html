@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1525728177"
+    <link href="/css/styles.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525728177"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -116,15 +116,16 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden supports syncing users and/or groups from outside directories through the use of the <strong>Bitwarden Directory Connector</strong> tool.</p>
+            <p>Bitwarden supports syncing users and/or groups from outside directories through the use of the <strong>Bitwarden Directory Connector</strong> application.</p>
 
 <p>The following directories are supported:</p>
 
 <ul>
   <li>Active Directory</li>
+  <li>Any LDAP-based directory</li>
   <li>Azure Active Directory</li>
   <li>G Suite (Google)</li>
-  <li>Any other LDAP-based directory</li>
+  <li>Okta</li>
 </ul>
 
 <div class="callout callout-info">
@@ -134,368 +135,86 @@
 
         </div>
 
-<h2 id="bitwarden-directory-connector-tool">Bitwarden Directory Connector Tool</h2>
+<h2 id="bitwarden-directory-connector-application">Bitwarden Directory Connector Application</h2>
 
-<p>The Bitwarden Directory Connector is a windows-based console application (CLI) that allows you to keep your bitwarden organization and user directory in sync. Directory Connector can be run on-demand manually as well as automatically in the background on an configured interval through the use of the included windows service. The tool provides a console-based UI in addition to a full array of command line arguments.</p>
+<p>The Bitwarden Directory Connector is cross-platform desktop application that allows you to keep your Bitwarden organization and user directory in sync. Directory Connector can be run on-demand manually as well as automatically in the background on an configured interval. The Directory Connector application can be installed on Windows, macOS, and most Linux distributions.</p>
 
-<p>You can install and run Directory Connector on the server that hosts your directory, an administrator’s machine, or any other windows-based device than can access the directory.</p>
+<p>You can install and run Directory Connector as an agent on the server that hosts your directory, an administrator’s workstation, or any other desktop device than can access the directory.</p>
 
-<p><a href="/images/directory-connector/console.png" target="_blank" rel="lightbox">
-            <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/console.png" />
+<p><a href="/images/directory-connector/app.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/app.png" />
         </a></p>
 
 <h3 id="table-of-contents">Table of Contents</h3>
 
 <ul>
-  <li><a href="#install">Install</a></li>
+  <li><a href="#download-and-install">Download and Install</a></li>
+  <li><a href="#configure-environment">Configure environment</a></li>
   <li><a href="#log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</a></li>
   <li><a href="#configure-the-directory-connection">Configure the directory connection</a></li>
   <li><a href="#configure-sync-options">Configure sync options</a></li>
-  <li><a href="#manually-simulate-a-sync">Manually simulate a sync</a></li>
-  <li><a href="#perform-a-sync">Perform a sync</a></li>
-  <li><a href="#manage-the-background-service">Manage the background service</a></li>
-  <li><a href="#configure-environment">Configure environment</a></li>
+  <li><a href="#test-a-sync">Test a sync</a></li>
+  <li><a href="#perform-a-manual-sync">Perform a manual sync</a></li>
+  <li><a href="#sync-automatically">Sync automatically</a></li>
   <li><a href="#clear-sync-cache">Clear sync cache</a></li>
-  <li><a href="#changing-configurations-manually">Changing configurations manually</a></li>
   <li><a href="#source-code">Source code</a></li>
 </ul>
 
-<h3 id="install">Install</h3>
+<h3 id="download-and-install">Download and Install</h3>
+
+<p>You can download the latest version of the Bitwarden Directory Connector application from our <a href="https://github.com/bitwarden/directory-connector/releases" target="_blank">GitHub releases page</a> or by using one of the official links below:</p>
+
+<ul>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=windows"><i class="fa fa-windows"></i> Windows Installer (.exe)</a></li>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=windows&amp;variant=portable"><i class="fa fa-windows"></i> Windows Portable (.exe)</a></li>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=macos"><i class="fa fa-apple"></i> macOS (.dmg)</a></li>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=linux"><i class="fa fa-linux"></i> Linux (.AppImage)</a></li>
+</ul>
+
+<p>The application will prompt you for automatic updates whenever newer versions become available.</p>
+
+<h3 id="configure-environment">Configure environment</h3>
+
+<p>By default the Directory Connector communicates with the Bitwarden public cloud servers. If you are using the public cloud version of Bitwarden, you can skip this step. If you are using a self-hosted deployment of Bitwarden you will want to change the configured environment endpoints of the Directory Connector to your own on-premise installation.</p>
 
 <ol>
-  <li>Download the latest version of the Directory Connector installer (<code class="highlighter-rouge">.msi</code>) from our GitHub releases page.
-<br />
-<a href="https://github.com/bitwarden/directory-connector/releases" target="_blank"><i class="fa fa-download"></i> Download Directory Connector Installer</a></li>
-  <li>Launch the setup wizard by running (double-clicking) the downloaded <code class="highlighter-rouge">.msi</code> installer.</li>
-  <li>Step through the wizard and complete the installation.</li>
-  <li>After the setup wizard has successfully completed, you should find a shortcut on your desktop for <strong>Directory Connector</strong> with the Bitwarden logo <i class="fa fa-shield"></i>. The full path to the application can be found at <code class="highlighter-rouge">{install_folder}/Console.exe</code>.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>If you are already logged into the application, go to the <strong>More</strong> tab and <strong>Log Out</strong>.</li>
+  <li>On the main log in screen, select the <strong>Settings</strong> button.</li>
+  <li>Enter your installation’s base URL and save. For example, <code class="highlighter-rouge">https://bitwarden.company.com</code>.</li>
 </ol>
 
 <h3 id="log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</h3>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 1 (Log in to Bitwarden) from the main menu.</li>
-  <li>Enter your Bitwarden login credentials.</li>
-  <li>If your Bitwarden account belongs to more than one organization you will be prompted to select an organization.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Log in with your Bitwarden user account that has Admin or Owner access to your organization.</li>
+  <li>Go to the <strong>Settings</strong> tab and select your organization from the <strong>Account</strong> section.</li>
 </ol>
-
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe login -e -p [-t] [-o]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Email</td>
-      <td>-e</td>
-      <td>user@example.com</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>-p</td>
-      <td>mypassword123</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>2FA Token</td>
-      <td>-t</td>
-      <td>381119</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Organization Id</td>
-      <td>-o</td>
-      <td>acadad98-b666-498d-b89f-f220f21e453f</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<p>You can also log out with the following command:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe logout
-</code></pre></div></div>
 
 <h3 id="configure-the-directory-connection">Configure the directory connection</h3>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 3 (Configure directory connection) from the main menu.</li>
-  <li>Select the type of directory server you are configuring.</li>
-  <li>Step through and set each configuration setting for the directory server type that you selected in step 3. The settings are different for each type of directory. You can read more about setting up each type of directory connection in the following articles:
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select the <strong>Type</strong> of directory server you are configuring from the <strong>Directory</strong> section.</li>
+  <li>Set each configuration setting for the directory server type that you selected in step 3. The settings are different for each type of directory. You can read more about setting up each type of directory connection in the following articles:
     <ul>
       <li><a href="/article/ldap-directory/">Active Directory &amp; Other LDAP-based Directories Setup</a></li>
       <li><a href="/article/azure-active-directory/">Azure Active Directory Setup</a></li>
       <li><a href="/article/gsuite-directory/">G Suite (Google) Setup</a></li>
+      <li><a href="/article/okta-directory/">Okta Setup</a></li>
     </ul>
   </li>
 </ol>
 
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe configdir -t [azure: -i -s -te] [gsuite: -f -u [-d] [-c]] [ad/ldap: -a -path [-port] [-cu] [-u] [-p]]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Type</td>
-      <td>-t</td>
-      <td>1</td>
-      <td>y</td>
-      <td>AD = 0, Azure = 1, Other = 2, GSuite = 3</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h4 id="azure">Azure</h4>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Application Id</td>
-      <td>-i</td>
-      <td>0f82b419-c5b3-4b63-8afc-67d240da85a6</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Secret Key</td>
-      <td>-s</td>
-      <td>c2VjcmV0X2tleQ==</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Tenant</td>
-      <td>-te</td>
-      <td>mycompany.onmicrosoft.com</td>
-      <td>y</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h4 id="g-suite">G Suite</h4>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Secret File</td>
-      <td>-f</td>
-      <td>client_secret.json</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Admin User</td>
-      <td>-u</td>
-      <td>admin@company.com</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Domain</td>
-      <td>-d</td>
-      <td>company.com</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Customer Id</td>
-      <td>-c</td>
-      <td>39204722352</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h4 id="active-directory--other-ldap">Active Directory / Other LDAP</h4>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Address</td>
-      <td>-a</td>
-      <td>company.local</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Port</td>
-      <td>-port</td>
-      <td>389</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Root Path</td>
-      <td>-path</td>
-      <td>DC=company,DC=local</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Current User</td>
-      <td>-cu</td>
-      <td>n/a</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Username</td>
-      <td>-u</td>
-      <td>admin@company.com</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>-p</td>
-      <td>mypassword</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>Any sensitive information such as secret keys and server passwords are encrypted and stored locally in the <a href="#changing-configurations-manually">settings file</a>.</p>
-
-        </div>
-
 <h3 id="configure-sync-options">Configure sync options</h3>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 4 (Configure sync) from the main menu.</li>
-  <li>Step through and set each sync configuration setting. Some settings are dependent on the type of directory connection you are using.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Set each configuration setting from the <strong>Sync</strong> section. Some settings are dependent on the <strong>Type</strong> of directory you have configured.</li>
 </ol>
-
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe configsync [-g] [-u] [-i] [-uf] [-gf] [-rd] [ad/ldap: [-go] [-gp] [-gn] [-uo] [-up] [-ue] [-m] [-ps] [-ep] [-es] [-c] [-r]]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Sync Groups</td>
-      <td>-g</td>
-      <td>n/a</td>
-      <td>n</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Sync Users</td>
-      <td>-u</td>
-      <td>n/a</td>
-      <td>n</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Sync Interval</td>
-      <td>-i</td>
-      <td>5</td>
-      <td>n</td>
-      <td>Value is in minutes.</td>
-    </tr>
-    <tr>
-      <td>User Filter</td>
-      <td>-uf</td>
-      <td>(&amp;(objectClass=user))</td>
-      <td>n</td>
-      <td>Value syntax is different for each directory type.</td>
-    </tr>
-    <tr>
-      <td>Group Filter</td>
-      <td>-gf</td>
-      <td>(&amp;(objectClass=group))</td>
-      <td>n</td>
-      <td>Value syntax is different for each directory type.</td>
-    </tr>
-    <tr>
-      <td>Remove Disabled</td>
-      <td>-rd</td>
-      <td>n/a</td>
-      <td>n</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -508,318 +227,47 @@
 
         </div>
 
-<h4 id="active-directory--other-ldap-1">Active Directory / Other LDAP</h4>
+<h3 id="test-a-sync">Test a sync</h3>
 
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Group Object Class</td>
-      <td>-go</td>
-      <td>group</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>User Object Class</td>
-      <td>-uo</td>
-      <td>user</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <td>Group Path</td>
-      <td>-gp</td>
-      <td>CN=Groups</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>User Path</td>
-      <td>-up</td>
-      <td>CN=Users</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Group Name Attribute</td>
-      <td>-gn</td>
-      <td>name</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>User Email Attribute</td>
-      <td>-ue</td>
-      <td>mail</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Member Attribute</td>
-      <td>-m</td>
-      <td>member</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Use Email Prefix/Suffix</td>
-      <td>-ps</td>
-      <td>n/a</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Email Prefix Attribute</td>
-      <td>-ep</td>
-      <td>sAMAccountName</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Email Suffix</td>
-      <td>-es</td>
-      <td>@company.com</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Creation Date Attribute</td>
-      <td>-c</td>
-      <td>whenCreated</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Revision Date Attribute</td>
-      <td>-r</td>
-      <td>whenChanged</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h3 id="manually-simulate-a-sync">Manually simulate a sync</h3>
-
-<p>You can simulate a directory sync in order to check that all of your configuration settings are setup and working as expected. A sync simulation will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your Bitwarden organization whenever a real sync is invoked.</p>
+<p>You can run a sync test in order to check that all of your configuration settings are setup and working as expected. A sync test will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your Bitwarden organization whenever a real sync is performed.</p>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 5 (Simulate directory sync) from the main menu.</li>
-  <li>Review the results that are printed in the console window for accuracy.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Dashboard</strong> tab.</li>
+  <li>Click the <strong>Test Now</strong> button from the <strong>Testing</strong> section.</li>
 </ol>
 
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe sim [-f]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Force</td>
-      <td>-f</td>
-      <td>n/a</td>
-      <td>n</td>
-      <td>Forces a full sync.</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h3 id="perform-a-sync">Perform a sync</h3>
+<h3 id="perform-a-manual-sync">Perform a manual sync</h3>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 6 (Sync directory) from the main menu.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Dashboard</strong> tab.</li>
+  <li>Click the <strong>Sync Now</strong> button from the <strong>Sync</strong> section.</li>
 </ol>
 
-<p>Optionally, from the command line:</p>
+<p>Your synced users and groups will be immediately available in your Bitwarden organization. Synced users will receive an email invite to your organization.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe sync [-f]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Force</td>
-      <td>-f</td>
-      <td>n/a</td>
-      <td>n</td>
-      <td>Forces a full sync.</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<h3 id="manage-the-background-service">Manage the background service</h3>
-
-<p>The background service allows sync operations to run in the background based on the interval set in your sync configuration.</p>
+<h3 id="sync-automatically">Sync automatically</h3>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 7 (Control background service) from the main menu.</li>
-  <li>Select the option you wish to perform: Start, Stop, or Check Status.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>Dashboard</strong> tab.</li>
+  <li>Click the <strong>Start Sync</strong> button from the <strong>Sync</strong> section.</li>
 </ol>
 
-<p>Optionally, from the command line:</p>
+<p>The application will begin polling your directory based on the interval you specified in your sync settings. Be sure not to exit/close the application or automatic syncing intervals will stop. You can minimize the application or hide it to the system tray (under the <strong>Window</strong> application menu).</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe service [-start] [-stop]
-</code></pre></div></div>
-
-<div class="table-responsive">
-            
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Start</td>
-      <td>-start</td>
-      <td>n/a</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Stop</td>
-      <td>-stop</td>
-      <td>n/a</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        </div>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>The application must be run in administrator mode to be able to manage the background service.</p>
-
-        </div>
-
-<p>Alternatively, you can also manage the background service from the windows service manager window.</p>
-
-<ol>
-  <li>Open the windows start menu.</li>
-  <li>Search for “Services” and select the Services application.
-    <ul>
-      <li>If you do not find the “Services” application by searching, you can also open it from the “Run” window by typing <code class="highlighter-rouge">services.msc</code>.</li>
-    </ul>
-  </li>
-</ol>
-
-<div class="callout callout-success">
-            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
-            
-<p>You can configure the Bitwarden Directory Connector to run automatically each time the machine starts. Use the windows service manager to set the Bitwarden Directory Connector service to “Startup type: Automatic”.</p>
-
-        </div>
-
-<h3 id="configure-environment">Configure environment</h3>
-
-<p>By default the Directory Connector communicates with the Bitwarden public cloud servers. If you are using a self-hosted deployment of Bitwarden you will want to change the configured environment endpoints of the Directory Connector to your own on-premise installation.</p>
-
-<ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 8 (Configure environment) from the main menu.</li>
-  <li>Enter your installation’s API and Identity endpoints. For example, if your installation’s domain is <code class="highlighter-rouge">bitwarden.company.com</code> your API and Identity endpoints would be <code class="highlighter-rouge">https://bitwarden.company.com/api</code> and <code class="highlighter-rouge">https://bitwarden.company.com/identity</code> respectively.</li>
-</ol>
-
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe env [-api] [-id]
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Argument</th>
-      <th>Example Value</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>API Server</td>
-      <td>-api</td>
-      <td>https://bitwarden.company.com/api</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <td>Identity Server</td>
-      <td>-id</td>
-      <td>https://bitwarden.company.com/identity</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
+<p>You can click the <strong>Stop Sync</strong> button to end the automatic syncing intervals.</p>
 
 <h3 id="clear-sync-cache">Clear sync cache</h3>
 
-<p>As the Directory Connector works at syncing changes up to your Bitwarden organization it keeps a local cache. This cache helps the Directory Connector only send the difference in directory changes from the previous time that it performed a sync operation. If you encounter sync errors or a particular directory change is not correctly being synced, you may need to clear this cache. Clearing the cache will allow a full sync to occur during the next sync operation.</p>
+<p>As the Directory Connector works at syncing changes up to your Bitwarden organization it keeps a local cache. This cache helps the Directory Connector only send the difference in directory changes (deltas) from the previous time that it performed a sync operation. If you encounter sync errors or a particular directory change is not correctly being synced, you may need to clear this cache. Clearing the cache will allow a full sync to occur during the next sync operation.</p>
 
 <ol>
-  <li>Launch the Directory Connector console by double clicking the shortcut.</li>
-  <li>Select option 9 (Clear sync cache) from the main menu.</li>
+  <li>Run the Directory Connector application.</li>
+  <li>Go to the <strong>More</strong> tab.</li>
+  <li>Click the <strong>Clear Sync Cache</strong> button from the <strong>Other</strong> section.</li>
 </ol>
-
-<p>Optionally, from the command line:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Console.exe clearcache
-</code></pre></div></div>
-
-<div class="callout callout-success">
-            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
-            
-<p>You can also perform a “forced” sync by using the <code class="highlighter-rouge">-f</code> command as described in the <strong>Perform a sync</strong> section above. i.e. <code class="highlighter-rouge">Console.exe sync -f</code>. This command will ignore the local cache.</p>
-
-        </div>
-
-<h3 id="changing-configurations-manually">Changing configurations manually</h3>
-
-<p>All configuration data is saved to a <code class="highlighter-rouge">.json</code> configuration file stored on the local computer. No configuration data in synced to Bitwarden servers. You can find the configuration file in it’s default location at <code class="highlighter-rouge">C:/ProgramData/bitwarden/Directory Connector/settings.json</code>. Any changes that you make directory to the configuration file will require you to restart the application (if it is currently running).</p>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>Some configuration data that is stored in the settings file, such as LDAP server credentials, is encrypted. Therefore, you cannot edit these values directly in this file. Any encrypted data must be edited through the application normally.</p>
-
-        </div>
 
 <h3 id="source-code">Source code</h3>
 
@@ -954,10 +402,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525728177"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525728177"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

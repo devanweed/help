@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1525728177"
+    <link href="/css/styles.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525728177"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1525837705"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -116,7 +116,7 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>You can configure the Bitwarden Directory Connector to use filters to limit the users and/or groups that are processed for syncing to your bitwarden organization.</p>
+            <p>You can configure the Bitwarden Directory Connector application to use filters to limit the users and/or groups that are processed for syncing to your Bitwarden organization.</p>
 
 <p>The syntax for filtering is different for each directory server type and is covered in detail below.</p>
 
@@ -126,13 +126,14 @@
   <li><a href="#active-directory-and-other-ldap-directories">Active Directory and Other LDAP Directories</a></li>
   <li><a href="#azure-active-directory">Azure Active Directory</a></li>
   <li><a href="#g-suite">G Suite</a></li>
+  <li><a href="#okta">Okta</a></li>
 </ul>
 
 <h2 id="active-directory-and-other-ldap-directories">Active Directory and Other LDAP Directories</h2>
 
 <p>The group and user filters can be in the form of any LDAP compatible search filter. Additionally, Active Directory provides a few more advanced options as well as a few limitations when writing search filters as opposed to other more standard LDAP directories. You can read more about writing LDAP search filters here: <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa746475(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/aa746475(v=vs.85).aspx</a></p>
 
-<h4 id="examples">Examples</h4>
+<h3 id="examples">Examples</h3>
 
 <p>Search for all entries that have objectClass=user AND cn that contains the word ‘Marketing’.</p>
 
@@ -159,7 +160,7 @@
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>These examples are written for Active Directory. In order to use them for something such as OpenLDAP the attributes will need to be changed.</p>
+<p>The following examples are written for Active Directory. In order to use them for something such as OpenLDAP the attributes will need to be changed.</p>
 
         </div>
 
@@ -177,9 +178,16 @@
 
 <p>The Microsoft Graph API does not provide a way to filter groups and users directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names and user emails.</p>
 
-<h4 id="examples-1">Examples</h4>
+<h3 id="examples-1">Examples</h3>
 
-<p>Groups</p>
+<h4 id="groups">Groups</h4>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If you are filtering groups your user filter will only apply to users from the groups returned.</p>
+
+        </div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:Group A,Sales People,My Other Group
 </code></pre></div></div>
@@ -187,7 +195,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
 </code></pre></div></div>
 
-<p>Users</p>
+<h4 id="users">Users</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
 </code></pre></div></div>
@@ -197,9 +205,16 @@
 
 <h2 id="g-suite">G Suite</h2>
 
-<h3 id="groups">Groups</h3>
+<h3 id="groups-1">Groups</h3>
 
 <p>The G Suite APIs do not provide a way to filter groups directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If you are filtering groups your user filter will only apply to users from the groups returned.</p>
+
+        </div>
 
 <h4 id="examples-2">Examples</h4>
 
@@ -209,7 +224,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:Group C,Developers,Some Other Group
 </code></pre></div></div>
 
-<h3 id="users">Users</h3>
+<h3 id="users-1">Users</h3>
 
 <p>We provide the same custom filtering syntax that allows you to exclude or include a comma separated list of user emails.</p>
 
@@ -232,6 +247,50 @@
 <p>Only the G Suite <code class="highlighter-rouge">query</code> search (notice the <code class="highlighter-rouge">|</code> prefix that is required):</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|orgName=Engineering orgTitle:Manager
+</code></pre></div></div>
+
+<h2 id="okta">Okta</h2>
+
+<p>We provide a custom filtering syntax that allows you to exclude or include a comma separated list of group names or user emails.</p>
+
+<p>Additionally, the Okta APIs provide limited filtering capabilities for users and groups. Read more about filtering with the <code class="highlighter-rouge">filter</code> parameter here: <a href="https://developer.okta.com/docs/api/resources/groups#filters">https://developer.okta.com/docs/api/resources/groups#filters</a> and <a href="https://developer.okta.com/docs/api/resources/users#list-users-with-a-filter">https://developer.okta.com/docs/api/resources/users#list-users-with-a-filter</a></p>
+
+<p>You can combine both of these filtering options by concatenating the two strings with a pipe (<code class="highlighter-rouge">|</code>);</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<h4 id="groups-2">Groups</h4>
+
+<p>Only the include/exclude filter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:Group A,Group B
+</code></pre></div></div>
+
+<p>An include/exclude filter + an Okta <code class="highlighter-rouge">filter</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:Group A|type eq "APP_GROUP"
+</code></pre></div></div>
+
+<p>Only the Okta <code class="highlighter-rouge">filter</code> search (notice the <code class="highlighter-rouge">|</code> prefix that is required):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|type eq "BUILT_IN"
+</code></pre></div></div>
+
+<h4 id="users-2">Users</h4>
+
+<p>Only the include/exclude filter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include:joe@company.com,bill@company.com,tom@company.com
+</code></pre></div></div>
+
+<p>An include/exclude filter + an Okta <code class="highlighter-rouge">filter</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exclude:john@company.com,bill@company.com|profile.firstName eq "John"
+</code></pre></div></div>
+
+<p>Only the Okta <code class="highlighter-rouge">filter</code> search (notice the <code class="highlighter-rouge">|</code> prefix that is required):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|profile.lastName eq "Smith"
 </code></pre></div></div>
 
         </div>
@@ -363,10 +422,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525728177"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525728177"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1525837705"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
