@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526667615"
+    <link href="/css/styles.css?v=1526668112"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526667615"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526668112"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -120,20 +120,22 @@
 
 <p>All sensitive data stored on your computer/device is encrypted. The data can be found in the following locations:</p>
 
+<h2 id="desktop">Desktop</h2>
+
 <ul>
-  <li>Windows Desktop App
+  <li>Windows
     <ul>
       <li>Standard Installations &amp; Store: <code class="highlighter-rouge">%AppData%\Roaming\Bitwarden</code></li>
       <li>Portable: <code class="highlighter-rouge">.\bitwarden-appdata</code></li>
     </ul>
   </li>
-  <li>macOS Desktop App
+  <li>macOS
     <ul>
       <li>Standard Installations: <code class="highlighter-rouge">~/Library/Application Support/Bitwarden</code></li>
       <li>Mac App Store: <code class="highlighter-rouge">~/Library/Containers/com.bitwarden.desktop/Data/Library/Application Support/Bitwarden</code></li>
     </ul>
   </li>
-  <li>Linux Desktop App
+  <li>Linux
     <ul>
       <li>Standard Installations: <code class="highlighter-rouge">~/.config/Bitwarden</code></li>
       <li>Snap: <code class="highlighter-rouge">~/snap/bitwarden/current/.config/Bitwarden</code></li>
@@ -148,8 +150,10 @@
 
         </div>
 
+<h2 id="browser-extension">Browser Extension</h2>
+
 <ul>
-  <li>Windows Browser Extensions
+  <li>Windows
     <ul>
       <li>Chrome: <code class="highlighter-rouge">%AppData%\Local\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
       <li>Firefox: <code class="highlighter-rouge">%AppData%\Roaming\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
@@ -159,29 +163,40 @@
       <li>Edge: <code class="highlighter-rouge">%AppData%\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AC\MicrosoftEdge\Extensions\Storage</code></li>
     </ul>
   </li>
-  <li>Linux Browser Extensions
+  <li>Linux
     <ul>
       <li>Chrome: <code class="highlighter-rouge">~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
     </ul>
   </li>
-  <li>macOS Browser Extensions
+  <li>macOS
     <ul>
       <li>Chrome: <code class="highlighter-rouge">~/Library/Application Support/Google/Chrome/Default/Local App Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
       <li>Safari: <code class="highlighter-rouge">~/Library/Safari/Databases</code></li>
     </ul>
   </li>
-  <li>iOS Mobile App
-    <ul>
-      <li>App group for <code class="highlighter-rouge">group.com.8bit.bitwarden</code></li>
-    </ul>
-  </li>
-  <li>Android Mobile App
-    <ul>
-      <li><code class="highlighter-rouge">/data/data/com.x8bit.bitwarden/</code></li>
-    </ul>
-  </li>
 </ul>
 
+<h2 id="mobile">Mobile</h2>
+
+<ul>
+  <li>iOS: app group for <code class="highlighter-rouge">group.com.8bit.bitwarden</code></li>
+  <li>Android: <code class="highlighter-rouge">/data/data/com.x8bit.bitwarden/</code></li>
+</ul>
+
+<h2 id="cli">CLI</h2>
+
+<ul>
+  <li>Windows: <code class="highlighter-rouge">%AppData%\Roaming\Bitwarden CLI</code></li>
+  <li>macOS: <code class="highlighter-rouge">~/Library/Application Support/Bitwarden CLI</code></li>
+  <li>Linux: <code class="highlighter-rouge">~/.config/Bitwarden CLI</code></li>
+</ul>
+
+<div class="callout callout-success">
+            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
+            
+<p>You can override the storage location for your Bitwarden CLI application data by setting the <code class="highlighter-rouge">BITWARDENCLI_APPDATA_DIR</code> environment variable to an absolute path.</p>
+
+        </div>
 
         </div>
         
@@ -312,10 +327,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526667615"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526668112"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526667615"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526668112"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
