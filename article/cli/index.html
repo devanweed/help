@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526649271"
+    <link href="/css/styles.css?v=1526657969"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526649271"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526657969"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -162,6 +162,7 @@
   <li><a href="#other-useful-commands">Other Useful Commands</a>
     <ul>
       <li><a href="#export">Export</a></li>
+      <li><a href="#generate">Generate</a></li>
       <li><a href="#encode">Encode</a></li>
       <li><a href="#config">Config</a></li>
       <li><a href="#update">Update</a></li>
@@ -407,6 +408,17 @@ bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
 </code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export
 bw export myPassword321 --output ./backups/
+</code></pre></div></div>
+
+<h3 id="generate">Generate</h3>
+
+<p>The <code class="highlighter-rouge">generate</code> command allows you to generate strong passwords.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw generate [--lowercase --uppercase --number --special --length]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw generate
+bw generate -u -l --length 18
+bw generate -ulns --length 25
 </code></pre></div></div>
 
 <h3 id="encode">Encode</h3>
@@ -772,10 +784,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526649271"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526657969"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526649271"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526657969"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
