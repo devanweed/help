@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>The Bitwarden command-line tool (CLI) | Bitwarden Help &amp; Support</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet" type="text/css">
+
+    <link href="/css/styles.css?v=1526649271"
+          rel="stylesheet" type="text/css">
+
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526649271"
+          rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#3c8dbc">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://bitwarden.com" onclick="gaEvent('Nav Logo')">
+                    <i class="fa fa-shield"></i>
+                    <span class="visible-xs-inline"><strong>bit</strong>warden</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Help Center</a></li>
+                    <li><a href="https://community.bitwarden.com/">Forums</a></li>
+                    <li><a href="https://bitwarden.com/contact">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://bitwarden.com" onclick="gaEvent('Return')">
+                            <i class="fa fa-share fa-flip-horizontal fa-fw"></i> Return to bitwarden.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <form action="/search/" method="get">
+                <div class="input-group input-group-lg">
+                    <input type="search" class="form-control" placeholder="Search the help center..."
+                           id="search-box" name="q">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" onclick="gaEvent('Search')">
+                            <i class="fa fa-search"></i>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <content>
+        
+
+
+<div class="container">
+    <h1 class="page-header">
+        <i class="fa fa-file-text-o"></i>
+        The Bitwarden command-line tool (CLI)
+    </h1>
+    <div class="breadcrumb">
+        Category:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/miscellaneous/">Miscellaneous</a>
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    <div class="panel panel-default article">
+        <div class="panel-body">
+            <p>Bitwarden provides a powerful, full-featured command-line interface (CLI) tool to access and manage your Bitwarden vault. All features that you find in other Bitwarden client applications (desktop, browser extension, etc) are also available through the CLI. The CLI can be used cross-platform on Windows, macOS, and Linux distributions.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<ol>
+  <li><a href="#download--install">Download and install</a> the CLI for your platform.</li>
+  <li>Move <code class="highlighter-rouge">bw</code> to <code class="highlighter-rouge">/usr/local/bin</code> or another directory in your <code class="highlighter-rouge">$PATH</code>. Windows users can <a href="https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">add <code class="highlighter-rouge">bw.exe</code> to the current user’s <code class="highlighter-rouge">PATH</code></a>. If you installed the CLI with <a href="https://www.npmjs.com/package/@bitwarden/cli" target="_blank">NPM</a> (or another package manager) you can skip this step since <code class="highlighter-rouge">bw</code> should automatically be added to your path.</li>
+  <li>
+    <p>Verify the <code class="highlighter-rouge">bw</code> command works in your terminal.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --help
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#download--install">Download &amp; Install</a>
+    <ul>
+      <li><a href="#native-executable">Native executable</a></li>
+      <li><a href="#npm">NPM</a></li>
+    </ul>
+  </li>
+  <li><a href="#session-management">Session Management</a>
+    <ul>
+      <li><a href="#environment-variable">Environment Variable</a></li>
+      <li><a href="#--session-key-option"><code class="highlighter-rouge">--session &lt;key&gt;</code> Option</a></li>
+      <li><a href="#locking">Locking</a></li>
+      <li><a href="#login--unlock">Login != Unlock</a></li>
+    </ul>
+  </li>
+  <li><a href="#explore-the-cli">Explore the CLI</a></li>
+  <li><a href="#managing-your-vault">Managing Your Vault</a>
+    <ul>
+      <li><a href="#sync">Sync</a></li>
+      <li><a href="#list">List</a></li>
+      <li><a href="#get">Get</a></li>
+      <li><a href="#create">Create</a></li>
+      <li><a href="#edit">Edit</a></li>
+      <li><a href="#delete">Delete</a></li>
+    </ul>
+  </li>
+  <li><a href="#other-useful-commands">Other Useful Commands</a>
+    <ul>
+      <li><a href="#export">Export</a></li>
+      <li><a href="#encode">Encode</a></li>
+      <li><a href="#config">Config</a></li>
+      <li><a href="#update">Update</a></li>
+      <li><a href="#version">Version</a></li>
+    </ul>
+  </li>
+  <li><a href="#working-with-json">Working with JSON</a></li>
+  <li><a href="#source-code">Source Code</a></li>
+  <li><a href="#appendix">Appendix</a>
+    <ul>
+      <li><a href="#templates">Templates</a></li>
+      <li><a href="#enums">Enums</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="download--install">Download &amp; Install</h2>
+
+<p>You can install the Bitwarden CLI multiple different ways:</p>
+
+<h3 id="native-executable">Native executable</h3>
+
+<p>Natively packaged versions of the CLI for each platform have no dependencies.</p>
+
+<ul>
+  <li><i class="fa fa-windows fa-lg fa-fw"></i> <a href="">Windows x64</a></li>
+  <li><i class="fa fa-apple fa-lg fa-fw"></i> <a href="">macOS x64</a></li>
+  <li><i class="fa fa-linux fa-lg fa-fw"></i> <a href="">Linux x64</a></li>
+</ul>
+
+<h3 id="npm">NPM</h3>
+
+<p>If you already have the Node.js runtime installed on your system, you can install the CLI using <a href="https://www.npmjs.com/package/@bitwarden/cli" target="_blank">NPM</a>. NPM makes it easy to keep your installation updated and should be the preferred installation method if you are already using Node.js.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g @bitwarden/cli
+</code></pre></div></div>
+
+<h2 id="session-management">Session Management</h2>
+
+<p>You can log into your Bitwarden user account by using the <code class="highlighter-rouge">login</code> command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password]
+</code></pre></div></div>
+
+<p>After logging in you will be returned a <em>session key</em>. This session key is necessary to perform any commands that require your vault to be unlocked (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">edit</code>, etc). You can pass the <code class="highlighter-rouge">--raw</code> option to <code class="highlighter-rouge">login</code> to receive <em>only</em> the session key from stdout.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password] --raw
+</code></pre></div></div>
+
+<p>You should pass the session key to CLI commands by setting the <code class="highlighter-rouge">BW_SESSION</code> environment variable or by using the <code class="highlighter-rouge">--session &lt;key&gt;</code> option:</p>
+
+<h3 id="environment-variable">Environment Variable</h3>
+
+<p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
+bw list items
+</code></pre></div></div>
+
+<p><i class="fa fa-windows"></i> PowerShell</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$env:BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
+bw list items
+</code></pre></div></div>
+
+<h3 id="--session-key-option"><code class="highlighter-rouge">--session &lt;key&gt;</code> Option</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --session 5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w==
+</code></pre></div></div>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>It is possible to persist your session key to your environment (for example, exporting it in <code class="highlighter-rouge">.bashrc</code>), however, we do not recommend doing this. Your active session key is the encryption key used to unlock all data associated with your Bitwarden vault and is not well-suited for persisting on an unprotected disk.</p>
+
+        </div>
+
+<h3 id="locking">Locking</h3>
+
+<p>If you do not pass the session key to commands that require it you will receive an error message that your vault is <em>locked</em>. You can unlock your vault and/or receive a new session key by using the <code class="highlighter-rouge">unlock</code> command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw unlock [password]
+</code></pre></div></div>
+
+<p>Additionally, you can manually lock your vault and destroy any active session keys by using the <code class="highlighter-rouge">lock</code> command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw lock
+</code></pre></div></div>
+
+<p>If your active session key is unavailable (for example, you accidentally lost it or closed your active terminal window), your vault is already considered locked and therefore using the <code class="highlighter-rouge">lock</code> command is unnecessary.</p>
+
+<h3 id="login--unlock">Login != Unlock</h3>
+
+<p>The <code class="highlighter-rouge">login</code> and <code class="highlighter-rouge">unlock</code> commands are different. <code class="highlighter-rouge">login</code> requires your email address and master password and performs authentication against the external Bitwarden server (requiring additional two-step login prompts, if configured). <code class="highlighter-rouge">unlock</code> performs local authentication only (against a persisted hash) and therefore would work even without an active internet connection or if the external Bitwarden server is not available. You cannot unlock your vault if you have not already logged in first.</p>
+
+<p>Most users should prefer locking and unlocking their vault rather than logging out and logging in. This is the same process and workflow that all other Bitwarden client applications follow. A typical use case would be that a user logs into the CLI application only once and then only performs <code class="highlighter-rouge">unlock</code> commands thereafter.</p>
+
+<h2 id="explore-the-cli">Explore the CLI</h2>
+
+<p>The Bitwarden CLI is self-documented with <code class="highlighter-rouge">--help</code> content and examples for every command. You should start exploring the CLI by using the global <code class="highlighter-rouge">--help</code> option:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --help
+</code></pre></div></div>
+
+<p>This option will list all available commands that you can use with the CLI.</p>
+
+<p>Additionally, you can run the <code class="highlighter-rouge">--help</code> option on an command to learn more about it specifically. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list --help
+bw create --help
+</code></pre></div></div>
+
+<h2 id="managing-your-vault">Managing Your Vault</h2>
+
+<h3 id="sync">Sync</h3>
+
+<p>The <code class="highlighter-rouge">sync</code> command downloads your encrypted vault from the Bitwarden server. If you have changed something in your Bitwarden vault on another client device (ex. the browser extension) you may need to use the <code class="highlighter-rouge">sync</code> command to see those changes:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw sync
+</code></pre></div></div>
+
+<p>It’s important to note that the <code class="highlighter-rouge">sync</code> command is only a <em>pull</em> operation. It does not push data to the server since that is already done for you each time you make a change to your vault (<code class="highlighter-rouge">create</code>, <code class="highlighter-rouge">edit</code>, <code class="highlighter-rouge">delete</code>).</p>
+
+<p>You can use the <code class="highlighter-rouge">--last</code> option to get an <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> timestamp of the last time a <code class="highlighter-rouge">sync</code> has been performed:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw sync --last
+</code></pre></div></div>
+
+<h3 id="list">List</h3>
+
+<p>The <code class="highlighter-rouge">list</code> command allows you to retrieve an array of objects from your vault.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list (items|folders|collections) [options]
+</code></pre></div></div>
+
+<p>You can search the list of returned objects by using the <code class="highlighter-rouge">--search</code> option. You can also filter the list by using the <code class="highlighter-rouge">--folderid</code>, <code class="highlighter-rouge">--collectionid</code>, or <code class="highlighter-rouge">--organizationid</code> options. Combining search with filter options performs a logical AND operation.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --search github --folderid 9742101e-68b8-4a07-b5b1-9578b5f88e6f
+</code></pre></div></div>
+
+<p>Special syntax is available for filters that allows you to specify <code class="highlighter-rouge">null</code> and <code class="highlighter-rouge">!null</code> as valid values. Combining multiple filters together performs a logical OR operation.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --folderid null --organizationid !null
+</code></pre></div></div>
+
+<h3 id="get">Get</h3>
+
+<p>The <code class="highlighter-rouge">get</code> command allows you to retrieve a single object from your vault.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list (item|username|password|uri|totp|exposed|attachment|folder|collection|template) &lt;id&gt;
+</code></pre></div></div>
+
+<p>You can retrieve an object by its globally using <code class="highlighter-rouge">id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or you will get an error.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get item 99ee88d2-6046-4ea7-92c2-acac464b1412
+bw get password https://google.com
+bw get totp google
+bw get exposed yahoo.com
+</code></pre></div></div>
+
+<p>If you are getting an attachment, you must also specify the <code class="highlighter-rouge">--itemid &lt;id&gt;</code> option of the item that the attachment belongs to.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get attachment b857igwl1dzrs2 --output ./photo.jpg \ 
+    --itemid 99ee88d2-6046-4ea7-92c2-acac464b1412
+bw get attachment photo.jpg --raw \
+    --itemid 99ee88d2-6046-4ea7-92c2-acac464b1412
+</code></pre></div></div>
+
+<h3 id="create">Create</h3>
+
+<p>The <code class="highlighter-rouge">create</code> command allows you to create new objects in your vault.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create (item|folder) [encodedJson]
+</code></pre></div></div>
+
+<p>The process for creating an object may look something like this:</p>
+
+<ol>
+  <li>
+    <p>Get the JSON template(s) for the object you are trying to create:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder
+</code></pre></div>    </div>
+  </li>
+  <li>Edit the JSON template with the values you want to use for that object.</li>
+  <li>
+    <p>Base 64 encode the JSON string. You can use the <code class="highlighter-rouge">encode</code> command included with the CLI and pipe in the JSON string from stdin:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '{"name":"My Folder"}' | bw encode
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create the item:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create folder eyJuYW1lIjoiTXkgRm9sZGVyIn0=
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>The <code class="highlighter-rouge">create</code> command can also receive encoded JSON as stdin. A complete example, using <code class="highlighter-rouge">jq</code> to update a template’s JSON (see more working with JSON below), may look something like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
+</code></pre></div></div>
+
+<p>Upon success, the newly created object’s <code class="highlighter-rouge">id</code> will be returned.</p>
+
+<p>To create a new attachment for an item, specify the <code class="highlighter-rouge">--file</code> path on disk as well as the <code class="highlighter-rouge">--itemid</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create attachment --file ./path/to/myfile.csv \
+    --itemid 16b15b89-65b3-4639-ad2a-95052a6d8f66
+</code></pre></div></div>
+
+<h3 id="edit">Edit</h3>
+
+<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a replace operation on the object.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782 eyJuYW1lIjoiV2hhdCBGb2xkZXIifQ==
+bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
+    bw encode | bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782
+</code></pre></div></div>
+
+<h3 id="delete">Delete</h3>
+
+<p>The <code class="highlighter-rouge">delete</code> command allows you to delete an object from your vault.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw delete (item|attachment|collection) &lt;id&gt; [options]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw delete folder dadc91e0-dcda-4bc2-8cd6-52100027c782
+bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
+</code></pre></div></div>
+
+<h2 id="other-useful-commands">Other Useful Commands</h2>
+
+<p>The CLI comes with several other commands that you may find useful.</p>
+
+<h3 id="export">Export</h3>
+
+<p>The <code class="highlighter-rouge">export</code> command allows you to export your unencrypted vault data to a CSV formatted file on disk.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export [password] [--output &lt;filePath&gt;]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export
+bw export myPassword321 --output ./backups/
+</code></pre></div></div>
+
+<h3 id="encode">Encode</h3>
+
+<p>The <code class="highlighter-rouge">encode</code> command Base 64 encodes stdin. This command is a helpful utility when performing <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">update</code> operations.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jsonString&gt; | bw encode
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '{"name":"My Folder"}' | bw encode
+bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
+</code></pre></div></div>
+
+<h3 id="config">Config</h3>
+
+<p>The <code class="highlighter-rouge">config</code> command allow you to specify settings for the CLI to use.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw config &lt;setting&gt; &lt;value&gt;
+</code></pre></div></div>
+
+<p>For example, if you are using a self hosted Bitwarden server you will need to change the endpoint that the CLI communicates with.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw server https://bitwarden.company.com
+</code></pre></div></div>
+
+<h3 id="update">Update</h3>
+
+<p>The <code class="highlighter-rouge">update</code> command allows you to check if your CLI is up to date. The CLI will not automatically update. You must download new versions of the CLI manually.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw update
+</code></pre></div></div>
+
+<p>A URL to download a new version of the CLI executable will be returned to you.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If you have installed the CLI through a package managers (such as NPM), you should use the update commands available for that tool. For example, <code class="highlighter-rouge">npm update -g @bitwarden/cli</code>.</p>
+
+        </div>
+
+<h3 id="version">Version</h3>
+
+<p>The <code class="highlighter-rouge">--version</code> option allows you to check which version the CLI you are currently using.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --version
+</code></pre></div></div>
+
+<h2 id="working-with-json">Working with JSON</h2>
+
+<p>All commands in the CLI will either return JSON or a simple string like a URL or GUID. When you need to parse or manipulate JSON output or input from the CLI we recommend using the <a href="https://stedolan.github.io/jq/"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Get a login item's password
+bw get item google | jq '.login.password'
+
+# Create a new folder from a template
+bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
+
+# Update an existing folder's name
+bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
+    bw encode | bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782
+</code></pre></div></div>
+
+<h2 id="source-code">Source Code</h2>
+
+<p>As with everything here at Bitwarden, the CLI is fully open source and hosted on GitHub at <a href="https://github.com/bitwarden/cli">https://github.com/bitwarden/cli</a>.</p>
+
+<h2 id="appendix">Appendix</h2>
+
+<h3 id="templates">Templates</h3>
+
+<p>You can use the <code class="highlighter-rouge">get</code> command to retrieve templates for various types of objects and sub-objects. Templates are useful when needing to get the “base” JSON object to work with while using the <code class="highlighter-rouge">create</code> command. A template’s JSON properties are sometimes populated with example data that you should change.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">item</code></li>
+  <li><code class="highlighter-rouge">item.field</code></li>
+  <li><code class="highlighter-rouge">item.login</code></li>
+  <li><code class="highlighter-rouge">item.login.uri</code></li>
+  <li><code class="highlighter-rouge">item.card</code></li>
+  <li><code class="highlighter-rouge">item.identity</code></li>
+  <li><code class="highlighter-rouge">item.securenote</code></li>
+  <li><code class="highlighter-rouge">folder</code></li>
+  <li><code class="highlighter-rouge">collection</code></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template item
+</code></pre></div></div>
+
+<p>Some templates are meant to be used a sub-objects to another template’s properties. For example, the <code class="highlighter-rouge">item.login</code> template is to be used with the <code class="highlighter-rouge">item</code> template’s <code class="highlighter-rouge">login</code> property.</p>
+
+<h3 id="enums">Enums</h3>
+
+<p><strong>Two Step Login Methods</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authenticator</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Yubikey</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Other two-step login methods such as FIDO U2F and Duo are not supported by the CLI.</p>
+
+        </div>
+
+<p><strong>Item Types</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Login</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Secure Note</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Card</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Login URI Match Types</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Domain</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Host</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Starts With</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Exact</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Regular Expression</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Never</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Field Types</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Text</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Hidden</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Boolean</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Secure Note Types</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Generic</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+        
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            cli, command, script, bash, shell, powershell
+        </div>
+        
+    </div>
+    <div class="row article-blocks">
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-rate">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Rate this article:</p>
+                    <div class="rw-ui-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-contact">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
+    </div>
+    <div class="panel-body">
+        <p>Want to talk to a human?</p>
+        <a href="https://bitwarden.com/contact/" onclick="gaEvent('Talk To Human')">
+            <i class="fa fa-long-arrow-right"></i>
+            Send Us An Email
+        </a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function (d, t, e, m) {
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+            RW.init({
+                huid: "340409",
+                uid: "1a448820f2de881574e56e07bffdd7e8",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+
+    </content>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <h4>Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://bitwarden.com">Home</a></li>
+                        <li><a href="https://bitwarden.com/#download">Download</a></li>
+                        <li><a href="https://bitwarden.com/#organizations">Business</a></li>
+                        <li><a href="https://bitwarden.com/contact">Contact Us</a></li>
+                        <li><a href="https://bitwarden.com/credits">Credits</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <h4 class="invisible">&nbsp;</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://blog.bitwarden.com" onclick="gaEvent('Footer Blog')">Blog</a></li>
+                        <li>
+                            <a href="https://community.bitwarden.com" target="_blank" rel="noopener"
+                               onclick="gaEvent('Footer Forums')">
+                                Community Forums
+                            </a>
+                        </li>
+                        <li><a href="/">Help/Support</a></li>
+                        <li><a href="https://bitwarden.com/terms">Terms of Service</a></li>
+                        <li><a href="https://bitwarden.com/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-xs-12 social">
+                    <h4>Follow Us</h4>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://twitter.com/bitwarden_app" title="Twitter" onclick="gaEvent('Follow Twitter')"
+                               target="_blank">
+                                <i class="fa fa-twitter"></i><span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/bitwarden/" title="Facebook" onclick="gaEvent('Follow Facebook')"
+                               target="_blank">
+                                <i class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
+                               onclick="gaEvent('Follow Google+')">
+                                <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')"
+                               target="_blank">
+                                <i class="fa fa-github"></i><span class="sr-only">GitHub</span>
+                            </a>
+                        </li>
+                    </ul>
+                    &copy; 2015 - 2018, <br class="visible-sm" />8bit Solutions LLC
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526649271"><\/script>'));</script>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526649271"><\/script>'));</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-81915606-10', 'auto');
+        ga('send', 'pageview');
+
+        function gaEvent(action) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'main',
+                eventAction: action
+            });
+        }
+
+        $(function () {
+            var lightboxOpen = false,
+                lightboxSelector = 'a[rel="lightbox"]';
+
+            $(lightboxSelector)
+                .on('openstart.fluidbox', function () {
+                    lightboxOpen = true;
+                })
+                .on('closestart.fluidbox', function () {
+                    lightboxOpen = false;
+                })
+                .fluidbox();
+
+            $(document).keydown(function (e) {
+                if (lightboxOpen && e.keyCode === 27) {
+                    $(lightboxSelector).trigger('close.fluidbox');
+                }
+            });
+
+            $(window).scroll(function () {
+                if (lightboxOpen) {
+                    $(lightboxSelector).trigger('close.fluidbox');
+                }
+            });
+
+            $('.article .panel-body > h2, .article .panel-body > h3').filter('[id]').each(function () {
+                var header = $(this),
+                    headerID = header.attr('id'),
+                    anchorClass = 'header-link',
+                    anchorIcon = '<i class="fa fa-link" aria-hidden="true"></i>';
+
+                if (headerID) {
+                    header.append($('<a />')
+                        .addClass(anchorClass)
+                        .attr({ 'href': '#' + headerID, 'aria-hidden': 'true', title: 'Permalink' })
+                        .html(anchorIcon));
+                }
+                return this;
+            });
+        });
+    </script>
+</body>
+</html>
