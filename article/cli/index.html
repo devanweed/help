@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526754838"
+    <link href="/css/styles.css?v=1526756173"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526754838"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526756173"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -372,7 +372,7 @@ bw get attachment photo.jpg --raw \
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 </code></pre></div></div>
 
-<p>Upon success, the newly created object’s <code class="highlighter-rouge">id</code> will be returned.</p>
+<p>Upon success, the newly created object will be returned.</p>
 
 <p>To create a new attachment for an item, specify the <code class="highlighter-rouge">--file</code> path on disk as well as the <code class="highlighter-rouge">--itemid</code>.</p>
 
@@ -382,7 +382,7 @@ bw get attachment photo.jpg --raw \
 
 <h3 id="edit">Edit</h3>
 
-<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a <em>replace</em> operation on the object.</p>
+<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a <em>replace</em> operation on the object. Upon success, the updated object will be returned.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
 </code></pre></div></div>
@@ -473,7 +473,7 @@ bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 
 <h2 id="working-with-json">Working with JSON</h2>
 
-<p>All commands in the CLI will either return a JSON string or a simple string such as a URL or GUID. When you need to parse or manipulate JSON input/output from the CLI we recommend using the <a href="https://stedolan.github.io/jq/" target="_blank"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
+<p>Commands in the CLI will either return a JSON string or a simple string such as a URL, GUID, or message. When you need to parse or manipulate JSON input/output with the CLI we recommend using the <a href="https://stedolan.github.io/jq/" target="_blank"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Get a login item's password
 bw get item google | jq '.login.password'
@@ -839,10 +839,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526754838"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526756173"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526754838"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526756173"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
