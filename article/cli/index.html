@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526671966"
+    <link href="/css/styles.css?v=1526754838"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526671966"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526754838"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -118,7 +118,9 @@
         <div class="panel-body">
             <p>Bitwarden provides a powerful, full-featured command-line interface (CLI) tool to access and manage your Bitwarden vault. All features that you find in other Bitwarden client applications (desktop, browser extension, etc) are also available through the CLI. The CLI can be used cross-platform on Windows, macOS, and Linux distributions.</p>
 
-<p><img src="/images/cli.png" alt="CLI Screenshot" title="CLI Window" /></p>
+<p><a href="/images/cli.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/cli.png" />
+        </a></p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -210,7 +212,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password]
 </code></pre></div></div>
 
-<p>After logging in you will be returned a <em>session key</em>. This session key is necessary to perform any commands that require your vault to be unlocked (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">edit</code>, etc). You can pass the <code class="highlighter-rouge">--raw</code> option to <code class="highlighter-rouge">login</code> to receive <em>only</em> the session key from stdout.</p>
+<p>After successfully logging into the CLI a <em>session key</em> will be returned. This session key is necessary to perform any commands that require your vault to be unlocked (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">edit</code>, etc). You can pass the <code class="highlighter-rouge">--raw</code> option to <code class="highlighter-rouge">login</code> to receive <em>only the session key</em> from stdout.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password] --raw
 </code></pre></div></div>
@@ -272,7 +274,7 @@ bw list items
 
 <p>This option will list all available commands that you can use with the CLI.</p>
 
-<p>Additionally, you can run the <code class="highlighter-rouge">--help</code> option on a specific command to learn more about it:</p>
+<p>Additionally, you can use the <code class="highlighter-rouge">--help</code> option on a specific command to learn more about it:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list --help
 bw create --help
@@ -282,7 +284,7 @@ bw create --help
 
 <h3 id="sync">Sync</h3>
 
-<p>The <code class="highlighter-rouge">sync</code> command downloads your encrypted vault from the Bitwarden server. If you have changed something in your Bitwarden vault on another client device (ex. the browser extension) you may need to use the <code class="highlighter-rouge">sync</code> command to see those changes:</p>
+<p>The <code class="highlighter-rouge">sync</code> command downloads your encrypted vault from the Bitwarden server. If you have changed something in your Bitwarden vault on another client device (for example, the browser extension) you may need to use the <code class="highlighter-rouge">sync</code> command before you will see those changes in the CLI:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw sync
 </code></pre></div></div>
@@ -301,7 +303,7 @@ bw create --help
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list (items|folders|collections|organizations) [options]
 </code></pre></div></div>
 
-<p>You can search the list of returned objects by using the <code class="highlighter-rouge">--search</code> option. You can also filter the list by using the <code class="highlighter-rouge">--folderid</code>, <code class="highlighter-rouge">--collectionid</code>, or <code class="highlighter-rouge">--organizationid</code> options. Combining search with filter options performs a logical AND operation.</p>
+<p>You can <em>search</em> the list of returned objects by using the <code class="highlighter-rouge">--search</code> option. You can also <em>filter</em> the list by using the <code class="highlighter-rouge">--folderid</code>, <code class="highlighter-rouge">--collectionid</code>, or <code class="highlighter-rouge">--organizationid</code> options. Combining search and filter options performs a logical AND operation.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --search github --folderid 9742101e-68b8-4a07-b5b1-9578b5f88e6f
 </code></pre></div></div>
@@ -318,7 +320,7 @@ bw create --help
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get (item|username|password|uri|totp|exposed|attachment|folder|collection|organization|template) &lt;id&gt;
 </code></pre></div></div>
 
-<p>You can retrieve an object by its globally using <code class="highlighter-rouge">id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or you will get an error.</p>
+<p>You can retrieve an object by its globally using <code class="highlighter-rouge">id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or the CLI will return an error.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get item 99ee88d2-6046-4ea7-92c2-acac464b1412
 bw get password https://google.com
@@ -352,7 +354,7 @@ bw get attachment photo.jpg --raw \
   </li>
   <li>Edit the JSON template with the values you want to use for that object.</li>
   <li>
-    <p>Base 64 encode the JSON string. You can use the <code class="highlighter-rouge">encode</code> command included with the CLI and pipe in the JSON string from stdin:</p>
+    <p>Base 64 encode the JSON string. You can <a href="#encode">use the <code class="highlighter-rouge">encode</code> command</a> included with the CLI and pipe in the JSON string from stdin:</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '{"name":"My Folder"}' | bw encode
 </code></pre></div>    </div>
@@ -365,7 +367,7 @@ bw get attachment photo.jpg --raw \
   </li>
 </ol>
 
-<p>The <code class="highlighter-rouge">create</code> command can also receive encoded JSON as stdin. A complete example, using <code class="highlighter-rouge">jq</code> to update a template’s JSON (see more working with JSON below), may look something like this:</p>
+<p>The <code class="highlighter-rouge">create</code> command can also receive encoded JSON as stdin. A complete example, using <code class="highlighter-rouge">jq</code> to update a template’s JSON (see more about <a href="#working-with-json">working with JSON</a> below), may look something like this:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 </code></pre></div></div>
@@ -380,7 +382,7 @@ bw get attachment photo.jpg --raw \
 
 <h3 id="edit">Edit</h3>
 
-<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a replace operation on the object.</p>
+<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a <em>replace</em> operation on the object.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
 </code></pre></div></div>
@@ -405,7 +407,7 @@ bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
 
 <h3 id="export">Export</h3>
 
-<p>The <code class="highlighter-rouge">export</code> command allows you to export your unencrypted vault data to a CSV formatted file on disk.</p>
+<p>The <code class="highlighter-rouge">export</code> command allows you to export your <em>unencrypted</em> vault data to a CSV formatted file on disk.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export [password] [--output &lt;filePath&gt;]
 </code></pre></div></div>
@@ -426,7 +428,7 @@ bw generate -ulns --length 25
 
 <h3 id="encode">Encode</h3>
 
-<p>The <code class="highlighter-rouge">encode</code> command Base 64 encodes stdin. This command is a helpful utility when performing <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">update</code> operations.</p>
+<p>The <code class="highlighter-rouge">encode</code> command Base 64 encodes stdin. This command a helpful when performing <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">edit</code> operations.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jsonString&gt; | bw encode
 </code></pre></div></div>
@@ -471,7 +473,7 @@ bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 
 <h2 id="working-with-json">Working with JSON</h2>
 
-<p>All commands in the CLI will either return JSON or a simple string like a URL or GUID. When you need to parse or manipulate JSON output or input from the CLI we recommend using the <a href="https://stedolan.github.io/jq/"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
+<p>All commands in the CLI will either return a JSON string or a simple string such as a URL or GUID. When you need to parse or manipulate JSON input/output from the CLI we recommend using the <a href="https://stedolan.github.io/jq/" target="_blank"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Get a login item's password
 bw get item google | jq '.login.password'
@@ -492,7 +494,7 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 
 <h3 id="templates">Templates</h3>
 
-<p>You can use the <code class="highlighter-rouge">get</code> command to retrieve templates for various types of objects and sub-objects. Templates are useful when needing to get the “base” JSON object to work with while using the <code class="highlighter-rouge">create</code> command. A template’s JSON properties are sometimes populated with example data that you should change.</p>
+<p>You can use the <code class="highlighter-rouge">get</code> command to retrieve templates for various types of <em>request</em> objects and sub-objects. Templates are useful when needing to get the “base” JSON object to work with while using the <code class="highlighter-rouge">create</code> command. A template’s JSON properties are sometimes populated with example data that you should change.</p>
 
 <ul>
   <li><code class="highlighter-rouge">item</code></li>
@@ -509,7 +511,7 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template item
 </code></pre></div></div>
 
-<p>Some templates are meant to be used a sub-objects to another template’s properties. For example, the <code class="highlighter-rouge">item.login</code> template is to be used with the <code class="highlighter-rouge">item</code> template’s <code class="highlighter-rouge">login</code> property.</p>
+<p>Some templates are meant to be used as sub-objects to another template’s properties. For example, the <code class="highlighter-rouge">item.login</code> template is to be used with the <code class="highlighter-rouge">item</code> template’s <code class="highlighter-rouge">login</code> property.</p>
 
 <h3 id="enums">Enums</h3>
 
@@ -708,7 +710,7 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            cli, command, script, bash, shell, powershell
+            cli, command, script, bash, shell, powershell, terminal
         </div>
         
     </div>
@@ -837,10 +839,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526671966"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526754838"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526671966"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526754838"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
