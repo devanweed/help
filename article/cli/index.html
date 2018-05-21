@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526756558"
+    <link href="/css/styles.css?v=1526908516"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526756558"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -308,9 +308,9 @@ bw create --help
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --search github --folderid 9742101e-68b8-4a07-b5b1-9578b5f88e6f
 </code></pre></div></div>
 
-<p>Special syntax is available for filters that allows you to specify <code class="highlighter-rouge">null</code> and <code class="highlighter-rouge">!null</code> as valid values. Combining multiple filters together performs a logical OR operation.</p>
+<p>Special syntax is available for filters that allows you to specify <code class="highlighter-rouge">null</code> and <code class="highlighter-rouge">notnull</code> as valid values. Combining multiple filters together performs a logical OR operation.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --folderid null --organizationid !null
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --folderid null --organizationid notnull
 </code></pre></div></div>
 
 <h3 id="get">Get</h3>
@@ -460,7 +460,7 @@ bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>If you have installed the CLI through a package managers (such as NPM), you should use the update commands available for that tool. For example, <code class="highlighter-rouge">npm update -g @bitwarden/cli</code>.</p>
+<p>If you have installed the CLI through a package managers (such as NPM), you should use the update commands available for that tool. For example, <code class="highlighter-rouge">npm install -g @bitwarden/cli</code> will update you to the latest version of the CLI on NPM.</p>
 
         </div>
 
@@ -839,10 +839,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526756558"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526756558"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
