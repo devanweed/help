@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -170,17 +170,17 @@
 
 <p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your individual account import using the generic Bitwarden format. Create a UTF-8 encoded plaintext file with the following format:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>folder,favorite,type,name,notes,fields,login_uri,login_username,login_password,login_totp
-</code></pre></div></div>
+<pre><code>folder,favorite,type,name,notes,fields,login_uri,login_username,login_password,login_totp
+</code></pre>
 
 <p>The above header must be the first line in the file. An example file may look like the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>folder,favorite,type,name,notes,fields,login_uri,login_username,login_password,login_totp
+<pre><code>folder,favorite,type,name,notes,fields,login_uri,login_username,login_password,login_totp
 Social,1,login,Twitter,,,twitter.com,me@example.com,password123,
 ,,login,EVGA,,,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,TOTPSEED123
 ,,login,My Bank,Bank PIN is 1234,"PIN: 1234",https://www.wellsfargo.com/home.jhtml,john.smith,password123456,
 ,,note,My Note,"This is a secure note.",,,,,
-</code></pre></div></div>
+</code></pre>
 
 <p><a href="/files/bitwarden_export.csv"><i class="fa fa-download"></i> Download example</a></p>
 
@@ -190,17 +190,17 @@ Social,1,login,Twitter,,,twitter.com,me@example.com,password123,
 
 <p>You can manually condition a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file for your organization account import using the generic Bitwarden format. The format is almost the same as the individual account format above, however, organizations have “collections” instead of a “folder” and no “favorite”. Create a UTF-8 encoded plaintext file with the following format:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collections,type,name,notes,fields,login_uri,login_username,login_password,login_totp
-</code></pre></div></div>
+<pre><code>collections,type,name,notes,fields,login_uri,login_username,login_password,login_totp
+</code></pre>
 
 <p>The above header must be the first line in the file. An example file may look like the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collections,type,name,notes,fields,login_uri,login_username,login_password,login_totp
+<pre><code>collections,type,name,notes,fields,login_uri,login_username,login_password,login_totp
 "Social,Marketing",login,Twitter,,,twitter.com,me@example.com,password123,
 "Finance",login,My Bank,Bank PIN is 1234,"PIN: 1234",https://www.wellsfargo.com/home.jhtml,john.smith,password123456,
 ,login,EVGA,,,https://www.evga.com/support/login.asp,hello@bitwarden.com,fakepassword,TOTPSEED123
 ,note,My Note,"This is a secure note.",,,,,
-</code></pre></div></div>
+</code></pre>
 
 <p><a href="/files/bitwarden_export_org.csv"><i class="fa fa-download"></i> Download example</a></p>
 
@@ -340,10 +340,10 @@ Social,1,login,Twitter,,,twitter.com,me@example.com,password123,
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

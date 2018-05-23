@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -120,19 +120,19 @@
 
 <h2 id="uri-protocols">URI protocols</h2>
 
-<p>A well-formed URI also has a protocol at the beginning of it. The most common protocol that many of us are familiar with is the <code class="highlighter-rouge">http://</code> protocol used for a website address.</p>
+<p>A well-formed URI also has a protocol at the beginning of it. The most common protocol that many of us are familiar with is the <code>http://</code> protocol used for a website address.</p>
 
 <p>The protocol can also have special meaning in Bitwarden:</p>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">http://</code></strong> or <strong><code class="highlighter-rouge">https://</code></strong> tells Bitwarden that this is a website address. Example: <code class="highlighter-rouge">https://www.google.com</code></li>
-  <li><strong><code class="highlighter-rouge">androidapp://</code></strong> tells Bitwarden that this is an android application package ID (or package name). Example: <code class="highlighter-rouge">androidapp://com.twitter.android</code>. Android apps typically follow <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank">reverse domain name notation</a>.</li>
+  <li><strong><code>http://</code></strong> or <strong><code>https://</code></strong> tells Bitwarden that this is a website address. Example: <code>https://www.google.com</code></li>
+  <li><strong><code>androidapp://</code></strong> tells Bitwarden that this is an android application package ID (or package name). Example: <code>androidapp://com.twitter.android</code>. Android apps typically follow <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank">reverse domain name notation</a>.</li>
 </ul>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>If a URI omits the protocol, <code class="highlighter-rouge">http://</code> is assumed.</p>
+<p>If a URI omits the protocol, <code>http://</code> is assumed.</p>
 
         </div>
 
@@ -153,39 +153,39 @@
 
         </div>
 
-<p>The base domain is defined as the second-level domain plus the top-level domain of the given URI. A URI with a value of <code class="highlighter-rouge">https://www.google.com</code> would have a base domain value of <code class="highlighter-rouge">google.com</code>.</p>
+<p>The base domain is defined as the second-level domain plus the top-level domain of the given URI. A URI with a value of <code>https://www.google.com</code> would have a base domain value of <code>google.com</code>.</p>
 
 <p>Example:</p>
 
 <ul>
-  <li>URI base domain value: <code class="highlighter-rouge">https://www.google.com</code></li>
-  <li>Matches: <code class="highlighter-rouge">http://google.com</code>, <code class="highlighter-rouge">https://accounts.google.com</code>, <code class="highlighter-rouge">https://sub.accounts.google.com</code>, <code class="highlighter-rouge">https://accounts.google.com/page.html</code></li>
-  <li>Not matches: <code class="highlighter-rouge">https://google.net</code>, <code class="highlighter-rouge">https://yahoo.com</code></li>
+  <li>URI base domain value: <code>https://www.google.com</code></li>
+  <li>Matches: <code>http://google.com</code>, <code>https://accounts.google.com</code>, <code>https://sub.accounts.google.com</code>, <code>https://accounts.google.com/page.html</code></li>
+  <li>Not matches: <code>https://google.net</code>, <code>https://yahoo.com</code></li>
 </ul>
 
 <p><strong>Host</strong></p>
 
-<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/host" target="_blank">host</a> is defined as the hostname plus an <em>optional</em> port of the given URI. A URI with a value of <code class="highlighter-rouge">https://sub.domain.com:4000</code> would have a host value of <code class="highlighter-rouge">sub.domain.com:4000</code>.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/host" target="_blank">host</a> is defined as the hostname plus an <em>optional</em> port of the given URI. A URI with a value of <code>https://sub.domain.com:4000</code> would have a host value of <code>sub.domain.com:4000</code>.</p>
 
 <p>Example:</p>
 
 <ul>
-  <li>URI host value: <code class="highlighter-rouge">https://sub.domain.com:4000</code></li>
-  <li>Matches: <code class="highlighter-rouge">http://sub.domain.com:4000</code>, <code class="highlighter-rouge">http://sub.domain.com:4000/page.html</code></li>
-  <li>Not matches: <code class="highlighter-rouge">https://domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com</code>, <code class="highlighter-rouge">https://sub2.domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com:5000</code></li>
+  <li>URI host value: <code>https://sub.domain.com:4000</code></li>
+  <li>Matches: <code>http://sub.domain.com:4000</code>, <code>http://sub.domain.com:4000/page.html</code></li>
+  <li>Not matches: <code>https://domain.com</code>, <code>https://sub.domain.com</code>, <code>https://sub2.domain.com</code>, <code>https://sub.domain.com:5000</code></li>
 </ul>
 
 <p><strong>Starts with</strong></p>
 
-<p>The “starts with” option requires that the current website/application URI must <em>start with</em> the value defined in the URI. A URI with a value of <code class="highlighter-rouge">https://sub.domain.com/path/page.html?query=123</code> starts with 
-<code class="highlighter-rouge">https://sub.domain.com/path/</code>.</p>
+<p>The “starts with” option requires that the current website/application URI must <em>start with</em> the value defined in the URI. A URI with a value of <code>https://sub.domain.com/path/page.html?query=123</code> starts with 
+<code>https://sub.domain.com/path/</code>.</p>
 
 <p>Example:</p>
 
 <ul>
-  <li>URI starts with value: <code class="highlighter-rouge">https://sub.domain.com/path/</code></li>
-  <li>Matches: <code class="highlighter-rouge">https://sub.domain.com/path/</code>, <code class="highlighter-rouge">https://sub.domain.com/path/page.html</code></li>
-  <li>Not matches: <code class="highlighter-rouge">https://sub.domain.com/path</code> (notice the missing trailing slash), <code class="highlighter-rouge">https://sub.domain.com</code>, <code class="highlighter-rouge">https://sub.domain.com:4000/path/page.html</code> (has a port)</li>
+  <li>URI starts with value: <code>https://sub.domain.com/path/</code></li>
+  <li>Matches: <code>https://sub.domain.com/path/</code>, <code>https://sub.domain.com/path/page.html</code></li>
+  <li>Not matches: <code>https://sub.domain.com/path</code> (notice the missing trailing slash), <code>https://sub.domain.com</code>, <code>https://sub.domain.com:4000/path/page.html</code> (has a port)</li>
 </ul>
 
 <p><strong>Regular expression</strong></p>
@@ -202,9 +202,9 @@
 <p>Example:</p>
 
 <ul>
-  <li>URI regex value: <code class="highlighter-rouge">^https://.*google.com</code></li>
-  <li>Matches: <code class="highlighter-rouge">https://google.com</code>, <code class="highlighter-rouge">https://sub.google.com</code>, <code class="highlighter-rouge">https://sub.sub2.google.com</code>, <code class="highlighter-rouge">https://malicious-site.com?q=google.com</code></li>
-  <li>Not matches: <code class="highlighter-rouge">http://google.com</code> (not https), <code class="highlighter-rouge">https://yahoo.com</code></li>
+  <li>URI regex value: <code>^https://.*google.com</code></li>
+  <li>Matches: <code>https://google.com</code>, <code>https://sub.google.com</code>, <code>https://sub.sub2.google.com</code>, <code>https://malicious-site.com?q=google.com</code></li>
+  <li>Not matches: <code>http://google.com</code> (not https), <code>https://yahoo.com</code></li>
 </ul>
 
 <p><strong>Exact</strong></p>
@@ -214,9 +214,9 @@
 <p>Example:</p>
 
 <ul>
-  <li>URI exact value: <code class="highlighter-rouge">https://www.google.com/page.html</code></li>
-  <li>Matches: <code class="highlighter-rouge">https://www.google.com/page.html</code></li>
-  <li>Not matches: <code class="highlighter-rouge">http://www.google.com/page.html</code> (not https), <code class="highlighter-rouge">https://www.google.com/page.html?query=123</code>, <code class="highlighter-rouge">https://www.google.com</code></li>
+  <li>URI exact value: <code>https://www.google.com/page.html</code></li>
+  <li>Matches: <code>https://www.google.com/page.html</code></li>
+  <li>Not matches: <code>http://www.google.com/page.html</code> (not https), <code>https://www.google.com/page.html?query=123</code>, <code>https://www.google.com</code></li>
 </ul>
 
 <p><strong>Never</strong></p>
@@ -226,9 +226,9 @@
 <p>Example:</p>
 
 <ul>
-  <li>URI never value: <code class="highlighter-rouge">https://www.google.com</code></li>
+  <li>URI never value: <code>https://www.google.com</code></li>
   <li>Matches: none</li>
-  <li>Not matches: <code class="highlighter-rouge">https://www.google.com</code>, <code class="highlighter-rouge">https://google.com</code>, <code class="highlighter-rouge">https://sub.google.com/page.html</code></li>
+  <li>Not matches: <code>https://www.google.com</code>, <code>https://google.com</code>, <code>https://sub.google.com/page.html</code></li>
 </ul>
 
         </div>
@@ -365,10 +365,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

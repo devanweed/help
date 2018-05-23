@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -130,12 +130,13 @@
     <ul>
       <li><a href="#native-executable">Native executable</a></li>
       <li><a href="#npm">NPM</a></li>
+      <li><a href="#other-package-managers">Other Package Managers</a></li>
     </ul>
   </li>
   <li><a href="#session-management">Session Management</a>
     <ul>
       <li><a href="#environment-variable">Environment Variable</a></li>
-      <li><a href="#--session-key-option"><code class="highlighter-rouge">--session &lt;key&gt;</code> Option</a></li>
+      <li><a href="#--session-key-option"><code>--session &lt;key&gt;</code> Option</a></li>
       <li><a href="#locking">Locking</a></li>
       <li><a href="#login--unlock">Login != Unlock</a></li>
     </ul>
@@ -175,12 +176,12 @@
 
 <ol>
   <li><a href="#download--install">Download and install</a> the CLI for your platform.</li>
-  <li>Move <code class="highlighter-rouge">bw</code> to <code class="highlighter-rouge">/usr/local/bin</code> or another directory in your <code class="highlighter-rouge">$PATH</code>. Windows users can <a href="https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">add <code class="highlighter-rouge">bw.exe</code> to the current user’s <code class="highlighter-rouge">PATH</code></a>. If you installed the CLI with <a href="https://www.npmjs.com/package/@bitwarden/cli" target="_blank">NPM</a> (or another package manager) you can skip this step since <code class="highlighter-rouge">bw</code> should automatically be added to your path.</li>
+  <li>Move <code>bw</code> to <code>/usr/local/bin</code> or another directory in your <code>$PATH</code>. Windows users can <a href="https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">add <code>bw.exe</code> to the current user’s <code>PATH</code></a>. If you installed the CLI with <a href="https://www.npmjs.com/package/@bitwarden/cli" target="_blank">NPM</a> (or another package manager) you can skip this step since <code>bw</code> should automatically be added to your path.</li>
   <li>
-    <p>Verify the <code class="highlighter-rouge">bw</code> command works in your terminal.</p>
+    <p>Verify the <code>bw</code> command works in your terminal.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --help
-</code></pre></div>    </div>
+    <pre><code>bw --help
+</code></pre>
   </li>
 </ol>
 
@@ -193,155 +194,162 @@
 <p>Natively packaged versions of the CLI for each platform have no dependencies.</p>
 
 <ul>
-  <li><i class="fa fa-windows fa-lg fa-fw"></i> <a href="">Windows x64</a></li>
-  <li><i class="fa fa-apple fa-lg fa-fw"></i> <a href="">macOS x64</a></li>
-  <li><i class="fa fa-linux fa-lg fa-fw"></i> <a href="">Linux x64</a></li>
+  <li><i class="fa fa-windows fa-lg fa-fw"></i> <a href="https://vault.bitwarden.com/download/?app=cli&amp;platform=windows">Windows x64</a></li>
+  <li><i class="fa fa-apple fa-lg fa-fw"></i> <a href="https://vault.bitwarden.com/download/?app=cli&amp;platform=macos">macOS x64</a></li>
+  <li><i class="fa fa-linux fa-lg fa-fw"></i> <a href="https://vault.bitwarden.com/download/?app=cli&amp;platform=linux">Linux x64</a></li>
 </ul>
 
 <h3 id="npm">NPM</h3>
 
 <p>If you already have the Node.js runtime installed on your system, you can install the CLI using <a href="https://www.npmjs.com/package/@bitwarden/cli" target="_blank">NPM</a>. NPM makes it easy to keep your installation updated and should be the preferred installation method if you are already using Node.js.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g @bitwarden/cli
-</code></pre></div></div>
+<pre><code>npm install -g @bitwarden/cli
+</code></pre>
+
+<h3 id="other-package-managers">Other Package Managers</h3>
+
+<ul>
+  <li>Homebrew - coming soon</li>
+  <li>Chocolatey - coming soon</li>
+</ul>
 
 <h2 id="session-management">Session Management</h2>
 
-<p>You can log into your Bitwarden user account by using the <code class="highlighter-rouge">login</code> command:</p>
+<p>You can log into your Bitwarden user account by using the <code>login</code> command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password]
-</code></pre></div></div>
+<pre><code>bw login [email] [password]
+</code></pre>
 
-<p>After successfully logging into the CLI a <em>session key</em> will be returned. This session key is necessary to perform any commands that require your vault to be unlocked (<code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">edit</code>, etc). You can pass the <code class="highlighter-rouge">--raw</code> option to <code class="highlighter-rouge">login</code> to receive <em>only the session key</em> from stdout.</p>
+<p>After successfully logging into the CLI a <em>session key</em> will be returned. This session key is necessary to perform any commands that require your vault to be unlocked (<code>list</code>, <code>get</code>, <code>edit</code>, etc). You can pass the <code>--raw</code> option to <code>login</code> to receive <em>only the session key</em> from stdout.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw login [email] [password] --raw
-</code></pre></div></div>
+<pre><code>bw login [email] [password] --raw
+</code></pre>
 
-<p>You should pass the session key to CLI commands by setting the <code class="highlighter-rouge">BW_SESSION</code> environment variable or by using the <code class="highlighter-rouge">--session &lt;key&gt;</code> option:</p>
+<p>You should pass the session key to CLI commands by setting the <code>BW_SESSION</code> environment variable or by using the <code>--session &lt;key&gt;</code> option:</p>
 
 <h3 id="environment-variable">Environment Variable</h3>
 
 <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
+<pre><code>export BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
 bw list items
-</code></pre></div></div>
+</code></pre>
 
 <p><i class="fa fa-windows"></i> PowerShell</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$env:BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
+<pre><code>$env:BW_SESSION="5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w=="
 bw list items
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="--session-key-option"><code class="highlighter-rouge">--session &lt;key&gt;</code> Option</h3>
+<h3 id="--session-key-option"><code>--session &lt;key&gt;</code> Option</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --session 5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w==
-</code></pre></div></div>
+<pre><code>bw list items --session 5PBYGU+5yt3RHcCjoeJKx/wByU34vokGRZjXpSH7Ylo8w==
+</code></pre>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>It is possible to persist your session key to your environment (for example, exporting it in <code class="highlighter-rouge">.bashrc</code>), however, we do not recommend doing this. Your active session key is the encryption key used to unlock all data associated with your Bitwarden vault and is not well-suited for persisting on an unprotected disk.</p>
+<p>It is possible to persist your session key to your environment (for example, exporting it in <code>.bashrc</code>), however, we do not recommend doing this. Your active session key is the encryption key used to unlock all data associated with your Bitwarden vault and is not well-suited for persisting on an unprotected disk.</p>
 
         </div>
 
 <h3 id="locking">Locking</h3>
 
-<p>If you do not pass the session key to commands that require it you will receive an error message that your vault is <em>locked</em>. You can unlock your vault and/or receive a new session key by using the <code class="highlighter-rouge">unlock</code> command:</p>
+<p>If you do not pass the session key to commands that require it you will receive an error message that your vault is <em>locked</em>. You can unlock your vault and/or receive a new session key by using the <code>unlock</code> command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw unlock [password]
-</code></pre></div></div>
+<pre><code>bw unlock [password]
+</code></pre>
 
-<p>Additionally, you can manually lock your vault and destroy any active session keys by using the <code class="highlighter-rouge">lock</code> command:</p>
+<p>Additionally, you can manually lock your vault and destroy any active session keys by using the <code>lock</code> command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw lock
-</code></pre></div></div>
+<pre><code>bw lock
+</code></pre>
 
-<p>If your active session key is unavailable (for example, you accidentally lost it or closed your active terminal window), your vault is already considered locked and therefore using the <code class="highlighter-rouge">lock</code> command is unnecessary.</p>
+<p>If your active session key is unavailable (for example, you accidentally lost it or closed your active terminal window), your vault is already considered locked and therefore using the <code>lock</code> command is unnecessary.</p>
 
 <h3 id="login--unlock">Login != Unlock</h3>
 
-<p>The <code class="highlighter-rouge">login</code> and <code class="highlighter-rouge">unlock</code> commands are different. <code class="highlighter-rouge">login</code> requires your email address and master password and performs authentication against the external Bitwarden server (requiring additional two-step login prompts, if configured). <code class="highlighter-rouge">unlock</code> performs local authentication only (against a persisted hash) and therefore would work even without an active internet connection or if the external Bitwarden server is not available. You cannot unlock your vault if you have not already logged in first.</p>
+<p>The <code>login</code> and <code>unlock</code> commands are different. <code>login</code> requires your email address and master password and performs authentication against the external Bitwarden server (requiring additional two-step login prompts, if configured). <code>unlock</code> performs local authentication only (against a persisted hash) and therefore would work even without an active internet connection or if the external Bitwarden server is not available. You cannot unlock your vault if you have not already logged in first.</p>
 
-<p>Most users should prefer locking and unlocking their vault rather than logging out and logging in. This is the same process and workflow that all other Bitwarden client applications follow. A typical use case would be that a user logs into the CLI application only once and then only performs <code class="highlighter-rouge">unlock</code> commands thereafter.</p>
+<p>Most users should prefer locking and unlocking their vault rather than logging out and logging in. This is the same process and workflow that all other Bitwarden client applications follow. A typical use case would be that a user logs into the CLI application only once and then only performs <code>unlock</code> commands thereafter.</p>
 
 <h2 id="explore-the-cli">Explore the CLI</h2>
 
-<p>The Bitwarden CLI is self-documented with <code class="highlighter-rouge">--help</code> content and examples for every command. You should start exploring the CLI by using the global <code class="highlighter-rouge">--help</code> option:</p>
+<p>The Bitwarden CLI is self-documented with <code>--help</code> content and examples for every command. You should start exploring the CLI by using the global <code>--help</code> option:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --help
-</code></pre></div></div>
+<pre><code>bw --help
+</code></pre>
 
 <p>This option will list all available commands that you can use with the CLI.</p>
 
-<p>Additionally, you can use the <code class="highlighter-rouge">--help</code> option on a specific command to learn more about it:</p>
+<p>Additionally, you can use the <code>--help</code> option on a specific command to learn more about it:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list --help
+<pre><code>bw list --help
 bw create --help
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="managing-your-vault">Managing Your Vault</h2>
 
 <h3 id="sync">Sync</h3>
 
-<p>The <code class="highlighter-rouge">sync</code> command downloads your encrypted vault from the Bitwarden server. If you have changed something in your Bitwarden vault on another client device (for example, the browser extension) you may need to use the <code class="highlighter-rouge">sync</code> command before you will see those changes in the CLI:</p>
+<p>The <code>sync</code> command downloads your encrypted vault from the Bitwarden server. If you have changed something in your Bitwarden vault on another client device (for example, the browser extension) you may need to use the <code>sync</code> command before you will see those changes in the CLI:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw sync
-</code></pre></div></div>
+<pre><code>bw sync
+</code></pre>
 
-<p>It’s important to note that the <code class="highlighter-rouge">sync</code> command is only a <em>pull</em> operation. It does not push data to the server since that is already done for you each time you make a change to your vault (<code class="highlighter-rouge">create</code>, <code class="highlighter-rouge">edit</code>, <code class="highlighter-rouge">delete</code>).</p>
+<p>It’s important to note that the <code>sync</code> command is only a <em>pull</em> operation. It does not push data to the server since that is already done for you each time you make a change to your vault (<code>create</code>, <code>edit</code>, <code>delete</code>).</p>
 
-<p>You can use the <code class="highlighter-rouge">--last</code> option to get an <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> timestamp of the last time a <code class="highlighter-rouge">sync</code> has been performed:</p>
+<p>You can use the <code>--last</code> option to get an <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> timestamp of the last time a <code>sync</code> has been performed:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw sync --last
-</code></pre></div></div>
+<pre><code>bw sync --last
+</code></pre>
 
 <h3 id="list">List</h3>
 
-<p>The <code class="highlighter-rouge">list</code> command allows you to retrieve an array of objects from your vault.</p>
+<p>The <code>list</code> command allows you to retrieve an array of objects from your vault.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list (items|folders|collections|organizations) [options]
-</code></pre></div></div>
+<pre><code>bw list (items|folders|collections|organizations) [options]
+</code></pre>
 
-<p>You can <em>search</em> the list of returned objects by using the <code class="highlighter-rouge">--search</code> option. You can also <em>filter</em> the list by using the <code class="highlighter-rouge">--folderid</code>, <code class="highlighter-rouge">--collectionid</code>, or <code class="highlighter-rouge">--organizationid</code> options. Combining search and filter options performs a logical AND operation.</p>
+<p>You can <em>search</em> the list of returned objects by using the <code>--search</code> option. You can also <em>filter</em> the list by using the <code>--folderid</code>, <code>--collectionid</code>, or <code>--organizationid</code> options. Combining search and filter options performs a logical AND operation.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --search github --folderid 9742101e-68b8-4a07-b5b1-9578b5f88e6f
-</code></pre></div></div>
+<pre><code>bw list items --search github --folderid 9742101e-68b8-4a07-b5b1-9578b5f88e6f
+</code></pre>
 
-<p>Special syntax is available for filters that allows you to specify <code class="highlighter-rouge">null</code> and <code class="highlighter-rouge">notnull</code> as valid values. Combining multiple filters together performs a logical OR operation.</p>
+<p>Special syntax is available for filters that allows you to specify <code>null</code> and <code>notnull</code> as valid values. Combining multiple filters together performs a logical OR operation.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw list items --folderid null --organizationid notnull
-</code></pre></div></div>
+<pre><code>bw list items --folderid null --organizationid notnull
+</code></pre>
 
 <h3 id="get">Get</h3>
 
-<p>The <code class="highlighter-rouge">get</code> command allows you to retrieve a single object from your vault.</p>
+<p>The <code>get</code> command allows you to retrieve a single object from your vault.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get (item|username|password|uri|totp|exposed|attachment|folder|collection|organization|template) &lt;id&gt;
-</code></pre></div></div>
+<pre><code>bw get (item|username|password|uri|totp|exposed|attachment|folder|collection|organization|template) &lt;id&gt;
+</code></pre>
 
-<p>You can retrieve an object by its globally using <code class="highlighter-rouge">id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or the CLI will return an error.</p>
+<p>You can retrieve an object by its globally using <code>id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or the CLI will return an error.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get item 99ee88d2-6046-4ea7-92c2-acac464b1412
+<pre><code>bw get item 99ee88d2-6046-4ea7-92c2-acac464b1412
 bw get password https://google.com
 bw get totp google
 bw get exposed yahoo.com
-</code></pre></div></div>
+</code></pre>
 
-<p>If you are getting an attachment, you must also specify the <code class="highlighter-rouge">--itemid &lt;id&gt;</code> option of the item that the attachment belongs to.</p>
+<p>If you are getting an attachment, you must also specify the <code>--itemid &lt;id&gt;</code> option of the item that the attachment belongs to.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get attachment b857igwl1dzrs2 --output ./photo.jpg \ 
+<pre><code>bw get attachment b857igwl1dzrs2 --output ./photo.jpg \ 
     --itemid 99ee88d2-6046-4ea7-92c2-acac464b1412
 bw get attachment photo.jpg --raw \
     --itemid 99ee88d2-6046-4ea7-92c2-acac464b1412
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="create">Create</h3>
 
-<p>The <code class="highlighter-rouge">create</code> command allows you to create new objects in your vault.</p>
+<p>The <code>create</code> command allows you to create new objects in your vault.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create (item|folder) [encodedJson]
-</code></pre></div></div>
+<pre><code>bw create (item|folder) [encodedJson]
+</code></pre>
 
 <p>The process for creating an object may look something like this:</p>
 
@@ -349,57 +357,57 @@ bw get attachment photo.jpg --raw \
   <li>
     <p>Get the JSON template(s) for the object you are trying to create:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder
-</code></pre></div>    </div>
+    <pre><code>bw get template folder
+</code></pre>
   </li>
   <li>Edit the JSON template with the values you want to use for that object.</li>
   <li>
-    <p>Base 64 encode the JSON string. You can <a href="#encode">use the <code class="highlighter-rouge">encode</code> command</a> included with the CLI and pipe in the JSON string from stdin:</p>
+    <p>Base 64 encode the JSON string. You can <a href="#encode">use the <code>encode</code> command</a> included with the CLI and pipe in the JSON string from stdin:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '{"name":"My Folder"}' | bw encode
-</code></pre></div>    </div>
+    <pre><code>echo '{"name":"My Folder"}' | bw encode
+</code></pre>
   </li>
   <li>
     <p>Create the item:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create folder eyJuYW1lIjoiTXkgRm9sZGVyIn0=
-</code></pre></div>    </div>
+    <pre><code>bw create folder eyJuYW1lIjoiTXkgRm9sZGVyIn0=
+</code></pre>
   </li>
 </ol>
 
-<p>The <code class="highlighter-rouge">create</code> command can also receive encoded JSON as stdin. A complete example, using <code class="highlighter-rouge">jq</code> to update a template’s JSON (see more about <a href="#working-with-json">working with JSON</a> below), may look something like this:</p>
+<p>The <code>create</code> command can also receive encoded JSON as stdin. A complete example, using <code>jq</code> to update a template’s JSON (see more about <a href="#working-with-json">working with JSON</a> below), may look something like this:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
-</code></pre></div></div>
+<pre><code>bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
+</code></pre>
 
 <p>Upon success, the newly created object will be returned.</p>
 
-<p>To create a new attachment for an item, specify the <code class="highlighter-rouge">--file</code> path on disk as well as the <code class="highlighter-rouge">--itemid</code>.</p>
+<p>To create a new attachment for an item, specify the <code>--file</code> path on disk as well as the <code>--itemid</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw create attachment --file ./path/to/myfile.csv \
+<pre><code>bw create attachment --file ./path/to/myfile.csv \
     --itemid 16b15b89-65b3-4639-ad2a-95052a6d8f66
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="edit">Edit</h3>
 
-<p>The <code class="highlighter-rouge">edit</code> command allows you to edit an item in your vault. It works similarly to the <code class="highlighter-rouge">create</code> command with the added requirement of an object id. The <code class="highlighter-rouge">edit</code> command will perform a <em>replace</em> operation on the object. Upon success, the updated object will be returned.</p>
+<p>The <code>edit</code> command allows you to edit an item in your vault. It works similarly to the <code>create</code> command with the added requirement of an object id. The <code>edit</code> command will perform a <em>replace</em> operation on the object. Upon success, the updated object will be returned.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782 eyJuYW1lIjoiV2hhdCBGb2xkZXIifQ==
+<pre><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
+</code></pre>
+<pre><code>bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782 eyJuYW1lIjoiV2hhdCBGb2xkZXIifQ==
 bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
     bw encode | bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="delete">Delete</h3>
 
-<p>The <code class="highlighter-rouge">delete</code> command allows you to delete an object from your vault.</p>
+<p>The <code>delete</code> command allows you to delete an object from your vault.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw delete (item|attachment|collection) &lt;id&gt; [options]
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw delete folder dadc91e0-dcda-4bc2-8cd6-52100027c782
+<pre><code>bw delete (item|attachment|collection) &lt;id&gt; [options]
+</code></pre>
+<pre><code>bw delete folder dadc91e0-dcda-4bc2-8cd6-52100027c782
 bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="other-useful-commands">Other Useful Commands</h2>
 
@@ -407,75 +415,75 @@ bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
 
 <h3 id="export">Export</h3>
 
-<p>The <code class="highlighter-rouge">export</code> command allows you to export your <em>unencrypted</em> vault data to a CSV formatted file on disk.</p>
+<p>The <code>export</code> command allows you to export your <em>unencrypted</em> vault data to a CSV formatted file on disk.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export [password] [--output &lt;filePath&gt;]
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw export
+<pre><code>bw export [password] [--output &lt;filePath&gt;]
+</code></pre>
+<pre><code>bw export
 bw export myPassword321 --output ./backups/
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="generate">Generate</h3>
 
-<p>The <code class="highlighter-rouge">generate</code> command allows you to generate strong passwords.</p>
+<p>The <code>generate</code> command allows you to generate strong passwords.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw generate [--lowercase --uppercase --number --special --length]
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw generate
+<pre><code>bw generate [--lowercase --uppercase --number --special --length]
+</code></pre>
+<pre><code>bw generate
 bw generate -u -l --length 18
 bw generate -ulns --length 25
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="encode">Encode</h3>
 
-<p>The <code class="highlighter-rouge">encode</code> command Base 64 encodes stdin. This command a helpful when performing <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">edit</code> operations.</p>
+<p>The <code>encode</code> command Base 64 encodes stdin. This command a helpful when performing <code>create</code> and <code>edit</code> operations.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jsonString&gt; | bw encode
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '{"name":"My Folder"}' | bw encode
+<pre><code>&lt;jsonString&gt; | bw encode
+</code></pre>
+<pre><code>echo '{"name":"My Folder"}' | bw encode
 bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
-</code></pre></div></div>
+</code></pre>
 
 <h3 id="config">Config</h3>
 
-<p>The <code class="highlighter-rouge">config</code> command allow you to specify settings for the CLI to use.</p>
+<p>The <code>config</code> command allow you to specify settings for the CLI to use.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw config &lt;setting&gt; &lt;value&gt;
-</code></pre></div></div>
+<pre><code>bw config &lt;setting&gt; &lt;value&gt;
+</code></pre>
 
 <p>For example, if you are using a self hosted Bitwarden server you will need to change the endpoint that the CLI communicates with.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw server https://bitwarden.company.com
-</code></pre></div></div>
+<pre><code>bw server https://bitwarden.company.com
+</code></pre>
 
 <h3 id="update">Update</h3>
 
-<p>The <code class="highlighter-rouge">update</code> command allows you to check if your CLI is up to date. The CLI will not automatically update. You must download new versions of the CLI manually.</p>
+<p>The <code>update</code> command allows you to check if your CLI is up to date. The CLI will not automatically update. You must download new versions of the CLI manually.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw update
-</code></pre></div></div>
+<pre><code>bw update
+</code></pre>
 
 <p>A URL to download a new version of the CLI executable will be returned to you.</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>If you have installed the CLI through a package managers (such as NPM), you should use the update commands available for that tool. For example, <code class="highlighter-rouge">npm install -g @bitwarden/cli</code> will update you to the latest version of the CLI on NPM.</p>
+<p>If you have installed the CLI through a package managers (such as NPM), you should use the update commands available for that tool. For example, <code>npm install -g @bitwarden/cli</code> will update you to the latest version of the CLI on NPM.</p>
 
         </div>
 
 <h3 id="version">Version</h3>
 
-<p>The <code class="highlighter-rouge">--version</code> option allows you to check which version the CLI you are currently using.</p>
+<p>The <code>--version</code> option allows you to check which version the CLI you are currently using.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw --version
-</code></pre></div></div>
+<pre><code>bw --version
+</code></pre>
 
 <h2 id="working-with-json">Working with JSON</h2>
 
-<p>Commands in the CLI will either return a JSON string or a simple string such as a URL, GUID, or message. When you need to parse or manipulate JSON input/output with the CLI we recommend using the <a href="https://stedolan.github.io/jq/" target="_blank"><code class="highlighter-rouge">jq</code> command-line tool</a>.</p>
+<p>Commands in the CLI will either return a JSON string or a simple string such as a URL, GUID, or message. When you need to parse or manipulate JSON input/output with the CLI we recommend using the <a href="https://stedolan.github.io/jq/" target="_blank"><code>jq</code> command-line tool</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Get a login item's password
+<pre><code># Get a login item's password
 bw get item google | jq '.login.password'
 
 # Create a new folder from a template
@@ -484,7 +492,7 @@ bw get template folder | jq '.name = "My Folder"' | bw encode | bw create folder
 # Update an existing folder's name
 bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
     bw encode | bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="source-code">Source Code</h2>
 
@@ -494,24 +502,24 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 
 <h3 id="templates">Templates</h3>
 
-<p>You can use the <code class="highlighter-rouge">get</code> command to retrieve templates for various types of <em>request</em> objects and sub-objects. Templates are useful when needing to get the “base” JSON object to work with while using the <code class="highlighter-rouge">create</code> command. A template’s JSON properties are sometimes populated with example data that you should change.</p>
+<p>You can use the <code>get</code> command to retrieve templates for various types of <em>request</em> objects and sub-objects. Templates are useful when needing to get the “base” JSON object to work with while using the <code>create</code> command. A template’s JSON properties are sometimes populated with example data that you should change.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">item</code></li>
-  <li><code class="highlighter-rouge">item.field</code></li>
-  <li><code class="highlighter-rouge">item.login</code></li>
-  <li><code class="highlighter-rouge">item.login.uri</code></li>
-  <li><code class="highlighter-rouge">item.card</code></li>
-  <li><code class="highlighter-rouge">item.identity</code></li>
-  <li><code class="highlighter-rouge">item.securenote</code></li>
-  <li><code class="highlighter-rouge">folder</code></li>
-  <li><code class="highlighter-rouge">collection</code></li>
+  <li><code>item</code></li>
+  <li><code>item.field</code></li>
+  <li><code>item.login</code></li>
+  <li><code>item.login.uri</code></li>
+  <li><code>item.card</code></li>
+  <li><code>item.identity</code></li>
+  <li><code>item.securenote</code></li>
+  <li><code>folder</code></li>
+  <li><code>collection</code></li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bw get template item
-</code></pre></div></div>
+<pre><code>bw get template item
+</code></pre>
 
-<p>Some templates are meant to be used as sub-objects to another template’s properties. For example, the <code class="highlighter-rouge">item.login</code> template is to be used with the <code class="highlighter-rouge">item</code> template’s <code class="highlighter-rouge">login</code> property.</p>
+<p>Some templates are meant to be used as sub-objects to another template’s properties. For example, the <code>item.login</code> template is to be used with the <code>item</code> template’s <code>login</code> property.</p>
 
 <h3 id="enums">Enums</h3>
 
@@ -839,10 +847,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

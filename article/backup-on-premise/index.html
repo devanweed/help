@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -118,21 +118,21 @@
         <div class="panel-body">
             <p>With the public cloud version of Bitwarden, we automatically handle backing up your data for you. However, when self-hosting Bitwarden you must implement your own backup procedures in order to keep your data safe.</p>
 
-<p>Bitwarden’s Docker containers use volume mapping to keep all important data persisted on the host machine. You can find this data in the <code class="highlighter-rouge">./bwdata</code> directory relative to your bitwarden installation. The Docker containers themselves are to be considered ephemeral and do not persist data or state.</p>
+<p>Bitwarden’s Docker containers use volume mapping to keep all important data persisted on the host machine. You can find this data in the <code>./bwdata</code> directory relative to your bitwarden installation. The Docker containers themselves are to be considered ephemeral and do not persist data or state.</p>
 
-<p>You should back up and keep the entire <code class="highlighter-rouge">./bwdata</code> directory safe. In the event of data loss you will need all or parts of data contained in this directory to restore your installation.</p>
+<p>You should back up and keep the entire <code>./bwdata</code> directory safe. In the event of data loss you will need all or parts of data contained in this directory to restore your installation.</p>
 
-<p>Some particularly important parts of the <code class="highlighter-rouge">./bwdata</code> directory are:</p>
+<p>Some particularly important parts of the <code>./bwdata</code> directory are:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">./bwdata/mssql/data</code> - database data</li>
-  <li><code class="highlighter-rouge">./bwdata/core/attachments</code> - vault item attachments</li>
-  <li><code class="highlighter-rouge">./bwdata/env</code> - environment variables, including database and certificate passwords</li>
+  <li><code>./bwdata/mssql/data</code> - database data</li>
+  <li><code>./bwdata/core/attachments</code> - vault item attachments</li>
+  <li><code>./bwdata/env</code> - environment variables, including database and certificate passwords</li>
 </ul>
 
 <h2 id="nightly-database-backups">Nightly database backups</h2>
 
-<p>Bitwarden will automatically take nightly backups of the <code class="highlighter-rouge">mssql</code> container database. These database backups are kept in the <code class="highlighter-rouge">./bwdata/mssql/backups</code> directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups. You can read more about SQL Server backup restoration at <a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/">https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/</a>.</p>
+<p>Bitwarden will automatically take nightly backups of the <code>mssql</code> container database. These database backups are kept in the <code>./bwdata/mssql/backups</code> directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups. You can read more about SQL Server backup restoration at <a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/">https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model/</a>.</p>
 
         </div>
         
@@ -268,10 +268,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

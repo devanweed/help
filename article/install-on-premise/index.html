@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -142,35 +142,35 @@
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s -o bitwarden.sh \
+    <pre><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
     &amp;&amp; sudo chmod u+x bitwarden.sh
 ./bitwarden.sh install
 ./bitwarden.sh start
 ./bitwarden.sh updatedb
-</code></pre></div>    </div>
+</code></pre>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
+    <pre><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
 .\bitwarden.ps1 -install
 .\bitwarden.ps1 -start
 .\bitwarden.ps1 -updatedb
-</code></pre></div>    </div>
+</code></pre>
   </li>
   <li>
-    <p>Adjust additional configuration settings in <code class="highlighter-rouge">./bwdata/env/global.override.env</code> and restart.</p>
+    <p>Adjust additional configuration settings in <code>./bwdata/env/global.override.env</code> and restart.</p>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh restart
-</code></pre></div>    </div>
+    <pre><code>./bitwarden.sh restart
+</code></pre>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -restart
-</code></pre></div>    </div>
+    <pre><code>.\bitwarden.ps1 -restart
+</code></pre>
   </li>
   <li>Test your deployment. Visit the web vault at your configured domain name, register a new account, and log in.</li>
 </ol>
@@ -226,35 +226,35 @@
 
     <div class="callout callout-info">
          <h3><i class="fa fa-info-circle"></i> Note</h3>
-         <p>All Bitwarden assets will be installed in the <code class="highlighter-rouge">./bwdata</code> directory relative to where the main Bitwarden script resides.</p>
+         <p>All Bitwarden assets will be installed in the <code>./bwdata</code> directory relative to where the main Bitwarden script resides.</p>
 
      </div>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s -o bitwarden.sh \
+    <pre><code>curl -s -o bitwarden.sh \
     https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.sh \
     &amp;&amp; sudo chmod u+x bitwarden.sh
-</code></pre></div>    </div>
+</code></pre>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
+    <pre><code>Invoke-RestMethod -OutFile bitwarden.ps1 `
     -Uri https://raw.githubusercontent.com/bitwarden/core/master/scripts/bitwarden.ps1
-</code></pre></div>    </div>
+</code></pre>
   </li>
   <li>
     <p>Start the installer:</p>
 
     <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh install
-</code></pre></div>    </div>
+    <pre><code>./bitwarden.sh install
+</code></pre>
 
     <p><i class="fa fa-windows"></i> PowerShell</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -install
-</code></pre></div>    </div>
+    <pre><code>.\bitwarden.ps1 -install
+</code></pre>
   </li>
   <li>
     <p>Complete the prompts in the installer.</p>
@@ -265,12 +265,12 @@
       <li>
         <p>Bitwarden can generate and maintain renewal of a trusted SSL certificate for your domain for completely free provided by <a href="https://letsencrypt.org" target="_blank">Let’s Encrypt</a> and <a href="https://certbot.eff.org" target="_blank">Certbot</a>. Certificate renewal checks occur each time bitwarden is restarted.</p>
       </li>
-      <li>If you already have your own SSL certificate you can place the following files in the <code class="highlighter-rouge">./bwdata/ssl/your.domain.com</code> directory:
+      <li>If you already have your own SSL certificate you can place the following files in the <code>./bwdata/ssl/your.domain.com</code> directory:
         <ul>
-          <li>certificate.crt (required). If not done so already, you may need to bundle your primary certificate with any intermediate certificates provided by the CA or else you will receive SSL trust errors. ex. <code class="highlighter-rouge">cat domain.crt ca.crt &gt;&gt; certificate.crt</code>. <a href="https://www.google.com/search?q=nginx+ssl+bundle+certificate+and+ca" target="_blank">See here</a> for more information.</li>
+          <li>certificate.crt (required). If not done so already, you may need to bundle your primary certificate with any intermediate certificates provided by the CA or else you will receive SSL trust errors. ex. <code>cat domain.crt ca.crt &gt;&gt; certificate.crt</code>. <a href="https://www.google.com/search?q=nginx+ssl+bundle+certificate+and+ca" target="_blank">See here</a> for more information.</li>
           <li>private.key (required)</li>
           <li>ca.crt (optional, if trusted)</li>
-          <li>dhparam.pem (optional, if using Diffie Hellman ephemeral parameters). You can create your own <code class="highlighter-rouge">dhparam.pem</code> by using OpenSSL with <code class="highlighter-rouge">openssl dhparam -out ./dhparam.pem 2048</code>.</li>
+          <li>dhparam.pem (optional, if using Diffie Hellman ephemeral parameters). You can create your own <code>dhparam.pem</code> by using OpenSSL with <code>openssl dhparam -out ./dhparam.pem 2048</code>.</li>
         </ul>
       </li>
       <li>If you are only testing and do not have an SSL certificate, a self-signed certificate will be generated for your installation.</li>
@@ -292,7 +292,7 @@
 
     <p><strong>Push Notifications</strong></p>
 
-    <p>If you would like to take advantage of having push notifications automatically keep your Bitwarden client applications synced in real time you can choose to use the bitwarden push notification relay service. This relay service is provided by external Bitwarden servers. You should ensure that your machine can communicate with the <code class="highlighter-rouge">https://push.bitwarden.com</code> endpoint. Your Bitwarden installation will POST <strong>non-sensitive data</strong> (reference ids) to the push relay service which will then notify the Bitwarden client applications to “phone home” back to <strong>your installation</strong> for an update.</p>
+    <p>If you would like to take advantage of having push notifications automatically keep your Bitwarden client applications synced in real time you can choose to use the bitwarden push notification relay service. This relay service is provided by external Bitwarden servers. You should ensure that your machine can communicate with the <code>https://push.bitwarden.com</code> endpoint. Your Bitwarden installation will POST <strong>non-sensitive data</strong> (reference ids) to the push relay service which will then notify the Bitwarden client applications to “phone home” back to <strong>your installation</strong> for an update.</p>
 
     <p>The use of the push notification relay service is optional. If you do not use this service you will need to keep your client applications in sync manually.</p>
   </li>
@@ -300,11 +300,11 @@
 
 <h2 id="post-install-environment-configuration">Post-install Environment Configuration</h2>
 
-<p>Some features such as a SMTP mail server settings, YubiKey OTP API credentials, etc. are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code class="highlighter-rouge">./bwdata/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
+<p>Some features such as a SMTP mail server settings, YubiKey OTP API credentials, etc. are not configured by the installer. You can find the environment file for these settings (and all others) in the following location: <code>./bwdata/env/global.override.env</code>. Edit this file and REPLACE the placeholders values for them.</p>
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>globalSettings__yubico__clientId=294620155
+<pre><code>globalSettings__yubico__clientId=294620155
 globalSettings__yubico__key=owdez88RdxVZuGbZ4fv
 globalSettings__mail__smtp__host=smtp.sendgrid.net
 globalSettings__mail__smtp__username=apikey
@@ -312,7 +312,7 @@ globalSettings__mail__smtp__password=SG.YOUR.API_KEY
 globalSettings__mail__smtp__ssl=true
 globalSettings__mail__smtp__port=587
 globalSettings__mail__smtp__useDefaultCredentials=false
-</code></pre></div></div>
+</code></pre>
 
 <p>If you plan to use YubiKeys for two-step login, you can get your YubiKey client id and key at <a href="https://upgrade.yubico.com/getapikey/" target="_blank">https://upgrade.yubico.com/getapikey/</a>.</p>
 
@@ -329,18 +329,18 @@ globalSettings__mail__smtp__useDefaultCredentials=false
 
 <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh start
-</code></pre></div></div>
+<pre><code>./bitwarden.sh start
+</code></pre>
 
 <p><i class="fa fa-windows"></i> PowerShell</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -start
-</code></pre></div></div>
+<pre><code>.\bitwarden.ps1 -start
+</code></pre>
 
 <p>You can then verify that all containers are up and running correctly:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
-</code></pre></div></div>
+<pre><code>docker ps
+</code></pre>
 
 <p><a href="/images/hosting/docker-ps.png" target="_blank" rel="lightbox">
             <img class="img-responsive img-thumbnail img-tag" src="/images/hosting/docker-ps.png" />
@@ -350,24 +350,24 @@ globalSettings__mail__smtp__useDefaultCredentials=false
 
 <p><i class="fa fa-linux"></i> <i class="fa fa-apple"></i> Bash</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bitwarden.sh updatedb
-</code></pre></div></div>
+<pre><code>./bitwarden.sh updatedb
+</code></pre>
 
 <p><i class="fa fa-windows"></i> PowerShell</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.\bitwarden.ps1 -updatedb
-</code></pre></div></div>
+<pre><code>.\bitwarden.ps1 -updatedb
+</code></pre>
 
-<p>Congratulations! Bitwarden is now up and running at <code class="highlighter-rouge">https://your.domain.com</code>. Visit the web vault in your web browser to confirm. You should register a new account and log in.</p>
+<p>Congratulations! Bitwarden is now up and running at <code>https://your.domain.com</code>. Visit the web vault in your web browser to confirm. You should register a new account and log in.</p>
 
 <h2 id="script-commands">Script Commands</h2>
 
-<p>The Bitwarden main script (<code class="highlighter-rouge">bitwarden.sh</code> or <code class="highlighter-rouge">bitwarden.ps1</code>) has the following commands available:</p>
+<p>The Bitwarden main script (<code>bitwarden.sh</code> or <code>bitwarden.ps1</code>) has the following commands available:</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>PowerShell users will run the commands with a prefixed <code class="highlighter-rouge">-</code> (switch). For example <code class="highlighter-rouge">.\bitwarden.ps1 -start</code>.</p>
+<p>PowerShell users will run the commands with a prefixed <code>-</code> (switch). For example <code>.\bitwarden.ps1 -start</code>.</p>
 
         </div>
 
@@ -549,10 +549,10 @@ globalSettings__mail__smtp__useDefaultCredentials=false
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

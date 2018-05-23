@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1526908516"
+    <link href="/css/styles.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1526908516"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1527090331"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -138,17 +138,17 @@
 
 <h2 id="configuring-admin-portal-access">Configuring Admin Portal Access</h2>
 
-<p>The admin portal provides authenticated access to a list of users specified by email address in your installation’s environment file located at <code class="highlighter-rouge">./bwdata/env/global.override.env</code>. For example:</p>
+<p>The admin portal provides authenticated access to a list of users specified by email address in your installation’s environment file located at <code>./bwdata/env/global.override.env</code>. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adminSettings__admins=john@example.com,bill@gmail.com,tom@example.com
-</code></pre></div></div>
+<pre><code>adminSettings__admins=john@example.com,bill@gmail.com,tom@example.com
+</code></pre>
 
 <p>These admin email addresses <strong>do not</strong> need to be registered with an account on your Bitwarden installation.</p>
 
 <p>If you do not want to enable access to the admin portal, you can leave the setting at its default empty value. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adminSettings__admins=
-</code></pre></div></div>
+<pre><code>adminSettings__admins=
+</code></pre>
 
 <p>The admin portal uses a secure means of <em>passwordless authentication</em>. When a user attempts to log into the admin portal a secure link is sent to their email address. The user can click this temporary link to continue logging into the admin portal. The authentication link is active for up to <strong>15 minutes</strong> following the log in attempt.</p>
 
@@ -293,10 +293,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1526908516"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1526908516"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1527090331"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
