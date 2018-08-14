@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Change your master password | Bitwarden Help &amp; Support</title>
+    <title>Searching the vault | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1534217025"
+    <link href="/css/styles.css?v=1534217026"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1534217025"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1534217026"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -87,27 +87,24 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Change your master password
+        Searching the vault
     </h1>
     <div class="breadcrumb">
-        Categories:
-        
-        
-        
-        
-        <a href="/account-management/">Account Management</a>, 
-        
-        
-        
-        
-        
-        <a href="/getting-started/">Getting Started</a>
+        Category:
         
         
         
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -119,31 +116,85 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Your master password can only be changed from the <a href="https://vault.bitwarden.com">web vault</a>.</p>
+            <p>Bitwarden indexes your vault using a <a href="https://en.wikipedia.org/wiki/Full-text_search" target="_blank">full-text search</a> programming library called <a href="https://lunrjs.com/" target="_blank">Lunr</a>. Lunr provides the ability to invoke high-performance search queries against your vault to quickly find what you need with great accuracy.</p>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
+<h2 id="applications-that-use-full-text-search">Applications that use full-text search</h2>
+
+<p>The following Bitwarden applications provide full-text searching capabilities and are applicable to the information this article:</p>
+
+<ul>
+  <li>Web vault</li>
+  <li>Desktop applications</li>
+  <li>Browser extensions</li>
+</ul>
+
+<p>The following Bitwarden applications provide more basic search capabilities are not <strong>not</strong> applicable to the information this article:</p>
+
+<ul>
+  <li>CLI</li>
+  <li>Mobile apps</li>
+</ul>
+
+<h2 id="indexed-fields">Indexed Fields</h2>
+
+<p>The following fields from items in your vault are indexed and are searchable:</p>
+
+<ul>
+  <li><code>shortId</code> - First 8 characters of the item’s id.</li>
+  <li><code>name</code></li>
+  <li><code>subTitle</code> - Login username, card last four, and identity name.</li>
+  <li><code>notes</code></li>
+  <li><code>fields</code> - Name and value. Only “text” type field values are included.</li>
+  <li><code>attachments</code> - File name</li>
+  <li><code>login.username</code></li>
+  <li><code>login.uris</code> - Only the URI’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hostname" target="_blank">hostname</a> value.</li>
+</ul>
+
+<h2 id="wildcard-searches">Wildcard Searches</h2>
+
+<p>The asterisk character (<code>*</code>) provides the ability to perform wildcard searches in your vault. Examples:</p>
+
+<ul>
+  <li><code>*bitwarden</code></li>
+  <li><code>bitwarden*</code></li>
+  <li><code>*bitwarden*</code></li>
+  <li><code>*bit*war*den*</code></li>
+</ul>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>Changing your master password will log you out of all Bitwarden applications.</p>
+<p>The following fields automatically include leading and trailing wildcard searches while performing normal search queries:</p>
+
+<ul>
+  <li><code>name</code></li>
+  <li><code>subTitle</code></li>
+  <li><code>login.uris</code></li>
+</ul>
+
+<p>It is not necessary to provide wildcards if you are searching these fields.</p>
 
         </div>
 
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Settings</strong> in the top navigation bar</li>
-  <li>Locate the <strong>Change Master Password</strong> section under <strong>My Account</strong></li>
-  <li>Type in your current password, the new password you want, and then re-type to confirm</li>
-  <li>Click the <strong>Change Master Password</strong> button</li>
-  <li>Log back in to confirm that your new password is working</li>
-  <li>Log out and back in any other Bitwarden applications that you are using. You will eventually be logged out automatically.</li>
-</ol>
+<h2 id="advanced-searches">Advanced Searches</h2>
+
+<p>Starting your search query with a greater than character (<code>&gt;</code>) enables the full power of <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr search queries</a>. Examples:</p>
+
+<ul>
+  <li><code>&gt;bitwarden*</code></li>
+  <li><code>&gt;notes:something</code></li>
+  <li><code>&gt;login.username:jsmith</code></li>
+  <li><code>&gt;+foo bar -baz</code></li>
+</ul>
+
+<p>Learn more about writing advanced search queries using <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr’s searching guide</a>.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            password, account
+            search, lunr
         </div>
         
     </div>
@@ -272,10 +323,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1534217025"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1534217026"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1534217025"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1534217026"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
