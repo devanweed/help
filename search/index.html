@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1534448069"
+    <link href="/css/styles.css?v=1534519329"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1534448069"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1534519329"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -480,7 +480,7 @@
       "article-searching-vault": {
           "title": "Searching the vault",
           "tags": "search, lunr",
-          "content": "Bitwarden indexes your vault using a full-text search programming library called Lunr. Lunr provides the ability to invoke high-performance search queries against your vault to quickly find what you need with great accuracy.Applications that use full-text searchThe following Bitwarden applications provide full-text searching capabilities and are applicable to the information this article:  Web vault  Desktop applications  Browser extensionsThe following Bitwarden applications provide more basic search capabilities are not not applicable to the information this article:  CLI  Mobile appsIndexed FieldsThe following fields from items in your vault are indexed and are searchable:  shortId - First 8 characters of the item’s id.  name  subTitle - Login username, card last four, and identity name.  notes  fields - Name and value. Only “text” type field values are included.  attachments - File name  login.username  login.uris - Only the URI’s hostname value.Wildcard SearchesThe asterisk character (*) provides the ability to perform wildcard searches in your vault. Examples:  *bitwarden  bitwarden*  *bitwarden*  *bit*war*den*             Note            The following fields automatically include leading and trailing wildcard searches while performing normal search queries:  name  subTitle  login.urisIt is not necessary to provide wildcards if you are searching these fields.        Advanced SearchesStarting your search query with a greater than character (&gt;) enables the full power of Lunr search queries. Examples:  &gt;bitwarden*  &gt;notes:something  &gt;login.username:jsmith  &gt;+foo bar -bazLearn more about writing advanced search queries using Lunr’s searching guide.",
+          "content": "Bitwarden indexes your vault using a full-text search programming library called Lunr. Lunr provides the ability to invoke high-performance search queries against your vault to quickly find what you need with great accuracy.Applications that use full-text searchThe following Bitwarden applications provide full-text searching capabilities and are applicable to the information this article:  Web vault  Desktop applications  Browser extensionsThe following Bitwarden applications provide more basic search capabilities are not not applicable to the information this article:  CLI  Mobile appsIndexed FieldsThe following fields from items in your vault are indexed and are searchable:  shortId - First 8 characters of the item’s id.  name  subTitle - Login username, card last four, and identity name.  notes  fields - Name and value. Only “text” type field values are included.  attachments - File name  login.username  login.uris - Only the URI’s hostname value.Wildcard SearchesThe asterisk character (*) provides the ability to perform wildcard searches in your vault. Examples:  *bitwarden  bitwarden*  *bitwarden*  *bit*war*den*             Note            The following fields automatically include trailing wildcard searches while performing normal search queries:  name  subTitle  login.urisIt is not necessary to provide trailing wildcards if you are searching these fields.        Advanced SearchesStarting your search query with a greater than character (&gt;) enables the full power of Lunr search queries. Examples:  &gt;bitwarden*  &gt;notes:something  &gt;login.username:jsmith  &gt;+foo bar -bazLearn more about writing advanced search queries using Lunr’s searching guide.",
           "url": "/article/searching-vault/"
       }
     ,
@@ -779,10 +779,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1534448069"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1534519329"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1534448069"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1534519329"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
