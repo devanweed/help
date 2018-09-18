@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1534519329"
+    <link href="/css/styles.css?v=1537274214"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1534519329"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1537274214"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -128,7 +128,7 @@
   <li>Browser extensions</li>
 </ul>
 
-<p>The following Bitwarden applications provide more basic search capabilities are not <strong>not</strong> applicable to the information this article:</p>
+<p>This article <strong>does not</strong> apply to the following Bitwarden applications, which provide only basic search capabilities:</p>
 
 <ul>
   <li>CLI</li>
@@ -140,9 +140,9 @@
 <p>The following fields from items in your vault are indexed and are searchable:</p>
 
 <ul>
-  <li><code>shortId</code> - First 8 characters of the item’s id.</li>
+  <li><code>shortid</code> - First 8 characters of the item’s id.</li>
   <li><code>name</code></li>
-  <li><code>subTitle</code> - Login username, card last four, and identity name.</li>
+  <li><code>subtitle</code> - Login username, card brand + last four, and identity name.</li>
   <li><code>notes</code></li>
   <li><code>fields</code> - Name and value. Only “text” type field values are included.</li>
   <li><code>attachments</code> - File name</li>
@@ -164,15 +164,15 @@
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>The following fields automatically include trailing wildcard searches while performing normal search queries:</p>
+<p>The following fields automatically include leading and trailing wildcards while performing normal search queries:</p>
 
 <ul>
   <li><code>name</code></li>
-  <li><code>subTitle</code></li>
+  <li><code>subtitle</code></li>
   <li><code>login.uris</code></li>
 </ul>
 
-<p>It is not necessary to provide trailing wildcards if you are searching these fields.</p>
+<p>It is not necessary to provide wildcards if you are searching for information in these fields.</p>
 
         </div>
 
@@ -323,10 +323,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1534519329"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1537274214"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1534519329"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1537274214"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
