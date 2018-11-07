@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1539310766"
+    <link href="/css/styles.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1539310766"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -98,13 +98,16 @@
         
         
         
+        <a href="/features/">Features</a>
         
         
         
         
         
         
-        <a href="/miscellaneous/">Miscellaneous</a>
+        
+        
+        
         
         
         
@@ -141,6 +144,7 @@
 
 <ul>
   <li><code>shortid</code> - First 8 characters of the item’s id.</li>
+  <li><code>organizationid</code> - Id of the item’s organization (if it belongs to one).</li>
   <li><code>name</code></li>
   <li><code>subtitle</code> - Login username, card brand + last four, and identity name.</li>
   <li><code>notes</code></li>
@@ -178,13 +182,17 @@
 
 <h2 id="advanced-searches">Advanced Searches</h2>
 
-<p>Starting your search query with a greater than character (<code>&gt;</code>) enables the full power of <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr search queries</a>. Examples:</p>
+<p>Starting your search query with a greater than character (<code>&gt;</code>) enables the full power of <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr search queries</a>.</p>
+
+<h3 id="advanced-search-examples">Advanced Search Examples</h3>
 
 <ul>
-  <li><code>&gt;bitwarden*</code></li>
-  <li><code>&gt;notes:something</code></li>
-  <li><code>&gt;login.username:jsmith</code></li>
-  <li><code>&gt;+foo bar -baz</code></li>
+  <li><code>&gt;bitwarden*</code> - Search all fields for a term that starts with “bitwarden”.</li>
+  <li><code>&gt;notes:something</code> - Search the notes field for the term “something”.</li>
+  <li><code>&gt;login.username:jsmith</code> - Search the username field on items of type login for the term “jsmith”.</li>
+  <li><code>&gt;+organizationid:*</code> - Search for all items that belong to an organization.</li>
+  <li><code>&gt;-organizationid:*</code> - Search for all items that <em>do not</em> belong to an organization (items that you own).</li>
+  <li><code>&gt;+foo bar -baz</code> - Search for items that must contain “foo”, might contain “bar” and must not contain “baz”.</li>
 </ul>
 
 <p>Learn more about writing advanced search queries using <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr’s searching guide</a>.</p>
@@ -323,10 +331,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1539310766"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1539310766"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

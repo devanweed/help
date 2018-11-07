@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Collections | Bitwarden Help &amp; Support</title>
+    <title>Controlling vault access with collections | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1539310766"
+    <link href="/css/styles.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1539310766"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -87,10 +87,13 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Collections
+        Controlling vault access with collections
     </h1>
     <div class="breadcrumb">
         Category:
+        
+        
+        
         
         
         
@@ -122,17 +125,44 @@
             <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/collection-listing.png" />
         </a></p>
 
-<p>When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any items that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the <strong>Read Only</strong> option will ensure that the user cannot add, edit, or delete any items within that particular collection (they can just view and use them).</p>
+<p>When you add a new user to your organization, you can associate that user to one or more collections within your organization. Once the user has access to your organization, any items that are placed into that user’s associated collections will be available in their vault. When associating a user to a particular collection, you can also decide whether or not that user has write access to logins contained within it. Selecting the <strong>Read Only</strong> option will ensure that the user cannot add, edit, or delete any items within that particular collection (they can just view and use them). You can also associate <a href="/article/groups/">user groups</a> to collections in the same way.</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>Collections are different than folders. Collections are a way to organize items and control user access within an organization’s vault while folders are a way for individual users to organize items within their own personal vault. An individual user may wish to further organize the items being shared with them in their own vault into a personalized folder structure that makes sense just for them.</p>
+<p>Collections are different than <a href="/article/folders/">folders</a>. Collections are a way to organize items and control user access within an organization’s vault while folders are a way for individual users to organize items within their own personal vault. An individual user may wish to further organize the items being shared with them in their own vault into a personalized folder structure that makes sense just for them.</p>
+
+        </div>
+
+<h2 id="nested-collections-sub-collections">Nested collections (sub-collections)</h2>
+
+<p>Nested collections work by using a naming convention with the forward slash character (<code>/</code>) as a delimiter. For example, if I have collections with the names “Servers” and “Servers/Production”, “Production” will be nested as a sub-collection underneath the “Servers” collection.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Creating sub-collections is only for display purposes. Collection access and permissions are not inherited by their “child” sub-collections.</p>
+
+        </div>
+
+<p>There is no limit on the depth that you can go with nested collections, though the application interface may begin to “break” if you go too deep.</p>
+
+<p>If a collection’s name contains the forward slash delimiter, yet no “parent” collection exists (or the user does not have access to the parent collection), its name will be displayed in its entirety.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Nested-collections work similarly to nested folders. You can refer to the <a href="/article/folders/">Folders article</a> for more information on creating nested structures in your vault.</p>
 
         </div>
 
         </div>
         
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            collections, sub-collections, access control
+        </div>
         
     </div>
     <div class="row article-blocks">
@@ -260,10 +290,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1539310766"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1539310766"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

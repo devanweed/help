@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1539310766"
+    <link href="/css/styles.css?v=1541609413"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1539310766"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1541609413"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -110,6 +110,9 @@
         
         
         
+        
+        
+        
         <a href="/security/">Security</a>
         
         
@@ -118,18 +121,18 @@
         <div class="panel-body">
             <p>Bitwarden uses <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> 256 bit encryption as well as <a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> to secure your data.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> is used by the US government and other government agencies around the world for protecting top secret data. With proper implementation and a strong encryption key (your master password), AES is considered unbreakable.</p>
+<p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="blank">AES</a> is a standard in cryptography and used by the US government and other government agencies around the world for protecting top secret data. With proper implementation and a strong encryption key (your master password), AES is considered unbreakable.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> is used to derive the encryption key from your master password. This key is then salted and hashed.</p>
+<p><a href="https://en.wikipedia.org/wiki/PBKDF2" target="blank">PBKDF2</a> SHA-256 is used to derive the encryption key from your master password. This key is then salted and hashed. The default iteration count used with PBKDF2 is 100,001 iterations on the client (this client-side iteration count is configurable from your account settings), and then an additional 100,000 iterations when stored on our servers (for a total of 200,001 iterations by default).</p>
 
-<p>Bitwarden does not write any crypto code. Bitwarden only invokes crypto from popular and reputable crypto libraries that are written and maintained by cryptography experts. The following crypto libraries are used:</p>
+<p>Bitwarden does not write any cryptographic code. Bitwarden only invokes crypto from popular and reputable crypto libraries that are written and maintained by cryptography experts. The following crypto libraries are used:</p>
 
 <ul>
   <li>JavaScript (web, browser extension, desktop, and CLI vaults)
     <ul>
-      <li><a href="https://github.com/digitalbazaar/forge" target="blank">Forge</a></li>
       <li><a href="https://w3c.github.io/webcrypto/Overview.html" target="blank">Web Crypto</a></li>
       <li><a href="https://nodejs.org/api/crypto.html" target="blank">Node.js Crypto</a></li>
+      <li><a href="https://github.com/digitalbazaar/forge" target="blank">Forge</a></li>
     </ul>
   </li>
   <li>C# (mobile vault)
@@ -278,10 +281,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1539310766"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1541609413"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1539310766"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1541609413"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1539310766"
+    <link href="/css/styles.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1539310766"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -107,6 +107,9 @@
         
         
         
+        
+        
+        
         <a href="/organizations/">Organizations</a>
         
         
@@ -176,7 +179,7 @@
 
 <h2 id="azure-active-directory">Azure Active Directory</h2>
 
-<p>The Microsoft Graph API does not provide a way to filter groups and users directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names and user emails.</p>
+<p>The Microsoft Graph API does not provide a way to filter groups and users directly, however, you can use our custom filtering syntax that allows you to exclude or include a comma separated list of group names, user emails, or users based on their group membership.</p>
 
 <h3 id="examples-1">Examples</h3>
 
@@ -197,10 +200,20 @@
 
 <h4 id="users">Users</h4>
 
+<p>You can include/exclude users directly by using <code>include</code> or <code>exclude</code> keywords like below:</p>
+
 <pre><code>include:joe@company.com,bill@company.com,tom@company.com
 </code></pre>
 
 <pre><code>exclude:joe@company.com
+</code></pre>
+
+<p>Alternatively, you can filter users based on their Azure AD group membership by using <code>includeGroup</code> or <code>excludeGroup</code> keywords. You must obtain the Azure AD group ID and include it with the keyword. You can get the group’s ID in the <a href="https://portal.azure.com">Azure Portal</a> or through <a href="https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadgroup?view=azureadps-2.0">Azure AD PowerShell</a>.</p>
+
+<pre><code>includeGroup:97b9ff2a-7d4f-463d-a925-efb1677fd40d,b389c339-8c13-4c1a-8ac1-4fde56d9f70f
+</code></pre>
+
+<pre><code>excludeGroup:97b9ff2a-7d4f-463d-a925-efb1677fd40d
 </code></pre>
 
 <h2 id="g-suite">G Suite</h2>
@@ -422,10 +435,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1539310766"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1539310766"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

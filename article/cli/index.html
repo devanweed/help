@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1539310766"
+    <link href="/css/styles.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1539310766"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1541609412"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -104,6 +104,9 @@
         
         
         
+        
+        
+        
         <a href="/miscellaneous/">Miscellaneous</a>
         
         
@@ -150,6 +153,7 @@
       <li><a href="#create">Create</a></li>
       <li><a href="#edit">Edit</a></li>
       <li><a href="#delete">Delete</a></li>
+      <li><a href="#share">Share</a></li>
     </ul>
   </li>
   <li><a href="#other-useful-commands">Other Useful Commands</a>
@@ -409,11 +413,13 @@ bw get attachment photo.jpg --raw \
 
 <p>The <code>edit</code> command allows you to edit an item in your vault. It works similarly to the <code>create</code> command with the added requirement of an object id. The <code>edit</code> command will perform a <em>replace</em> operation on the object. Upon success, the updated object will be returned.</p>
 
-<pre><code>bw edit (item|folder) &lt;id&gt; [encodedJson]
+<pre><code>bw edit (item|item-collections|folder) &lt;id&gt; [encodedJson]
 </code></pre>
 <pre><code>bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782 eyJuYW1lIjoiV2hhdCBGb2xkZXIifQ==
 bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
     bw encode | bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782
+echo '["86544cd3-7e07-42bb-ba3c-e7f59852acaa","ae8c6c9e-26de-442c-b63b-3e28ef61d72d"]' | \
+    bw edit item-collections db71c8d6-3e69-4593-a6de-505e94966290
 </code></pre>
 
 <h3 id="delete">Delete</h3>
@@ -424,6 +430,23 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 </code></pre>
 <pre><code>bw delete folder dadc91e0-dcda-4bc2-8cd6-52100027c782
 bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
+</code></pre>
+
+<h3 id="share">Share</h3>
+
+<p>The <code>share</code> command allows you to transfer an item from your personal vault to an organization’s vault for sharing. Upon success, the updated item will be returned.</p>
+
+<pre><code>bw share &lt;id&gt; &lt;organizationId&gt; [encodedJson]
+</code></pre>
+
+<p><code>encodedJson</code> contains a Base 64 encoded JSON array of collection ids for the organization being shared to. At least one collection ID must be provided.</p>
+
+<pre><code>bw share 4af958ce-96a7-45d9-beed-1e70fabaa27a 6d82949b-b44d-468a-adae-3f3bacb0ea32 \
+    WyI5NzQwNTNkMC0zYjMzLTRiOTgtODg2ZS1mZWNmNWM4ZGJhOTYiXQ==
+echo 'WyI5NzQwNTNkMC0zYjMzLTRiOTgtODg2ZS1mZWNmNWM4ZGJhOTYiXQ==' | \
+    bw share 4af958ce-96a7-45d9-beed-1e70fabaa27a 6d82949b-b44d-468a-adae-3f3bacb0ea32
+echo '["974053d0-3b33-4b98-886e-fecf5c8dba96"]' | bw encode | \
+    bw share 4af958ce-96a7-45d9-beed-1e70fabaa27a 6d82949b-b44d-468a-adae-3f3bacb0ea32
 </code></pre>
 
 <h2 id="other-useful-commands">Other Useful Commands</h2>
@@ -542,6 +565,7 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
   <li><code>item.securenote</code></li>
   <li><code>folder</code></li>
   <li><code>collection</code></li>
+  <li><code>item-collections</code></li>
 </ul>
 
 <pre><code>bw get template item
@@ -875,10 +899,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1539310766"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1539310766"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1541609412"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

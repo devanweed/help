@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Set up two-step login with YubiKey | Bitwarden Help &amp; Support</title>
+    <title>Organizing your vault with folders | Bitwarden Help &amp; Support</title>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet" />
@@ -87,7 +87,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Set up two-step login with YubiKey
+        Organizing your vault with folders
     </h1>
     <div class="breadcrumb">
         Category:
@@ -95,10 +95,10 @@
         
         
         
-        <a href="/account-management/">Account Management</a>
         
         
         
+        <a href="/features/">Features</a>
         
         
         
@@ -119,117 +119,49 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden supports two-step login via <a href="https://www.yubico.com" target="_blank">YubiKey</a>. Any YubiKey that supports <a href="https://www.yubico.com/products/yubikey-hardware/compare-yubikeys/" target="_blank">OTP capabilities</a> can be used. This includes all YubiKey 4 and 5 series devices as well as YubiKey NEO.</p>
+            <p>Folders are a great way to categorize items in your Bitwarden vault.</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>Due to platform limitations, YubiKeys cannot be used on all Bitwarden applications. You should enable another two-step login provider so that you can access your account when YubiKeys cannot be used.</p>
+<p>An <a href="/article/collections/">organization’s collections</a> are different than folders. Collections are a way to organize items and control user access within an organization’s vault while folders are a way for individual users to organize items within their own personal vault. An individual user may wish to further organize the items being shared with them in their own vault into a personalized folder structure that makes sense just for them.</p>
 
-<p>Supported platforms:</p>
+        </div>
+
+<h2 id="nested-folders-sub-folders">Nested folders (sub-folders)</h2>
+
+<p>Nested folders work by using a naming convention with the forward slash character (<code>/</code>) as a delimiter. For example, if I have folders with the names “Work” and “Work/Email”, “Email” will be nested as a sub-folder underneath the “Work” folder.</p>
+
+<h3 id="nested-folders-example">Nested folders example</h3>
+
+<p>In this example I have the following folders:</p>
 
 <ul>
-  <li>Web vault on a device with a USB port that can accept your YubiKey.</li>
-  <li>Browser extensions on a device with a USB port that can accept your YubiKey.</li>
-  <li>Desktop app on a device with a USB port that can accept your YubiKey.</li>
-  <li>CLI on a device with a USB port that can accept your YubiKey.</li>
-  <li>Android on a device with <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">NFC capabilities</a> or a USB port that can accept your YubiKey. Read more <a href="https://forum.yubico.com/viewtopic1c5f.html?f=26&amp;t=1302" target="_blank">here</a>.</li>
-  <li>iOS on a device with <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">NFC capabilities</a>.</li>
+  <li>Personal</li>
+  <li>Personal/Email</li>
+  <li>Personal/Email/Sub</li>
+  <li>Social</li>
+  <li>Work</li>
+  <li>Work/Clients</li>
+  <li>Work/Email</li>
 </ul>
 
-        </div>
+<p>This would produce a folder structure that looks like this in the web vault (and similarly in other Bitwarden applications):</p>
 
-<h2 id="enable-two-step-login-with-yubikey">Enable Two-step Login with YubiKey</h2>
+<p><a href="/images/subfolders.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/subfolders.png" />
+        </a></p>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>Two-step login can permanently lock you out of your account. It is very important that you write down and keep your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in a safe place in the event that you lose access to your YubiKey.</p>
+<p>There is no limit on the depth that you can go with nested folders, though the application interface may begin to “break” if you go too deep.</p>
 
-        </div>
-
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Settings</strong> in the top navigation bar, then click <strong>Two-step Login</strong> from the side menu.</li>
-  <li>Select the <strong>Manage</strong> button for the <strong>YubiKey OTP Security Key</strong> option and then type in your master password to continue.
-<a href="/images/two-step/yubikey/select.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/select.png" />
-     </a></li>
-  <li>Follow the instructions shown:
-    <ul>
-      <li>Plug the YubiKey (NEO, 4, or 5 series) into your computer’s USB port.</li>
-      <li>Select in the first empty Key input field.</li>
-      <li>Touch the YubiKey’s button.</li>
-    </ul>
-
-    <p>Repeat this process for each YubiKey you wish to add to your account. You can add up to five YubiKeys to your account.
-<a href="/images/two-step/yubikey/config.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/config.png" />
-     </a></p>
-  </li>
-  <li>If you are using a YubiKey that has NFC capabilities (YubiKey NEO), check the <strong>One of my keys supports NFC</strong> checkbox. This option enables the use of your YubiKey on Android and iOS devices that support NFC.</li>
-  <li>Click the <strong>Enable</strong> button. A green alert will appear at the top stating that two-step login has been enabled.</li>
-  <li>Click the <strong>Close</strong> button and confirm that the <strong>YubiKey OTP Security Key</strong> option now shows as <strong>Enabled</strong>.
-<a href="/images/two-step/yubikey/enabled.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/enabled.png" />
-     </a></li>
-</ol>
-
-<h2 id="test">Test</h2>
-
-<ol>
-  <li><strong>IMPORTANT:</strong> Ensure that you have copied down your <a href="/article/lost-two-step-device/">two-step login recovery code</a> in case something goes wrong.</li>
-  <li>Log out of the Bitwarden web vault.</li>
-  <li>Log back into the Bitwarden web vault. You should now be prompted with a YubiKey two-step login option. Insert your YubiKey and touch it’s button to complete logging in.</li>
-  <li>
-    <p>Log out of and back in to any other Bitwarden applications that you are using to confirm that two-step login via YubiKey is properly working. You will eventually be logged out automatically. If the application (or device) your are using does not support YubiKey you will be presented with other two-step login options that you have configured (if any).</p>
-
-    <p>Web
-<a href="/images/two-step/yubikey/web.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/web.png" />
-     </a></p>
-
-    <p>Desktop
-<a href="/images/two-step/yubikey/desktop.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/desktop.png" />
-     </a></p>
-
-    <p>Browser extension
-<a href="/images/two-step/yubikey/browser.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/browser.png" />
-     </a></p>
-
-    <p>Android
-<a href="/images/two-step/yubikey/android.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/android.png" />
-     </a></p>
-
-    <p>iOS
-<a href="/images/two-step/yubikey/ios.png" target="_blank" rel="lightbox">
-         <img class="img-responsive img-thumbnail img-tag" src="/images/two-step/yubikey/ios.png" />
-     </a></p>
-  </li>
-</ol>
-
-<h2 id="android">Android</h2>
-
-<p>If you are having trouble getting the YubiKey NEO to work on your Android device, confirm the following:</p>
-
-<ol>
-  <li>You have checked the <strong>One of my keys supports NFC</strong> checkbox from step 5 above.</li>
-  <li>Your Android device <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">supports NFC</a> and is <a href="https://forum.yubico.com/viewtopic.php?f=26&amp;t=1302" target="_blank">known to work properly</a> with YubiKey NEO.</li>
-  <li>You have NFC enabled on your Android device. Enable NFC by going to Android <strong>Settings</strong> → <strong>More</strong> and enable the <strong>NFC</strong> option.</li>
-</ol>
-
-<p>If the YubiKey NEO can be used on your Android device you will be prompted with a YubiKey option while logging in to Bitwarden. Simply place the YubiKey NEO on the back of your Android device near the NFC receiver. If you do not know where your NFC receiver is located, you may need to move it around some, trying different areas. Once Bitwarden detects the YubiKey it will automatically validate and log you in.</p>
-
+<p>If a folder’s name contains the forward slash delimiter, yet no “parent” folder exists, its name will be displayed in its entirety. In the example above, “Finance/Banking” would not produce a nested structure. You would need to create a “Finance” folder as well if nesting is desired.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            two-step login, 2fa, two factor authentication, account, yubikey, yubi, yubico
+            categories, folders, sub-folders
         </div>
         
     </div>
