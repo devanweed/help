@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1542326170"
+    <link href="/css/styles.css?v=1543253171"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1542326170"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1543253171"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -136,6 +136,17 @@
 <h2 id="other-applications">Other Applications</h2>
 
 <p>After viewing an item in your vault you will see existing attachments listed at the bottom of the page. To upload a new attachment, or to delete existing attachments, edit the item and then select the <strong>Attachments</strong> option.</p>
+
+<h2 id="fixing-old-attachments">Fixing “Old” Attachments</h2>
+
+<p>Prior to December 2018 file attachments used a different method of encrypting their data. We have since moved to a newer, better way of encrypting file attachments. Any attachments that use the older encryption method will be labeled with an <i class="fa fa-exclamation-triangle"></i> alert icon in your vault listing. You should upgrade these old attachments to the newer method of encryption so that other account-related features can function properly.</p>
+
+<ol>
+  <li>Open the page for editing your attachments (see above).</li>
+  <li>Click the <strong>Fix</strong> button next to the old attachment. This process will download the attachment, re-encrypt it using the new encryption method, re-upload the attachment back to your vault, and delete the old version of the attachment.</li>
+</ol>
+
+<p>Once an attachment has successfully been upgraded, the <i class="fa fa-exclamation-triangle"></i> alert icon and fix button should disappear.</p>
 
         </div>
         
@@ -271,10 +282,10 @@
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1542326170"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1543253171"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1542326170"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1543253171"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>

@@ -13,10 +13,10 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1542326171"
+    <link href="/css/styles.css?v=1543253171"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1542326171"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1543253171"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -209,6 +209,14 @@ Social,1,login,Twitter,,,twitter.com,me@example.com,password123,
 
 <p>When importing from this format, select the <strong>Bitwarden (csv)</strong> file format option from the dropdown menu.</p>
 
+<h2 id="troubleshooting-import-errors">Troubleshooting Import Errors</h2>
+
+<p><u>Ciphers[<b>X</b>].Login: The field <b>yyyy</b> exceeds the maximum encrypted value length of <b>zzzz</b> characters.</u></p>
+
+<p>This error occurs whenever an item in your exported file has a large amount of data associated with it, which exceeds the limits allowed for items stored in your Bitwarden vault. You will need to correct this data by removing it, or reducing its size so that the Bitwarden importer will succeed.</p>
+
+<p>You can open the exported file in a text editor or spreadsheet program (such as Excel) to locate it. The offending item can be found at index <strong>X</strong> (as referenced in the error message) in the file. Once you have located the offending item, remove it or update its data, then resave and try the import operation with Bitwarden again.</p>
+
         </div>
         
         
@@ -343,10 +351,10 @@ Social,1,login,Twitter,,,twitter.com,me@example.com,password123,
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1542326171"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1543253171"><\/script>'));</script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1542326171"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1543253171"><\/script>'));</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
     <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
