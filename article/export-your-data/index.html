@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1544730033"
+    <link href="/css/styles.css?v=1545443174"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1544730033"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1545443174"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -119,14 +119,18 @@
 <div class="callout callout-warning">
             <h3><i class="fa fa-warning"></i> Warning</h3>
             
-<p>Data exports contain your unencrypted data in <code>.csv</code> format. You should not store or send the file over unsecure channels (such as email). Delete it immediately after you are done using it.</p>
+<p>Exports contain your vault data in an unencrypted format. You should not store or send the exported file over unsecure channels (such as email). Delete it immediately after you are done using it.</p>
 
         </div>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>The downloaded <code>.csv</code> file can be opened, read, and modified in spreadsheet programs such as Microsoft Excel or a simple text editor like Notepad.</p>
+<p>The <code>.json</code> file format offers a more complete export of your data and should be used for standard backup procedures. Some non-critical information is not included with the export when using the <code>.csv</code> file format.</p>
+
+<p>An exported <code>.json</code> file can be opened, read, and modified in a simple text editor like Notepad.</p>
+
+<p>An exported <code>.csv</code> file can be opened, read, and modified in spreadsheet programs such as Microsoft Excel (preferred) or a simple text editor like Notepad.</p>
 
         </div>
 
@@ -136,7 +140,7 @@
   <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
   <li>Click <strong>Tools</strong> in the top navigation bar</li>
   <li>Click <strong>Export Vault</strong> under the <strong>Tools</strong> side navigation</li>
-  <li>Type in your master password and click <strong>Export Vault</strong>. Your browser will either automatically download the <code>.csv</code> file or prompt you to save it</li>
+  <li>Choose your exported file format, type in your master password, and click <strong>Export Vault</strong>. Your browser will either automatically download the exported file or prompt you to save it</li>
 </ol>
 
 <div class="callout callout-info">
@@ -151,19 +155,19 @@
 <ol>
   <li>Open the browser extension and click the <strong>Tools</strong> tab</li>
   <li>Scroll down and click <strong>Export Vault</strong></li>
-  <li>Type in your master password and click <strong>Submit</strong>. Your browser will either automatically download the <code>.csv</code> file or prompt you to save it</li>
+  <li>Choose your exported file format, type in your master password, and click <strong>Submit</strong>. Your browser will either automatically download the exported file or prompt you to save it</li>
 </ol>
 
 <h2 id="from-the-desktop-app">From the desktop app</h2>
 
 <ol>
   <li>Open the desktop application and navigate to <strong>File</strong> → <strong>Export Vault</strong></li>
-  <li>Type in your master password and click the Submit button. You will be prompted to download the <code>.csv</code> file.</li>
+  <li>Choose your exported file format, type in your master password, and click the Submit button. You will be prompted to download the exported file</li>
 </ol>
 
 <h2 id="from-the-cli">From the CLI</h2>
 
-<p>In the CLI application, you can use the <code>bw export</code> command to export your data to a <code>.csv</code> file in the current working directory. Or pass the <code>--output</code> option to specify a location of your choice.</p>
+<p>In the CLI application, you can use the <code>bw export</code> command to export your data to a <code>.csv</code> or <code>.json</code> file in the current working directory. You can also pass the <code>--output</code> option to specify a saving location of your choice. Using the <code>--format</code> option will allow you to specify the file format as <code>csv</code> or <code>json</code>. The file format defaults to <code>csv</code> if not specified.</p>
 
         </div>
         
@@ -300,11 +304,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1544730033"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1545443174"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1544730033"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1545443174"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
