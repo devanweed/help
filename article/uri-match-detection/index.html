@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1546279806"
+    <link href="/css/styles.css?v=1550199814"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1546279806"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1550199814"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -116,11 +116,11 @@
         <div class="panel-body">
             <p>A login item stored in your vault can have one or more <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">URI</a> values associated with it. URIs can relate your login to a website address (URL), server IP address, mobile app package ID, and more. URIs are important values for a login since they determine how the auto-fill functions in Bitwarden will behave.</p>
 
-<h2 id="uri-protocols">URI protocols</h2>
+<h2 id="uri-schemes">URI schemes</h2>
 
-<p>A well-formed URI also has a protocol at the beginning of it. The most common protocol that many of us are familiar with is the <code>http://</code> protocol used for a website address.</p>
+<p>A well-formed URI also has a “scheme” at the beginning of it. The most common scheme that many of us are familiar with is the <code>http://</code> scheme used for a website address.</p>
 
-<p>The protocol can also have special meaning in Bitwarden:</p>
+<p>The scheme can also have special meaning in Bitwarden:</p>
 
 <ul>
   <li><strong><code>http://</code></strong> or <strong><code>https://</code></strong> tells Bitwarden that this is a website address. Example: <code>https://www.google.com</code></li>
@@ -130,7 +130,7 @@
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>If a URI omits the protocol, <code>http://</code> is assumed.</p>
+<p>If a URI omits the scheme, <code>http://</code> is assumed.</p>
 
         </div>
 
@@ -142,14 +142,14 @@
 
 <p>The following match detection options are available:</p>
 
-<p><strong>Base domain</strong></p>
-
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>Base domain is the default match detection value for all URIs.</p>
+<p><strong>Base domain</strong> is the default URI match detection value for all URIs. You can adjust this default value under <strong>Settings</strong> → <strong>Options</strong>.</p>
 
         </div>
+
+<p><strong>Base domain</strong></p>
 
 <p>The base domain is defined as the second-level domain plus the top-level domain of the given URI. A URI with a value of <code>https://www.google.com</code> would have a base domain value of <code>google.com</code>.</p>
 
@@ -170,7 +170,7 @@
 <ul>
   <li>URI host value: <code>https://sub.domain.com:4000</code></li>
   <li>Matches: <code>http://sub.domain.com:4000</code>, <code>http://sub.domain.com:4000/page.html</code></li>
-  <li>Not matches: <code>https://domain.com</code>, <code>https://sub.domain.com</code>, <code>https://sub2.domain.com</code>, <code>https://sub.domain.com:5000</code></li>
+  <li>Not matches: <code>https://domain.com</code>, <code>https://sub.domain.com</code>, <code>https://sub2.domain.com</code>, <code>https://sub.domain.com:5000</code>, <code>http://sub2.sub.domain.com:4000</code></li>
 </ul>
 
 <p><strong>Starts with</strong></p>
@@ -200,7 +200,7 @@
 <p>Example:</p>
 
 <ul>
-  <li>URI regex value: <code>^https://.*google.com</code></li>
+  <li>URI regex value: <code>^https://.*google.com$</code></li>
   <li>Matches: <code>https://google.com</code>, <code>https://sub.google.com</code>, <code>https://sub.sub2.google.com</code>, <code>https://malicious-site.com?q=google.com</code></li>
   <li>Not matches: <code>http://google.com</code> (not https), <code>https://yahoo.com</code></li>
 </ul>
@@ -344,19 +344,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
-                               onclick="gaEvent('Follow Google+')">
-                                <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')"
                                target="_blank">
                                 <i class="fa fa-github"></i><span class="sr-only">GitHub</span>
                             </a>
                         </li>
                     </ul>
-                    &copy; 2015 - 2018, <br class="visible-sm" />8bit Solutions LLC
+                    &copy; 2015 - 2019, <br class="visible-sm" />8bit Solutions LLC
                 </div>
             </div>
         </div>
@@ -364,11 +358,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1546279806"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1550199814"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1546279806"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1550199814"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>

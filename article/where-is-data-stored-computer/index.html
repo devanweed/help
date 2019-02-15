@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1546279806"
+    <link href="/css/styles.css?v=1550199814"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1546279806"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1550199814"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -123,7 +123,7 @@
 <ul>
   <li>Windows
     <ul>
-      <li>Standard Installations &amp; Store: <code>%AppData%\Roaming\Bitwarden</code></li>
+      <li>Standard Installations &amp; Store: <code>%AppData%\Bitwarden</code></li>
       <li>Portable: <code>.\bitwarden-appdata</code></li>
     </ul>
   </li>
@@ -153,12 +153,12 @@
 <ul>
   <li>Windows
     <ul>
-      <li>Chrome: <code>%AppData%\Local\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Firefox: <code>%AppData%\Roaming\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
-      <li>Opera: <code>%AppData%\Roaming\Opera Software\Opera Stable\Local Extension Settings\ccnckbpmaceehanjmeomladnmlffdjgn</code></li>
-      <li>Vivaldi: <code>%AppData%\Local\Vivaldi\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Brave: <code>%AppData%\Roaming\brave\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Edge: <code>%AppData%\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AC\MicrosoftEdge\Extensions\Storage</code></li>
+      <li>Chrome: <code>%LocalAppData%\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Firefox: <code>%AppData%\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
+      <li>Opera: <code>%AppData%\Opera Software\Opera Stable\Local Extension Settings\ccnckbpmaceehanjmeomladnmlffdjgn</code></li>
+      <li>Vivaldi: <code>%LocalAppData%\Vivaldi\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Brave: <code>%AppData%\brave\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
+      <li>Edge: <code>%LocalAppData%\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AC\MicrosoftEdge\Extensions\Storage</code></li>
     </ul>
   </li>
   <li>macOS
@@ -186,7 +186,7 @@
 <h2 id="cli">CLI</h2>
 
 <ul>
-  <li>Windows: <code>%AppData%\Roaming\Bitwarden CLI</code></li>
+  <li>Windows: <code>%AppData%\Bitwarden CLI</code></li>
   <li>macOS: <code>~/Library/Application Support/Bitwarden CLI</code></li>
   <li>Linux: <code>~/.config/Bitwarden CLI</code></li>
 </ul>
@@ -308,19 +308,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/+bitwarden" title="Google+" target="_blank"
-                               onclick="gaEvent('Follow Google+')">
-                                <i class="fa fa-google-plus-square"></i><span class="sr-only">Google+</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')"
                                target="_blank">
                                 <i class="fa fa-github"></i><span class="sr-only">GitHub</span>
                             </a>
                         </li>
                     </ul>
-                    &copy; 2015 - 2018, <br class="visible-sm" />8bit Solutions LLC
+                    &copy; 2015 - 2019, <br class="visible-sm" />8bit Solutions LLC
                 </div>
             </div>
         </div>
@@ -328,11 +322,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1546279806"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1550199814"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1546279806"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1550199814"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
