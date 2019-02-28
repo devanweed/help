@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>I forgot my master password | Bitwarden Help &amp; Support</title>
+    <title>Resolving desktop app update errors | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        I forgot my master password
+        Resolving desktop app update errors
     </h1>
     <div class="breadcrumb">
         Category:
@@ -90,7 +90,6 @@
         
         
         
-        <a href="/account-management/">Account Management</a>
         
         
         
@@ -103,6 +102,7 @@
         
         
         
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -114,27 +114,45 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Unlike most services that you use on the internet, due to the way Bitwarden works there is no way to reset your master password in the event that you forget it. This is because your Bitwarden master password is used for more than just authentication (logging in). Your vault’s data is also securely encrypted with your master password, therefore it is impossible to unlock or recover your vault without it.</p>
+            <p>When updating the Bitwarden desktop application on Windows, you may receive the following error:</p>
 
-<p>If you have forgotten your master password unfortunately there is no way to fully recover the account. The only option to gain access to the account again is to delete the account so that you can register again and start over. Deleting the account will also delete all of your vault data associated with the account.</p>
+<pre><code>A JavaScript error occurred in the main process
 
-<h2 id="deleting-the-account">Deleting the account</h2>
+Uncaught Exception:
+Error: spawn
+C:\Users\Username\AppData\Roaming\Bitwarden\__update__\Bitwarden.exe
+EACCES
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:229:19)
+    at onErrorNT (internal/child_process.js:406:16)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+</code></pre>
+
+<p><a href="/images/update-error.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/update-error.png" />
+        </a></p>
+
+<h2 id="solution">Solution</h2>
+
+<p>This error occurs whenever there is a permissions problem running the Bitwarden updater. This prevents the updater from running and installing the latest version of the application. This issue has been resolved in current versions of the application and should no longer occur if you are running the latest version of Bitwarden.</p>
+
+<p>You can resolve this problem by temporarily running Bitwarden in Administrator Mode.</p>
 
 <ol>
-  <li>Navigate to <a href="https://vault.bitwarden.com/#/recover-delete">https://vault.bitwarden.com/#/recover-delete</a></li>
-  <li>Enter your account’s email address</li>
-  <li>Go to your email inbox and click the verification link that was sent to you</li>
-  <li>Confirm the delete</li>
+  <li>Right click the <strong>Bitwarden</strong> shortcut icon on your desktop or from the Windows start menu.</li>
+  <li>Select <strong>Run as administrator</strong>. From the start menu, this option may be under the <strong>More</strong> sub-menu.</li>
+  <li>Select <strong>Yes</strong> from the prompt.</li>
 </ol>
 
-<p>You can now register a new account using the same email address.</p>
+<p>This will launch Bitwarden in administrator mode and allow it to finish updating.</p>
+
+<p>If for whatever reason you are not able to run the application in administrator mode, we recommend reinstalling the application to the latest version to workaround the problem. You can download the latest version of the Bitwarden desktop application for Windows from <a href="https://bitwarden.com/#download">our website</a>.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            master password, account
+            update, desktop, error
         </div>
         
     </div>
