@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Import your data from 1Password | Bitwarden Help &amp; Support</title>
+    <title>Desktop application will not update | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Import your data from 1Password
+        Desktop application will not update
     </h1>
     <div class="breadcrumb">
         Category:
@@ -96,13 +96,13 @@
         
         
         
-        <a href="/getting-started/">Getting Started</a>
         
         
         
         
         
         
+        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -114,72 +114,24 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Importing your data from 1Password into Bitwarden is easy. 1Password has two versions of their application: 1Password 4 and 1Password 6 and 7. Depending on which operating system and version of 1Password and you are using, follow the proper steps below.</p>
-
-<h2 id="export-your-1password-1pif-logins">Export Your 1Password 1pif Logins</h2>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>This set of instructions is only for:</p>
-
-<ul>
-  <li>1Password 4 users on macOS and Windows (only the .agilekeychain format is supported for Windows users)</li>
-  <li>1Password 6 and 7 users on macOS</li>
-</ul>
-
-<p>These instructions may vary slightly for macOS users.</p>
-
-        </div>
+            <p>When attempting to update the desktop application, you may encounter a problem where the application never updates. This will result in you continuing to receive an update prompt each time the application is started. This is due to an issue in an outdated version of the Bitwarden desktop application where the auto-updater fails. If you are affected by this issue you need to manually update to the latest version of the Bitwarden desktop application.</p>
 
 <ol>
-  <li>Open the 1Password desktop application on your computer and enter your 1Password master password to unlock your vault.</li>
-  <li>Select the vault that you wish to export. It is not possible to export from <strong>All Vaults</strong>, so you’ll need to switch to a specific vault.</li>
-  <li>Navigate to <strong>File</strong> → <strong>Export</strong> and an Export window will pop up.</li>
-  <li>In the Export window that pops up, select format <strong>1Password Interchange Format (.1pif)</strong> and <strong>All Items</strong>.</li>
-  <li>Click <strong>OK</strong>. You may be prompted to enter your master password again.</li>
-  <li>Select a folder to save your export file to (recommended to use your desktop folder). Click save to export your .1pif data file.</li>
+  <li>Uninstall the Bitwarden desktop application from the device.
+    <ul>
+      <li>On macOS, you can do this from <strong>Finder</strong> → <strong>Applications</strong>. Then right click on <strong>Bitwarden</strong> and select <strong>Move to Trash</strong>.</li>
+      <li>On Windows, click on the <strong>Start</strong> menu and search for <strong>Bitwarden</strong>. Right click on <strong>Bitwarden</strong> and select <strong>Uninstall</strong>. This will open the <strong>Programs and Features</strong> window where you will need to repeat the process again. Locate and right click <strong>Bitwarden</strong>, then <strong>Uninstall</strong>.</li>
+    </ul>
+  </li>
+  <li>Download the latest version of the Bitwarden desktop application from <a href="https://bitwarden.com/#download">our website</a> and reinstall. Newer versions of Bitwarden are not affected by this update error and should auto-update to future versions as expected.</li>
 </ol>
-
-<h2 id="export-your-1password-6--7-csv-logins-from-windows">Export your 1Password 6 &amp; 7 csv logins from Windows</h2>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>This set of instructions is only for:</p>
-
-<ul>
-  <li>1Password 6 and 7 users on Windows</li>
-</ul>
-
-        </div>
-
-<ol>
-  <li>Open the 1Password 6/7 desktop application on your computer and enter your 1Password master password to unlock your vault.</li>
-  <li>Select the items you want to export. Select multiple items by holding down the Ctrl key (Command on macOS) when clicking on them. Select all of the items by pressing Ctrl+A (Command+A on macOS) after clicking one of the items in the list.</li>
-  <li>Click the gear icon in the top right corner and then <strong>Export</strong>.</li>
-  <li>Select the type as <strong>Comma-separated values (*.csv)</strong>.</li>
-  <li>Select a folder to save your export file to (recommended to use your desktop folder). Enter a file name and click Save.</li>
-</ol>
-
-<h2 id="import-your-logins-into-bitwarden">Import your logins into Bitwarden</h2>
-
-<ol>
-  <li>Go to the <a href="https://vault.bitwarden.com">Bitwarden web vault</a> and log in.</li>
-  <li>Navigate to <strong>Tools</strong> → <strong>Import Data</strong>.</li>
-  <li>Select <strong>1Password (1pif)</strong> or <strong>1Password 6 and 7 Windows (csv)</strong> as the file format (depending on which path you followed above) and select your data file from the desktop that you created in the last step from above.</li>
-  <li>Click the <strong>Import Data</strong> button.</li>
-</ol>
-
-<p>Congratulations! You have just transferred your data from 1Password into Bitwarden.</p>
-
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            import, 1password
+            update, desktop, error
         </div>
         
     </div>
