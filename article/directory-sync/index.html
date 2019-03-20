@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1552441352"
+    <link href="/css/styles.css?v=1553114090"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1552441352"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1553114090"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -143,7 +143,7 @@
             <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/app.png" />
         </a></p>
 
-<h3 id="table-of-contents">Table of Contents</h3>
+<h2 id="table-of-contents">Table of Contents</h2>
 
 <ul>
   <li><a href="#download-and-install">Download and Install</a></li>
@@ -155,10 +155,24 @@
   <li><a href="#perform-a-manual-sync">Perform a manual sync</a></li>
   <li><a href="#sync-automatically">Sync automatically</a></li>
   <li><a href="#clear-sync-cache">Clear sync cache</a></li>
+  <li><a href="#command-line-interface">Command-line Interface</a>
+    <ul>
+      <li><a href="#quick-start">Quick Start</a></li>
+      <li><a href="#download-and-install-1">Download and Install</a></li>
+      <li><a href="#shared-data">Shared Data</a></li>
+      <li><a href="#explore-the-cli">Explore the CLI</a></li>
+      <li><a href="#test-command">Test Command</a></li>
+      <li><a href="#sync-command">Sync Command</a></li>
+      <li><a href="#config-command">Config Command</a></li>
+      <li><a href="#clear-cache-command">Clear Cache Command</a></li>
+      <li><a href="#update-command">Update Command</a></li>
+      <li><a href="#version-option">Version Option</a></li>
+    </ul>
+  </li>
   <li><a href="#source-code">Source code</a></li>
 </ul>
 
-<h3 id="download-and-install">Download and Install</h3>
+<h2 id="download-and-install">Download and Install</h2>
 
 <p>You can download the latest version of the Bitwarden Directory Connector application from our <a href="https://github.com/bitwarden/directory-connector/releases" target="_blank">GitHub releases page</a> or by using one of the official links below:</p>
 
@@ -171,7 +185,15 @@
 
 <p>The application will prompt you for automatic updates whenever newer versions become available.</p>
 
-<h3 id="configure-environment">Configure environment</h3>
+<p>Command-line Interface</p>
+
+<ul>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=windows&amp;variant=cli-zip"><i class="fa fa-windows"></i> Windows CLI (.exe)</a></li>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=macos&amp;variant=cli-zip"><i class="fa fa-apple"></i> macOS CLI</a></li>
+  <li><a href="https://vault.bitwarden.com/download/?app=connector&amp;platform=linux&amp;variant=cli-zip"><i class="fa fa-linux"></i> Linux CLI</a></li>
+</ul>
+
+<h2 id="configure-environment">Configure environment</h2>
 
 <p>By default the Directory Connector communicates with the Bitwarden public cloud servers. If you are using the public cloud version of Bitwarden, you can skip this step. If you are using a self-hosted deployment of Bitwarden you will want to change the configured environment endpoints of the Directory Connector to your own on-premise installation.</p>
 
@@ -182,7 +204,7 @@
   <li>Enter your installation’s base URL and save. For example, <code>https://bitwarden.company.com</code>.</li>
 </ol>
 
-<h3 id="log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</h3>
+<h2 id="log-in-to-your-bitwarden-organization-account">Log in to your Bitwarden organization account</h2>
 
 <ol>
   <li>Run the Directory Connector application.</li>
@@ -190,7 +212,7 @@
   <li>Go to the <strong>Settings</strong> tab and select your organization from the <strong>Account</strong> section.</li>
 </ol>
 
-<h3 id="configure-the-directory-connection">Configure the directory connection</h3>
+<h2 id="configure-the-directory-connection">Configure the directory connection</h2>
 
 <ol>
   <li>Run the Directory Connector application.</li>
@@ -206,7 +228,7 @@
   </li>
 </ol>
 
-<h3 id="configure-sync-options">Configure sync options</h3>
+<h2 id="configure-sync-options">Configure sync options</h2>
 
 <ol>
   <li>Run the Directory Connector application.</li>
@@ -225,7 +247,7 @@
 
         </div>
 
-<h3 id="test-a-sync">Test a sync</h3>
+<h2 id="test-a-sync">Test a sync</h2>
 
 <p>You can run a sync test in order to check that all of your configuration settings are setup and working as expected. A sync test will query the directory server and print the results to the screen. The results that you see printed to the screen will be what is uploaded and synced to your Bitwarden organization whenever a real sync is performed.</p>
 
@@ -235,7 +257,7 @@
   <li>Click the <strong>Test Now</strong> button from the <strong>Testing</strong> section.</li>
 </ol>
 
-<h3 id="perform-a-manual-sync">Perform a manual sync</h3>
+<h2 id="perform-a-manual-sync">Perform a manual sync</h2>
 
 <ol>
   <li>Run the Directory Connector application.</li>
@@ -245,7 +267,7 @@
 
 <p>Your synced users and groups will be immediately available in your Bitwarden organization. Synced users will receive an email invite to your organization.</p>
 
-<h3 id="sync-automatically">Sync automatically</h3>
+<h2 id="sync-automatically">Sync automatically</h2>
 
 <ol>
   <li>Run the Directory Connector application.</li>
@@ -257,7 +279,7 @@
 
 <p>You can click the <strong>Stop Sync</strong> button to end the automatic syncing intervals.</p>
 
-<h3 id="clear-sync-cache">Clear sync cache</h3>
+<h2 id="clear-sync-cache">Clear sync cache</h2>
 
 <p>As the Directory Connector works at syncing changes up to your Bitwarden organization it keeps a local cache. This cache helps the Directory Connector only send the difference in directory changes (deltas) from the previous time that it performed a sync operation. If you encounter sync errors or a particular directory change is not correctly being synced, you may need to clear this cache. Clearing the cache will allow a full sync to occur during the next sync operation.</p>
 
@@ -267,7 +289,139 @@
   <li>Click the <strong>Clear Sync Cache</strong> button from the <strong>Other</strong> section.</li>
 </ol>
 
-<h3 id="source-code">Source code</h3>
+<h2 id="command-line-interface">Command-line Interface</h2>
+
+<p>A command-line interface (CLI) tool is also available to connect to and sync your directory. The Bitwarden Directory Connector CLI is especially useful whenever you are working in environments where a GUI is not available, or if you want to programmatically script directory sync operations using tools provided by the operating system (cron job, scheduled task, etc). The Bitwarden Directory Connector CLI can be used cross-platform on Windows, macOS, and Linux distributions.</p>
+
+<h3 id="quick-start">Quick Start</h3>
+
+<ol>
+  <li><a href="#download-and-install">Download and install</a> the Directory Connector CLI for your platform.</li>
+  <li>Move <code>bwdc</code> to <code>/usr/local/bin</code> or another directory in your <code>$PATH</code>. Windows users can <a href="https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">add <code>bwdc.exe</code> to the current user’s <code>PATH</code></a>. <strong>IMPORTANT:</strong> Make sure that the included <code>keytar.node</code> dependency remains in the same directory as the main <code>bwdc</code> executable.</li>
+  <li>
+    <p>Verify the <code>bwdc</code> command works in your terminal.</p>
+
+    <pre><code>bwdc --help
+</code></pre>
+  </li>
+</ol>
+
+<h3 id="download-and-install-1">Download and Install</h3>
+
+<p>See the <a href="#download-and-install">download and install</a> section above for links to download the CLI executable for your platform.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>When extracting the zip, make sure that the included <code>keytar.node</code> dependency remains in the same directory as the main <code>bwdc</code> executable.</p>
+
+        </div>
+
+<h3 id="shared-data">Shared Data</h3>
+
+<p>The Directory Connector CLI shares the same database and configuration settings with the Directory Connector GUI application. You can install and use both applications together, however, you should avoid using them both at the same time.</p>
+
+<p>Though not required, often times it may be helpful to use the Directory Connector GUI application first to setup and configure all of your settings before using the Directory Connector CLI.</p>
+
+<p>The default location for the shared <code>data.json</code> database file depends on which platform you are using.</p>
+
+<ul>
+  <li>Windows : <code>%AppData%\Bitwarden Directory Connector</code></li>
+  <li>macOS: <code>~/Library/Application Support/Bitwarden Directory Connector</code></li>
+  <li>Linux: <code>~/.config/Bitwarden Directory Connector</code></li>
+</ul>
+
+<h3 id="explore-the-cli">Explore the CLI</h3>
+
+<p>The Bitwarden Directory Connector CLI is self-documented with <code>--help</code> content and examples for every command. You should start exploring the Directory Connector CLI by using the global <code>--help</code> option:</p>
+
+<pre><code>bwdc --help
+</code></pre>
+
+<p>This option will list all available commands that you can use with the Directory Connector CLI.</p>
+
+<p>Additionally, you can use the <code>--help</code> option on a specific command to learn more about it:</p>
+
+<pre><code>bwdc test --help
+bwdc config --help
+</code></pre>
+
+<h3 id="test-command">Test Command</h3>
+
+<p>The <code>test</code> command queries your directory and prints a JSON formatted array of groups and users that will be synced to your Bitwarden organization whenever you run a real sync operation.</p>
+
+<pre><code>bwdc test
+</code></pre>
+
+<h3 id="sync-command">Sync Command</h3>
+
+<p>The <code>sync</code> command runs a live sync operation and pushes data to your Bitwarden organization.</p>
+
+<pre><code>bw sync
+</code></pre>
+
+<p>Your synced users and groups will be immediately available in your Bitwarden organization. Synced users will receive an email invite to your organization.</p>
+
+<h3 id="config-command">Config Command</h3>
+
+<p>The <code>config</code> command allow you to specify settings for the Directory Connector CLI to use.</p>
+
+<pre><code>bwdc config &lt;setting&gt; &lt;value&gt;
+</code></pre>
+
+<p>For example, if you are using a self hosted Bitwarden server you will need to change the endpoint that the Directory Connector CLI communicates with.</p>
+
+<pre><code>bwdc config server https://bitwarden.company.com
+</code></pre>
+
+<p>You can also use the <code>config</code> command to set parameters that require secure storage and cannot be modified directly in the <code>data.json</code> database file, such as passwords or access tokens.</p>
+
+<pre><code>bwdc config ldap.password &lt;password&gt;
+bwdc config azure.key &lt;key&gt;
+bwdc config gsuite.key &lt;key&gt;
+bwdc config okta.token &lt;token&gt;
+</code></pre>
+
+<p>Additional configuration settings can be modified in the Bitwarden Directory Connector GUI application or by editing the <code>data.json</code> database file directly in your favorite text editor. <a href="#shared-data">Read more about shared data</a>.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>You should avoid opening or modifying the <code>data.json</code> database file while the Directory Connector GUI application or CLI executable is running.</p>
+
+        </div>
+
+<h3 id="clear-cache-command">Clear Cache Command</h3>
+
+<p>The <code>clear-cache</code> command allows you to clear cached data that the application stores while performing sync operations. <a href="#clear-sync-cache">Read more about clearing sync cache</a>.</p>
+
+<pre><code>bwdc clear-cache
+</code></pre>
+
+<h3 id="update-command">Update Command</h3>
+
+<p>The <code>update</code> command allows you to check if your Directory Connector CLI is up to date. The Directory Connector CLI will not automatically update. You must download new versions of the Directory Connector CLI manually.</p>
+
+<pre><code>bwdc update
+</code></pre>
+
+<p>A URL to download a new version of the CLI executable will be returned to you.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>If you are also using the Directory Connector GUI application, it is important that you keep them both up to date and that their versions match. Running two different versions of the Directory Connector GUI application and Directory Connector CLI may cause unexpected issues.</p>
+
+        </div>
+
+<h3 id="version-option">Version Option</h3>
+
+<p>The <code>--version</code> option allows you to check which version the Directory Connector CLI you are currently using.</p>
+
+<pre><code>bwdc --version
+</code></pre>
+
+<h2 id="source-code">Source code</h2>
 
 <p>As with everything here at Bitwarden, the Directory Connector is open source and hosted on GitHub at <a href="https://github.com/bitwarden/directory-connector">https://github.com/bitwarden/directory-connector</a>.</p>
 
@@ -395,11 +549,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1552441352"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1553114090"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1552441352"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1553114090"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
