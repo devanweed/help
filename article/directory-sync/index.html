@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1553114090"
+    <link href="/css/styles.css?v=1553137473"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1553114090"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1553137473"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -163,7 +163,9 @@
       <li><a href="#explore-the-cli">Explore the CLI</a></li>
       <li><a href="#test-command">Test Command</a></li>
       <li><a href="#sync-command">Sync Command</a></li>
+      <li><a href="#last-sync-command">Last Sync Command</a></li>
       <li><a href="#config-command">Config Command</a></li>
+      <li><a href="#data-file-command">Data File Command</a></li>
       <li><a href="#clear-cache-command">Clear Cache Command</a></li>
       <li><a href="#update-command">Update Command</a></li>
       <li><a href="#version-option">Version Option</a></li>
@@ -291,7 +293,7 @@
 
 <h2 id="command-line-interface">Command-line Interface</h2>
 
-<p>A command-line interface (CLI) tool is also available to connect to and sync your directory. The Bitwarden Directory Connector CLI is especially useful whenever you are working in environments where a GUI is not available, or if you want to programmatically script directory sync operations using tools provided by the operating system (cron job, scheduled task, etc). The Bitwarden Directory Connector CLI can be used cross-platform on Windows, macOS, and Linux distributions.</p>
+<p>A command-line interface (CLI) tool is also available to connect to and sync your directory. The Bitwarden Directory Connector CLI is especially useful whenever you are working in environments where a desktop GUI is not available, or if you want to programmatically script directory sync operations using tools provided by the operating system (cron job, scheduled task, etc). The Bitwarden Directory Connector CLI can be used cross-platform on Windows, macOS, and Linux distributions.</p>
 
 <h3 id="quick-start">Quick Start</h3>
 
@@ -319,9 +321,9 @@
 
 <h3 id="shared-data">Shared Data</h3>
 
-<p>The Directory Connector CLI shares the same database and configuration settings with the Directory Connector GUI application. You can install and use both applications together, however, you should avoid using them both at the same time.</p>
+<p>The Directory Connector CLI shares the same database and configuration settings with the Directory Connector desktop application. You can install and use both applications together, however, you should avoid using them both at the same time.</p>
 
-<p>Though not required, often times it may be helpful to use the Directory Connector GUI application first to setup and configure all of your settings before using the Directory Connector CLI.</p>
+<p>Though not required, often times it may be helpful to use the Directory Connector desktop application first to setup and configure all of your settings before using the Directory Connector CLI.</p>
 
 <p>The default location for the shared <code>data.json</code> database file depends on which platform you are using.</p>
 
@@ -330,6 +332,8 @@
   <li>macOS: <code>~/Library/Application Support/Bitwarden Directory Connector</code></li>
   <li>Linux: <code>~/.config/Bitwarden Directory Connector</code></li>
 </ul>
+
+<p>The <a href="#data-file-command"><code>data-file</code> command</a> can be used to discover the absolute path to the <code>data.json</code> database file on your system.</p>
 
 <h3 id="explore-the-cli">Explore the CLI</h3>
 
@@ -362,6 +366,14 @@ bwdc config --help
 
 <p>Your synced users and groups will be immediately available in your Bitwarden organization. Synced users will receive an email invite to your organization.</p>
 
+<h3 id="last-sync-command">Last Sync Command</h3>
+
+<p>The <code>last-sync</code> command returns an <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> timestamp of the last time a sync operation has been performed for users or groups:</p>
+
+<pre><code>bwdc last-sync users
+bwdc last-sync groups
+</code></pre>
+
 <h3 id="config-command">Config Command</h3>
 
 <p>The <code>config</code> command allow you to specify settings for the Directory Connector CLI to use.</p>
@@ -382,14 +394,23 @@ bwdc config gsuite.key &lt;key&gt;
 bwdc config okta.token &lt;token&gt;
 </code></pre>
 
-<p>Additional configuration settings can be modified in the Bitwarden Directory Connector GUI application or by editing the <code>data.json</code> database file directly in your favorite text editor. <a href="#shared-data">Read more about shared data</a>.</p>
+<p>Additional configuration settings can be modified in the Bitwarden Directory Connector desktop application or by editing the <code>data.json</code> database file directly in your favorite text editor. <a href="#shared-data">Read more about shared data</a>.</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>You should avoid opening or modifying the <code>data.json</code> database file while the Directory Connector GUI application or CLI executable is running.</p>
+<p>You should avoid opening or modifying the <code>data.json</code> database file while the Directory Connector desktop application or CLI executable is running.</p>
 
         </div>
+
+<h3 id="data-file-command">Data File Command</h3>
+
+<p>The <code>data-file</code> command returns an absolute path to the <code>data.json</code> database file used by the Directory Connector CLI.</p>
+
+<pre><code>bwdc data-file
+</code></pre>
+
+<p>Configuration settings can be modified for the Directory Connector CLI by editing the <code>data.json</code> database file directly in your favorite text editor. <a href="#shared-data">Read more about shared data</a>.</p>
 
 <h3 id="clear-cache-command">Clear Cache Command</h3>
 
@@ -410,7 +431,7 @@ bwdc config okta.token &lt;token&gt;
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
             
-<p>If you are also using the Directory Connector GUI application, it is important that you keep them both up to date and that their versions match. Running two different versions of the Directory Connector GUI application and Directory Connector CLI may cause unexpected issues.</p>
+<p>If you are also using the Directory Connector desktop application, it is important that you keep them both up to date and that their versions match. Running two different versions of the Directory Connector desktop application and Directory Connector CLI may cause unexpected issues.</p>
 
         </div>
 
@@ -549,11 +570,11 @@ bwdc config okta.token &lt;token&gt;
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1553114090"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1553137473"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1553114090"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1553137473"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
