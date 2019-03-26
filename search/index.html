@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1553603418"
+    <link href="/css/styles.css?v=1553609204"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1553603418"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1553609204"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -572,6 +572,16 @@
     
     
     
+      "article-public-api": {
+          "title": "RESTful API for managing your organization",
+          "tags": "api",
+          "content": "Bitwarden provides a full-featured RESTful API for managing your organization. You can use the API to manage your organization’s members, collections, groups, event logs, and more. The API has predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.             Note            API access is only available to enterprise organizations.        Table of Contents  Endpoints  Content Types  Authentication  Errors  Explore the APIEndpointsThe following endpoints are used when accessing the API:Public Cloud Server API  Authentication: https://identity.bitwarden.com/connect/token  Base URL: https://api.bitwarden.comOn-premises Server API  Authentication: https://your.server.com/identity/connect/token  Base URL: https://your.server.com/apiContent TypesThe Bitwarden RESTful API communicates with application/json requests and responses. The only exception is the authentication endpoint, which expects a application/x-www-form-urlencoded request. The authentication endpoint will respond with application/json.AuthenticationThe Bitwarden RESTful API uses bearer access tokens to authenticate with protected API endpoints. An OAuth2 client credentials (application) flow is used to obtain a bearer access token from the authentication endpoint. You can obtain your client_id and client_secret from your organization through the web vault. Navigate to your organization’s administrative area, then Settings → My Organization → API Key.             Note            Your API Key (specifically the client_secret) should be kept private. If you believe that this key has been compromised, you can always invalidate and rotate the key from the organization’s administrative area.        To obtain a bearer access token, make a application/x-www-form-urlencoded POST request with your client_id and client_secret to the authentication endpoint. For access to the organization APIs, you will use the api.organization scope.Example request:curl -X POST \\  https://identity.bitwarden.com/connect/token \\  -H 'Content-Type: application/x-www-form-urlencoded' \\  -d 'grant_type=client_credentials&amp;scope=api.organization&amp;client_id=&lt;ID&gt;&amp;client_secret=&lt;SECRET&gt;'A bearer access token with a expiration value (in seconds, from now) will be returned.Example response:{  \"access_token\": \"&lt;TOKEN&gt;\",  \"expires_in\": 3600,  \"token_type\": \"Bearer\"}You can then use this bearer token in the Authorization header to make authorized calls to API endpoints.Example:curl -X GET \\  https://api.bitwarden.com/public/collections \\  -H 'Authorization: Bearer &lt;TOKEN&gt;'You will need to keep track of the token’s expiration and renew it whenever it nears expiration or has expired. Calling API endpoints that require authorization without a bearer token or with an expired token will return a 401 Unauthorized status code.ErrorsThe Bitwarden RESTful API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided. Codes in the 5xx range indicate an error with Bitwarden’s servers (these are rare).  200 - OK: Everything worked as expected.  400 - Bad Request: The request was unacceptable, often due to missing or malformed parameter.  401 - Unauthorized: No valid bearer token provided.  404 - Not Found: The requested resource doesn’t exist.  429 - Too Many Requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.  500, 502, 503, 504 - Server Errors: Something went wrong on Bitwarden’s end. (These are rare.)Explore the APIThe Bitwarden RESTful API is compatible with the OpenAPI specification and publishes a compliant swagger.json definition file.You can explore and execute the API endpoints and their definitions using Swagger UI at:Public Cloud Server API  https://docs.bitwarden.com/api/On-premises Server API  https://your.domain.com/api/docs/",
+          "url": "/article/public-api/"
+      }
+    ,
+    
+    
+    
       "article-what-is-an-organization": {
           "title": "What are organizations?",
           "tags": "",
@@ -819,11 +829,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1553603418"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1553609204"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1553603418"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1553609204"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
