@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1557417422"
+    <link href="/css/styles.css?v=1558570199"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1557417422"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1558570199"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -197,10 +197,10 @@
 
 <p>You can include/exclude users directly by using <code>include</code> or <code>exclude</code> keywords like below:</p>
 
-<pre><code>include:joe@company.com,bill@company.com,tom@company.com
+<pre><code>include:joe@example.com,bill@example.com,tom@example.com
 </code></pre>
 
-<pre><code>exclude:joe@company.com
+<pre><code>exclude:joe@example.com
 </code></pre>
 
 <p>Alternatively, you can filter users based on their Azure AD group membership by using <code>includeGroup</code> or <code>excludeGroup</code> keywords. You must obtain the Azure AD group ID and include it with the keyword. You can get the group’s ID in the <a href="https://portal.azure.com">Azure Portal</a> or through <a href="https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadgroup?view=azureadps-2.0">Azure AD PowerShell</a>.</p>
@@ -244,12 +244,12 @@
 
 <p>Only the include/exclude filter:</p>
 
-<pre><code>include:joe@company.com,bill@company.com,tom@company.com
+<pre><code>include:joe@example.com,bill@example.com,tom@example.com
 </code></pre>
 
 <p>An include/exclude filter + a G Suite <code>query</code> search:</p>
 
-<pre><code>exclude:john@company.com,bill@company.com|orgName=Engineering orgTitle:Manager
+<pre><code>exclude:john@example.com,bill@example.com|orgName=Engineering orgTitle:Manager
 </code></pre>
 
 <p>Only the G Suite <code>query</code> search (notice the <code>|</code> prefix that is required):</p>
@@ -288,12 +288,12 @@
 
 <p>Only the include/exclude filter:</p>
 
-<pre><code>include:joe@company.com,bill@company.com,tom@company.com
+<pre><code>include:joe@example.com,bill@example.com,tom@example.com
 </code></pre>
 
 <p>An include/exclude filter + an Okta <code>filter</code>:</p>
 
-<pre><code>exclude:john@company.com,bill@company.com|profile.firstName eq "John"
+<pre><code>exclude:john@example.com,bill@example.com|profile.firstName eq "John"
 </code></pre>
 
 <p>Only the Okta <code>filter</code> search (notice the <code>|</code> prefix that is required):</p>
@@ -425,11 +425,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1557417422"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1558570199"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1557417422"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1558570199"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>

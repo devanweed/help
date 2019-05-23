@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1557417422"
+    <link href="/css/styles.css?v=1558570199"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1557417422"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1558570199"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -188,7 +188,7 @@
 
 <p>By default, Bitwarden will be served through ports 80 (http) and 443 (https) on the localhost machine. You should open these ports so that Bitwarden can be accessed from within and/or outside of the network. You can choose different ports during installation if you like.</p>
 
-<p>If you are serving Bitwarden to the outside world you will need to configure a domain name with DNS records that point to your host machine (ex. bitwarden.company.com). <em>You should configure this domain before beginning your Bitwarden installation.</em></p>
+<p>If you are serving Bitwarden to the outside world you will need to configure a domain name with DNS records that point to your host machine (ex. bitwarden.example.com). <em>You should configure this domain before beginning your Bitwarden installation.</em></p>
 
 <p>Alternatively, if you are only testing you can install Bitwarden to the “localhost” domain.</p>
 
@@ -458,18 +458,18 @@ openssl pkcs12 -export -out ./identity/identity.pfx -inkey identity.key \
 
     <p>Example self-signed certificate:</p>
 
-    <pre><code># mkdir ./ssl/bitwarden.company.com
+    <pre><code># mkdir ./ssl/bitwarden.example.com
 openssl req -x509 -newkey rsa:4096 -sha256 -nodes -days 365 \
-  -keyout ./ssl/bitwarden.company.com/private.key \
-  -out ./ssl/bitwarden.company.com/certificate.crt \
+  -keyout ./ssl/bitwarden.example.com/private.key \
+  -out ./ssl/bitwarden.example.com/certificate.crt \
   -reqexts SAN -extensions SAN \
-  -config &lt;(cat /usr/lib/ssl/openssl.cnf &lt;(printf '[SAN]\nsubjectAltName=DNS:bitwarden.company.com\nbasicConstraints=CA:true')) \
-  -subj "/C=US/ST=New York/L=New York/O=Company Name/OU=Bitwarden/CN=bitwarden.company.com"
+  -config &lt;(cat /usr/lib/ssl/openssl.cnf &lt;(printf '[SAN]\nsubjectAltName=DNS:bitwarden.example.com\nbasicConstraints=CA:true')) \
+  -subj "/C=US/ST=New York/L=New York/O=Company Name/OU=Bitwarden/CN=bitwarden.example.com"
 </code></pre>
   </li>
   <li>Update the <code>server_name</code>, HTTPS redirects, and <code>Content-Security-Policy</code> header with your hostname at <code>./nginx/default.conf</code>.</li>
   <li>Generate your own random password strings for the <code>sqlServer__connectionString</code> <code>RANDOM_DATABASE_PASSWORD</code>, <code>internalIdentityKey</code> <code>RANDOM_IDENTITY_KEY</code>, and <code>duo__aKey</code> <code>RANDOM_DUO_AKEY</code> and update the variables at <code>./env/global.override.env</code>. Also be sure to apply the same <code>RANDOM_DATABASE_PASSWORD</code> at <code>./env/mssql.override.env</code></li>
-  <li>Update the <code>app-id.json</code> file at <code>./web/app-id.json</code> to include your hostname’s URL (ex. <code>https://bitwarden.company.com</code>).</li>
+  <li>Update the <code>app-id.json</code> file at <code>./web/app-id.json</code> to include your hostname’s URL (ex. <code>https://bitwarden.example.com</code>).</li>
   <li>Configure your SMTP mail server and any other desired application settings at <code>./env/global.override.env</code>.</li>
   <li>
     <p>Map the desired user and group id for the Bitwarden containers to run under at <code>./env/uid.env</code>.</p>
@@ -619,11 +619,11 @@ LOCAL_GID=1000
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1557417422"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1558570199"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1557417422"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1558570199"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
