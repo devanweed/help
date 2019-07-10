@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1561783566"
+    <link href="/css/styles.css?v=1562762414"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1561783566"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1562762414"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -160,6 +160,7 @@
       <li><a href="#quick-start">Quick Start</a></li>
       <li><a href="#download-and-install-1">Download and Install</a></li>
       <li><a href="#shared-data">Shared Data</a></li>
+      <li><a href="#secret-storage">Secret Storage</a></li>
       <li><a href="#explore-the-cli">Explore the CLI</a></li>
       <li><a href="#test-command">Test Command</a></li>
       <li><a href="#sync-command">Sync Command</a></li>
@@ -333,12 +334,38 @@
 <p>The default location for the shared <code>data.json</code> database file depends on which platform you are using.</p>
 
 <ul>
-  <li>Windows : <code>%AppData%\Bitwarden Directory Connector</code></li>
+  <li>Windows : <code>%AppData%\Bitwarden Directory Connector</code>
+    <ul>
+      <li>Portable: <code>.\bitwarden-connector-appdata</code></li>
+    </ul>
+  </li>
   <li>macOS: <code>~/Library/Application Support/Bitwarden Directory Connector</code></li>
   <li>Linux: <code>~/.config/Bitwarden Directory Connector</code></li>
 </ul>
 
 <p>The <a href="#data-file-command"><code>data-file</code> command</a> can be used to discover the absolute path to the <code>data.json</code> database file on your system.</p>
+
+<h3 id="secret-storage">Secret Storage</h3>
+
+<p>By default, the Directory Connector desktop application and CLI both use a secure method for persisting sensitive data such as your directory account password, API keys, etc. On Linux systems, this requires the GNOME keyring and X11 which are usually reserved for desktop environments. If you are using a headless Linux environment you may encounter errors such as:</p>
+
+<blockquote>
+  <p>Cannot autolaunch D-Bus without X11 $DISPLAY</p>
+</blockquote>
+
+<p>If a secure storage environment is not available, you can configure the Directory Connector CLI to use plaintext storage of secrets. Set the following environment variable to override secure storage:</p>
+
+<pre><code>BITWARDENCLI_CONNECTOR_PLAINTEXT_SECRETS=true
+</code></pre>
+
+<p>With plaintext storage enabled, you can then configure all settings directly, in plaintext, from the <code>data.json</code> database file.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Plaintext storage of secrets is not compatible with the Directory Connector desktop application. You should only use the Directory Connector CLI with plaintext storage of secrets.</p>
+
+        </div>
 
 <h3 id="explore-the-cli">Explore the CLI</h3>
 
@@ -579,11 +606,11 @@ bwdc config okta.token &lt;token&gt;
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1561783566"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1562762414"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1561783566"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1562762414"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
