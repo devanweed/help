@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1564693756"
+    <link href="/css/styles.css?v=1566336306"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1564693756"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1566336306"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -114,7 +114,7 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden supports two-step login via <a href="https://www.yubico.com" target="_blank">YubiKey</a>. Any YubiKey that supports <a href="https://www.yubico.com/products/yubikey-hardware/compare-yubikeys/" target="_blank">OTP capabilities</a> can be used. This includes all YubiKey 4 and 5 series devices as well as YubiKey NEO.</p>
+            <p>Bitwarden supports two-step login via <a href="https://www.yubico.com" target="_blank">YubiKey</a>. Any YubiKey that supports <a href="https://www.yubico.com/products/yubikey-hardware/compare-yubikeys/" target="_blank">OTP capabilities</a> can be used. This includes all YubiKey 4 and 5 series devices as well as YubiKey NEO and YubiKey NFC.</p>
 
 <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
@@ -129,7 +129,7 @@
   <li>Desktop app on a device with a USB port that can accept your YubiKey.</li>
   <li>CLI on a device with a USB port that can accept your YubiKey.</li>
   <li>Android on a device with <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">NFC capabilities</a> or a USB port that can accept your YubiKey. Read more <a href="https://forum.yubico.com/viewtopic1c5f.html?f=26&amp;t=1302" target="_blank">here</a>.</li>
-  <li>iOS on a device with <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">NFC capabilities</a>.</li>
+  <li>iOS on a device with <a href="https://en.wikipedia.org/wiki/List_of_NFC-enabled_mobile_devices" target="_blank">NFC capabilities</a> or via lightning port with YubiKey 5Ci.</li>
 </ul>
 
         </div>
@@ -217,7 +217,6 @@
 </ol>
 
 <p>If the YubiKey NEO or YubiKey 5 NFC can be used on your Android device you will be prompted with a YubiKey option while logging in to Bitwarden. Simply place the YubiKey on the back of your Android device near the NFC receiver. If you do not know where your NFC receiver is located, you may need to move it around some, trying different areas. Once Bitwarden detects the YubiKey it will automatically validate and log you in.</p>
-
 
         </div>
         
@@ -348,11 +347,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1564693756"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1566336306"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1564693756"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1566336306"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
