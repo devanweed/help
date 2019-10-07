@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1569120239"
+    <link href="/css/styles.css?v=1570462073"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1569120239"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1570462073"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -324,7 +324,7 @@ bw create --help
 
 <p>The <code>list</code> command allows you to retrieve an array of objects from your vault.</p>
 
-<pre><code>bw list (items|folders|collections|organizations) [options]
+<pre><code>bw list (items|folders|collections|organizations|org-collections|org-members) [options]
 </code></pre>
 
 <p>You can <em>search</em> the list of returned objects by using the <code>--search</code> option. You can also <em>filter</em> the list by using the <code>--folderid</code>, <code>--collectionid</code>, or <code>--organizationid</code> options. Combining search and filter options performs a logical AND operation.</p>
@@ -341,7 +341,7 @@ bw create --help
 
 <p>The <code>get</code> command allows you to retrieve a single object from your vault.</p>
 
-<pre><code>bw get (item|username|password|uri|totp|exposed|attachment|folder|collection|organization|template|fingerprint) &lt;id&gt;
+<pre><code>bw get (item|username|password|uri|totp|exposed|attachment|folder|collection|organization|org-collection|template|fingerprint) &lt;id&gt; [options]
 </code></pre>
 
 <p>You can retrieve an object by its globally using <code>id</code> property (usually a GUID), or you can provide a search term. The search term must be specific enough to only return a single result or the CLI will return an error.</p>
@@ -364,7 +364,7 @@ bw get attachment photo.jpg --raw \
 
 <p>The <code>create</code> command allows you to create new objects in your vault.</p>
 
-<pre><code>bw create (item|folder) [encodedJson]
+<pre><code>bw create (item|attachment|folder|org-collection) [encodedJson] [options]
 </code></pre>
 
 <p>The process for creating an object may look something like this:</p>
@@ -408,7 +408,7 @@ bw get attachment photo.jpg --raw \
 
 <p>The <code>edit</code> command allows you to edit an item in your vault. It works similarly to the <code>create</code> command with the added requirement of an object id. The <code>edit</code> command will perform a <em>replace</em> operation on the object. Upon success, the updated object will be returned.</p>
 
-<pre><code>bw edit (item|item-collections|folder) &lt;id&gt; [encodedJson]
+<pre><code>bw edit (item|item-collections|folder|org-collection) &lt;id&gt; [encodedJson] [options]
 </code></pre>
 <pre><code>bw edit folder dadc91e0-dcda-4bc2-8cd6-52100027c782 eyJuYW1lIjoiV2hhdCBGb2xkZXIifQ==
 bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder"' | \
@@ -421,7 +421,7 @@ echo '["86544cd3-7e07-42bb-ba3c-e7f59852acaa","ae8c6c9e-26de-442c-b63b-3e28ef61d
 
 <p>The <code>delete</code> command allows you to delete an object from your vault.</p>
 
-<pre><code>bw delete (item|attachment|folder) &lt;id&gt; [options]
+<pre><code>bw delete (item|attachment|folder|org-collection) &lt;id&gt; [options]
 </code></pre>
 <pre><code>bw delete folder dadc91e0-dcda-4bc2-8cd6-52100027c782
 bw delete attachment b857igwl1d --itemid 310d5ffd-e9a2-4451-af87-ea054dce0f78
@@ -462,12 +462,13 @@ bw import bitwardencsv ./file.csv
 
 <p>The <code>export</code> command allows you to export your <em>unencrypted</em> vault data to a CSV or JSON formatted file on disk.</p>
 
-<pre><code>bw export [password] [--output &lt;filePath&gt;] [--format &lt;format&gt;]
+<pre><code>bw export [password] [--output &lt;filePath&gt;] [--format &lt;format&gt;] [--organizationid &lt;orgId&gt;]
 </code></pre>
 <pre><code>bw export
 bw export --format csv
 bw export myPassword321 --output ./backups/
 bw export myPassword321 --output ./my_backup.json --format json
+bw export myPassword321 --organizationid 7063feab-4b10-472e-b64c-785e2b870b92
 </code></pre>
 
 <h3 id="generate">Generate</h3>
@@ -891,11 +892,11 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1569120239"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1570462073"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8= sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1569120239"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1570462073"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
