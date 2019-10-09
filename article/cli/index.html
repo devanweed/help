@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1570479342"
+    <link href="/css/styles.css?v=1570656430"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1570479342"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1570656430"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -153,6 +153,7 @@
   </li>
   <li><a href="#other-useful-commands">Other Useful Commands</a>
     <ul>
+      <li><a href="#confirm">Confirm</a></li>
       <li><a href="#import">Import</a></li>
       <li><a href="#export">Export</a></li>
       <li><a href="#generate">Generate</a></li>
@@ -448,6 +449,13 @@ echo '["974053d0-3b33-4b98-886e-fecf5c8dba96"]' | bw encode | \
 
 <p>The CLI comes with several other commands that you may find useful.</p>
 
+<h3 id="confirm">Confirm</h3>
+
+<p>The <code>confirm</code> command allows you to confirm invited members of your organization that have already accepted their invitation.</p>
+
+<pre><code>bw confirm org-member &lt;id&gt; --organizationid &lt;orgId&gt;
+</code></pre>
+
 <h3 id="import">Import</h3>
 
 <p>The <code>import</code> command allows you to import data from a previous Bitwarden export or another <a href="/article/import-data/">supported password management application</a>.</p>
@@ -564,6 +572,7 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
   <li><code>folder</code></li>
   <li><code>collection</code></li>
   <li><code>item-collections</code></li>
+  <li><code>org-collection</code></li>
 </ul>
 
 <pre><code>bw get template item
@@ -735,6 +744,10 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
       <td>User</td>
       <td>2</td>
     </tr>
+    <tr>
+      <td>Manager</td>
+      <td>3</td>
+    </tr>
   </tbody>
 </table>
 
@@ -892,11 +905,11 @@ bw get folder dadc91e0-dcda-4bc2-8cd6-52100027c782 | jq '.name = "Updated Folder
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1570479342"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1570656430"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1570479342"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1570656430"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
