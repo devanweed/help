@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1571753558"
+    <link href="/css/styles.css?v=1571754688"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1571753558"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1571754688"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -170,6 +170,7 @@
       <li><a href="#clear-cache-command">Clear Cache Command</a></li>
       <li><a href="#update-command">Update Command</a></li>
       <li><a href="#version-option">Version Option</a></li>
+      <li><a href="#enums">Enums</a></li>
     </ul>
   </li>
   <li><a href="#source-code">Source code</a></li>
@@ -478,6 +479,40 @@ bwdc config okta.token &lt;token&gt;
 
 <p>If you receive an error message referring to the libsecret shared object <code>Error: libsecret-1.so.0: cannot open shared object file: No such file or directory</code>, you may need to install libsecret which is required to store things securely on the host.</p>
 
+<h3 id="enums">Enums</h3>
+
+<p><strong>Two Step Login Methods</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authenticator</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Yubikey</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Other two-step login methods such as FIDO U2F and Duo are not supported by the CLI.</p>
+
+        </div>
+
 <h2 id="source-code">Source code</h2>
 
 <p>As with everything here at Bitwarden, the Directory Connector is open source and hosted on GitHub at <a href="https://github.com/bitwarden/directory-connector">https://github.com/bitwarden/directory-connector</a>.</p>
@@ -606,11 +641,11 @@ bwdc config okta.token &lt;token&gt;
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1571753558"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1571754688"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1571753558"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1571754688"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
