@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1574775717"
+    <link href="/css/styles.css?v=1578279286"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1574775717"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1578279286"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -154,7 +154,7 @@
   <li>Windows
     <ul>
       <li>Chrome: <code>%LocalAppData%\Google\Chrome\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Firefox: <code>%AppData%\Mozilla\Firefox\Profiles\your_profile\browser-extension-data\{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
+      <li>Firefox: <code>%AppData%\Mozilla\Firefox\Profiles\your_profile\storage\default\moz-extension+++[UUID]^userContextId=[integer]</code></li>
       <li>Opera: <code>%AppData%\Opera Software\Opera Stable\Local Extension Settings\ccnckbpmaceehanjmeomladnmlffdjgn</code></li>
       <li>Vivaldi: <code>%LocalAppData%\Vivaldi\User Data\Default\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
       <li>Brave: <code>%AppData%\brave\Local Extension Settings\nngceckbapebfimnlniiiahkandclblb</code></li>
@@ -164,17 +164,27 @@
   <li>macOS
     <ul>
       <li>Chrome: <code>~/Library/Application Support/Google/Chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Firefox: <code>~/Library/Application Support/Firefox/Profiles/your_profile/browser-extension-data/{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
+      <li>Firefox: <code>~/Library/Application Support/Firefox/Profiles/your_profile/storage/default/moz-extension+++[UUID]^userContextID=[integer]</code></li>
       <li>Safari: <code>~/Library/Safari/Databases</code></li>
     </ul>
   </li>
   <li>Linux
     <ul>
       <li>Chrome: <code>~/.config/google-chrome/Default/Local Extension Settings/nngceckbapebfimnlniiiahkandclblb</code></li>
-      <li>Firefox: <code>~/.mozilla/firefox/your_profile/browser-extension-data/{446900e4-71c2-419f-a6a7-df9c091e268b}</code></li>
+      <li>Firefox: <code>~/.mozilla/firefox/your_profile/storage/default/moz-extension+++[UUID]^userContextID=[integer]</code></li>
     </ul>
   </li>
 </ul>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>To enhance security, Firefox uses Universally Unique Identifiers (UUIDs) within extension storage folder names.
+Use the <code>about:debugging#/runtime/this-firefox</code> page (navigate from Firefox’s address bar) to locate your Bitwarden extension UUID.
+Replace [UUID] with that UUID.
+Note also that Firefox allows users to customize where to store their profiles (and thus local Bitwarden extension data). The location specified above is the default.</p>
+
+        </div>
 
 <h2 id="mobile">Mobile</h2>
 
@@ -314,7 +324,7 @@
                             </a>
                         </li>
                     </ul>
-                    &copy; 2015 - 2019, <br class="visible-sm" />8bit Solutions LLC
+                    &copy; 2015 - 2020, <br class="visible-sm" />8bit Solutions LLC
                 </div>
             </div>
         </div>
@@ -322,11 +332,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1574775717"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1578279286"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1574775717"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1578279286"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
