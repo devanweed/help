@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>uMatrix and NoScript access rules | Bitwarden Help &amp; Support</title>
+    <title>Authenticator key (TOTP) storage and use | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        uMatrix and NoScript access rules
+        Authenticator key (TOTP) storage and use
     </h1>
     <div class="breadcrumb">
         Category:
@@ -93,6 +93,7 @@
         
         
         
+        <a href="/features/">Features</a>
         
         
         
@@ -102,7 +103,6 @@
         
         
         
-        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
@@ -114,33 +114,56 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>By default, the uMatrix and NoScript extensions may block the Bitwarden Firefox extension from accessing the Bitwarden API servers. Without adding proper rules to whitelist the Bitwarden API servers, logging in and other API operations will fail.</p>
-
-<h2 id="umatrix">uMatrix</h2>
-
-<p>The following <a href="https://github.com/gorhill/uMatrix/wiki/Rules-syntax">uMatrix rule</a> is required:</p>
-
-<pre><code>dc8ef5f6-eb0d-4c87-9e9f-0cf803f619e8.moz-extension-scheme bitwarden.com xhr allow
-</code></pre>
-
-<div class="callout callout-info">
+            <div class="callout callout-info">
             <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>The UUID included in the above rule (<code>dc8ef5f6-eb0d-4c87-9e9f-0cf803f619e8</code>) will be different for your installation.
-Use the <code>about:debugging#/runtime/this-firefox</code> page (navigate from Firefox’s address bar) to locate your Bitwarden extension UUID.</p>
+            <p>Authenticator key (TOTP) storage is available to all accounts. TOTP code generation requires a premium membership or paid organization account.</p>
 
         </div>
 
-<h2 id="noscript">NoScript</h2>
+<p>Each website that supports <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">Time-based One-time Password</a> (TOTP) or <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">Two-factor Authentication</a> (2FA) with an “Authenticator” handles configuration slightly differently. You will need to start the setup from each individual website or service that you are accessing (e.g. google.com, github.com). The option to configure this will commonly be found under the “Security” options of your account.</p>
 
-<p>Whitelisting the following domain in NoScript is required: <code>bitwarden.com</code></p>
+<p>The Bitwarden <a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden">Android</a> and <a href="https://apps.apple.com/us/app/bitwarden-password-manager/id1137397744">iOS</a> applications can make adding your TOTP key’s easy by scanning a <a href="https://en.wikipedia.org/wiki/QR_code">QR code</a> to populate the field automatically.</p>
+
+<h2 id="web-vault--other-applications">Web Vault &amp; Other Applications</h2>
+
+<p>Create or edit a login item you wish to store your TOTP key with. In the field labeled “<strong>Authenticator Key (TOTP)</strong>”, input the secret key that you are provided with and select save.</p>
+
+<h2 id="mobile-applications">Mobile Applications</h2>
+
+<p>Create or edit a login item you wish to store your TOTP key with. In the field labeled “<strong>Authenticator Key (TOTP)</strong>”, select the “camera” icon. Scan the QR code you have been presented with and the field will be automatically populated. You can then save the changes.</p>
+
+<h2 id="using-generated-codes">Using Generated Codes</h2>
+
+<p>The Bitwarden mobile applications and browser extension have the ability to automatically copy a TOTP code to your device clipboard after auto-fill. Auto-fill any item that has a TOTP key stored and submit the information. The service you are logging into will ask for a verification code. Use the paste function of your device to input the code and submit it.</p>
+
+<div class="callout callout-success">
+            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
+            <p>This feature can be toggled off under Settings → Options → Disable Automatic TOTP Copy.</p>
+
+        </div>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            <p>TOTP codes will not automatically copy to the system clipboard when “Enable Auto-fill On Page Load” is enabled in the browser extension.</p>
+
+        </div>
+
+<h2 id="support-for-more-parameters">Support for More Parameters</h2>
+
+<p>Some services will use different parameters for their TOTP codes. Bitwarden will generate 6-digit codes using SHA-1 and rotate them every 30 seconds by default. Bitwarden can suport parameters digits (1-10), algorithm (SHA-1, SHA-256, and SHA-512), period (&gt; 0) and secret (base32 key).</p>
+
+<p>Example:</p>
+
+<p><code>otpauth://totp/Test:me?secret=JBSWY3DPEHPK3PXP&amp;algorithm=sha256&amp;digits=8&amp;period=60</code></p>
+
+<p>Learn more about using otpauth:// uri’s here: <a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">https://github.com/google/google-authenticator/wiki/Key-Uri-Format</a></p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            umatrix, firefox
+            autofill, auto-fill, totp, 2fa, two-step login, two factor authentication, authenticator
         </div>
         
     </div>

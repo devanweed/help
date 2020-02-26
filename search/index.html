@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1582227469"
+    <link href="/css/styles.css?v=1582755799"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1582227469"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1582755799"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -287,6 +287,16 @@
           "tags": "attachments, storage, files",
           "content": "             Note            Using file attachments requires a premium membership or paid organization account.        Attaching and managing files can be done from any Bitwarden client application. Any file  100MB or smaller can be attached to an item in your vault.All premium membership and paid organization accounts include 1GB of encrypted file storage. Additional storage can be purchased in 1GB increments if needed.Web VaultSelect the  options button next to the item in your vault and then select the Attachments option. You will then be presented with a list of all attached files for that item as well as options for uploading new attachments.Other ApplicationsAfter viewing an item in your vault you will see existing attachments listed at the bottom of the page. To upload a new attachment, or to delete existing attachments, edit the item and then select the Attachments option.Fixing “Old” AttachmentsPrior to December 2018 file attachments used a different method of encrypting their data. We have since moved to a newer, better way of encrypting file attachments. Any attachments that use the older encryption method will be labeled with an  alert icon in your vault listing. You should upgrade these old attachments to the newer method of encryption so that other account-related features can function properly.  Open the page for editing your attachments (see above).  Click the Fix button next to the old attachment. This process will download the attachment, re-encrypt it using the new encryption method, re-upload the attachment back to your vault, and delete the old version of the attachment.Once an attachment has successfully been upgraded, the  alert icon and fix button should disappear.",
           "url": "/article/attachments/"
+      }
+    ,
+    
+    
+    
+      "article-authenticator-keys": {
+          "title": "Authenticator key (TOTP) storage and use",
+          "tags": "autofill, auto-fill, totp, 2fa, two-step login, two factor authentication, authenticator",
+          "content": "             Note            Authenticator key (TOTP) storage is available to all accounts. TOTP code generation requires a premium membership or paid organization account.        Each website that supports Time-based One-time Password (TOTP) or Two-factor Authentication (2FA) with an “Authenticator” handles configuration slightly differently. You will need to start the setup from each individual website or service that you are accessing (e.g. google.com, github.com). The option to configure this will commonly be found under the “Security” options of your account.The Bitwarden Android and iOS applications can make adding your TOTP key’s easy by scanning a QR code to populate the field automatically.Web Vault &amp; Other ApplicationsCreate or edit a login item you wish to store your TOTP key with. In the field labeled “Authenticator Key (TOTP)”, input the secret key that you are provided with and select save.Mobile ApplicationsCreate or edit a login item you wish to store your TOTP key with. In the field labeled “Authenticator Key (TOTP)”, select the “camera” icon. Scan the QR code you have been presented with and the field will be automatically populated. You can then save the changes.Using Generated CodesThe Bitwarden mobile applications and browser extension have the ability to automatically copy a TOTP code to your device clipboard after auto-fill. Auto-fill any item that has a TOTP key stored and submit the information. The service you are logging into will ask for a verification code. Use the paste function of your device to input the code and submit it.             Tip            This feature can be toggled off under Settings → Options → Disable Automatic TOTP Copy.                     Warning            TOTP codes will not automatically copy to the system clipboard when “Enable Auto-fill On Page Load” is enabled in the browser extension.        Support for More ParametersSome services will use different parameters for their TOTP codes. Bitwarden will generate 6-digit codes using SHA-1 and rotate them every 30 seconds by default. Bitwarden can suport parameters digits (1-10), algorithm (SHA-1, SHA-256, and SHA-512), period (&gt; 0) and secret (base32 key).Example:otpauth://totp/Test:me?secret=JBSWY3DPEHPK3PXP&amp;algorithm=sha256&amp;digits=8&amp;period=60Learn more about using otpauth:// uri’s here: https://github.com/google/google-authenticator/wiki/Key-Uri-Format",
+          "url": "/article/authenticator-keys/"
       }
     ,
     
@@ -809,11 +819,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1582227469"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1582755799"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1582227469"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1582755799"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
