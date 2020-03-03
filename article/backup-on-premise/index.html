@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1583248224"
+    <link href="/css/styles.css?v=1583248781"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1583248224"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1583248781"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -132,29 +132,39 @@
 
 <p>Bitwarden will automatically take nightly backups of the <code>mssql</code> container database. These database backups are kept in the <code>./bwdata/mssql/backups</code> directory. Nightly database backups are kept in this directory for 30 days. In the event of data loss, you can restore one of these daily backups.</p>
 
-<h2 id="restoring-a-nightly-backup">Restoring a nightly backup</h2>
+<h3 id="restoring-a-nightly-backup">Restoring a nightly backup</h3>
+
 <ol>
   <li>
-    <p>Go to your Bitwarden installation and execute an interactive bash shell on the <code>bitwarden-mssql</code> container.</p>
+    <p>Execute an interactive bash shell on the <code>bitwarden-mssql</code> container.</p>
 
-    <pre><code> docker exec -it bitwarden-mssql /bin/bash
+    <pre><code>docker exec -it bitwarden-mssql /bin/bash
 </code></pre>
   </li>
-  <li>Take note of the backup file you wish to restore in the nightly backups directory. The directory here is a host volume for <code>./bwdata/mssql/backups</code>.
-    <pre><code> ls /etc/bitwarden/mssql/backups/ 
+  <li>
+    <p>Take note of the backup file you wish to restore in the nightly backups directory. The backups directory is mapped from a host volume at <code>./bwdata/mssql/backups</code> to <code>/etc/bitwarden/mssql/backups</code> within the <code>bitwarden-mssql</code> container.</p>
+
+    <pre><code>ls /etc/bitwarden/mssql/backups
 </code></pre>
-    <p>For this example, the backup we will be using is named <code>vault_FULL_20200302_235901.BAK</code>, which is a backup of the vault database on 2 March 2020 at 2359. The full path of the backup in this container would be <code>/etc/bitwarden/mssql/backups/vault_FULL_20200302_235901.BAK</code></p>
+
+    <p>For this example, the backup we will be using is named <code>vault_FULL_20200302_235901.BAK</code>, which is a backup of the vault database on March 2, 2020 at 11:53pm. The full path of the backup in the container would be <code>/etc/bitwarden/mssql/backups/vault_FULL_20200302_235901.BAK</code></p>
   </li>
-  <li>Execute <code>sqlcmd</code> with the required authentication.
-    <pre><code> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD}
+  <li>
+    <p>Execute <code>sqlcmd</code> with the required authentication.</p>
+
+    <pre><code>/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD}
 </code></pre>
   </li>
-  <li>Execute the SQL command <code>RESTORE DATABASE</code> with your backup to restore the nightly backup.
-    <pre><code>1&gt; RESTORE DATABASE vault FROM DISK = '/etc/bitwarden/mssql/backups/vault_FULL_20200302_235901.BAK' WITH REPLACE
-2&gt; GO
+  <li>
+    <p>Execute the SQL command <code>RESTORE DATABASE</code> with your backup to restore the nightly backup, followed by a <code>GO</code> command.</p>
+
+    <pre><code>RESTORE DATABASE vault FROM DISK = '/etc/bitwarden/mssql/backups/vault_FULL_20200302_235901.BAK' WITH REPLACE
+GO
 </code></pre>
   </li>
 </ol>
+
+<p>Your Bitwarden database should now be restored.</p>
 
         </div>
         
@@ -285,11 +295,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1583248224"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1583248781"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1583248224"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1583248781"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
