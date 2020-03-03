@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Searching the vault | Bitwarden Help &amp; Support</title>
+    <title>Installing the Bitwarden Safari App Extension | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Searching the vault
+        Installing the Bitwarden Safari App Extension
     </h1>
     <div class="breadcrumb">
         Category:
@@ -93,10 +93,10 @@
         
         
         
-        <a href="/features/">Features</a>
         
         
         
+        <a href="/getting-started/">Getting Started</a>
         
         
         
@@ -114,90 +114,25 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden indexes your vault using a <a href="https://en.wikipedia.org/wiki/Full-text_search" target="_blank">full-text search</a> programming library called <a href="https://lunrjs.com/" target="_blank">Lunr</a>. Lunr provides the ability to invoke high-performance search queries against your vault to quickly find what you need with great accuracy.</p>
+            <p>The new Safari App Extension is now packaged with the Bitwarden Desktop App. This is the recommended development path from Apple for Safari App Extensions.</p>
 
-<h2 id="applications-that-use-full-text-search">Applications that use full-text search</h2>
+<p>You can download the latest Bitwarden Desktop App for macOS with the Safari App Extension here:</p>
 
-<p>The following Bitwarden applications provide full-text searching capabilities and are applicable to the information this article:</p>
+<p>Bitwarden Safari App Extension within the Bitwarden Desktop App
+<a href="https://vault.bitwarden.com/download/?app=desktop&amp;platform=macos">https://vault.bitwarden.com/download/?app=desktop&amp;platform=macos</a></p>
 
-<ul>
-  <li>Web vault</li>
-  <li>Desktop applications</li>
-  <li>Browser extensions</li>
-</ul>
+<p>You can also use the App Store version of the Bitwadren desktop app.</p>
 
-<p>This article <strong>does not</strong> apply to the following Bitwarden applications, which provide only basic search capabilities:</p>
+<p>Be sure to run the desktop application once. If the extension still does not appear, it may just need to be enabled. In Safari, check under Preferences &gt; Extensions.</p>
 
-<ul>
-  <li>CLI</li>
-  <li>Mobile apps</li>
-</ul>
-
-<h2 id="indexed-fields">Indexed Fields</h2>
-
-<p>The following fields from items in your vault are indexed and are searchable:</p>
-
-<ul>
-  <li><code>shortid</code> - First 8 characters of the item’s id.</li>
-  <li><code>organizationid</code> - Id of the item’s organization (if it belongs to one).</li>
-  <li><code>name</code></li>
-  <li><code>subtitle</code> - Login username, card brand + last four, and identity name.</li>
-  <li><code>notes</code></li>
-  <li><code>fields</code> - Name and value. Only “text” type field values are included.</li>
-  <li><code>attachments</code> - File name</li>
-  <li><code>login.username</code></li>
-  <li><code>login.uris</code> - Only the URI’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hostname" target="_blank">hostname</a> value.</li>
-</ul>
-
-<h2 id="wildcard-searches">Wildcard Searches</h2>
-
-<p>The asterisk character (<code>*</code>) provides the ability to perform wildcard searches in your vault. Examples:</p>
-
-<ul>
-  <li><code>*bitwarden</code></li>
-  <li><code>bitwarden*</code></li>
-  <li><code>*bitwarden*</code></li>
-  <li><code>*bit*war*den*</code></li>
-</ul>
-
-<div class="callout callout-info">
-            <h3><i class="fa fa-info-circle"></i> Note</h3>
-            
-<p>The following fields automatically include leading and trailing wildcards while performing normal search queries:</p>
-
-<ul>
-  <li><code>name</code></li>
-  <li><code>subtitle</code></li>
-  <li><code>login.uris</code></li>
-</ul>
-
-<p>It is not necessary to provide wildcards if you are searching for information in these fields.</p>
-
-        </div>
-
-<h2 id="advanced-searches">Advanced Searches</h2>
-
-<p>Starting your search query with a greater than character (<code>&gt;</code>) enables the full power of <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr search queries</a>.</p>
-
-<h3 id="advanced-search-examples">Advanced Search Examples</h3>
-
-<ul>
-  <li><code>&gt;bitwarden*</code> - Search all fields for a term that starts with “bitwarden”.</li>
-  <li><code>&gt;notes:something</code> - Search the notes field for the term “something”.</li>
-  <li><code>&gt;login.username:jsmith</code> - Search the username field on items of type login for the term “jsmith”.</li>
-  <li><code>&gt;+organizationid:*</code> - Search for all items that belong to an organization.</li>
-  <li><code>&gt;-organizationid:*</code> - Search for all items that <em>do not</em> belong to an organization (items that you own).</li>
-  <li><code>&gt;+foo bar -baz</code> - Search for items that must contain “foo”, might contain “bar” and must not contain “baz”.</li>
-</ul>
-
-<p>Learn more about writing advanced search queries using <a href="https://lunrjs.com/guides/searching.html" target="_blank">Lunr’s searching guide</a>.</p>
+<p>For developer detail on Safari App Extensions, click <a href="https://developer.apple.com/documentation/safariservices/safari_app_extensions">here</a>.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            search, lunr
+            browser, safari
         </div>
         
     </div>
