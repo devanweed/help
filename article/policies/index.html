@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>How do you keep the cloud servers secure? | Bitwarden Help &amp; Support</title>
+    <title>Enterprise Policies | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        How do you keep the cloud servers secure?
+        Enterprise Policies
     </h1>
     <div class="breadcrumb">
         Category:
@@ -105,25 +105,157 @@
         
         
         
+        <a href="/organizations/">Organizations</a>
         
         
         
-        <a href="/security/">Security</a>
         
         
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Bitwarden processes and stores all data securely in the <a href="https://en.wikipedia.org/wiki/Microsoft_Azure" target="_blank">Microsoft Azure cloud</a> using services that are managed by the team at Microsoft. Since Bitwarden only uses service offerings provided by Azure, there is no server infrastructure to manage and maintain. All uptime, scalability, and security updates and guarantees are backed by Microsoft and their cloud infrastructure.</p>
+            <h2 id="table-of-contents">Table of contents</h2>
 
-<p>Don’t trust the Bitwarden cloud? You don’t have to. Open source is beautiful. You can easily host the entire Bitwarden stack yourself. You control your data. Learn more <a href="/article/install-on-premise/">here</a>.</p>
+<ul>
+  <li><a href="#what-are-organizations">What are organizations</a></li>
+  <li><a href="#what-are-enterprise-policies">What are Enterprise Policies</a></li>
+  <li><a href="#available-policies">Available Policies</a>
+    <ul>
+      <li><a href="#two-step-login">Two-Step Login</a>
+        <ul>
+          <li><a href="#setting-the-policy">Setting the Policy</a></li>
+        </ul>
+      </li>
+      <li><a href="#password-generator">Password Generator</a>
+        <ul>
+          <li><a href="#generator-options">Generator Options</a></li>
+          <li><a href="#setting-the-policy-1">Setting the Policy</a></li>
+        </ul>
+      </li>
+      <li><a href="#master-password">Master Password</a>
+        <ul>
+          <li><a href="#setting-the-policy-2">Setting the Policy</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="what-are-organizations">What are organizations</h1>
+
+<p>A Bitwarden organization is an entity that relates users together that want to share items. An organization could be a family, team, company, or any other type of group that desires to share items in Bitwarden.</p>
+
+<p>An individual user account can create and/or belong to many different organizations, allowing you to manage your items from a single account.</p>
+
+<p>You can create a new Bitwarden organization from the web vault or request that an admin of an existing organization send you an invite.</p>
+
+<h1 id="what-are-enterprise-policies">What are Enterprise Policies</h1>
+
+<p>Bitwarden client applications have many settings for users to customize their environments. When users are members of an Enterprise Organization such as a company, the Company may want all users to maintain certain settings such as two-factor authentication and password parameters.</p>
+
+<p>Enterprise Policies allow owners or administrators of an organization to set and enforce parameters for all members of their organization.</p>
+
+<h1 id="available-policies">Available Policies</h1>
+
+<p>Bitwarden currently supports the following Organization Policies</p>
+<ul>
+  <li>Two-step Login</li>
+  <li>Password Generator</li>
+  <li>Master Password</li>
+</ul>
+
+<p><a href="/images/policies/policies-enable.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/policies/policies-enable.png" />
+        </a></p>
+
+<h2 id="two-step-login">Two-Step Login</h2>
+
+<p>When this policy is set, members will need to have two-step login configured on their user account in order to join the organization.</p>
+
+<p><a href="/images/policies/policies-two-step.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/policies/policies-two-step.png" />
+        </a></p>
+
+<h3 id="setting-the-policy">Setting the Policy</h3>
+
+<p>Ideally, this policy is set before any users are invited to join an organization. The following events will occur when an Organization enabled the two-step policy for the first time:</p>
+
+<ul>
+  <li>The administrator will receive a warning that Organization members, in confirmed status, who don’t have two-step for their account will be removed from the organization and will receive an email notifying them about the change.</li>
+  <li>If the administrator proceeds to enable the two-step login policy Confirmed members of the organization who do not have two-step login enabled will lose access to the organization.</li>
+  <li>Members who lose access to an organization will receive an email informing them of such.</li>
+  <li>Once the user enables two-step login on their account they can then be re-join to the organization through a new invite.</li>
+  <li>Newly invited members will not be able to accept their invitation to the organization until they enabled two-step login on their user account.</li>
+  <li>If a newly invited member currently has a Bitwarden account using the invited email address, they will be notified and must enable two-step login before accepting their invitation.</li>
+  <li>If a newly invited member does not have an account, they will default to using email-based two-step login but will be able to change this configuration at any time.</li>
+  <li>If a member of the organization later disables two-step login on their account, they will be removed from the organization.</li>
+</ul>
+
+<h2 id="password-generator">Password Generator</h2>
+
+<p>When this policy is set, administrators can choose and permanently set the parameters within the Bitwarden Password Generator.</p>
+
+<p>The Bitwarden Password Generator offers options for password and passphrase generation.</p>
+
+<h3 id="generator-options">Generator Options</h3>
+
+<p><strong>Default type</strong></p>
+<ul>
+  <li>User defined</li>
+  <li>Password</li>
+  <li>Passphrase</li>
+</ul>
+
+<p><strong>Password options:</strong></p>
+<ul>
+  <li>Length</li>
+  <li>Minimum Numbers</li>
+  <li>Minimum Special</li>
+  <li>Uppercase letters</li>
+  <li>Lowercase letters</li>
+  <li>Numbers</li>
+  <li>Symbols/Special</li>
+</ul>
+
+<p><strong>Passphrase Options:</strong></p>
+<ul>
+  <li>Minimum number of words</li>
+  <li>Capitalization</li>
+  <li>Include Number</li>
+</ul>
+
+<p><a href="/images/policies/policies-password-generator.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/policies/policies-password-generator.png" />
+        </a></p>
+
+<h3 id="setting-the-policy-1">Setting the Policy</h3>
+
+<p>Ideally, this policy is set before any users are invited to join an organization.</p>
+
+<p>If the policy is set after users have joined the organization, prior generated passwords that may be outside the enforced parameters of the policy will remain in place. Any new passwords using the Password Generator will conform with the policy.</p>
+
+<p>If the user is affected by the policy, we will show a banner on the Bitwarden Password Generator informing them as such.</p>
+
+<h2 id="master-password">Master Password</h2>
+
+<p>When this policy is set, organization administrators can choose and permanently set the complexity required for a user’s Master Password. Password complexity is calculated using the zxcvbn library on a scale from 0 - 4, 4 being the most complex.</p>
+
+<p><a href="/images/policies/policies-master-password.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/policies/policies-master-password.png" />
+        </a></p>
+
+<h3 id="setting-the-policy-2">Setting the Policy</h3>
+
+<p>Ideally, this policy is set before any users are invited to join an organization.</p>
+
+<p>If users have already joined an organization or already have a Bitwarden account, their master password - regardless of complexity - will remain in place unless it is changed, at which point it will need to conform with the policy.</p>
 
         </div>
         
         
         <div class="panel-footer">
             <i class="fa fa-tags fa-fw"></i>
-            cloud, azure
+            organizations, policies, access control, enterprise
         </div>
         
     </div>
