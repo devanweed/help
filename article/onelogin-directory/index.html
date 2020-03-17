@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Delete your account | Bitwarden Help &amp; Support</title>
+    <title>Configuring directory sync with OneLogin | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Delete your account
+        Configuring directory sync with OneLogin
     </h1>
     <div class="breadcrumb">
         Category:
@@ -90,7 +90,6 @@
         
         
         
-        <a href="/account-management/">Account Management</a>
         
         
         
@@ -106,6 +105,7 @@
         
         
         
+        <a href="/organizations/">Organizations</a>
         
         
         
@@ -114,40 +114,70 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p>Your account can only be deleted from the <a href="https://vault.bitwarden.com">web vault</a>. Deleting your Bitwarden account permanently deletes your account and all data that is associated with it. Bitwarden does not “soft delete” any data.</p>
+            <p>This article will cover how to connect the Bitwarden Directory Connector application to your OneLogin Directory.</p>
 
-<div class="callout callout-warning">
-            <h3><i class="fa fa-warning"></i> Warning</h3>
-            
-<p>This action is permanent and cannot be undone.</p>
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Read through the following article: <a href="/article/directory-sync/">Syncing users and groups with a directory</a></li>
+  <li>Install Bitwarden Directory Connector</li>
+  <li>Using the Directory Connector, log into your Bitwarden account and select your enterprise organization</li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#creating-api-credentials">Creating API Credentials</a></li>
+  <li><a href="#configure-directory-connector">Configure Directory Connector</a></li>
+  <li><a href="#testing">Testing</a></li>
+</ul>
+
+<h2 id="creating-api-credentials">Creating API credentials</h2>
+
+<ol>
+  <li>Log into your OneLogin Adminsitration portal.</li>
+  <li>Select <strong>Developers</strong> → <strong>API Credentials</strong> from the navigation menu.
+<a href="/images/directory-connector/onelogin/onelogin-step2.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/onelogin/onelogin-step2.png" />
+     </a></li>
+  <li>Click the <strong>New Credential</strong> button.
+<a href="/images/directory-connector/onelogin/onelogin-step3.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/onelogin/onelogin-step3.png" />
+     </a></li>
+  <li>Name the credential something like “Bitwarden Connector”, then select “<strong>Read users</strong>”. Save the new API credential.
+<a href="/images/directory-connector/onelogin/onelogin-step4.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/onelogin/onelogin-step4.png" />
+     </a></li>
+  <li>Copy your <strong>Client ID</strong> and <strong>Client Secret</strong>. You can return to view these at any time.
+<a href="/images/directory-connector/onelogin/onelogin-step5.png" target="_blank" rel="lightbox">
+         <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/onelogin/onelogin-step5.png" />
+     </a></li>
+</ol>
+
+<h2 id="configure-directory-connector">Configure Directory Connector</h2>
+
+<ol>
+  <li>Launch the Directory Connector desktop application.</li>
+  <li>Go to the <strong>Settings</strong> tab.</li>
+  <li>Select <strong>OneLogin</strong> as the directory type.</li>
+  <li>Enter the <strong>Client ID</strong> and <strong>Client Secret</strong> copied from the previous steps.</li>
+  <li>Select the correct Region.</li>
+  <li>Configure sync options. It is recommended to use the <strong>Overwrite existing organization users based on current sync settings</strong> option with OneLogin.</li>
+</ol>
+<div class="callout callout-success">
+            <h3><i class="fa fa-lightbulb-o"></i> Tip</h3>
+            <p>For minimal testing check “Sync users”.</p>
 
         </div>
 
-<ol>
-  <li>Log in to the web vault at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
-  <li>Click <strong>Settings</strong> in the top navigation bar</li>
-  <li>Click the <strong>Delete Account</strong> button under the <strong>Danger Zone</strong> section of <strong>My Account</strong></li>
-  <li>Type in your master password and click the <strong>Delete Account</strong>. You will be logged out when the delete completes.</li>
-</ol>
+<p>Congrats! You are done configuring OneLogin with the Bitwarden Directory Connector.</p>
 
-<h2 id="delete-without-logging-in">Delete without logging in</h2>
+<h2 id="testing">Testing</h2>
 
-<p>You can also delete your account without having to know the password. This is helpful in the event that you forget your password and need to start over.</p>
-
-<ol>
-  <li>Navigate to <a href="https://vault.bitwarden.com/#/recover-delete">https://vault.bitwarden.com/#/recover-delete</a></li>
-  <li>Enter your account’s email address</li>
-  <li>Go to your email inbox and click the verification link that was sent to you</li>
-  <li>Confirm the delete</li>
-</ol>
+<p>Test your configuration by running a sync test from the <strong>Dashboard</strong> of the Directory Connector. You should see your OneLogin groups and/or users printed to the screen.</p>
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            account, delete
-        </div>
         
     </div>
     <div class="row article-blocks">

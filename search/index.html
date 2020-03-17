@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1583339897"
+    <link href="/css/styles.css?v=1584460328"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1583339897"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1584460328"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -277,6 +277,16 @@
           "tags": "",
           "content": "This article will cover how to connect the Bitwarden Directory Connector application to your Okta Directory.Requirements  Read through the following article: Syncing users and groups with a directory  Install Bitwarden Directory Connector  Using Directory Connector, log into your Bitwarden account and select your enterprise organizationTable of Contents  Create an API token  Configure Directory Connector  TestingCreate an API token  Log into your Okta Developer Console  Select API → Tokens from the navigation menu                Click the Create Token button and name the token something like “Bitwarden Connector”, then click the Create Token button.                Note and copy your API token for use with the Directory Connector. Your token will not be shown again so you may want to save it somewhere so that you can easily access it when configuring your directory connection later.              Configure Directory Connector  Launch the Directory Connector desktop application  Go to the Settings tab.  Select Okta as the directory type.  Enter your Okta organization’s URL (ex. https://mycompany.okta.com/).  Enter the API Token that you copied from the steps above.Congrats! You are done configuring Okta with the Bitwarden Directory Connector.TestingTest your configuration by running a sync test. You should see your Okta groups and/or users printed to the screen.",
           "url": "/article/okta-directory/"
+      }
+    ,
+    
+    
+    
+      "article-onelogin-directory": {
+          "title": "Configuring directory sync with OneLogin",
+          "tags": "",
+          "content": "This article will cover how to connect the Bitwarden Directory Connector application to your OneLogin Directory.Requirements  Read through the following article: Syncing users and groups with a directory  Install Bitwarden Directory Connector  Using the Directory Connector, log into your Bitwarden account and select your enterprise organizationTable of Contents  Creating API Credentials  Configure Directory Connector  TestingCreating API credentials  Log into your OneLogin Adminsitration portal.  Select Developers → API Credentials from the navigation menu.                Click the New Credential button.                Name the credential something like “Bitwarden Connector”, then select “Read users”. Save the new API credential.                Copy your Client ID and Client Secret. You can return to view these at any time.              Configure Directory Connector  Launch the Directory Connector desktop application.  Go to the Settings tab.  Select OneLogin as the directory type.  Enter the Client ID and Client Secret copied from the previous steps.  Select the correct Region.  Configure sync options. It is recommended to use the Overwrite existing organization users based on current sync settings option with OneLogin.             Tip            For minimal testing check “Sync users”.        Congrats! You are done configuring OneLogin with the Bitwarden Directory Connector.TestingTest your configuration by running a sync test from the Dashboard of the Directory Connector. You should see your OneLogin groups and/or users printed to the screen.",
+          "url": "/article/onelogin-directory/"
       }
     ,
     
@@ -829,11 +839,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1583339897"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1584460328"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1583339897"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1584460328"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
