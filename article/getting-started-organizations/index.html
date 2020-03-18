@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Getting Started with Bitwarden Organizations | Bitwarden Help &amp; Support</title>
+
+    <link rel="stylesheet" crossorigin="anonymous"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0= sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet" type="text/css">
+
+    <link href="/css/styles.css?v=1584565012"
+          rel="stylesheet" type="text/css">
+
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1584565012"
+          rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#3c8dbc">
+    <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://bitwarden.com" onclick="gaEvent('Nav Logo')">
+                    <i class="fa fa-shield"></i>
+                    <span class="visible-xs-inline"><strong>bit</strong>warden</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Help Center</a></li>
+                    <li><a href="https://community.bitwarden.com/">Forums</a></li>
+                    <li><a href="https://bitwarden.com/contact">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://bitwarden.com" onclick="gaEvent('Return')">
+                            <i class="fa fa-share fa-flip-horizontal fa-fw"></i> Return to bitwarden.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <form action="/search/" method="get">
+                <div class="input-group input-group-lg">
+                    <input type="search" class="form-control" placeholder="Search the help center..."
+                           id="search-box" name="q">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" onclick="gaEvent('Search')">
+                            <i class="fa fa-search"></i>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <content>
+        
+
+
+<div class="container">
+    <h1 class="page-header">
+        <i class="fa fa-file-text-o"></i>
+        Getting Started with Bitwarden Organizations
+    </h1>
+    <div class="breadcrumb">
+        Category:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/organizations/">Organizations</a>
+        
+        
+        
+        
+        
+    </div>
+    <div class="panel panel-default article">
+        <div class="panel-body">
+            <p>With the Bitwarden free account, and a free Organization for up to 2 users, you can experience secure sharing in no time!</p>
+
+<ul>
+  <li><a href="#introduction">Introduction</a>
+    <ul>
+      <li><a href="#what-are-organizations">What are organizations?</a></li>
+    </ul>
+  </li>
+  <li><a href="#set-up-the-first-and-second-user-accounts">Set up the First and Second User Accounts</a>
+    <ul>
+      <li><a href="#1-create-an-account-for-user-1">1. Create an account for User 1</a></li>
+      <li><a href="#2-verify-your-email">2. Verify Your Email</a></li>
+      <li><a href="#3-set-up-the-second-user-account">3. Set up the Second User Account</a></li>
+    </ul>
+  </li>
+  <li><a href="#setup-and-share-with-organizations">Setup and Share with Organizations</a>
+    <ul>
+      <li><a href="#4-create-a-new-organization">4. Create a new Organization</a></li>
+      <li><a href="#5-add-the-second-user-to-your-organization">5. Add the Second User to your Organization</a></li>
+      <li><a href="#6-accepting-the-invitation">6. Accepting the Invitation</a></li>
+      <li><a href="#7-sharing-within-an-organization">7. Sharing within an Organization</a></li>
+    </ul>
+  </li>
+  <li><a href="#continuing-with-bitwarden">Continuing with Bitwarden</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+<p>Using a password manager makes it easy to store and access unique and secure passwords across all of your devices. This keeps your online accounts safer than repeating passwords or leaving them exposed in unencrypted formats like spreadsheets, documents, or sticky notes!</p>
+
+<p>To get even more out of your password manager, you can collaborate and share with others. At work, you may choose to share common logins to office wifi networks and online services, or a shared company credit card, or a set of secure notes. Personally you may choose to share a few passwords with a significant other.</p>
+
+<p>Bitwarden enables all types of password and secure sharing through Organizations.</p>
+
+<p>If you would like to try it out, Bitwarden has a free account for individuals, and the ability to set up a free Organization for up to two users and two Collections of secure information.</p>
+
+<p>This tutorial walks you through the setup for two basic accounts and sharing in an Organization.</p>
+
+<h3 id="what-are-organizations">What are organizations?</h3>
+<p>A Bitwarden organization is an entity that relates users together that want to share items. An organization could be a family, team, company, or any other type of group that desires to share items in Bitwarden.</p>
+
+<p>For more, please see <a href="https://help.bitwarden.com/article/what-is-an-organization/">What are organizations?</a>.</p>
+
+<p><strong>Are Organizations Different than a Premium Membership?</strong>
+Yes. Organizations are for sharing items across multiple users
+Premium membership gives your individual user account additional premium features including:</p>
+<ul>
+  <li>1GB encrypted file storage</li>
+  <li>Two-step login with YubiKey, FIDO U2F, &amp; Duo</li>
+  <li>Password hygiene &amp; vault health reports</li>
+  <li>TOTP authenticator key storage &amp; code gen.</li>
+  <li>Priority customer support</li>
+</ul>
+
+<h2 id="set-up-the-first-and-second-user-accounts">Set up the First and Second User Accounts</h2>
+<p>You can choose many ways to create an account at <a href="https://www.bitwarden.com">www.bitwarden.com</a> where you will find</p>
+<ul>
+  <li>Desktop Apps for Windows, Mac, and Linux</li>
+  <li>Browser Extensions for Google Chrome, Mozilla Firefox, Opera, Microsoft Edge, Safari, Vivaldi, Brave, Tor Browser</li>
+  <li>Mobile Apps for iOS and Android</li>
+  <li>Command Line Tools</li>
+  <li>Web access through <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a></li>
+</ul>
+
+<p>For the purpose of this tutorial, we’ll focus on the Web Vault.</p>
+
+<h3 id="1-create-an-account-for-user-1">1. Create an account for User 1</h3>
+<p>Create the first account by starting at <a href="https://vault.bitwarden.com">https://vault.bitwarden.com</a>
+Pick a strong master password and write it down in a safe place.</p>
+
+<div class="callout callout-warning">
+            <h3><i class="fa fa-warning"></i> Warning</h3>
+            
+<p>The Bitwarden security model does not support master password recovery. You can read more in the help article <a href="https://help.bitwarden.com/article/forgot-master-password/">I forgot my master password</a></p>
+
+        </div>
+
+<p><a href="/images/organizations/orgstart/1-create-account-user-1.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/1-create-account-user-1.png" />
+        </a>
+<strong>Create account for user 1</strong></p>
+
+<h3 id="2-verify-your-email">2. Verify Your Email</h3>
+<p>After you create the account and log in, you will want to verify your email.</p>
+
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>Reminder: You will also want to make sure your master password is written down and in a safe place where you can find it.</p>
+
+        </div>
+
+<p><a href="/images/organizations/orgstart/2-verify-email.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/2-verify-email.png" />
+        </a>
+<strong>Verify your email</strong></p>
+
+<p>Once your email is verified you will be back to the main screen of the web vault.</p>
+
+<p><a href="/images/organizations/orgstart/2-email-verified.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/2-email-verified.png" />
+        </a>
+<strong>Email verified</strong></p>
+
+<p>As noted in the Introduction above, Organizations for sharing secure information are different than Premium membership which offers extra features on an individual account.</p>
+
+<p>Premium features are not required for this tutorial, however we do recommend them to get the most out of Bitwarden.</p>
+
+<h3 id="3-set-up-the-second-user-account">3. Set up the Second User Account</h3>
+<p>Follow the same procedures to set up the second account. In our case, we will use gotest+2@bitwarden.com for that.</p>
+
+<h2 id="setup-and-share-with-organizations">Setup and Share with Organizations</h2>
+
+<h3 id="4-create-a-new-organization">4. Create a new Organization</h3>
+<p>Next create a new Organization via the <strong>New Organization</strong> button on the right of the screen.</p>
+
+<p>Identify your Organization name, billing name, and plan. In this case we are choosing the free plan which supports 2 users and 2 collections of items.</p>
+
+<p><a href="/images/organizations/orgstart/4-create-organization.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/4-create-organization.png" />
+        </a>
+<strong>Creating a new Organization</strong></p>
+
+<p>There are additional choices for family, teams, and enterprise Organizations on this page.</p>
+
+<p>After creating your Organization you will be placed into your Organization’s vault.</p>
+
+<p><a href="/images/organizations/orgstart/4-gotest-organization-vault.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/4-gotest-organization-vault.png" />
+        </a>
+<strong>View of the Organization Vault</strong></p>
+
+<p>Be aware that you are now in the context of the Organization as shown above, in our case <strong>GOTEST Organization</strong>.</p>
+
+<p>However you can get back to your own personal vault at any time by clicking <strong>My Vault</strong> at the top of the page.</p>
+
+<p>Notice that we now have Collections on the left hand side which represent the logical structure of grouping items for your Organization. Here we have a <strong>Default Collection</strong> and one <strong>Unassigned Collection</strong> which is the second one allowed with the Bitwarden free Organization plan.</p>
+
+<p>When we move back to our personal vault, we’ll see that we have <strong>Folders</strong> on the left which are for our personal items, and <strong>Collections</strong> for our Organization items.</p>
+
+<p><a href="/images/organizations/orgstart/4-personal-vault.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/4-personal-vault.png" />
+        </a>
+<strong>View of the Personal Vault</strong></p>
+
+<h3 id="5-add-the-second-user-to-your-organization">5. Add the Second User to your Organization</h3>
+<p>Now it is time to add a second user from our Organization admin console, in our case we click back on <strong>GOTEST Organization</strong> and then the <strong>Manage</strong> tab.</p>
+
+<p><a href="/images/organizations/orgstart/5-add-user.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/5-add-user.png" />
+        </a>
+<strong>Adding a user</strong></p>
+
+<p>When adding a new user to the Organization you can set the User Type and Access Control. We also have the ability to choose <strong>all items access</strong>, or <strong>selected collections access</strong> based on specific Collections, as well as read-only access. Read-only is helpful to share logins or secure information but not enable Users to change it.</p>
+
+<p><a href="/images/organizations/orgstart/5-add-user-type-and-control.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/5-add-user-type-and-control.png" />
+        </a>
+<strong>Selecting the User Type and Access Control</strong></p>
+
+<p>Once User 2 has been invited, they will receive an email invitation to join the Organization and their status will be reflected in the dashboard.</p>
+
+<p><a href="/images/organizations/orgstart/5-user-2-invited.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/5-user-2-invited.png" />
+        </a>
+<strong>Inviting User 2</strong></p>
+
+<h3 id="6-accepting-the-invitation">6. Accepting the Invitation</h3>
+<p>To ensure a trusted security relationship, <strong>User 2</strong> must accept the invitation, and then <strong>User 1</strong> must accept the <strong>User 2</strong> into the Organization. This sequence is imperative to ensure the highest level or security.</p>
+
+<p>When <strong>User 2</strong> accepts the invitation they will receive a message:</p>
+
+<blockquote>
+  <p><strong>Invitation Accepted</strong> <br />
+You can access this organization once an administrator confirms your membership. We’ll send you an email when that happens</p>
+</blockquote>
+
+<p>Back at the Organization administration console, <strong>User 1</strong> will see the accepted invitation, and have the ability to confirm that user.</p>
+
+<p><a href="/images/organizations/orgstart/6-confirming-users-with-accepted-invitations.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/6-confirming-users-with-accepted-invitations.png" />
+        </a>
+<strong>Confirming users with accepted invitations</strong></p>
+
+<p>Keeping with the trusted security model, further confirmation on a unique fingerprint phrase is built into the exchange. For more information on this step visit <a href="https://help.bitwarden.com/article/fingerprint-phrase/">What is my account’s fingerprint phrase?</a></p>
+
+<p><a href="/images/organizations/orgstart/6-confirm-fingerprint-phrase.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/6-confirm-fingerprint-phrase.png" />
+        </a>
+<strong>Confirming the fingerprint phrase</strong></p>
+
+<p>Once the confirmation process is complete, <strong>User 2</strong> will have access to the Default Collection we shared earlier. Since <strong>User 2</strong> was only added as a User, their Organization Vault has a simplified view.</p>
+
+<p><a href="/images/organizations/orgstart/6-user-2-organization-vault-view.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/6-user-2-organization-vault-view.png" />
+        </a>
+<strong>User 2 Organization Vault view</strong></p>
+
+<h3 id="7-sharing-within-an-organization">7. Sharing within an Organization</h3>
+<p>Sharing items in an Organization is simply a matter of creating them within the Organization Vault, or creating them in your Personal Vault and then sharing them with the Organization.</p>
+
+<p>We’ll use the example of creating a Secure Note, but the same process applies to a Login or any other item in the vault.</p>
+
+<p><a href="/images/organizations/orgstart/7-add-Item-in-organization.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/7-add-Item-in-organization.png" />
+        </a>
+<strong>Adding an Item to an Organization</strong></p>
+
+<p><a href="/images/organizations/orgstart/7-adding-a-secure-note.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/7-adding-a-secure-note.png" />
+        </a>
+<strong>Adding a Secure Note</strong></p>
+
+<p><a href="/images/organizations/orgstart/7-secure-note-user-1.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/7-secure-note-user-1.png" />
+        </a>
+<strong>Secure Note for User 1</strong></p>
+
+<p>As expected, the same Secure Note is now viewable by User 2.</p>
+
+<p><a href="/images/organizations/orgstart/7-secure-note-user-2.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/7-secure-note-user-2.png" />
+        </a>
+<strong>Secure Note for User 2</strong></p>
+
+<p>Congratulations! You have now set up sharing between two users with Bitwarden Organizations!</p>
+
+<p>From here you can share any item using the collaborative capabilities of Bitwarden.</p>
+
+<p>If by chance you have an item in your personal vault that you wish to share, you can choose that option too. Here we have two items seen in the <strong>User 1</strong> Vault</p>
+<ul>
+  <li>A secure note <strong>GOTEST Secure Note</strong> that has a sharing icon to the right of it indicating that is it being shared within a Collection</li>
+  <li>A secure note <strong>User 1 Note for Sharing</strong> that is not part of Collection and only within the <strong>User 1</strong> vault</li>
+</ul>
+
+<p>However, that second note can easily be shared with an Organization by clicking the drop down menu next to the item.</p>
+
+<p><a href="/images/organizations/orgstart/7-sharing-items-with-organizations.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/orgstart/7-sharing-items-with-organizations.png" />
+        </a>
+<strong>Sharing Items with Organizations</strong></p>
+
+<h2 id="continuing-with-bitwarden">Continuing with Bitwarden</h2>
+<p>Now that you have mastered the basics of Organizations feel free to explore all of the possibilities sharing logins and more!</p>
+
+<p>If you’d like to dig deeper into Bitwarden please visit <a href="https//www.bitwarden.com">www.bitwarden.com</a>.</p>
+
+        </div>
+        
+        
+        <div class="panel-footer">
+            <i class="fa fa-tags fa-fw"></i>
+            tutorial
+        </div>
+        
+    </div>
+    <div class="row article-blocks">
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-rate">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-thumbs-o-up"></i> Was this helpful?</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Rate this article:</p>
+                    <div class="rw-ui-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default panel-contact">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Email Us</h3>
+    </div>
+    <div class="panel-body">
+        <p>Want to talk to a human?</p>
+        <a href="https://bitwarden.com/contact/" onclick="gaEvent('Talk To Human')">
+            <i class="fa fa-long-arrow-right"></i>
+            Send Us An Email
+        </a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function (d, t, e, m) {
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+            RW.init({
+                huid: "340409",
+                uid: "1a448820f2de881574e56e07bffdd7e8",
+                source: "website",
+                options: {
+                    "size": "medium",
+                    "type": "nero",
+                    "style": "thumbs",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+
+    </content>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <h4>Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://bitwarden.com">Home</a></li>
+                        <li><a href="https://bitwarden.com/#download">Download</a></li>
+                        <li><a href="https://bitwarden.com/careers">Careers</a></li>
+                        <li><a href="https://bitwarden.com/contact">Contact Us</a></li>
+                        <li><a href="https://bitwarden.com/credits">Credits</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <h4 class="invisible">&nbsp;</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://blog.bitwarden.com" onclick="gaEvent('Footer Blog')">Blog</a></li>
+                        <li>
+                            <a href="https://community.bitwarden.com" target="_blank" rel="noopener"
+                               onclick="gaEvent('Footer Forums')">
+                                Community Forums
+                            </a>
+                        </li>
+                        <li><a href="/">Help/Support</a></li>
+                        <li><a href="https://bitwarden.com/terms">Terms of Service</a></li>
+                        <li><a href="https://bitwarden.com/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-xs-12 social">
+                    <h4>Follow Us</h4>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://twitter.com/bitwarden" title="Twitter" onclick="gaEvent('Follow Twitter')"
+                               target="_blank">
+                                <i class="fa fa-twitter"></i><span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/bitwarden/" title="Facebook" onclick="gaEvent('Follow Facebook')"
+                               target="_blank">
+                                <i class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/bitwarden" title="GitHub" onclick="gaEvent('Follow GitHub')"
+                               target="_blank">
+                                <i class="fa fa-github"></i><span class="sr-only">GitHub</span>
+                            </a>
+                        </li>
+                    </ul>
+                    &copy; 2015 - 2020, <br class="visible-sm" />Bitwarden Inc.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1584565012"><\/script>'));</script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
+            integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1584565012"><\/script>'));</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
+            crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
+    <script src="/lib/fluidbox/js/jquery.fluidbox.min.js"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-81915606-10', 'auto');
+        ga('send', 'pageview');
+
+        function gaEvent(action) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'main',
+                eventAction: action
+            });
+        }
+
+        $(function () {
+            var lightboxOpen = false,
+                lightboxSelector = 'a[rel="lightbox"]';
+
+            $(lightboxSelector)
+                .on('openstart.fluidbox', function () {
+                    lightboxOpen = true;
+                })
+                .on('closestart.fluidbox', function () {
+                    lightboxOpen = false;
+                })
+                .fluidbox();
+
+            $(document).keydown(function (e) {
+                if (lightboxOpen && e.keyCode === 27) {
+                    $(lightboxSelector).trigger('close.fluidbox');
+                }
+            });
+
+            $(window).scroll(function () {
+                if (lightboxOpen) {
+                    $(lightboxSelector).trigger('close.fluidbox');
+                }
+            });
+
+            $('.article .panel-body > h2, .article .panel-body > h3').filter('[id]').each(function () {
+                var header = $(this),
+                    headerID = header.attr('id'),
+                    anchorClass = 'header-link',
+                    anchorIcon = '<i class="fa fa-link" aria-hidden="true"></i>';
+
+                if (headerID) {
+                    header.append($('<a />')
+                        .addClass(anchorClass)
+                        .attr({ 'href': '#' + headerID, 'aria-hidden': 'true', title: 'Permalink' })
+                        .html(anchorIcon));
+                }
+                return this;
+            });
+        });
+    </script>
+</body>
+</html>
