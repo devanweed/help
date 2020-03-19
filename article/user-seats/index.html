@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Your privacy when using website icons | Bitwarden Help &amp; Support</title>
+    <title>User Seat Management for your Organization | Bitwarden Help &amp; Support</title>
 
     <link rel="stylesheet" crossorigin="anonymous"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,7 +82,7 @@
 <div class="container">
     <h1 class="page-header">
         <i class="fa fa-file-text-o"></i>
-        Your privacy when using website icons
+        User Seat Management for your Organization
     </h1>
     <div class="breadcrumb">
         Category:
@@ -102,10 +102,10 @@
         
         
         
-        <a href="/miscellaneous/">Miscellaneous</a>
         
         
         
+        <a href="/organizations/">Organizations</a>
         
         
         
@@ -114,42 +114,34 @@
     </div>
     <div class="panel panel-default article">
         <div class="panel-body">
-            <p><em>Bitwarden does not collect any information when you download icons for website logins stored in your Bitwarden vault.</em></p>
+            <h2 id="add-user-seats">Add User Seats</h2>
 
-<h2 id="the-bitwarden-icons-server">The Bitwarden icons server</h2>
+<p>You can add user seats at any time by logging into the <strong>Web Vault</strong> (https://vault.bitwarden.com) and going to <strong>Settings</strong> → <strong>Organizations</strong> → {YOUR ORG NAME} → <i class="fa fa-cog"></i> <strong>Settings</strong> sub-tab → <strong>Subscription</strong>. There you can locate the <strong>User Seats</strong> section and select the <strong>Add Seats</strong> button.</p>
 
-<p>When Bitwarden displays a login item associated with a website in your Bitwarden vault it attempts to accompany it with a “website icon”. This “website icons” feature allows you to easily identify particular logins in your vault by a recognizable icon. This is usually represented by a logo or brand image of that website. The Bitwarden icons server provides the delivery endpoint for these website icons.</p>
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>The cost will be automatically prorated and debited based on the billing cycle.</p>
 
-<p>If you are using the “website icons” feature on a device, Bitwarden will issue requests to <code>icons.bitwarden.net</code> for each item of type “Login” in your vault that has a URI that resembles a website (ex. <code>google.com</code> or <code>https://google.com</code>, but not <code>google</code> or <code>http://localhost</code>). The icons server is fronted with a CDN that caches the icons on Cloudflare’s edge nodes all around the world. Subsequent requests to the same icon will likely hit CDN caches instead of the icons server directly. Your requests may never actually hit Bitwarden’s icons server because another Bitwarden user with the same website in their vault requested the icon before you.</p>
+        </div>
 
-<h2 id="privacy-concerns">Privacy concerns</h2>
+<p><a href="/images/organizations/user-seats.png" target="_blank" rel="lightbox">
+            <img class="img-responsive img-thumbnail img-tag" src="/images/organizations/user-seats.png" />
+        </a></p>
 
-<p>Because a request for an icon image contains the hostname of the website stored in your vault, it is important to understand that this feature will “leak” otherwise cryptographically protected information to Bitwarden servers and/or CDN endpoints. An example of a icon request looks like the following:</p>
+<h2 id="remove-user-seats">Remove User Seats</h2>
 
-<p><code>https://icons.bitwarden.net/google.com/icon.png</code></p>
+<p>You can remove user seats at any time by logging into the <strong>Web Vault</strong> (https://vault.bitwarden.com) and going to <strong>Settings</strong> → <strong>Organizations</strong> → {YOUR ORG NAME} → <i class="fa fa-cog"></i> <strong>Settings</strong> sub-tab → <strong>Subscription</strong>. There you can locate the <strong>User Seats</strong> section and select the <strong>Remove Seats</strong> button.</p>
 
-<p><strong>The icons server endpoints do not log or collect any information regarding icon image requests.</strong> However, this is something you would have to take our word for since we have no way to demonstrate this publicly other than reviewing our <a href="https://github.com/bitwarden">open source codebase</a>.</p>
+<div class="callout callout-info">
+            <h3><i class="fa fa-info-circle"></i> Note</h3>
+            
+<p>A credit for any unused time will be automatically issued to the account balance.</p>
 
-<h2 id="disabling-website-icons">Disabling website icons</h2>
-
-<p>We understand that certain privacy-minded users may not want to use the “website icons” feature. We provide the option to disable website icons on all Bitwarden client applications:</p>
-
-<ul>
-  <li><strong>Web vault:</strong> Settings → Options → Disable Website Icons</li>
-  <li><strong>Browser extension:</strong> Settings → Options → Disable Website Icons</li>
-  <li><strong>Mobile app:</strong> Settings → Options → Disable Website Icons</li>
-  <li><strong>Desktop app:</strong> Settings → Options → Disable Website Icons</li>
-</ul>
-
-<p>When the website icons feature is disabled, Bitwarden will opt to show you a generic, locally accessed icon instead (<i class="fa fa-globe"></i>) that is the same for all login items stored in your vault.</p>
+        </div>
 
         </div>
         
-        
-        <div class="panel-footer">
-            <i class="fa fa-tags fa-fw"></i>
-            icons, website icons, privacy
-        </div>
         
     </div>
     <div class="row article-blocks">
