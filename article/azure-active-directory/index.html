@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic"
           rel="stylesheet" type="text/css">
 
-    <link href="/css/styles.css?v=1584567924"
+    <link href="/css/styles.css?v=1584637936"
           rel="stylesheet" type="text/css">
 
-    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1584567924"
+    <link href="/lib/fluidbox/css/fluidbox.min.css?v=1584637936"
           rel="stylesheet" type="text/css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
@@ -141,13 +141,11 @@
 <ol>
   <li>Go to <a href="https://portal.azure.com">https://portal.azure.com</a></li>
   <li>Select the <strong>Azure Active Directory</strong> resource</li>
-  <li>Navigate to <strong>App registrations</strong> and select <strong>New application registration</strong>
+  <li>Navigate to <strong>App registrations</strong> and select <strong>New registration</strong>
 <a href="/images/directory-connector/azure/new-application.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/new-application.png" />
      </a></li>
   <li><strong>Name</strong> your application “Bitwarden”</li>
-  <li>Set the <strong>Application type</strong> to “Web app / API”</li>
-  <li>Set the <strong>Sign-on URL</strong> to any website value, such as “https://example.com”. This URL is not used in this setup process so it can be anything.</li>
   <li>Click the <strong>Create</strong> button to create the application.
 <a href="/images/directory-connector/azure/create-application.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/create-application.png" />
@@ -158,8 +156,7 @@
 
 <ol>
   <li>Select the <strong>Bitwarden</strong> application you created in the previous section.</li>
-  <li>Navigate to <strong>Settings</strong> and select <strong>Required Permissions</strong>.</li>
-  <li>Delete the existing <strong>Windows Azure Active Directory</strong> API permission set that is automatically created by default. It is not needed.</li>
+  <li>Select <strong>API Permissions</strong>.</li>
   <li>Select the <strong>Add</strong> button to create a new API permission set.</li>
   <li>For step 1, <strong>Select an API</strong> for <strong>Microsoft Graph</strong>.</li>
   <li>For step 2, <strong>Select Permissions</strong> for the following:
@@ -193,7 +190,7 @@
 
 <ol>
   <li>Go back to the <strong>Bitwarden</strong> application that you created.</li>
-  <li>Navigate to <strong>Settings</strong> and select <strong>Keys</strong>.</li>
+  <li>Select <strong>Certificates &amp; Keys</strong>.</li>
   <li>Add a new <strong>Password</strong> key by entering a <strong>Name</strong> and <strong>Duration</strong>. We recommend selecting “Never Expires” for the duration.</li>
   <li>Click <strong>Save</strong> to create a new secret key.</li>
   <li>Copy the key’s value to safe place. We will need to reference it later.
@@ -206,7 +203,7 @@
 
 <ol>
   <li>Go back to the <strong>Bitwarden</strong> application that you created.</li>
-  <li>Copy the <strong>Application ID</strong> to a safe place.  We will need to reference it later.
+  <li>Copy the <strong>Application (client) ID</strong> to a safe place.  We will need to reference it later.
 <a href="/images/directory-connector/azure/application-id.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/application-id.png" />
      </a></li>
@@ -216,7 +213,7 @@
 
 <ol>
   <li>Select the <strong>Directory and Subscription</strong> filter in the top right corner of the Azure Portal.</li>
-  <li>Note the <strong>hostname</strong> value that appears under your directory (ex. company.onmicrosoft.com). This is your <strong>Tenant</strong> hostname. Copy the <strong>Tenant</strong> hostname to a safe place. We will need to reference it later.
+  <li>Note the <strong>Current directory</strong> (ex. acmeinc.onmicrosoft.com). This is your <strong>Tenant</strong> hostname. Copy the <strong>Tenant</strong> hostname to a safe place. We will need to reference it later.
 <a href="/images/directory-connector/azure/tenant.png" target="_blank" rel="lightbox">
          <img class="img-responsive img-thumbnail img-tag" src="/images/directory-connector/azure/tenant.png" />
      </a></li>
@@ -370,11 +367,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo= sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="></script>
-    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1584567924"><\/script>'));</script>
+    <script>(window.jQuery || document.write('<script src="lib\/jquery\/jquery.min.js?v=1584637936"><\/script>'));</script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
             integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
-    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1584567924"><\/script>'));</script>
+    <script>((window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="lib\/bootstrap\/js\/bootstrap.min.js?v=1584637936"><\/script>'));</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
             crossorigin="anonymous" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc= sha384-ugp/e34LtoER7mwf3SLygR0OL+STa4FTLzk7MRbpY/usE4VV+24hBxRXRS6g5ZJy sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="></script>
